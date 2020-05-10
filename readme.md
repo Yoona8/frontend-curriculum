@@ -3,11 +3,11 @@
 ## HTML & CSS
 
 ## JavaScript
-- [x] ECMAScript
-- [x] Modules
-- [x] Data structures
-- [x] OOP
-- [ ] Inheritance and polymorphism 2h (May 08 - 12)
+### 1 - ECMAScript
+### 2 - Modules
+### 3 - Data structures
+### 4 - OOP
+### 5 - Inheritance and polymorphism 2h (May 08 - 12)
 
 <details>
 <summary>Tasks</summary>
@@ -18,7 +18,7 @@
 
 </details>
 
-- [ ] Data-binding 1 4h (May 13 - 16)
+### 6 - Data-binding 1 4h (May 13 - 16)
 
 <details>
 <summary>Tasks</summary>
@@ -29,7 +29,7 @@
 
 </details>
 
-- [ ] Data-binding 2 4h (May 17 - 20)
+### 7 - Data-binding 2 4h (May 17 - 20)
 
 <details>
 <summary>Tasks</summary>
@@ -40,7 +40,7 @@
 
 </details>
 
-- [ ] Connect to backend 4h (May 21 - 24)
+### 8 - Connect to backend 4h (May 21 - 24)
 
 <details>
 <summary>Tasks</summary>
@@ -51,7 +51,7 @@
 
 </details>
 
-- [ ] Offline 3h (May 25-27)
+### 9 - Offline 3h (May 25-27)
 
 <details>
 <summary>Tasks</summary>

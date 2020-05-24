@@ -1,6 +1,6 @@
 # Frontend Curriculum
 
-## HTML CSS basics
+## HTML CSS
 
 <details>
 <summary>HTML basic structure</summary>
@@ -24,7 +24,7 @@
 </details>
 
 <details>
-<summary>Text basics</summary>
+<summary>Text HTML and CSS</summary>
 
 ```HTML
 <ol start/reversed> <!-- bool for changing the order -->
@@ -33,6 +33,27 @@
 ```
 
 </details>
+
+Embedded content tags
+Tables in HTML and CSS
+Forms
+Selectors
+Block model
+Floats
+Flexbox
+Grid
+Positioning
+Backgrounds
+Borders and outlines
+Shadows
+Gradients
+Transformations
+Transitions
+Animations
+
+## Graphics
+
+SVG
 
 ## Chrome Dev Tools
 
@@ -49,76 +70,62 @@
 
 </details>
 
-## 2 - JavaScript
-### 1 - ECMAScript
-### 2 - Modules
-### 3 - Data structures
-### 4 - OOP
-### 5 - Inheritance and polymorphism 2h (May 08 - 12)
+## JavaScript
 
-<details>
-<summary>Tasks</summary>
+ECMAScript
+Constants and variables
+Data structures
+Numbers
+Strings
+Iterables
+Objects
+Constructors and prototypes
+Classes
+Operators
+Functions
+Control structures
+Modules
+DOM
+Events
+Async JavaScript (promises and callbacks, async/await)
+Http requests
+Browser storage
+Meta-programming
+Performance and optimizations
+Security
+Deploying
+Testing
+Debugging
+Browser support
+Tools and workflow
+Libraries
+Frameworks
 
-- [ ] Lecture 1h
-- [ ] Add abstractions 30m
-- [ ] 2nd task 30m
+## OOP
 
-</details>
+Inheritance and polymorphism
+Data-binding
 
-### 6 - Data-binding 1 4h (May 13 - 16)
+## Procedural programming
 
-<details>
-<summary>Tasks</summary>
+## Functional programming
 
-- [ ] Lecture 1h
-- [ ] 1st task 1.5h
-- [ ] 2nd task 1.5h
+## Data structures and Algorithms
 
-</details>
+## TypeScript
 
-### 7 - Data-binding 2 4h (May 17 - 20)
+## Angular
 
-<details>
-<summary>Tasks</summary>
+## Canvas API
 
-- [ ] Lecture 1h
-- [ ] 1st task 1.5h
-- [ ] 2nd task 1.5h
+## WebGL and animations
 
-</details>
+## React
 
-### 8 - Connect to backend 4h (May 21 - 24)
+## Serverless
 
-<details>
-<summary>Tasks</summary>
+## Firebase
 
-- [ ] Lecture 1h
-- [ ] 1st task 1.5h
-- [ ] 2nd task 1.5h
+## Web components
 
-</details>
-
-### 9 - Offline 3h (May 25-27)
-
-<details>
-<summary>Tasks</summary>
-
-- [ ] Lecture 1h
-- [ ] 1st task 1h
-- [ ] 2nd task 1h
-
-</details>
-
-## 3 - Angular
-
-## 4 - CSS grids
-
-## 5 - Canvas API
-
-## 6 - WebGL and animations
-
-## 7 - React
-
-## 8 - Serverless
-
-## 9 - Firebase
+## Webpack

@@ -4,12 +4,12 @@
 
 - HTML basic structure
 
-<details>
-<summary>Notes</summary>
+  <details>
+  <summary>Notes</summary>
 
-```HTML
-<!doctype html>
-<head>
+  ```HTML
+  <!doctype html>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- optional: start -->
@@ -18,42 +18,42 @@
     <!-- optional: end -->
     <title>Title</title>
     <link href="#" rel="stylesheet">
-</head>
-<body>
-</body>
-```
+  </head>
+  <body>
+  </body>
+  ```
 
-</details>
+  </details>
 
 - Text basics
 
-<details>
-<summary>Notes</summary>
+  <details>
+  <summary>Notes</summary>
 
-```HTML
-<ol start/reversed> <!-- bool for changing the order -->
-<q cite="https://..."> <!-- cite the address -->
-<ins/del/time datetime="ISO string format">Today</ins/del/time> <!-- ISO for computers, text for humans -->
-```
+  ```HTML
+  <ol start/reversed> <!-- bool for changing the order -->
+  <q cite="https://..."> <!-- cite the address -->
+  <ins/del/time datetime="ISO string format">Today</ins/del/time> <!-- ISO for computers, text for humans -->
+  ```
 
-</details>
+  </details>
 
 ## Chrome Dev Tools
 
 - Shortcuts and tips
 
-<details>
-<summary>Notes</summary>
+  <details>
+  <summary>Notes</summary>
 
-- Shortcuts (menu => shortcuts)
-  - `ctrl + F` search (by any word)
-  - `ctrl + shift + F` search across all sources
-  - `tab` `tab + shift` step forward / back when adding changes
-  - `H` hide chosen element of the html (adds `visibility: hidden;`)
-  - `F2` to be able to edit html
-- `document.body.contentEditable = true;`
+  - Shortcuts (menu => shortcuts)
+    - `ctrl + F` search (by any word)
+    - `ctrl + shift + F` search across all sources
+    - `tab` `tab + shift` step forward / back when adding changes
+    - `H` hide chosen element of the html (adds `visibility: hidden;`)
+    - `F2` to be able to edit html
+  - `document.body.contentEditable = true;`
 
-</details>
+  </details>
 
 ## 2 - JavaScript
 ### 1 - ECMAScript

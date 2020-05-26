@@ -51,25 +51,6 @@ Transformations
 Transitions
 Animations
 
-## Graphics
-
-SVG
-
-## Chrome Dev Tools
-
-<details>
-<summary>Shortcuts and tips</summary>
-
-- Shortcuts (menu => shortcuts)
-  - `ctrl + F` search (by any word)
-  - `ctrl + shift + F` search across all sources
-  - `tab` `tab + shift` step forward / back when adding changes
-  - `H` hide chosen element of the html (adds `visibility: hidden;`)
-  - `F2` to be able to edit html
-- `document.body.contentEditable = true;`
-
-</details>
-
 ## JavaScript
 
 ECMAScript
@@ -87,7 +68,32 @@ Control structures
 Modules
 DOM
 Events
-Async JavaScript (promises and callbacks, async/await)
+
+<details>
+<summary>Async JavaScript (promises and callbacks, async/await)</summary>
+
+  <details>
+  <summary>Sync data loading</summary>
+
+  ```JavaScript
+  const getResponse = (url) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send();
+    // we can do it like that, because it's a sync request
+    // return will happen after we get the response
+    return xhr.response;
+  };
+  const data = getResponse('https://data.com/users');
+  ```
+
+  </details>
+  
+  Async ES5 (callbacks)
+  Async ES6 (promises) 
+
+</details>
+
 Http requests
 Browser storage
 Meta-programming
@@ -116,16 +122,35 @@ Data-binding
 
 ## Angular
 
+## React
+
 ## Canvas API
 
 ## WebGL and animations
 
-## React
+## Graphics
+
+SVG
 
 ## Serverless
 
 ## Firebase
 
 ## Web components
+
+## Chrome Dev Tools
+
+<details>
+<summary>Shortcuts and tips</summary>
+
+- Shortcuts (menu => shortcuts)
+  - `ctrl + F` search (by any word)
+  - `ctrl + shift + F` search across all sources
+  - `tab` `tab + shift` step forward / back when adding changes
+  - `H` hide chosen element of the html (adds `visibility: hidden;`)
+  - `F2` to be able to edit html
+- `document.body.contentEditable = true;`
+
+</details>
 
 ## Webpack

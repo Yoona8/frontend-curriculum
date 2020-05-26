@@ -72,25 +72,25 @@ Events
 <details>
 <summary>Async JavaScript (promises and callbacks, async/await)</summary>
 
-  <details>
-  <summary>Sync data loading</summary>
+  - <details>
+    <summary>Sync data loading</summary>
 
-  ```JavaScript
-  const getResponse = (url) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, false);
-    xhr.send();
-    // we can do it like that, because it's a sync request
-    // return will happen after we get the response
-    return xhr.response;
-  };
-  const data = getResponse('https://data.com/users');
-  ```
+    ```JavaScript
+    const getResponse = (url) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, false);
+      xhr.send();
+      // we can do it like that, because it's a sync request
+      // return will happen after we get the response
+      return xhr.response;
+    };
+    const data = getResponse('https://data.com/users');
+    ```
 
-  </details>
+    </details>
   
-  Async ES5 (callbacks)
-  Async ES6 (promises) 
+  - Async ES5 (callbacks)
+  - Async ES6 (promises) 
 
 </details>
 

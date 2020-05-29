@@ -24,6 +24,14 @@
 </details>
 
 <details>
+<summary>CSS basics</summary>
+
+- `max-width` counts of parent
+- `em` depends on element's font-size
+
+</details>
+
+<details>
 <summary>Text HTML and CSS</summary>
 
 ```HTML
@@ -34,9 +42,62 @@
 
 </details>
 
-Embedded content tags
+<details>
+<summary>Embedded content tags</summary>
+
+```HTML
+<figure>
+  <figcaption>1st or last in parent</figcaption>
+</figure>
+```
+
+```HTML
+<!-- preload metadata - служебная дата (length, 1 slide) -->
+<!-- preload auto - whole video -->
+<!-- poster - img when not yet loaded -->
+<video 
+  width="500" height="300"
+  src="#"
+  controls
+  autoplay
+  poster="#"
+  preload="none/metadata/auto"
+>
+  <!-- diff available, first loads first which could be played -->
+  <!-- type can also contain codec, browser could do it, but not always the right way -->
+  <source src="video.mp4" type="video/mp4"></source>
+  <source src="#" type="MPEG-4/H.264"></source>
+  <source src="#" type="OGG/Theora"></source>
+  <source src="#" type="WebM"></source>
+</video>
+```
+
+```HTML
+<!-- almost like video -->
+<audio controls preload="" src="#" autoplay>
+  <source src="#" type="MP3"></source>
+  <source src="#" type="OGG"></source>
+</audio>
+```
+
+</details>
+
 Tables in HTML and CSS
-Forms
+
+<details>
+<summary>Forms</summary>
+
+```HTML
+<!-- name will also get posted to server -->
+<button type="submit" name="some-name"></button>
+
+<!-- rows - strings -->
+<!-- cols - symbols -->
+<textarea rows="10" cols="100"></textarea>
+```
+
+</details>
+
 Selectors
 Block model
 Floats
@@ -149,7 +210,12 @@ SVG
   - `tab` `tab + shift` step forward / back when adding changes
   - `H` hide chosen element of the html (adds `visibility: hidden;`)
   - `F2` to be able to edit html
+  - `+` in styles will create a selector for the element
+  - `shift + click` on color will change it's output
 - `document.body.contentEditable = true;`
+- can change sizes in the block with metrics
+- in the device emulation can pick pixel density
+- settings => coverage lets to see all the rules, which are not applied to the page
 
 </details>
 

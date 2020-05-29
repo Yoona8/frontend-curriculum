@@ -35,9 +35,17 @@
 <summary>Text HTML and CSS</summary>
 
 ```HTML
-<ol start/reversed> <!-- bool for changing the order -->
-<q cite="https://..."> <!-- cite the address -->
-<ins/del/time datetime="ISO string format">Today</ins/del/time> <!-- ISO for computers, text for humans -->
+<!-- bool for changing the order -->
+<ol start></ol>
+<ol reversed></ol>
+
+<!-- cite the address -->
+<q cite="https://..."></q>
+
+<!-- ISO for computers, text for humans -->
+<ins datetime="ISO string format">Today</ins> 
+<del datetime="ISO string format">Today</del> 
+<time datetime="ISO string format">Today</time> 
 ```
 
 </details>

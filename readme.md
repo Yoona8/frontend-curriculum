@@ -191,6 +191,78 @@ Data-binding
 
 ## Angular
 
+<details>
+<summary>Setup with Angular CLI</summary>
+
+- install node + npm
+- install angular CLI
+- global style files could be added to `angular.json`
+```bash
+# create a project
+ng new <project-name>
+
+# run the app
+ng serve
+
+# create a component
+ng g c <component-name or path + name>
+
+# create a directive
+ng g d <directive-name>
+```
+
+</details>
+
+<details>
+<summary>How the app is being built?</summary>
+
+- don't import with .ts extensions, webpack adds it
+```TypeScript
+// main.ts
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+
+// app/app.module.ts
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  // should be known components when Angular analyses index.html
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+// app/app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: '...'
+})
+export class AppComponent {}
+```
+```HTML
+<!-- index.html -->
+<!doctype html>
+<html>
+<head></head>
+<body>
+  <app-root></app-root>
+</html>
+```
+
+</details>
+
 ## React
 
 ## Canvas API

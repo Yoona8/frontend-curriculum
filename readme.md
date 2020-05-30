@@ -265,6 +265,61 @@ export class AppComponent {}
 
 </details>
 
+Components
+Directives
+Models
+Services
+Routing
+Pipes
+Forms (Template Driven)
+Forms (Reactive)
+
+<details>
+<summary>Modules</summary>
+
+- bundles different pieces into one package
+- custom modules mostly for big projects
+- gives Angular info on which features to use
+```TypeScript
+// app/app.module.ts
+import { NgModule } from '@angular/core';
+
+@NgModule({
+  // components, directives, pipes
+  declarations: [],
+  // modules
+  imports: [],
+  // root needed on start component
+  bootstrap: [],
+  // services, interceptors
+  providers: []
+})
+export class AppModule {}
+```
+
+</details>
+
+Observables
+Http
+Authentication
+Offline
+Testing
+
+<details>
+<summary>Debugging</summary>
+
+- find an error in the console
+- using sourcemaps and breakpoints in browser
+  - `sources` => `webpack` => `.` => `src`
+- using `debugger;`
+- using chrome extension Augury (access from dev tools)
+
+</details>
+
+Deploy
+Animation
+Universal
+
 ## React
 
 ## Canvas API

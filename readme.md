@@ -231,7 +231,8 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-
+```
+```TypeScript
 // app/app.module.ts
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -241,7 +242,8 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-
+```
+```TypeScript
 // app/app.component.ts
 import { Component } from '@angular/core';
 

@@ -139,6 +139,13 @@ DOM
 Events
 
 <details>
+<summary>Other</summary>
+
+- cycle is more optimal than a recursion (call stack overflow), any recursion could be rewritten into a cycle
+
+</details>
+
+<details>
 <summary>Async JavaScript (promises and callbacks, async/await)</summary>
 
   - <details>
@@ -265,7 +272,32 @@ export class AppComponent {}
 
 </details>
 
-Components
+<details>
+<summary>Components</summary>
+
+- `declarations: [NameComponent]` add to module
+- `<app-name></app-name>` or `<p appDir></p>` or `<p class="class"></p>` add to view
+```TypeScript
+// app/components/name/name.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  // required, must be a unique string
+  selector: 'app-name', // tag, mostly for components
+  selector: '[appDir]', // attribute, mostly for directives
+  selector: '.class', // can also use a class as a selector
+  // required, only one of
+  template: '<p>Some text</p>',
+  templateUrl: './name.component.html',
+  // optional, only one of
+  styles: '',
+  styleUrls: ['./name.component.css'] // scss / less also possible
+})
+export class NameComponent {}
+```
+
+</details>
+
 Directives
 Models
 Services

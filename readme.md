@@ -277,6 +277,8 @@ export class AppComponent {}
 
 - `declarations: [NameComponent]` add to module
 - `<app-name></app-name>` or `<p appDir></p>` or `<p class="class"></p>` add to view
+- data-binding - communication between business logic and view
+- updates dynamically at runtime
 ```TypeScript
 // app/components/name/name.component.ts
 import { Component } from '@angular/core';
@@ -293,7 +295,14 @@ import { Component } from '@angular/core';
   styles: '',
   styleUrls: ['./name.component.css'] // scss / less also possible
 })
-export class NameComponent {}
+export class NameComponent {
+  title: string = 'Hello from name component!';
+}
+```
+```HTML
+<!-- app/components/name/name.component.html -->
+<!-- string interpolation -->
+<p>{{ title }}</p> <!-- Hello from name component! -->
 ```
 
 </details>

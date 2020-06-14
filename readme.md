@@ -129,6 +129,31 @@ Tables in HTML and CSS
 <input type="week"> <!-- N of week, year -->
 <input type="month"> <!-- month + year -->
 
+<!-- number input -->
+<!-- doesn't have min/maxlength -->
+<!-- step is applied by clicking arrows, out of step - validation error -->
+<!-- number keyboard on mobile -->
+<input type="number" min="0" max="100" step="10">
+
+<!-- search almost like text, in some browsers has a cross -->
+<input type="search">
+
+<!-- still has no multiple handles -->
+<input type="range" min="0" max="100" step="10">
+
+<!-- good with patterns -->
+<!-- tel keyboard on mobile -->
+<input type="tel">
+
+<!-- validation for correct urls, emails -->
+<!-- proper keyboard on mobile -->
+<input type="email">
+<input type="url">
+
+<!-- opens special pallette with colors -->
+<!-- if browser doesn't support = text field -->
+<input type="color">
+
 <!-- allow/block browser autocomplete option -->
 <input autocomplete="on">
 <input autocomplete="off">

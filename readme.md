@@ -90,7 +90,80 @@
 
 </details>
 
-Tables in HTML and CSS
+<details>
+<summary>Tables in HTML and CSS</summary>
+
+- by default `<table>` shrinks to content
+
+```HTML
+<table>
+  <!-- should be the first child -->
+  <caption>Header</caption>
+  <tr>
+    <!-- colspan for horizontal expanding -->
+    <!-- moves right cell, have to delete in html -->
+    <td colspan="2">Name 1</td>
+    <!-- rowspan for vertical expanding -->
+    <!-- moves lower cell in it's own row to right -->
+    <td rowspan="2">Value 1</td>
+    <td>Count 1</td>
+  </tr>
+  <tr>
+    <td>Name 1</td>
+    <td>Value 1</td>
+    <td>Count 1</td>
+  </tr>
+</table>
+```
+
+```CSS
+table {
+  /* to avoid double border*/
+  border-collapse: collapse;
+  /* when border-collapse != collapse */
+  /* between table and cells */
+  border-spacing: 10px 1rem;
+}
+
+caption {
+  caption-side: top;
+  caption-side: bottom;
+}
+
+td {
+  /* aligns text inside the cell vertically */
+  vertical-align: middle;
+}
+```
+
+```CSS
+/* css tables, don't know when could be useful */
+.table {
+  display: table;
+}
+
+.tr {
+  display: table-row;
+}
+
+.td {
+  display: table-cell;
+}
+
+.caption {
+  display: table-caption;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tfoot {
+  display: table-footer-group;
+}
+```
+
+</details>
 
 <details>
 <summary>Forms</summary>

@@ -290,7 +290,76 @@ td {
 
 </details>
 
-Selectors
+<details>
+<summary>Selectors</summary>
+
+```CSS
+/* pseudo classes */
+
+/* :not can use */
+.element:not(:last-child) {}
+.element:not(p):not(#id) {}
+.element:not([attribute]) {}
+.element:not(.class) {}
+/* :not cannot use */
+.element:not(:not()) {}
+.element:not(.class-one.class-two) {}
+.element:not(::after) {}
+.element:not(a span + span ~ span) {} /* any combined selector */
+
+/* from last */
+.element:nth-last-child {}
+/* if the 2nd element is ul, choses, otherwise no */
+ul:nth-child(2) {}
+
+/* with type in mind */
+.element:first-of-type {}
+.element:last-of-type {}
+/* 2nd of type */
+.element:nth-of-type(2) {}
+.element:nth-last-of-type(2) {}
+
+/* no element or text inside */
+.element:empty {}
+
+/* only one child */
+.element:only-child {}
+
+/* only one p inside a parent */
+p:only-of-type {}
+```
+
+```HTML
+<body>
+  <div></div> <!-- ul:first-child = nothing-->
+  <ul></ul> <!-- ul:first-of-type ul:nth-child(2) -->
+  <ul></ul> <!-- ul:last-of-type ul:nth-of-type(2) -->
+</body>
+```
+
+```CSS
+/* pseudo elements */
+.element::first-line {}
+.element::first-letter {}
+
+/* mostly used */
+.element::before {}
+.element::after {}
+```
+
+```CSS
+/* exact */
+[type="text"] {}
+/* starts with 'bar' */
+[foo^="bar"] {}
+/* ends with 'bar' (good for docs .jpg) */
+[foo$="bar"] {}
+/* contains 'bar' */
+[foo*="bar"] {}
+```
+
+</details>
+
 Block model
 Floats
 Flexbox

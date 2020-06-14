@@ -95,6 +95,11 @@ Tables in HTML and CSS
 <details>
 <summary>Forms</summary>
 
+- `autofocus` only one attribute for the whole page
+- `pattern` regexp, if incorrect - validation error
+- `readonly` can't change but can select and copy, <b>posts to the server</b>
+- `disabled` can't change, focus, select or copy, <b>doesn't post to the server</b>
+
 ```HTML
 <!-- name will also get posted to server -->
 <button type="submit" name="some-name"></button>
@@ -102,6 +107,46 @@ Tables in HTML and CSS
 <!-- rows - strings -->
 <!-- cols - symbols -->
 <textarea rows="10" cols="100"></textarea>
+
+<!-- allow/block browser autocomplete option -->
+<input autocomplete="on">
+<input autocomplete="off">
+
+<!-- data lists with inputs (like select on type) -->
+<!-- connected viw list of input and id of datalist -->
+<!-- if inputs type != text, shows only correct items -->
+<input type="text" list="browsers" name="browsers">
+<datalist id="browsers">
+  <option>Google Chrome</option>
+  <option>Mozilla Firefox</option>
+  <option>Edge</option>
+  <option>Opera</option>
+</datalist>
+
+<!-- value accessible from js vie element.value -->
+<output name="some-name">{default}</output>
+
+<!-- disabled for all the fields inside -->
+<fieldset disabled>
+  <!-- first child -->
+  <legend>Title</legend>
+</fieldset>
+
+<!-- multiple - ctrl/cmd to choose with -->
+<!-- multiple + size to change height -->
+<select multiple size="10">
+  <!-- selected to choose value, could be several -->
+  <!-- value ? value : text content goes to server -->
+  <option selected>Option 1</option>
+  <option selected value="option2">Option 2</option>
+  <option>Option 3</option>
+  <!-- could have group children -->
+  <!-- could be used with multiple select -->
+  <optgroup label="Group 1">
+    <option selected>Option in a group 1</option>
+    <option>Option in a group 2</option>
+  </optgroup>
+</select>
 ```
 
 </details>

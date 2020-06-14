@@ -108,6 +108,27 @@ Tables in HTML and CSS
 <!-- cols - symbols -->
 <textarea rows="10" cols="100"></textarea>
 
+<!-- good for support needs -->
+<input type="hidden">
+
+<!-- for working with files enctype required -->
+<form enctype="multipart/form-data">
+  <!-- name is required -->
+  <input type="file" name="avatar">
+</form>
+
+<!-- image input = submit + sends the click coordinates on the image -->
+<input type="image" src="#" alt="Some description">
+
+<!-- dates inputs -->
+<!-- if browser doesn't support, shows text field -->
+<input type="date"> <!-- with locale -->
+<input type="time"> <!-- with locale -->
+<input type="datetime"> <!-- with time zone -->
+<input type="datetime-local"> <!-- w/o time zone -->
+<input type="week"> <!-- N of week, year -->
+<input type="month"> <!-- month + year -->
+
 <!-- allow/block browser autocomplete option -->
 <input autocomplete="on">
 <input autocomplete="off">

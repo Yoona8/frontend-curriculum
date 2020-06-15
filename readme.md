@@ -348,6 +348,7 @@ p:only-of-type {}
 ```
 
 ```CSS
+/* attribute selectors */
 /* exact */
 [type="text"] {}
 /* starts with 'bar' */
@@ -356,6 +357,25 @@ p:only-of-type {}
 [foo$="bar"] {}
 /* contains 'bar' */
 [foo*="bar"] {}
+/* 'bar' is a separate word */
+[foo~="bar"]
+/* prefix 'bar', the value has to be either alone or followed by '-' */
+[foo|="bar"]
+```
+
+```CSS
+/* state selectors */
+.element:enabled {}
+.element:disabled {}
+.element:read-write {}
+.element:read-only {}
+.element:required {}
+.element:optional {}
+.element:checked {}
+.element:valid {}
+.element:invalid {}
+.element:in-range {}
+.element:out-of-range {}
 ```
 
 </details>

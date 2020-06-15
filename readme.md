@@ -639,6 +639,20 @@ export class AppComponent {}
 - `<app-name></app-name>` or `<p appDir></p>` or `<p class="class"></p>` add to view
 - data-binding - communication between business logic and view
 - updates dynamically at runtime
+- event-binding - reaction to events
+- two-way binding - needs a FormsModule
+
+```TypeScript
+// app/app.module.ts
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [FormsModule]
+})
+export class AppModule {}
+```
+
 ```TypeScript
 // app/components/name/name.component.ts
 import { Component } from '@angular/core';
@@ -657,12 +671,36 @@ import { Component } from '@angular/core';
 })
 export class NameComponent {
   title: string = 'Hello from name component!';
+  name: string = 'Max';
+
+  onButtonClick(evt: Event) {
+    console.log(evt.target);
+  }
 }
 ```
 ```HTML
 <!-- app/components/name/name.component.html -->
+
+<!-- data-binding -->
+<!-- no multiline expressions -->
+<!-- resolved to a string -->
+<!-- updated dynamically -->
 <!-- string interpolation -->
 <p>{{ title }}</p> <!-- Hello from name component! -->
+<!-- property binding -->
+<p [innerText]="title"></p>
+<!-- DON'T! improper usage -->
+<p [innerText]="{{ title }}"></p>
+
+<!-- event-binding -->
+<!-- $event - browser event of type Event -->
+<button type="button" (click)="onButtonClick($event)">Click</button>
+
+<!-- two-way binding -->
+<!-- triggers input data and updates BL -->
+<!-- when BL is updated programmatically, updates the input -->
+<input type="text" [(ngModel)]="name">
+<p>{{ name }}</p>
 ```
 
 </details>

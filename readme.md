@@ -141,6 +141,20 @@
 <summary>Embedded content tags</summary>
 
 ```HTML
+<!-- alt added to only one img of a group, others are "" description -->
+<img src="./star.png" alt="4 out of 5 stars">
+<img src="./star.png" alt="">
+<img src="./star.png" alt="">
+<img src="./star.png" alt="">
+<img src="./star.png" alt="">
+
+<!-- there are also image maps (for super strange cases like block-schemes etc) -->
+<!-- consider using tags below -->
+<map>
+<area>
+```
+
+```HTML
 <figure>
   <figcaption>1st or last in parent</figcaption>
 </figure>
@@ -467,9 +481,44 @@ p:only-of-type {}
 
 </details>
 
-Block model
-Floats
-Flexbox
+<details>
+<summary>Block model</summary>
+
+- block (full width, new line width/height, paddings, margins)
+  - vertical margins collapse to the more value (parent 40px, child 60px = 60px after collapse)
+  - vertical margins drop out of parent if parent doesn't have paddings or borders and it's margin is < child's margin
+  - horizontal margins do not collapse
+- phrasing (width = content, only horizontal paddings, margins)
+- input's width by default = `[size]` attribute, doesn't grow into full parent's width
+- `display: none;` removes element + makes una11y
+- `visibility: hidden;` hides the element, but the place is still there, makes una11y
+
+</details>
+
+<details>
+<summary>Floats</summary>
+
+- basically used to float elements with text
+- `float: left/right/none;`
+- adds sizes to phrasing elements too
+- shrinks to content
+- drops out of flow (partially)
+  - block elements after float stop reacting oon float, go up like with `position: absolute;`
+  - inline elements float around the empty side of float element
+  - if all blocks are floats, parent shrinks to 0 height
+- floats see each other, drop to the next line, but sometimes 'chains' and positions below one of the random floats (awkward behavior)
+- `clear: left/right/both/none;` forbids floating, if after float - sees it (clearfix pattern)
+
+</details>
+
+<details>
+<summary>Flexbox</summary>
+
+```CSS
+```
+
+</details>
+
 Grid
 Positioning
 Backgrounds
@@ -480,10 +529,54 @@ Transformations
 Transitions
 Animations
 
+## A11y
+
 ## JavaScript
 
-ECMAScript
-Constants and variables
+<details>
+<summary>ECMAScript</summary>
+
+Global changes:
+- new strategy of spec updating
+- problem concepts
+  - hoisting
+  - `var` rewriting
+  - scope (var with no block-scope)
+- new opportunities
+  - `let`, `const` - hoisting, scope, rewriting solved
+  - template strings
+  - function default params
+  - arrow functions
+  - destructuring
+- better objects
+
+</details>
+
+<details>
+<summary>Constants and variables</summary>
+
+```JavaScript
+// constants - code agreements
+// protected values, hardcoded (default configs, physical consts, coefficients)
+// distinguished by it's appearance
+// any constant declares as a const
+// is immutable
+const Earth = {
+  RADIUS: 6.371,
+  GRAVITATION: 6.67408
+};
+const DEFAULT_NAMES = ['Michael', 'Anna', 'Chris'];
+const LIGHT_SPEED = 255792458;
+
+// consts
+// not any const = constant
+// declares a variable with immutable link
+const element = document.querySelector('p');
+const arr = [1, 2, 3, 4];
+```
+
+</details>
+
 Data structures
 Numbers
 Strings
@@ -767,7 +860,26 @@ Universal
 
 ## Graphics
 
-SVG
+<details>
+<summary>SVG</summary>
+
+- optimization
+  - use fewer nodes
+  - fewer handlers
+  - integer numbers
+  - not too big grid
+- sprites
+  - HTML inline sprites `<svg style="display: none;"><symbol></symbol></svg>`
+    - minus: doesn't cache in the browser
+  - SVG sprite file (have to add a fallback)
+    - for IE support use svg4everybody
+  - CSS inline SVG sprite (`svg+xml`)
+    - fallback base64, fallback images
+    - can't change svg style properties
+  - using SVG fragment ids and views
+    - bugs in safari
+
+</details>
 
 ## Serverless
 

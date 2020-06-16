@@ -645,11 +645,39 @@ Objects
 Constructors and prototypes
 Classes
 Operators
-Functions
+
+<details>
+<summary>Functions</summary>
+
+```JavaScript
+// default params
+// Earlier
+var doSomething = function (caption, amount, isChecked) {
+  if (typeof isChecked === 'undefined') {
+    isChecked = false;
+  }
+};
+
+// ES2015
+const doSomething = (caption, amount, isChecked = false) => {
+  // some code here
+};
+```
+
+</details>
+
 Control structures
 Modules
 DOM
-Events
+
+<details>
+<summary>Events</summary>
+
+- difference between `change` and `input`
+  - `change` works when `field.value` changed and the user finished to enter the value (moved the handle and released)
+  - `input` works with every value change
+
+</details>
 
 <details>
 <summary>Other</summary>

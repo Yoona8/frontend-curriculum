@@ -515,11 +515,71 @@ p:only-of-type {}
 <summary>Flexbox</summary>
 
 ```CSS
+.element {
+  /* positive int */
+  /* free space according to coefficient */
+  /* flex-grow + min-width (no min-width = elem could drop out of parent if other elem-s have flex-shrink: 0) */
+  flex-grow: 0;
+  /* positive int number */
+  /* free shrink according to coefficient */
+  /* not to shrink = 0 */
+  /* only content shrinks (not paddings or borders) */
+  /* flex-shrink + multiline flex (only 1 element > container width) */
+  flex-shrink: 1;
+  /* combined property, has problems in some browsers */
+  /* flex-grow flex-shrink flex-basis */
+  /* 0 1 auto */
+  flex: initial;
+  /* 1 1 auto */
+  flex: auto;
+  /* 0 0 auto */
+  flex: none;
+  /* 1 0 0% */
+  flex: 1 0;
+  /* 1 1 0% */
+  flex: 1;
+  /* min and max sizes apply after all the above (in the very end) */
+}
 ```
 
 </details>
 
-Grid
+<details>
+<summary>Grid</summary>
+
+- children become parent's grid elements
+- elements position on the 2d grid between lines
+- grids could be layered (default - order in HTML)
+- `z-index` changes layering
+
+```CSS
+.parent-element {
+  display: grid;
+}
+
+/* starts from 4 vertical and 3 horizontal lines */
+/* if end is undefined, ends on next line */
+.child-element {
+  grid-column-start: 4;
+  grid-row-start: 3;
+}
+
+.child-element {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  /* the same, but shorter */
+  grid-column: 3 / 5;
+  grid-row: 2 / 4;
+  /* when used without 2nd param, will behave like -start properties */
+  grid-column: 3;
+  grid-row: 2;
+}
+```
+
+</details>
+
 Positioning
 Backgrounds
 Borders and outlines

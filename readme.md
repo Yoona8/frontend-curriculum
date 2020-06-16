@@ -664,6 +664,28 @@ const doSomething = (caption, amount, isChecked = false) => {
 };
 ```
 
+- doesn't have it's own scope (only lexical) - when global, `this === window`
+- doesn't have `arguments` object
+- can't rewrite `this` (`bind` and `call` won't work)
+  - can't be used as a constructor, no `new` keyword
+  - can't be method of an object or prototype
+
+```JavaScript
+// arrow functions
+// only 1 param?
+const doSomething = param => console.log(param);
+
+// only 1 line?
+// = return left * right;
+const doSomething = (left, right) => left * right;
+
+// return object?
+const getWizard = (name, level) => ({
+  name,
+  level
+});
+```
+
 </details>
 
 Control structures

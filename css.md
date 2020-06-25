@@ -32,7 +32,7 @@ Tables
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`font-weight`|`bolder`, `lighter` from current or inherited|:blossom:|
-|`font-size`|`px`, `small`, `xx-small` - absolute; `em`, `larger`, `smaller` - from parent; `rem` - from `<html>`|:blossom:|
+|`font-size`|`px`, `small`, `xx-small` - absolute;<br>`em`, `larger`, `smaller` - from parent;<br>`rem` - from `<html>`|:blossom:|
 
 Lists
 Forms

@@ -1,5 +1,8 @@
 # Frontend Curriculum
 
+## Content
+- [HTML](html.md)
+
 ## Reference
 <details>
 <summary>Levels</summary>
@@ -9,39 +12,6 @@
 - :full_moon: - good
 
 </details>
-
-## HTML
-
-Main root
-Metadata
-Sectioning root
-Content sectioning
-
-<details>
-<summary>Text content</summary>
-
-|Element|Usage and notes                                     |Level      |
-|-------|----------------------------------------------------|:---------:|
-|`<ol>` |`start`, `reversed` bool attributes change the order|:full_moon:|
-
-</details>
-
-<details>
-<summary>Inline text semantics</summary>
-
-|Element|Usage and notes                                 |Level               |
-|-------|------------------------------------------------|:------------------:|
-|`<q>`  |`cite="https://..."` can cite the e-address also|:first_quarter_moon:|
-
-</details>
-
-Images and multimedia
-Embedded content
-Scripts
-Tables
-Forms
-Interactive elements
-Web components
 
 <details>
 <summary>HTML basic structure</summary>

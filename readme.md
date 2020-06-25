@@ -2,6 +2,7 @@
 
 ## Content
 - [HTML](html.md)
+- [CSS](css.md)
 
 ## Reference
 
@@ -18,57 +19,6 @@
 
 <details>
 <summary>Text HTML and CSS</summary>
-
-```CSS
-.element {
-  /* px, (%, coefficient - from font-size) */
-  line-height: normal; /* default */
-  /* monospace, serif, cursive, fantasy */
-  font-family: "PT Sans", "Arial", sans-serif;
-  /* end, left, right, center, justify */
-  text-align: start;
-  /* vertical-rl, vertical-lr */
-  /* italic, oblique ('pseudo-italic' made by browser) */
-  font-style: normal; /* default */
-  /* uppercase, lowercase, capitalize */
-  text-transform: none;
-  writing-mode: horizontal-tb; /* default */
-  /* top, middle, bottom, %, px */
-  /* for inline element regarding the line */
-  /* used on element, not container */
-  /* px or % of line-height */
-  /* 0% = 0px = baseline (almost) */
-  /* px like %, counts > or < side */
-  vertical-align: baseline; /* default */
-  /* #fff(fff)(ff), rgb(a), hsl(a) */
-  color: #ffffff;
-  /* nowrap */
-  /* pre, pre-wrap = <pre> (pre-wrap to new line if overflow) */
-  /* break-spaces = pre-wrap, but doesn't touch reserved space */
-  /* pre-line = normal, but breaks lines on line-break symbol */
-  white-space: normal; /* default */
-  /* break-word */
-  overflow-wrap: normal;
-  /* em, rem, pt */
-  letter-spacing: 2px;
-
-  /* indent of the 1st line of the text block (of width) */
-  /* +- px, em, pt */
-  text-indent: 10%;
-
-  text-decoration: underline;
-  /* line-through, overline, none */
-  text-decoration-line: underline;
-  /* double, dotted, dashed, wavy */
-  text-decoration-style: solid;
-  /* #fff(fff)(ff), rgb(a), hsl(a) */
-  text-decoration-color: #ffffff;
-
-  /* x y r-blur (0 default) color (text color default) */
-  /* could be several */
-  text-shadow: 1px 1px 1px #000000;
-}
-```
 
 ```CSS
 /* columns */

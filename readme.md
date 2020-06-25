@@ -10,9 +10,9 @@ Content sectioning
 <details>
 <summary>Text content</summary>
 
-|Element|Usage and notes                                     |Level|
-|-------|----------------------------------------------------|-----|
-|`<ol>` |`start`, `reversed` bool attributes change the order|<span style="background-color: green;">good</span>|
+|Element|Usage and notes                                     |Level        |
+|-------|----------------------------------------------------|-------------|
+|`<ol>` |`start`, `reversed` bool attributes change the order|:green_heart:|
 
 </details>
 

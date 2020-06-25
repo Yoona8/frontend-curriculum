@@ -4,46 +4,13 @@
 - [HTML](html.md)
 
 ## Reference
+
 <details>
 <summary>Levels</summary>
 
 - :new_moon: - to learn
 - :first_quarter_moon: - common
 - :full_moon: - good
-
-</details>
-
-<details>
-<summary>HTML basic structure</summary>
-
-```HTML
-<!doctype html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- optional: start -->
-  <meta name="keywords" content="...">
-  <meta name="description" content="...">
-  <!-- optional: end -->
-  <title>Title</title>
-  <link href="#" rel="stylesheet">
-</head>
-<body>
-</body>
-```
-
-</details>
-
-<details>
-<summary>Text HTML and CSS</summary>
-
-```HTML
-
-<!-- ISO for computers, text for humans -->
-<ins datetime="ISO string format">Today</ins> 
-<del datetime="ISO string format">Today</del> 
-<time datetime="ISO string format">Today</time> 
-```
 
 </details>
 

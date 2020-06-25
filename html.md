@@ -7,14 +7,14 @@ Content sectioning
 
 ## Text content
 
-|Element|Usage and notes                                     |Level      |
-|-------|----------------------------------------------------|:---------:|
-|`<ol>` |`start`, `reversed` bool attributes change the order|:full_moon:|
+|Element|Usage and notes|Level|
+|-------|---------------|-----|
+|`<ol>`|`start`, `reversed` bool change the order|:star::star::star::star::star:|
 
 ## Inline text semantics
 
 |Element|Usage and notes|Level|
-|-------|---------------|:---:|
+|-------|---------------|-----|
 |`<q>`|`cite="https://..."` can cite the e-address also|:star::star::star::star:|
 |`<ins>`|`datetime="ISO"` and `today` or any other text in tag|:star::star:|
 |`<del>`|`datetime` and content same to `<ins>`|:star::star:|

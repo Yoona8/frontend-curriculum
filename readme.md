@@ -1,6 +1,37 @@
 # Frontend Curriculum
 
-## HTML CSS
+## HTML
+
+Main root
+Metadata
+Sectioning root
+Content sectioning
+
+<details>
+<summary>Text content</summary>
+
+|Element|Usage and notes                                     |Level|
+|-------|----------------------------------------------------|-----|
+|`<ol>` |`start`, `reversed` bool attributes change the order|
+
+</details>
+
+<details>
+<summary>Inline text semantics</summary>
+
+|Element|Usage and notes                                     |Level|
+|-------|----------------------------------------------------|-----|
+|`<q>`  |`cite="https://..."` can cite the e-address also    |
+
+</details>
+
+Images and multimedia
+Embedded content
+Scripts
+Tables
+Forms
+Interactive elements
+Web components
 
 <details>
 <summary>HTML basic structure</summary>
@@ -24,6 +55,21 @@
 </details>
 
 <details>
+<summary>Text HTML and CSS</summary>
+
+```HTML
+
+<!-- ISO for computers, text for humans -->
+<ins datetime="ISO string format">Today</ins> 
+<del datetime="ISO string format">Today</del> 
+<time datetime="ISO string format">Today</time> 
+```
+
+</details>
+
+## CSS
+
+<details>
 <summary>CSS basics</summary>
 
 - `max-width` counts of parent
@@ -34,25 +80,18 @@
 <details>
 <summary>Text HTML and CSS</summary>
 
-```HTML
-<!-- bool for changing the order -->
-<ol start></ol>
-<ol reversed></ol>
 
-<!-- cite the address -->
-<q cite="https://..."></q>
 
-<!-- ISO for computers, text for humans -->
-<ins datetime="ISO string format">Today</ins> 
-<del datetime="ISO string format">Today</del> 
-<time datetime="ISO string format">Today</time> 
-```
+|Value        |Usage                     |Description              |
+|-------------|--------------------------|-------------------------|
+|`font-weight`|`bold`                    |                         |
+|             |`400`, `500`, `700`       |                         |
+|             |`bolder`, `lighter`       |from current or inherited|
+|`font-size`  |`14px`, `2em`, `3rem`
 
 ```CSS
 /* text styling */
 .element {
-  /* 700, (bolder, lighter - from current or inherited) */
-  font-weight: bold;
   /* px, small, xx-small - absolute */
   /* em, larger, smaller - from parent */
   /* rem - from <html> */
@@ -580,8 +619,68 @@ p:only-of-type {}
 
 </details>
 
-Positioning
-Backgrounds
+<details>
+<summary>Positioning</summary>
+
+```CSS
+.element {
+  /* when extends browser's borders */
+  position: absolute;
+  /* by default coords = auto */
+  /* no scroll */
+  top: -5px;
+  left: -5px;
+  /* with scroll */
+  bottom: -5px;
+  right: -5px;
+}
+```
+
+</details>
+
+<details>
+<summary>Backgrounds</summary>
+
+- when multiple - 1st is upper
+
+```CSS
+.element {
+  /* #fff(fff)(ff) rgb(a) hsl(a) */
+  background-color: #ffffff;
+  /* image layers on color */
+  background-image: url('bg.jpg');
+  /* repeat-x(y) no-repeat */
+  /* round - repeated parts shrink or grow */
+  /* space - adds space between */
+  /* could be different by x or y */
+  background-repeat: repeat;
+  /* x y */
+  /* left center right top bottom */
+  /* 50% 50px +- */
+  /* right 30px top 20px - from any block corner */
+  background-position: 50% 100%;
+  /* fixed - adds very simple effect */
+  background-attachment: scroll;
+  /* 100px, 100% 50% */
+  /* contain - reserves proportions, max sizes with full fill possible, could not cover the whole container */
+  /* cover - reserves proportions, min possible sizes to cover the whole container, */
+  /* if block and img proportions are different, img cuts */
+  background-size: auto auto;
+  /* padding-box (-borders) */
+  /* border-box (+padding+borders) */
+  /* content-box (-padding-borders) */
+  background-origin: padding-box;
+  /* border-box doesn't cut */
+  /* padding-box cuts till borders */
+  /* content-box cuts with paddings */
+  background-clip: border-box;
+  /* complex property order */
+  background: [bc] [bi] [br] [bp] [ba];
+}
+```
+
+</details>
+
 Borders and outlines
 Shadows
 Gradients

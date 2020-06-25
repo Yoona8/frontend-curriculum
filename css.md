@@ -29,9 +29,6 @@ Tables
 
 ## Typography
 
-  /*  */
-  : normal; /* default */
-
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`font-weight`|`bolder`, `lighter` from current or inherited|:blossom:|
@@ -58,8 +55,21 @@ Lists
 Forms
 Backgrounds
 Gradients
-Borders
-Outlines
+
+## Borders
+
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`border-style`|- `groove` - looks like carved into the page<br>- `ridge` - opposite to `groove`|:seedling:|
+
+## Outlines
+
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`outline`|`1px solid #000`<br>- can't use only for some sides<br>-styles like a border|:deciduous_tree:|
+|`outline-offset`|+- outline position|:deciduous_tree:|
+|`outline-style`|- `groove` - looks like carved into the page<br>- `ridge` - opposite to `groove`|:seedling:|
+
 Shadows
 Transforms
 Transitions

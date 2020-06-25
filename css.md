@@ -41,13 +41,13 @@ Tables
 |`text-align`|`start`, `end`, `left`, `right`, `center`, `justify`|:blossom:|
 |`font-style`|`normal`, `italic`, `oblique` ('pseudo-italic' made by browser)<br>`vertical-rl`, `vertical-lr`, |:deciduous_tree:|
 |`text-transform`|`none`, `uppercase`, `lowercase`, `capitalize`|:blossom:|
-|`writing-mode`|`horizontal-tb`|:seeding:|
+|`writing-mode`|`horizontal-tb`|:seedling:|
 |`vertical-align`|`baseline`, `top`, `middle`, `bottom`, `%`, `px`<br>for inline element regarding the line<br>used on element, not container<br>`px` or `%` of `line-height`<br>`0%` = `0px` = `baseline` (almost)<br>`px` like `%`, counts > or < side|:deciduous_tree:|
 |`color`|`#fff(fff)(ff)`, `rgb(a)`, `hsl(a)`|:blossom:|
-|`white-space`|`normal`, `nowrap`<br>`pre`, `pre-wrap` = `<pre>` (pre-wrap to new line if overflow)<br>`break-spaces` = `pre-wrap`, but doesn't touch reserved space<br>`pre-line` = `normal`, but breaks lines on line-break symbol|:seeding:|
-|`overflow-wrap`|`normal`, `break-word`|:seeding:|
+|`white-space`|`normal`, `nowrap`<br>`pre`, `pre-wrap` = `<pre>` (pre-wrap to new line if overflow)<br>`break-spaces` = `pre-wrap`, but doesn't touch reserved space<br>`pre-line` = `normal`, but breaks lines on line-break symbol|:seedling:|
+|`overflow-wrap`|`normal`, `break-word`|:seedling:|
 |`letter-spacing`|`px`, `em`, `rem`, `pt`|:blossom:|
-|`text-indent`|+- `%`, `px`, `em`, `pt` indent of the 1st line of the text block (of width)|:seeding:|
+|`text-indent`|+- `%`, `px`, `em`, `pt` indent of the 1st line of the text block (of width)|:seedling:|
 |`text-decoration`|`underline`|:deciduous_tree:|
 |`text-decoration-line`|`underline`, `line-through`, `overline`, `none`|:deciduous_tree:|
 |`text-decoration-style`|`solid`, `double`, `dotted`, `dashed`, `wavy`|:deciduous_tree:|

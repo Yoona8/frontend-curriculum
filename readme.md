@@ -9,7 +9,7 @@
 <details>
 <summary>Levels</summary>
 
-- :seeding: - to learn
+- :seedling: - to learn
 - :deciduous_tree: - common
 - :blossom: - good
 

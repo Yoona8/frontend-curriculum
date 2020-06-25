@@ -14,11 +14,11 @@ Content sectioning
 ## Inline text semantics
 
 |Element|Usage and notes|Level|
-|---|---|:---:|
-|`<q>`|`cite="https://..."` can cite the e-address also|:first_quarter_moon:|
-|`<ins>`|`datetime="ISO"` and `today` or any other text in tag|:first_quarter_moon:|
-|`<del>`|^^|:first_quarter_moon:|
-|`<time>`|^^|:first_quarter_moon:|
+|-------|---------------|:---:|
+|`<q>`|`cite="https://..."` can cite the e-address also|:star::star::star::star:|
+|`<ins>`|`datetime="ISO"` and `today` or any other text in tag|:star::star:|
+|`<del>`|`datetime` and content same to `<ins>`|:star::star:|
+|`<time>`|`datetime` and content same to `<ins>`|:star::star:|
 
 
 Images and multimedia

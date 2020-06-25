@@ -8,18 +8,17 @@ Content sectioning
 ## Text content
 
 |Element|Usage and notes|Level|
-|-------|---------------|-----|
-|`<ol>`|`start`, `reversed` bool change the order|:star::star::star::star::star:|
+|-------|---------------|:---:|
+|`<ol>`|`start`, `reversed` bool change the order|:blossom:|
 
 ## Inline text semantics
 
 |Element|Usage and notes|Level|
-|-------|---------------|-----|
-|`<q>`|`cite="https://..."` can cite the e-address also|:star::star::star::star:|
-|`<ins>`|`datetime="ISO"` and `today` or any other text in tag|:star::star:|
-|`<del>`|`datetime` and content same to `<ins>`|:star::star:|
-|`<time>`|`datetime` and content same to `<ins>`|:star::star:|
-
+|-------|---------------|:---:|
+|`<q>`|`cite="https://..."` can cite the e-address also|:blossom:|
+|`<ins>`|`datetime="ISO"` and `today` or any other text in tag|:deciduous_tree:|
+|`<del>`|`datetime` and content same to `<ins>`|:deciduous_tree:|
+|`<time>`|`datetime` and content same to `<ins>`|:deciduous_tree:|
 
 Images and multimedia
 Embedded content

@@ -8,41 +8,19 @@
 <details>
 <summary>Levels</summary>
 
-- :new_moon: - to learn
-- :first_quarter_moon: - common
-- :full_moon: - good
+- :seeding: - to learn
+- :deciduous_tree: - common
+- :blossom: - good
 
 </details>
 
 ## CSS
 
 <details>
-<summary>CSS basics</summary>
-
-- `max-width` counts of parent
-- `em` depends on element's font-size
-
-</details>
-
-<details>
 <summary>Text HTML and CSS</summary>
 
-
-
-|Value        |Usage                     |Description              |
-|-------------|--------------------------|-------------------------|
-|`font-weight`|`bold`                    |                         |
-|             |`400`, `500`, `700`       |                         |
-|             |`bolder`, `lighter`       |from current or inherited|
-|`font-size`  |`14px`, `2em`, `3rem`
-
 ```CSS
-/* text styling */
 .element {
-  /* px, small, xx-small - absolute */
-  /* em, larger, smaller - from parent */
-  /* rem - from <html> */
-  font-size: 14px;
   /* px, (%, coefficient - from font-size) */
   line-height: normal; /* default */
   /* monospace, serif, cursive, fantasy */

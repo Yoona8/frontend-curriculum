@@ -1,5 +1,15 @@
 # Frontend Curriculum
 
+## Reference
+<details>
+<summary>Levels</summary>
+
+- :new_moon: - to learn
+- :first_quarter_moon: - common
+- :full_moon: - good
+
+</details>
+
 ## HTML
 
 Main root
@@ -10,18 +20,18 @@ Content sectioning
 <details>
 <summary>Text content</summary>
 
-|Element|Usage and notes                                     |Level        |
-|-------|----------------------------------------------------|-------------|
-|`<ol>` |`start`, `reversed` bool attributes change the order|:green_heart:|
+|Element|Usage and notes                                     |Level      |
+|-------|----------------------------------------------------|:---------:|
+|`<ol>` |`start`, `reversed` bool attributes change the order|:full_moon:|
 
 </details>
 
 <details>
 <summary>Inline text semantics</summary>
 
-|Element|Usage and notes                                     |Level|
-|-------|----------------------------------------------------|-----|
-|`<q>`  |`cite="https://..."` can cite the e-address also    |
+|Element|Usage and notes                                 |Level               |
+|-------|------------------------------------------------|:------------------:|
+|`<q>`  |`cite="https://..."` can cite the e-address also|:first_quarter_moon:|
 
 </details>
 

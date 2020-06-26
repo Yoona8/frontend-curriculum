@@ -1,7 +1,7 @@
 # CSS
 
 ## Selectors
-
+### Pseudo classes
 |Pseudo class|Notes|Level|
 |------------|-----|:---:|
 |`:not(...)`|- can use: `:not(:last-child)` `:not(p):not(#id)` `:not([attribute])` `:not(.class)`<br>- cannot use: `:not(:not())` `:not(.class-one.class-two)` `:not(::after)`<br>`:not(a span + span ~ span)` (any combined selector)|:deciduous_tree:|
@@ -26,6 +26,7 @@
 |`:in-range`||:seedling:|
 |`:out-of-range`||:seedling:|
 
+### Pseudo elements
 |Pseudo element|Notes|Level|
 |--------------|-----|:---:|
 |`::first-line`||:seedling:|
@@ -33,6 +34,7 @@
 |`::before`||:blossom:|
 |`::after`||:blossom:|
 
+### Attribute
 |Attribute selector|Notes|Level|
 |------------------|-----|:---:|
 |`[type="text"]`|exact|:deciduous_tree:|

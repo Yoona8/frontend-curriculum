@@ -18,21 +18,6 @@
 ## CSS
 
 <details>
-<summary>Embedded content tags</summary>
-
-
-
-```HTML
-<!-- almost like video -->
-<audio controls preload="" src="#" autoplay>
-  <source src="#" type="MP3"></source>
-  <source src="#" type="OGG"></source>
-</audio>
-```
-
-</details>
-
-<details>
 <summary>Tables in HTML and CSS</summary>
 
 - by default `<table>` shrinks to content

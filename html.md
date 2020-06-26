@@ -33,15 +33,17 @@ Content sectioning
 |`<audio>`|- almost like a video<br>- `controls`, `autoplay` boolean attributes<br>- source types: `MP3`, `OGG`|:seedling:|
 |`<source>`|- set `src="video.mp4"`, `type="video/mp4"` diff available, first loads first which could be played|:seedling:|
 
-```HTML
-<audio controls preload="" src="#" autoplay>
-  <source src="#" type="MP3"></source>
-  <source src="#" type="OGG"></source>
-</audio>
-```
-
 Scripts
-Tables
+
+## Tables
+
+|Element|Usage and notes|Level|
+|-------|---------------|:---:|
+|`<table>`|by default  shrinks to content|:blossom:|
+|`<caption>`|should be the first child|:blossom:|
+|`<tr>`|||
+|`<td>`|- `colspan` for horizontal expanding, moves right cell, have to delete in html<br>- `rowspan` for vertical expanding, moves lower cell in it's own row to right||
+
 Forms
 Interactive elements
 Web components

@@ -4,7 +4,7 @@
 
 |Pseudo class|Notes|Level|
 |------------|-----|:---:|
-|`:not(...)`|- can use: `:not(:last-child)` `:not(p):not(#id)` `:not([attribute])` `:not(.class)`<br>- cannot use: `:not(:not())` `:not(.class-one.class-two)` `:not(::after)` `:not(a span + span ~ span)` (any combined selector)|:deciduous_tree:|
+|`:not(...)`|- can use: `:not(:last-child)` `:not(p):not(#id)` `:not([attribute])` `:not(.class)`<br>- cannot use: `:not(:not())` `:not(.class-one.class-two)` `:not(::after)`<br>`:not(a span + span ~ span)` (any combined selector)|:deciduous_tree:|
 |`:nth-last-child`|from last|:deciduous_tree:|
 |`:nth-child(2)`|if the 2nd element is ul, choses, otherwise no|:deciduous_tree:|
 |`:only-child`|only one child|:deciduous_tree:|
@@ -40,9 +40,7 @@
 |`[foo$="bar"]`|ends with 'bar' (good for docs .jpg)|:deciduous_tree:|
 |`[foo*="bar"]`|contains 'bar'|:deciduous_tree:|
 |`[foo~="bar"]`|'bar' is a separate word|:deciduous_tree:|
-|`[foo|="bar"]`|prefix 'bar', the value has to be either alone or followed by '-'|:deciduous_tree:|
-
-
+|`[foo\|="bar"]`|prefix 'bar', the value has to be either alone or followed by '-'|:deciduous_tree:|
 
 ## Measure Units
 

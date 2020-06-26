@@ -18,22 +18,6 @@
 ## CSS
 
 <details>
-<summary>Floats</summary>
-
-- basically used to float elements with text
-- `float: left/right/none;`
-- adds sizes to phrasing elements too
-- shrinks to content
-- drops out of flow (partially)
-  - block elements after float stop reacting oon float, go up like with `position: absolute;`
-  - inline elements float around the empty side of float element
-  - if all blocks are floats, parent shrinks to 0 height
-- floats see each other, drop to the next line, but sometimes 'chains' and positions below one of the random floats (awkward behavior)
-- `clear: left/right/both/none;` forbids floating, if after float - sees it (clearfix pattern)
-
-</details>
-
-<details>
 <summary>Flexbox</summary>
 
 ```CSS
@@ -97,25 +81,6 @@
   /* when used without 2nd param, will behave like -start properties */
   grid-column: 3;
   grid-row: 2;
-}
-```
-
-</details>
-
-<details>
-<summary>Positioning</summary>
-
-```CSS
-.element {
-  /* when extends browser's borders */
-  position: absolute;
-  /* by default coords = auto */
-  /* no scroll */
-  top: -5px;
-  left: -5px;
-  /* with scroll */
-  bottom: -5px;
-  right: -5px;
 }
 ```
 

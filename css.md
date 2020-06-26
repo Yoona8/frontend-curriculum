@@ -81,7 +81,12 @@ Feature Queries
 Flexbox
 Grid
 Centering
-Floats and Shapes for Floats
+
+## Floats and Shapes for Floats
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`float`|- `left/right/none` basically used to float elements with text<br>- adds sizes to phrasing elements too<br>- shrinks to content<br>- drops out of flow (partially)<br>- - block elements after float stop reacting oon float, go up like with `position: absolute;`<br>- inline elements float around the empty side of float element<br>- if all blocks are floats, parent shrinks to 0 height<br>- floats see each other, drop to the next line, but sometimes 'chains' and positions below one of the random floats (awkward behavior)|:seedling:|
+|`clear`|`left/right/both/none` forbids floating, if after float - sees it (clearfix pattern)|:seedling:|
 
 ## Tables
 
@@ -107,8 +112,6 @@ Floats and Shapes for Floats
 |`table-footer-group`|`<tfoot>`|:seedling:|
 |`table-column`|like a `<col>` tag - empty, used for styling a column one - 1st, two - second ...|:seedling:|
 |`table-column-group`|like a `<colgroup>` and child `<col>` tags, empty, styles for every child column|:seedling:|
-
-
 
 ## Typography
 

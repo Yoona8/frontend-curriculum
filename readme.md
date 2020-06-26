@@ -18,28 +18,6 @@
 ## CSS
 
 <details>
-<summary>Selectors</summary>
-
-
-
-```CSS
-/* state selectors */
-.element:enabled {}
-.element:disabled {}
-.element:read-write {}
-.element:read-only {}
-.element:required {}
-.element:optional {}
-.element:checked {}
-.element:valid {}
-.element:invalid {}
-.element:in-range {}
-.element:out-of-range {}
-```
-
-</details>
-
-<details>
 <summary>Floats</summary>
 
 - basically used to float elements with text

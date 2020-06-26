@@ -14,6 +14,17 @@
 |`:nth-last-of-type(2)`||:deciduous_tree:|
 |`:only-of-type`|only one of type inside a parent|
 |`:empty`|no element or text inside|:deciduous_tree:|
+|`:enabled`||:blossom:|
+|`:disabled`||:blossom:|
+|`:read-write`||:deciduous_tree:|
+|`:read-only`||:deciduous_tree:|
+|`:required`||:deciduous_tree:|
+|`:optional`||:deciduous_tree:|
+|`:checked`||:blossom:|
+|`:valid`||:deciduous_tree:|
+|`:invalid`||:deciduous_tree:|
+|`:in-range`||:seedling:|
+|`:out-of-range`||:seedling:|
 
 |Pseudo element|Notes|Level|
 |--------------|-----|:---:|
@@ -30,6 +41,8 @@
 |`[foo*="bar"]`|contains 'bar'|:deciduous_tree:|
 |`[foo~="bar"]`|'bar' is a separate word|:deciduous_tree:|
 |`[foo|="bar"]`|prefix 'bar', the value has to be either alone or followed by '-'|:deciduous_tree:|
+
+
 
 ## Measure Units
 

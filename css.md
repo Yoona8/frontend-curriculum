@@ -32,7 +32,7 @@ Tables
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`font-weight`|`bolder`, `lighter` from current or inherited|:blossom:|
-|`font-size`|`px`, `small`, `xx-small` - absolute;<br>`em`, `larger`, `smaller` - from parent;<br>`rem` - from `<html>`|:blossom:|
+|`font-size`|- `px`, `small`, `xx-small` absolute;<br>- `em`, `larger`, `smaller` relative to parent;<br>- `rem` relative to `<html>`|:blossom:|
 |`line-height`|`px`, (`%`, coefficient - from font-size)|:blossom:|
 |`font-family`|`sans-serif`, `monospace`, `serif`, `cursive`, `fantasy`|:blossom:|
 |`text-align`|`start`, `end`, `left`, `right`, `center`, `justify`|:blossom:|

@@ -18,73 +18,9 @@
 ## CSS
 
 <details>
-<summary>Text HTML and CSS</summary>
-
-
-
-```CSS
-/* text directions */
-.element {
-  /* rtl also available, changes columns order, scrollbar position */
-  direction: ltr;
-  /* normal - according to used symbols */
-  /* embed - according to set direction */
-  /* bidi-override - overrides according direction */
-  unicode-bidi: normal;
-  /* clip - cuts on container size */
-  /* ellipsis - adds ... in the end */
-  /* applies only if: 1 - one-line block; 2 - overflow is initiated */
-  text-overflow: clip;
-  /* em, rem, %, ch between words +-, could be used also for inline-blocks and images */
-  word-spacing: 20px;
-}
-```
-
-</details>
-
-<details>
 <summary>Embedded content tags</summary>
 
-```HTML
-<!-- alt added to only one img of a group, others are "" description -->
-<img src="./star.png" alt="4 out of 5 stars">
-<img src="./star.png" alt="">
-<img src="./star.png" alt="">
-<img src="./star.png" alt="">
-<img src="./star.png" alt="">
 
-<!-- there are also image maps (for super strange cases like block-schemes etc) -->
-<!-- consider using tags below -->
-<map>
-<area>
-```
-
-```HTML
-<figure>
-  <figcaption>1st or last in parent</figcaption>
-</figure>
-```
-
-```HTML
-<!-- preload metadata - служебная дата (length, 1 slide) -->
-<!-- preload auto - whole video -->
-<!-- poster - img when not yet loaded -->
-<video 
-  width="500" height="300"
-  src="#"
-  controls
-  autoplay
-  poster="#"
-  preload="none/metadata/auto"
->
-  <!-- diff available, first loads first which could be played -->
-  <!-- type can also contain codec, browser could do it, but not always the right way -->
-  <source src="video.mp4" type="video/mp4"></source>
-  <source src="#" type="MPEG-4/H.264"></source>
-  <source src="#" type="OGG/Theora"></source>
-  <source src="#" type="WebM"></source>
-</video>
-```
 
 ```HTML
 <!-- almost like video -->

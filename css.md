@@ -85,77 +85,30 @@ Floats and Shapes for Floats
 
 ## Tables
 
-<details>
-<summary>Tables in CSS</summary>
+### Styling tables
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`border-collapse`|`collapse` set on `<table>` to avoid double border|:blossom:|
+|`border-spacing: 10px 1rem;`|- set on `<table>`<br>- when `border-collapse` != `collapse`<br>- between table and cells|:seedling:|
+|`caption-side`|`top`, `bottom`|:seedling:|
+|`background-color`|for `<tr>` we can add only background properties, has almost no self styling|:seedling:|
+|`vertical-align`|aligns text inside the cell vertically|:seedling:|
 
-```CSS
-table {
-  /* to avoid double border*/
-  border-collapse: collapse;
-  /* when border-collapse != collapse */
-  /* between table and cells */
-  border-spacing: 10px 1rem;
-}
+### Make it a table with CSS
+|Display value|Usage and notes|Level|
+|-------------|---------------|:---:|
+|`table`|`<table>`|:seedling:|
+|`inline-table`||:seedling:|
+|`table-row`|`<tr>`|:seedling:|
+|`table-cell`|`<td>`|:seedling:|
+|`table-caption`|`<caption>`|:seedling:|
+|`table-header-group`|`<thead>`|:seedling:|
+|`table-row-group`|`<tbody>`|:seedling:|
+|`table-footer-group`|`<tfoot>`|:seedling:|
+|`table-column`|like a `<col>` tag - empty, used for styling a column one - 1st, two - second ...|:seedling:|
+|`table-column-group`|like a `<colgroup>` and child `<col>` tags, empty, styles for every child column|:seedling:|
 
-caption {
-  caption-side: top;
-  caption-side: bottom;
-}
 
-tr {
-  /* for <tr> we can add only background properties, has almost no self styling */
-  background-color: #ffffff;
-}
-
-td {
-  /* aligns text inside the cell vertically */
-  vertical-align: middle;
-}
-```
-
-```CSS
-/* css tables, don't know when could be useful */
-.table {
-  display: table;
-  display: inline-table;
-}
-
-.tr {
-  display: table-row;
-}
-
-.td {
-  display: table-cell;
-}
-
-.caption {
-  display: table-caption;
-}
-
-.thead {
-  display: table-header-group;
-}
-
-.tbody {
-  display: table-row-group;
-}
-
-.tfoot {
-  display: table-footer-group;
-}
-
-/* like a <col> tag - empty, used for styling a column one - 1st, two - second ... */
-.col {
-  display: table-column;
-}
-
-/* like a <colgroup> and child <col> tags, empty, styles for every child column */
-.colgroup {
-  display: table-column-group;
-}
-```
-
-</details>
 
 ## Typography
 

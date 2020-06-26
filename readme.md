@@ -22,40 +22,6 @@
 
 
 
-```HTML
-<body>
-  <div></div> <!-- ul:first-child = nothing-->
-  <ul></ul> <!-- ul:first-of-type ul:nth-child(2) -->
-  <ul></ul> <!-- ul:last-of-type ul:nth-of-type(2) -->
-</body>
-```
-
-```CSS
-/* pseudo elements */
-.element::first-line {}
-.element::first-letter {}
-
-/* mostly used */
-.element::before {}
-.element::after {}
-```
-
-```CSS
-/* attribute selectors */
-/* exact */
-[type="text"] {}
-/* starts with 'bar' */
-[foo^="bar"] {}
-/* ends with 'bar' (good for docs .jpg) */
-[foo$="bar"] {}
-/* contains 'bar' */
-[foo*="bar"] {}
-/* 'bar' is a separate word */
-[foo~="bar"]
-/* prefix 'bar', the value has to be either alone or followed by '-' */
-[foo|="bar"]
-```
-
 ```CSS
 /* state selectors */
 .element:enabled {}

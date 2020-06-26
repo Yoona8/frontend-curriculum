@@ -15,6 +15,22 @@
 |`:only-of-type`|only one of type inside a parent|
 |`:empty`|no element or text inside|:deciduous_tree:|
 
+|Pseudo element|Notes|Level|
+|--------------|-----|:---:|
+|`::first-line`||:seedling:|
+|`::first-letter`||:seedling:|
+|`::before`||:blossom:|
+|`::after`||:blossom:|
+
+|Attribute selector|Notes|Level|
+|------------------|-----|:---:|
+|`[type="text"]`|exact|:deciduous_tree:|
+|`[foo^="bar"]`|starts with 'bar'|:deciduous_tree:|
+|`[foo$="bar"]`|ends with 'bar' (good for docs .jpg)|:deciduous_tree:|
+|`[foo*="bar"]`|contains 'bar'|:deciduous_tree:|
+|`[foo~="bar"]`|'bar' is a separate word|:deciduous_tree:|
+|`[foo|="bar"]`|prefix 'bar', the value has to be either alone or followed by '-'|:deciduous_tree:|
+
 ## Measure Units
 
 |Unit|Usage and notes|Level|

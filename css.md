@@ -18,14 +18,93 @@ Feature Queries
 
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
+|`width`|- block full width<br>- phrasing width = content<br>- input's width by default = `[size]` attribute, doesn't grow into full parent's width|:blossom:|
 |`max-width`|counts of parent|:blossom:|
+|`height`||:blossom:|
+|`margin`|- phrasing only hor margins<br>- vertical margins collapse to the more value (parent 40px, child 60px = 60px after collapse)<br>- vertical margins drop out of parent if parent doesn't have paddings or borders and it's margin is < child's margin<br>- horizontal margins do not collapse|:blossom:|
+|`padding`|- phrasing only hor paddings|:blossom:|
+|`display`|`none` removes element + makes una11y|:blossom:|
+|`visibility`|`hidden` hides the element, but the place is still there, makes una11y|
 
 Positioning
 Flexbox
 Grid
 Centering
 Floats and Shapes for Floats
-Tables
+
+## Tables
+
+<details>
+<summary>Tables in CSS</summary>
+
+```CSS
+table {
+  /* to avoid double border*/
+  border-collapse: collapse;
+  /* when border-collapse != collapse */
+  /* between table and cells */
+  border-spacing: 10px 1rem;
+}
+
+caption {
+  caption-side: top;
+  caption-side: bottom;
+}
+
+tr {
+  /* for <tr> we can add only background properties, has almost no self styling */
+  background-color: #ffffff;
+}
+
+td {
+  /* aligns text inside the cell vertically */
+  vertical-align: middle;
+}
+```
+
+```CSS
+/* css tables, don't know when could be useful */
+.table {
+  display: table;
+  display: inline-table;
+}
+
+.tr {
+  display: table-row;
+}
+
+.td {
+  display: table-cell;
+}
+
+.caption {
+  display: table-caption;
+}
+
+.thead {
+  display: table-header-group;
+}
+
+.tbody {
+  display: table-row-group;
+}
+
+.tfoot {
+  display: table-footer-group;
+}
+
+/* like a <col> tag - empty, used for styling a column one - 1st, two - second ... */
+.col {
+  display: table-column;
+}
+
+/* like a <colgroup> and child <col> tags, empty, styles for every child column */
+.colgroup {
+  display: table-column-group;
+}
+```
+
+</details>
 
 ## Typography
 
@@ -100,5 +179,3 @@ CSSOM
 Stacking Context
 Block Formatting Contexts
 Object Fit and Placement
-
-## Notes

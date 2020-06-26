@@ -41,10 +41,65 @@ Scripts
 |-------|---------------|:---:|
 |`<table>`|by default  shrinks to content|:blossom:|
 |`<caption>`|should be the first child|:blossom:|
-|`<tr>`|||
-|`<td>`|- `colspan` for horizontal expanding, moves right cell, have to delete in html<br>- `rowspan` for vertical expanding, moves lower cell in it's own row to right||
+|`<tr>`||:blossom:|
+|`<td>`|- `colspan` for horizontal expanding, moves right cell, have to delete in html<br>- `rowspan` for vertical expanding, moves lower cell in it's own row to right|:blossom:|
 
-Forms
+## Forms
+|Element|Usage and notes|Level|
+|-------|---------------|:---:|
+|`<form>`|`enctype="multipart/form-data"` required for working with files|:deciduous_tree:|
+|`<fieldset>`|`disabled` for all the fields inside|:deciduous_tree:|
+|`<legend>`|first child of `<fieldset>`|:deciduous_tree:|
+|`<button>`|`name` will also get posted to server|:blossom:|
+|`<select>`|- `multiple` - ctrl/cmd to choose with<br>- `multiple` + `size` to change height|:deciduous_tree:|
+|`<optgroup>`|- could have group children<br>- could be used with multiple select|:deciduous_tree:|
+|`<option>`|- `selected` to choose value, could be several<br>- `value` ? value : text content goes to server|:deciduous_tree:|
+|`<textarea>`|- `rows="10"` strings<br>- `cols="100"` symbols|:blossom:|
+|`<datalist>`|- connected via `list` of `<input>` and `id` of `<datalist>`<br>- if inputs type != `text`, shows only correct items|:seedling:|
+|`<output>`|- has `name` attribute<br>- value accessible from js via `element.value`|:seedling:|
+
+<details>
+<summary>Examples</summary>
+
+```HTML
+<input type="text" list="browsers" name="browsers">
+<datalist id="browsers">
+  <option>Google Chrome</option>
+  <option>Mozilla Firefox</option>
+  <option>Edge</option>
+  <option>Opera</option>
+</datalist>
+```
+
+</details>
+
+|Attribute|Usage and notes|Level|
+|---------|---------------|:---:|
+|`autofocus`|only one attribute for the whole page|:blossom:|
+|`pattern`|regexp, if incorrect - validation error|:deciduous_tree:|
+|`readonly`|can't change but can select and copy, **posts to the server**|:blossom:|
+|`disabled`|can't change, focus, select or copy, **doesn't post to the server**|:blossom:|
+|`autocomplete`|`on` `off` allow/block browser autocomplete option|:blossom:|
+
+|Input type|Usage and notes|Level|
+|----------|---------------|:---:|
+|`hidden`|good for support needs|:deciduous_tree:|
+|`file`|- `name` is required<br>- `enctype` on `<form>`is required|:seedling:|
+|`image`|- almost = submit + sends the click coordinates on the image<br>- has `alt` and `src` attributes|:seedling:|
+|`date`|- for all date types if browser doesn't support, shows text field<br>- with locale|:seedling:|
+|`time`|with locale|:seedling:|
+|`datetime`|with time zone|:seedling:|
+|`datetime-local`|w/o time zone|:seedling:|
+|`week`|N of week, year|:seedling:|
+|`month`|month + year|:seedling:|
+|`number`|- doesn't have min/maxlength<br>- `step="10"` is applied by clicking arrows, out of step = validation error<br>- number keyboard on mobile<br>- has `min="0"` `max="100"` attributes|:deciduous_tree:|
+|`search`|almost like text, in some browsers has a cross|:blossom:|
+|`range`|- has `min="0"` `max="100"` `step="10"` attributes<br>- still has no multiple handles|:deciduous_tree:|
+|`tel`|- good with patterns<br>- tel keyboard on mobile|:blossom:|
+|`email`|- native validation for correct urls, emails<br>- proper keyboard on mobile|:deciduous_tree:|
+|`url`|same to `email`|:deciduous_tree:|
+|`color`|- opens special pallette with colors<br>- if browser doesn't support = text field|:seedling:|
+
 Interactive elements
 Web components
 

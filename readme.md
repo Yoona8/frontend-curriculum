@@ -20,16 +20,7 @@
 <details>
 <summary>Text HTML and CSS</summary>
 
-```CSS
-/* columns */
-.element {
-  /* int, separates block into equal columns of text */
-  column-count: 2;
-  /* min width, if column-count is undefined, browser separates into max available width */
-  column-width: 200px;
-  column-gap: 1em; /* default */
-}
-```
+
 
 ```CSS
 /* text directions */

@@ -1,6 +1,19 @@
 # CSS
 
-Selectors
+## Selectors
+
+|Pseudo class|Notes|Level|
+|------------|-----|:---:|
+|`:not(...)`|- can use: `:not(:last-child)` `:not(p):not(#id)` `:not([attribute])` `:not(.class)`<br>- cannot use: `:not(:not())` `:not(.class-one.class-two)` `:not(::after)` `:not(a span + span ~ span)` (any combined selector)|:deciduous_tree:|
+|`:nth-last-child`|from last|:deciduous_tree:|
+|`:nth-child(2)`|if the 2nd element is ul, choses, otherwise no|:deciduous_tree:|
+|`:only-child`|only one child|:deciduous_tree:|
+|`:first-of-type`|with type in mind|:deciduous_tree:|
+|`:last-of-type`|with type in mind|:deciduous_tree:|
+|`:nth-of-type(2)`||:deciduous_tree:|
+|`:nth-last-of-type(2)`||:deciduous_tree:|
+|`:only-of-type`|only one of type inside a parent|
+|`:empty`|no element or text inside|:deciduous_tree:|
 
 ## Measure Units
 

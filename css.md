@@ -68,7 +68,16 @@ Feature Queries
 |`display`|`none` removes element + makes una11y|:blossom:|
 |`visibility`|`hidden` hides the element, but the place is still there, makes una11y|
 
-Positioning
+## Positioning
+
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`position`||:blossom:|
+|`top`|- by default all coords = auto<br>- no scroll when extends browser's borders|:blossom:|
+|`left`|no scroll when extends browser's borders|:blossom:|
+|`bottom`|with scroll when extends browser's borders|:blossom:|
+|`right`|with scroll when extends browser's borders|:blossom:|
+
 Flexbox
 Grid
 Centering

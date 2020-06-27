@@ -78,14 +78,21 @@ Feature Queries
 |`bottom`|with scroll when extends browser's borders|:blossom:|
 |`right`|with scroll when extends browser's borders|:blossom:|
 
-Flexbox
+## Flexbox
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`display: flex;`|min and max sizes apply after the basic size is counted (in the very end)|:deciduous_tree:|
+|`flex-grow`|- positive int<br>- free space according to coefficient|:deciduous_tree:|
+|`flex-shrink`|- positive int number<br>- free shrink according to coefficient<br>- not to shrink = 0<br>- only content shrinks (not paddings or borders)<br>- flex-shrink + multiline flex (only 1 element > container width)|:deciduous_tree:|
+|`flex`|- combined property, has problems in some browsers<br>- flex-grow flex-shrink flex-basis<br>- `initial` = 0 1 auto<br>- `auto` = 1 1 auto<br>- `none` = 0 0 auto<br>- `1 0` = 1 0 0%<br>- `1` = 1 1 0%|:seedling:|
+
 Grid
 Centering
 
 ## Floats and Shapes for Floats
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
-|`float`|- `left/right/none` basically used to float elements with text<br>- adds sizes to phrasing elements too<br>- shrinks to content<br>- drops out of flow (partially)<br>- - block elements after float stop reacting oon float, go up like with `position: absolute;`<br>- inline elements float around the empty side of float element<br>- if all blocks are floats, parent shrinks to 0 height<br>- floats see each other, drop to the next line, but sometimes 'chains' and positions below one of the random floats (awkward behavior)|:seedling:|
+|`float`|- `left/right/none` basically used to float elements with text<br>- adds sizes to phrasing elements too<br>- shrinks to content<br>- drops out of flow (partially)<br>- block elements after float stop reacting oon float, go up like with `position: absolute;`<br>- inline elements float around the empty side of float element<br>- if all blocks are floats, parent shrinks to 0 height<br>- floats see each other, drop to the next line, but sometimes 'chains' and positions below one of the random floats (awkward behavior)|:seedling:|
 |`clear`|`left/right/both/none` forbids floating, if after float - sees it (clearfix pattern)|:seedling:|
 
 ## Tables

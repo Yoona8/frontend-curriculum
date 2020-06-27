@@ -200,8 +200,8 @@ Lists
 Forms
 
 ## Backgrounds
-|<div style="width: 400px;">Property</div>|Usage and notes|Level|
-|--------|---------------|:---:|
+|Property                |Usage and notes|Level|
+|------------------------|---------------|:---:|
 |`background-color`|`#fff(fff)(ff)` `rgb(a)` `hsl(a)`|:blossom:|
 |`background-image`|- `url('bg.jpg')` image layers on color<br>- when multiple - 1st is upper|:blossom:|
 |`background-repeat`|- `repeat`, `repeat-x(y)` `no-repeat`<br>- `round` repeated parts shrink or grow<br>- `space` adds space between<br>- could be different by x or y|:deciduous_tree:|

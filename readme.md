@@ -15,15 +15,6 @@
 
 </details>
 
-## CSS
-
-orders and outlines
-Shadows
-Gradients
-Transformations
-Transitions
-Animations
-
 ## A11y
 
 ## JavaScript
@@ -83,6 +74,8 @@ Operators
 
 <details>
 <summary>Functions</summary>
+
+- function without `return` statement returns `undefined`
 
 ```JavaScript
 // default params

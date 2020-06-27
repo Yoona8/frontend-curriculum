@@ -26,7 +26,7 @@
 - Gradients
 - [Borders](#borders)
 - [Outlines](#outlines)
-- Shadows
+- [Shadows](#shadows)
 - Transforms
 - Transitions
 - Animations
@@ -218,6 +218,15 @@ Gradients
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`border-style`|- `groove` looks like carved into the page<br>- `ridge` opposite to `groove`|:seedling:|
+|`border-radius`|- tl tr br bl<br>- of a circle corner radius<br>- `10px 20px 30px 40px / 5px 15px 25px 35px`|:blossom:|
+|`border-top-left-radius`|`30px 15px` hor vert, could be different|:blossom:|
+|`border-image`|complex property|:seedling:|
+|`border-image-source`|- `url('bg.png')` or gradients also work<br>- by default fills only corners with the whole background-image|:seedling:|
+|`border-image-slice`|- `px`, `%` paddings from sides of image to 4 lines<br>- `fill` will fill center too|:seedling:|
+|`border-image-repeat`|`stretch` default, can use different to hor and vert<br>- `round` grows evenly<br>- `space` leaves space between|:seedling:|
+|`border-image-width`|> border-width = under content|:seedling:|
+|`border-image-outset`|almost = `outline-offset`, moves border out of elements borders, evenly grows the image (no neg numbers)|:seedling:|
+|||:seedling:|
 
 ## Outlines
 |Property|Usage and notes|Level|
@@ -226,7 +235,11 @@ Gradients
 |`outline-offset`|+- outline position|:deciduous_tree:|
 |`outline-style`|- `groove` looks like carved into the page<br>- `ridge` opposite to `groove`|:seedling:|
 
-Shadows
+## Shadows
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`box-shadow`|- `[inset] x y [blur] [spread] [color]`<br>- `blur` less = more strict<br>- `spread` +more -less than element<br>- `color` default = `color` of the element<br>- if only `spread` with + looks like border<br>- `blur` + `spread` negative = light shadow<br>- `blur` + no `spread` = default shadow<br>- `blur` > `spread` = darker than default<br>- `blur` < `spread` = too dark shadow<br>- multi shadows = upper in the list = upper layering
+
 Transforms
 Transitions
 Animations

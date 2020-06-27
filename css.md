@@ -86,7 +86,22 @@ Feature Queries
 |`flex-shrink`|- positive int number<br>- free shrink according to coefficient<br>- not to shrink = 0<br>- only content shrinks (not paddings or borders)<br>- flex-shrink + multiline flex (only 1 element > container width)|:deciduous_tree:|
 |`flex`|- combined property, has problems in some browsers<br>- flex-grow flex-shrink flex-basis<br>- `initial` = 0 1 auto<br>- `auto` = 1 1 auto<br>- `none` = 0 0 auto<br>- `1 0` = 1 0 0%<br>- `1` = 1 1 0%|:seedling:|
 
-Grid
+## Grid
+### Applied to the container
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`display: grid;`|- children become parents grid elements<br>- elements position on the 2d grid between lines<br>- grids could be layered (default - order in HTML)<br>- `z-index` changes layering|:seedling:|
+
+### Applied to children
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`grid-column-start: 3;`|starts from 3 vertical line, if end is undefined, ends on next line|:seedling:|
+|`grid-column-end: 5;`||:seedling:|
+|`grid-column: 3 / 5;`|- start / end<br>- when used without 2nd param, will behave like `-start` property|:seedling:|
+|`grid-row-start: 5;`|starts from 5 horizontal line, if end is undefined, ends on next line|:seedling:|
+|`grid-row-end: 7;`||:seedling:|
+|`grid-row: 5 / 7;`|- start / end<br>- when used without 2nd param, will behave like `-start` property|:seedling:|
+
 Centering
 
 ## Floats and Shapes for Floats

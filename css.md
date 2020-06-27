@@ -22,7 +22,7 @@
 - [Columns](#columns)
 - Lists
 - Forms
-- Backgrounds(#backgrounds)
+- [Backgrounds](#backgrounds)
 - Gradients
 - [Borders](#borders)
 - [Outlines](#outlines)
@@ -206,25 +206,11 @@ Forms
 |`background-image`|- `url('bg.jpg')` image layers on color<br>- when multiple - 1st is upper|:blossom:|
 |`background-repeat`|- `repeat`, `repeat-x(y)` `no-repeat`<br>- `round` repeated parts shrink or grow<br>- `space` adds space between<br>- could be different by x or y|:deciduous_tree:|
 |`background-position`|- x y `left` `center` `right` `top` `bottom`<br>- `50%` `50px` +-<br>- `right 30px top 20px` - from any block corner|:deciduous_tree:|
-|`background-attachment: scroll;`|`fixed` adds very simple parallax effect|:deciduous_tree:|
-|`background-size: auto auto;`|- `100px, 100% 50%`<br>- `contain` reserves proportions, max sizes with full fill possible, could not cover the whole container<br>- `cover` reserves proportions, min possible sizes to cover the whole container, if block and img proportions are different, img cuts|:deciduous_tree:|
-
-```CSS
-.element {
-  /* padding-box (-borders) */
-  /* border-box (+padding+borders) */
-  /* content-box (-padding-borders) */
-  background-origin: padding-box;
-  /* border-box doesn't cut */
-  /* padding-box cuts till borders */
-  /* content-box cuts with paddings */
-  background-clip: border-box;
-  /* complex property order */
-  background: [bc] [bi] [br] [bp] [ba];
-}
-```
-
-</details>
+|`background-attachment`|-`scroll` default<br>`fixed` adds very simple parallax effect|:deciduous_tree:|
+|`background-size`|-`auto auto` default<br>- `100px, 100% 50%`<br>- `contain` reserves proportions, max sizes with full fill possible, could not cover the whole container<br>- `cover` reserves proportions, min possible sizes to cover the whole container, if block and img proportions are different, img cuts|:deciduous_tree:|
+|`background-origin`|- `padding-box` (-borders) default<br>- `border-box` (+padding+borders)<br>- `content-box` (-padding-borders)|:deciduous_tree:|
+|`background-clip`|- `border-box` default doesn't cut<br>- `padding-box` cuts till borders<br>- `content-box` cuts with paddings|:seedling:|
+|`background`|complex property order `[bc] [bi] [br] [bp] [ba]`|:deciduous_tree:|
 
 Gradients
 

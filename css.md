@@ -200,7 +200,7 @@ Lists
 Forms
 
 ## Backgrounds
-|Property                |Usage and notes|Level|
+|Property&nbsp;&nbsp;&nbsp;|Usage and notes|Level|
 |------------------------|---------------|:---:|
 |`background-color`|`#fff(fff)(ff)` `rgb(a)` `hsl(a)`|:blossom:|
 |`background-image`|- `url('bg.jpg')` image layers on color<br>- when multiple - 1st is upper|:blossom:|

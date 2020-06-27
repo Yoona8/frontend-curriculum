@@ -1,5 +1,36 @@
 # CSS
 
+## Content
+- [Selectors](#selectors)
+  - [Pseudo classes](#pseudo-classes)
+  - [Pseudo elements](#pseudo-elements)
+  - [Attribute](#attribute)
+- [Measure Units](#measure-units)
+- Colors
+- Variables
+- Functions
+- Media Queries
+- Feature Queries
+- [Box Model](#box-model)
+- [Positioning](#positioning)
+- [Flexbox](#flexbox)
+- [Grid](#grid)
+- Centering
+- [Floats and Shapes for Floats](#floats-and-shapes-for-floats)
+- [Tables](#tables)
+- [Typography](#typography)
+- [Columns](#columns)
+- Lists
+- Forms
+- Backgrounds(#backgrounds)
+- Gradients
+- [Borders](#borders)
+- [Outlines](#outlines)
+- Shadows
+- Transforms
+- Transitions
+- Animations
+
 ## Selectors
 ### Pseudo classes
 |Pseudo class|Notes|Level|
@@ -45,7 +76,6 @@
 |`[foo\|="bar"]`|prefix 'bar', the value has to be either alone or followed by '-'|:deciduous_tree:|
 
 ## Measure Units
-
 |Unit|Usage and notes|Level|
 |----|---------------|:---:|
 |`em`|depends on element's font-size|:deciduous_tree:|
@@ -57,7 +87,6 @@ Media Queries
 Feature Queries
 
 ## Box Model
-
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`width`|- block full width<br>- phrasing width = content<br>- input's width by default = `[size]` attribute, doesn't grow into full parent's width|:blossom:|
@@ -69,7 +98,6 @@ Feature Queries
 |`visibility`|`hidden` hides the element, but the place is still there, makes una11y|
 
 ## Positioning
-
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`position`||:blossom:|
@@ -111,7 +139,6 @@ Centering
 |`clear`|`left/right/both/none` forbids floating, if after float - sees it (clearfix pattern)|:seedling:|
 
 ## Tables
-
 ### Styling tables
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
@@ -136,7 +163,6 @@ Centering
 |`table-column-group`|like a `<colgroup>` and child `<col>` tags, empty, styles for every child column|:seedling:|
 
 ## Typography
-
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`font-weight`|`bolder`, `lighter` from current or inherited|:blossom:|
@@ -164,7 +190,6 @@ Centering
 |`text-shadow`|`1px 1px 1px #000000` x y r-blur (0 default) color (text color default), multiple available|:deciduous_tree:|
 
 ## Columns
-
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`column-count`|int, separates block into equal columns of text|:seedling:|
@@ -173,17 +198,42 @@ Centering
 
 Lists
 Forms
-Backgrounds
+
+## Backgrounds
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`background-color`|`#fff(fff)(ff)` `rgb(a)` `hsl(a)`|:blossom:|
+|`background-image`|- `url('bg.jpg')` image layers on color<br>- when multiple - 1st is upper|:blossom:|
+|`background-repeat`|- `repeat`, `repeat-x(y)` `no-repeat`<br>- `round` repeated parts shrink or grow<br>- `space` adds space between<br>- could be different by x or y|:deciduous_tree:|
+|`background-position`|- x y `left` `center` `right` `top` `bottom`<br>- `50%` `50px` +-<br>- `right 30px top 20px` - from any block corner|:deciduous_tree:|
+|`background-attachment: scroll;`|`fixed` adds very simple parallax effect|:deciduous_tree:|
+|`background-size: auto auto;`|- `100px, 100% 50%`<br>- `contain` reserves proportions, max sizes with full fill possible, could not cover the whole container<br>- `cover` reserves proportions, min possible sizes to cover the whole container, if block and img proportions are different, img cuts|:deciduous_tree:|
+
+```CSS
+.element {
+  /* padding-box (-borders) */
+  /* border-box (+padding+borders) */
+  /* content-box (-padding-borders) */
+  background-origin: padding-box;
+  /* border-box doesn't cut */
+  /* padding-box cuts till borders */
+  /* content-box cuts with paddings */
+  background-clip: border-box;
+  /* complex property order */
+  background: [bc] [bi] [br] [bp] [ba];
+}
+```
+
+</details>
+
 Gradients
 
 ## Borders
-
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`border-style`|- `groove` looks like carved into the page<br>- `ridge` opposite to `groove`|:seedling:|
 
 ## Outlines
-
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`outline`|- `1px solid #000`<br>- can't use only for some sides<br>- styles like a border|:deciduous_tree:|

@@ -9,8 +9,6 @@
 - 12 Centering
 - 17 Lists
 - 18 Forms
-- 24 Transforms
-- 25 Transitions
 - 26 Animations
 
 ## 1 - Selectors
@@ -337,7 +335,20 @@
 
 </details>
 
-25 - Transitions
+## 25 - Transitions
+<details>
+<summary>Table</summary>
+
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`transition`|`width 1s ease-in 2s` duration, delay complex property|:deciduous_tree:|
+|`transition-duration`|`1s`, `300ms` default applied to all properties|:blossom:|
+|`transition-property`|`width`, `height`, `opacity` if different duration, order must be the same|:deciduous_tree:|
+|`transition-delay`|`1s`, `300ms` delay before start|:blossom:|
+|`transition-timing-function`|- `ease` default = `cubic-bezier(0, 0.42, 0, 1, 1)`<br>- `linear` even<br>- `ease-in`, `ease-out`, `ease-in-out`<br>- `cubic-bezier(0, X1, Y1, X2, Y2)` X, Y coords form 0 to 1<br>- `steps(6, end)` int count, keyword for direction<br>- animates like 'dashes'<br>- first/last step executes evenly with start/end of the transition|:deciduous_tree:|
+
+</details>
+
 26 - Animations
 
 Overflow

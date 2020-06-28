@@ -1,21 +1,14 @@
 # CSS
 
 ## Content
-- Colors
-- Variables
-- Functions
-- Media Queries
-- Feature Queries
-- [Positioning](#positioning)
-- [Flexbox](#flexbox)
-- [Grid](#grid)
-- Centering
-- [Floats and Shapes for Floats](#floats-and-shapes-for-floats)
-- [Tables](#tables)
-- [Typography](#typography)
-- [Columns](#columns)
-- Lists
-- Forms
+- 3 Colors
+- 4 Variables
+- 5 Functions
+- 6 Media Queries
+- 7 Feature Queries
+- 12 Centering
+- 17 Lists
+- 18 Forms
 - [Backgrounds](#backgrounds)
 - [Gradients](#gradients)
 - [Borders](#borders)
@@ -116,7 +109,10 @@
 
 </details>
 
-## Positioning
+## 9 - Positioning
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`position`||:blossom:|
@@ -125,7 +121,12 @@
 |`bottom`|with scroll when extends browser's borders|:blossom:|
 |`right`|with scroll when extends browser's borders|:blossom:|
 
-## Flexbox
+</details>
+
+## 10 - Flexbox
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`display: flex;`|min and max sizes apply after the basic size is counted (in the very end)|:deciduous_tree:|
@@ -133,13 +134,23 @@
 |`flex-shrink`|- positive int number<br>- free shrink according to coefficient<br>- not to shrink = 0<br>- only content shrinks (not paddings or borders)<br>- flex-shrink + multiline flex (only 1 element > container width)|:deciduous_tree:|
 |`flex`|- combined property, has problems in some browsers<br>- flex-grow flex-shrink flex-basis<br>- `initial` = 0 1 auto<br>- `auto` = 1 1 auto<br>- `none` = 0 0 auto<br>- `1 0` = 1 0 0%<br>- `1` = 1 1 0%|:seedling:|
 
-## Grid
-### Applied to the container
+</details>
+
+## 11 - Grid
+### 11.1 - Applied to the container
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`display: grid;`|- children become parents grid elements<br>- elements position on the 2d grid between lines<br>- grids could be layered (default - order in HTML)<br>- `z-index` changes layering|:seedling:|
 
-### Applied to children
+</details>
+
+### 11.2 - Applied to children
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`grid-column-start: 3;`|starts from 3 vertical line, if end is undefined, ends on next line|:seedling:|
@@ -149,16 +160,26 @@
 |`grid-row-end: 7;`||:seedling:|
 |`grid-row: 5 / 7;`|- start / end<br>- when used without 2nd param, will behave like `-start` property|:seedling:|
 
-Centering
+</details>
 
-## Floats and Shapes for Floats
+12 Centering
+
+## 13 - Floats and Shapes for Floats
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`float`|- `left/right/none` basically used to float elements with text<br>- adds sizes to phrasing elements too<br>- shrinks to content<br>- drops out of flow (partially)<br>- block elements after float stop reacting oon float, go up like with `position: absolute;`<br>- inline elements float around the empty side of float element<br>- if all blocks are floats, parent shrinks to 0 height<br>- floats see each other, drop to the next line, but sometimes 'chains' and positions below one of the random floats (awkward behavior)|:seedling:|
 |`clear`|`left/right/both/none` forbids floating, if after float - sees it (clearfix pattern)|:seedling:|
 
-## Tables
-### Styling tables
+</details>
+
+## 14 - Tables
+### 14.1 - Styling tables
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`border-collapse`|`collapse` set on `<table>` to avoid double border|:blossom:|
@@ -167,7 +188,12 @@ Centering
 |`background-color`|for `<tr>` we can add only background properties, has almost no self styling|:seedling:|
 |`vertical-align`|aligns text inside the cell vertically|:seedling:|
 
-### Make it a table with CSS
+</details>
+
+### 14.2 - Make it a table with CSS
+<details>
+<summary>Table</summary>
+
 |Display value|Usage and notes|Level|
 |-------------|---------------|:---:|
 |`table`|`<table>`|:seedling:|
@@ -181,7 +207,12 @@ Centering
 |`table-column`|like a `<col>` tag - empty, used for styling a column one - 1st, two - second ...|:seedling:|
 |`table-column-group`|like a `<colgroup>` and child `<col>` tags, empty, styles for every child column|:seedling:|
 
-## Typography
+</details>
+
+## 15 - Typography
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`font-weight`|`bolder`, `lighter` from current or inherited|:blossom:|
@@ -208,17 +239,27 @@ Centering
 |`text-decoration-color`|`#fff(fff)(ff)`, `rgb(a)`, `hsl(a)`|:deciduous_tree:|
 |`text-shadow`|`1px 1px 1px #000000` x y r-blur (0 default) color (text color default), multiple available|:deciduous_tree:|
 
-## Columns
+</details>
+
+## 16 - Columns
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`column-count`|int, separates block into equal columns of text|:seedling:|
 |`column-width`|min width, if column-count is undefined, browser separates into max available width|:seedling:|
 |`column-gap`|`1em` default|:seedling:|
 
-Lists
-Forms
+</details>
 
-## Backgrounds
+17 - Lists
+18 - Forms
+
+## 19 - Backgrounds
+<details>
+<summary>Table</summary>
+
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Property&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Usage and notes|Level|
 |------------------------|---------------|:---:|
 |`background-color`|`#fff(fff)(ff)` `rgb(a)` `hsl(a)`|:blossom:|
@@ -231,10 +272,17 @@ Forms
 |`background-clip`|- `border-box` default doesn't cut<br>- `padding-box` cuts till borders<br>- `content-box` cuts with paddings|:seedling:|
 |`background`|complex property order `[bc] [bi] [br] [bp] [ba]`|:deciduous_tree:|
 
+</details>
+
 ## Gradients
+<details>
+<summary>Table</summary>
+
 |Function|Usage and notes|Level|
 |--------|---------------|:---:|
 |`linear-gradient()`|- `[to top], yellow, green, red, black`<br>- `to bottom` default<br>- `top`, `bottom`, `left`, `right` straight<br>- `right top`, `right bottom` diagonal<br>- `90deg`, `-90deg`<br>- diagonal always to corners, `45deg` not|:deciduous_tree:|
+
+</details>
 
 ## Borders
 |Property|Usage and notes|Level|

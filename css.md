@@ -1,6 +1,6 @@
 # CSS
 
-## Content
+## Content (yet to add)
 - 3 Colors
 - 4 Variables
 - 5 Functions
@@ -9,14 +9,9 @@
 - 12 Centering
 - 17 Lists
 - 18 Forms
-- [Backgrounds](#backgrounds)
-- [Gradients](#gradients)
-- [Borders](#borders)
-- [Outlines](#outlines)
-- [Shadows](#shadows)
-- Transforms
-- Transitions
-- Animations
+- 24 Transforms
+- 25 Transitions
+- 26 Animations
 
 ## 1 - Selectors
 ### 1.1 - Pseudo classes
@@ -274,7 +269,7 @@
 
 </details>
 
-## Gradients
+## 20 - Gradients
 <details>
 <summary>Table</summary>
 
@@ -284,7 +279,10 @@
 
 </details>
 
-## Borders
+## 21 - Borders
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`border-style`|- `groove` looks like carved into the page<br>- `ridge` opposite to `groove`|:seedling:|
@@ -298,21 +296,33 @@
 |`border-image-outset`|almost = `outline-offset`, moves border out of elements borders, evenly grows the image (no neg numbers)|:seedling:|
 |||:seedling:|
 
-## Outlines
+</details>
+
+## 22 - Outlines
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`outline`|- `1px solid #000`<br>- can't use only for some sides<br>- styles like a border|:deciduous_tree:|
 |`outline-offset`|+- outline position|:deciduous_tree:|
 |`outline-style`|- `groove` looks like carved into the page<br>- `ridge` opposite to `groove`|:seedling:|
 
-## Shadows
+</details>
+
+## 23 - Shadows
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`box-shadow`|- `[inset] x y [blur] [spread] [color]`<br>- `blur` less = more strict<br>- `spread` +more -less than element<br>- `color` default = `color` of the element<br>- if only `spread` with + looks like border<br>- `blur` + `spread` negative = light shadow<br>- `blur` + no `spread` = default shadow<br>- `blur` > `spread` = darker than default<br>- `blur` < `spread` = too dark shadow<br>- multi shadows = upper in the list = upper layering|:deciduous_tree:|
 
-Transforms
-Transitions
-Animations
+</details>
+
+24 - Transforms
+25 - Transitions
+26 - Animations
 
 Overflow
 Opacity

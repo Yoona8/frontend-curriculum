@@ -23,7 +23,7 @@
 - Lists
 - Forms
 - [Backgrounds](#backgrounds)
-- Gradients
+- [Gradients](#gradients)
 - [Borders](#borders)
 - [Outlines](#outlines)
 - [Shadows](#shadows)
@@ -33,6 +33,9 @@
 
 ## Selectors
 ### Pseudo classes
+<details>
+<summary>Table</summary>
+
 |Pseudo class|Notes|Level|
 |------------|-----|:---:|
 |`:not(...)`|- can use: `:not(:last-child)` `:not(p):not(#id)` `:not([attribute])` `:not(.class)`<br>- cannot use: `:not(:not())` `:not(.class-one.class-two)` `:not(::after)`<br>`:not(a span + span ~ span)` (any combined selector)|:deciduous_tree:|
@@ -56,6 +59,8 @@
 |`:invalid`||:deciduous_tree:|
 |`:in-range`||:seedling:|
 |`:out-of-range`||:seedling:|
+
+</details>
 
 ### Pseudo elements
 |Pseudo element|Notes|Level|
@@ -212,7 +217,10 @@ Forms
 |`background-clip`|- `border-box` default doesn't cut<br>- `padding-box` cuts till borders<br>- `content-box` cuts with paddings|:seedling:|
 |`background`|complex property order `[bc] [bi] [br] [bp] [ba]`|:deciduous_tree:|
 
-Gradients
+## Gradients
+|Function|Usage and notes|Level|
+|--------|---------------|:---:|
+|`linear-gradient()`|- `[to top], yellow, green, red, black`<br>- `to bottom` default<br>- `top`, `bottom`, `left`, `right` straight<br>- `right top`, `right bottom` diagonal<br>- `90deg`, `-90deg`<br>- diagonal always to corners, `45deg` not|:deciduous_tree:|
 
 ## Borders
 |Property|Usage and notes|Level|
@@ -238,7 +246,7 @@ Gradients
 ## Shadows
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
-|`box-shadow`|- `[inset] x y [blur] [spread] [color]`<br>- `blur` less = more strict<br>- `spread` +more -less than element<br>- `color` default = `color` of the element<br>- if only `spread` with + looks like border<br>- `blur` + `spread` negative = light shadow<br>- `blur` + no `spread` = default shadow<br>- `blur` > `spread` = darker than default<br>- `blur` < `spread` = too dark shadow<br>- multi shadows = upper in the list = upper layering
+|`box-shadow`|- `[inset] x y [blur] [spread] [color]`<br>- `blur` less = more strict<br>- `spread` +more -less than element<br>- `color` default = `color` of the element<br>- if only `spread` with + looks like border<br>- `blur` + `spread` negative = light shadow<br>- `blur` + no `spread` = default shadow<br>- `blur` > `spread` = darker than default<br>- `blur` < `spread` = too dark shadow<br>- multi shadows = upper in the list = upper layering|:deciduous_tree:|
 
 Transforms
 Transitions

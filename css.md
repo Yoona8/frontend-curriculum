@@ -1,17 +1,11 @@
 # CSS
 
 ## Content
-- [Selectors](#selectors)
-  - [Pseudo classes](#pseudo-classes)
-  - [Pseudo elements](#pseudo-elements)
-  - [Attribute](#attribute)
-- [Measure Units](#measure-units)
 - Colors
 - Variables
 - Functions
 - Media Queries
 - Feature Queries
-- [Box Model](#box-model)
 - [Positioning](#positioning)
 - [Flexbox](#flexbox)
 - [Grid](#grid)
@@ -31,8 +25,8 @@
 - Transitions
 - Animations
 
-## Selectors
-### Pseudo classes
+## 1 - Selectors
+### 1.1 - Pseudo classes
 <details>
 <summary>Table</summary>
 
@@ -62,7 +56,10 @@
 
 </details>
 
-### Pseudo elements
+### 1.2 - Pseudo elements
+<details>
+<summary>Table</summary>
+
 |Pseudo element|Notes|Level|
 |--------------|-----|:---:|
 |`::first-line`||:seedling:|
@@ -70,7 +67,12 @@
 |`::before`||:blossom:|
 |`::after`||:blossom:|
 
-### Attribute
+</details>
+
+### 1.3 - Attribute
+<details>
+<summary>Table</summary>
+
 |Attribute selector|Notes|Level|
 |------------------|-----|:---:|
 |`[type="text"]`|exact|:deciduous_tree:|
@@ -80,18 +82,28 @@
 |`[foo~="bar"]`|'bar' is a separate word|:deciduous_tree:|
 |`[foo\|="bar"]`|prefix 'bar', the value has to be either alone or followed by '-'|:deciduous_tree:|
 
-## Measure Units
+</details>
+
+## 2 - Measure Units
+<details>
+<summary>Table</summary>
+
 |Unit|Usage and notes|Level|
 |----|---------------|:---:|
 |`em`|depends on element's font-size|:deciduous_tree:|
 
-Colors
-Variables
-Functions
-Media Queries
-Feature Queries
+</details>
 
-## Box Model
+3 - Colors
+4 - Variables
+5 - Functions
+6 - Media Queries
+7 - Feature Queries
+
+## 8 - Box Model
+<details>
+<summary>Table</summary>
+
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
 |`width`|- block full width<br>- phrasing width = content<br>- input's width by default = `[size]` attribute, doesn't grow into full parent's width|:blossom:|
@@ -101,6 +113,8 @@ Feature Queries
 |`padding`|- phrasing only hor paddings|:blossom:|
 |`display`|`none` removes element + makes una11y|:blossom:|
 |`visibility`|`hidden` hides the element, but the place is still there, makes una11y|
+
+</details>
 
 ## Positioning
 |Property|Usage and notes|Level|

@@ -273,7 +273,7 @@
 <details>
 <summary>Table</summary>
 
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Usage and notes|Level|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Usage and notes|Level|
 |--------|---------------|:---:|
 |`linear-gradient()`|- `[to top], yellow, green, red, black`<br>- `to bottom` default<br>- `top`, `bottom`, `left`, `right` straight<br>- `right top`, `right bottom` diagonal<br>- `90deg`, `-90deg`<br>- diagonal always to corners, `45deg` not<br>- `red 0%, yellow 100%` adds the color stop, the most colorful point, where other color starts<br>- if for siblings, add same color stop, sharp transition (like stripes)|:deciduous_tree:|
 |`repeating-linear-gradient()`|- gradient size (fragment) = last color stop, to see the repetition gradient size should be < element size<br>- if 1st and last colors are the same, the transition will be sharp, equal colors needed<br>- color stop usually px, but % could be used too<br>- can imitate linear-gradient + bg-size + repeat|:deciduous_tree:|
@@ -321,7 +321,22 @@
 
 </details>
 
-24 - Transforms
+## 24 - Transforms
+### 24.1 - 2D Transforms
+<details>
+<summary>Table</summary>
+
+|Property or function|Usage and notes|Level|
+|--------|---------------|:---:|
+|`transform`|`translate(...) rotate(...)` order matters|:deciduous_tree:|
+|`translateX()`<br>`translateY()`<br>`translate(X, [Y])`|if no Y, Y = 0|:deciduous_tree:|
+|`scaleX()`<br>`scaleY()`<br>`scale(X, [Y])`|- if no Y, Y = X (base point = 1)<br>- `0` shrinks the element, couldn't see (invisible)<br>- if negative num, element rotates (mirrors)|:seedling:|
+|`rotate()`|- `180deg`<br>- by default relatively elements center<br>- rotates with coordinate grid|:deciduous_tree:|
+|`skewX()`<br>`skewY()`<br>`skew(X, [Y])`|- if no Y, Y = 0, but `skew()` has bugs<br>- x = +left -right<br>- y = +down -up|:seedling:|
+|`transform-origin`|- `X [Y]` if Y is unset, Y = 50%<br>- `50% 50%` default<br>- `px`, `em`, `%`, `left-right`, `top-bottom`<br>- with `rotate` changes the axis<br>- with `scale` to what place shrink<br>- with `scale(0)` to `scale(1)` could be added different effects|:seedling:|
+
+</details>
+
 25 - Transitions
 26 - Animations
 

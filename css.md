@@ -273,7 +273,7 @@
 <details>
 <summary>Table</summary>
 
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Usage and notes|Level|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Usage and notes|Level|
 |--------|---------------|:---:|
 |`linear-gradient()`|- `[to top], yellow, green, red, black`<br>- `to bottom` default<br>- `top`, `bottom`, `left`, `right` straight<br>- `right top`, `right bottom` diagonal<br>- `90deg`, `-90deg`<br>- diagonal always to corners, `45deg` not<br>- `red 0%, yellow 100%` adds the color stop, the most colorful point, where other color starts<br>- if for siblings, add same color stop, sharp transition (like stripes)|:deciduous_tree:|
 |`repeating-linear-gradient()`|- gradient size (fragment) = last color stop, to see the repetition gradient size should be < element size<br>- if 1st and last colors are the same, the transition will be sharp, equal colors needed<br>- color stop usually px, but % could be used too<br>- can imitate linear-gradient + bg-size + repeat|:deciduous_tree:|

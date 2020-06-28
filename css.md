@@ -9,7 +9,6 @@
 - 12 Centering
 - 17 Lists
 - 18 Forms
-- 26 Animations
 
 ## 1 - Selectors
 ### 1.1 - Pseudo classes
@@ -349,7 +348,24 @@
 
 </details>
 
-26 - Animations
+## 26 - Animations
+<details>
+<summary>Table</summary>
+
+|Property|Usage and notes|Level|
+|--------|---------------|:---:|
+|`@keyframes <name> {}`|- `0% { width: 100%; }`<br>- start and end steps are either `from ... to` or `0% 100%`, steps inside are in `%`<br>- if no start point, animation runs from basic elements state to 1st existing step<br>- if there is no last step, after last inner step animation runs backwards to initial state<br>- steps could be in any order, but chronological preferred|:deciduous_tree:|
+|`animation`|`<name> 1s` one element can have multiple animations|:deciduous_tree:|
+|`animation-name`|`name1, name2`|:deciduous_tree:|
+|`animation-duration`|`1s`, `300ms`|:deciduous_tree:|
+|`animation-iteration-count`|- `0` won't run<br>- positive int = runs count<br>- `infinite`|:deciduous_tree:|
+|`animation-direction`|- `normal`, `reverse`<br>- `alternate` when count > 1 odd = `normal`, even = `reverse`<br>- `alternate-reverse`|:deciduous_tree:|
+|`animation-delay`|`1s`, `300ms` delay before start|:deciduous_tree:|
+|`animation-fill-mode`|- if animation effect visible when ends<br>- `forwards` keeps the final state (even when several runs or `reverse`)<br>- `backwards` keeps state initial or `0%` / `from`<br>- if `delay` + `backwards` = styles `from` / `0%` apply before delay (animation starts)<br>- `both` = `forwards` + `backwards`|:deciduous_tree:|
+|`animation-play-state`|- `running` default<br>- `paused` stopped|:deciduous_tree:|
+|`animation-timing-function`|- `ease` slow-slow default<br>- `linear` evenly<br>- `ease-in` slow-fast<br>- `ease-out` fast-slow<br>- `ease-in-out` almost like `ease`, but more intensive<br>`cubic-bezier(...)`<br>- `steps(6, start)`|:deciduous_tree:|
+
+</details>
 
 Overflow
 Opacity

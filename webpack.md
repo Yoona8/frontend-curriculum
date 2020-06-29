@@ -2,8 +2,9 @@
 
 - [To content](#readme.md)
 
+## 1 - Basic config
 <details>
-<summary>Basic config</summary>
+<summary>Notes</summary>
 
 - install npm first
 - for working with styles import css file into js file, where we use the styles, by default webpack's css loader adds `<link rel="stylesheet">`

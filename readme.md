@@ -3,6 +3,8 @@
 ## Content
 - [HTML](html.md)
 - [CSS](css.md)
+- A11y
+- [Graphics](graphics.md)
 
 ## Reference
 
@@ -14,8 +16,6 @@
 - :blossom: - good
 
 </details>
-
-## A11y
 
 ## JavaScript
 
@@ -395,29 +395,6 @@ Universal
 ## Canvas API
 
 ## WebGL and animations
-
-## Graphics
-
-<details>
-<summary>SVG</summary>
-
-- optimization
-  - use fewer nodes
-  - fewer handlers
-  - integer numbers
-  - not too big grid
-- sprites
-  - HTML inline sprites `<svg style="display: none;"><symbol></symbol></svg>`
-    - minus: doesn't cache in the browser
-  - SVG sprite file (have to add a fallback)
-    - for IE support use svg4everybody
-  - CSS inline SVG sprite (`svg+xml`)
-    - fallback base64, fallback images
-    - can't change svg style properties
-  - using SVG fragment ids and views
-    - bugs in safari
-
-</details>
 
 ## Serverless
 

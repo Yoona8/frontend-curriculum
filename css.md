@@ -363,7 +363,7 @@
 |`animation-delay`|`1s`, `300ms` delay before start|:deciduous_tree:|
 |`animation-fill-mode`|- if animation effect visible when ends<br>- `forwards` keeps the final state (even when several runs or `reverse`)<br>- `backwards` keeps state initial or `0%` / `from`<br>- if `delay` + `backwards` = styles `from` / `0%` apply before delay (animation starts)<br>- `both` = `forwards` + `backwards`|:deciduous_tree:|
 |`animation-play-state`|- `running` default<br>- `paused` stopped|:deciduous_tree:|
-|`animation-timing-function`|- `ease` slow-slow default<br>- `linear` evenly<br>- `ease-in` slow-fast<br>- `ease-out` fast-slow<br>- `ease-in-out` almost like `ease`, but more intensive<br>`cubic-bezier(...)`<br>- `steps(6, start)`|:deciduous_tree:|
+|`animation-timing-function`|- `ease` slow-slow default<br>- `linear` evenly<br>- `ease-in` slow-fast<br>- `ease-out` fast-slow<br>- `ease-in-out` almost like `ease`, but more intensive<br>- `cubic-bezier(...)`<br>- `steps(6, start)`|:deciduous_tree:|
 
 </details>
 

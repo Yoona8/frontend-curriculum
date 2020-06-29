@@ -2,8 +2,9 @@
 
 - [To content](#readme.md)
 
+## 1 - Setup with Angular CLI
 <details>
-<summary>Setup with Angular CLI</summary>
+<summary>Notes</summary>
 
 - install node + npm
 - install angular CLI
@@ -24,8 +25,9 @@ ng g d <directive-name>
 
 </details>
 
+## 2 - How the app is being built?
 <details>
-<summary>How the app is being built?</summary>
+<summary>Notes</summary>
 
 - don't import with .ts extensions, webpack adds it
 ```TypeScript
@@ -76,8 +78,9 @@ export class AppComponent {}
 
 </details>
 
+## 3 - Components
 <details>
-<summary>Components</summary>
+<summary>Notes</summary>
 
 - `declarations: [NameComponent]` add to module
 - `<app-name></app-name>` or `<p appDir></p>` or `<p class="class"></p>` add to view
@@ -149,16 +152,17 @@ export class NameComponent {
 
 </details>
 
-Directives
-Models
-Services
-Routing
-Pipes
-Forms (Template Driven)
-Forms (Reactive)
+4 Directives
+5 Models
+6 Services
+7 Routing
+8 Pipes
+9 Forms (Template Driven)
+10 Forms (Reactive)
 
+## 11 - Modules
 <details>
-<summary>Modules</summary>
+<summary>Notes</summary>
 
 - bundles different pieces into one package
 - custom modules mostly for big projects
@@ -182,14 +186,15 @@ export class AppModule {}
 
 </details>
 
-Observables
-Http
-Authentication
-Offline
-Testing
+12 Observables
+13 Http
+14 Authentication
+15 Offline
+16 Testing
 
+## 17 - Debugging
 <details>
-<summary>Debugging</summary>
+<summary>Notes</summary>
 
 - find an error in the console
 - using sourcemaps and breakpoints in browser
@@ -199,6 +204,6 @@ Testing
 
 </details>
 
-Deploy
-Animation
-Universal
+18 - Deploy
+19 - Animation
+20 - Universal

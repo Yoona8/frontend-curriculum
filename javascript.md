@@ -10,7 +10,6 @@
 - 9 Constructors and prototypes
 - 10 Classes
 - 12 Control structures
-- 13 Modules
 - 14 DOM
 - 17 Http requests
 - 18 Browser storage
@@ -179,6 +178,131 @@ for (let i = 0; i < elements.length; i++) {
 
 // can combine [] and {} destructuring
 const [, {textContent: text}] = document.querySelectorAll('li');
+```
+
+</details>
+
+## 13 - Modules
+<details>
+<summary>Tasks to solve</summary>
+
+- Namespace
+  - no global scope
+  - encapsulation
+- Dependencies
+  - easy to follow on what modules depends on
+- Interface
+  - methods and props export, easy to navigate
+
+</details>
+
+<details>
+<summary>Before ES6</summary>
+
+- manual configuration
+- have to remember dependencies order
+- is not clear, what dependencies are used
+
+```JavaScript
+// IIFE
+'use strict';
+// slider.js
+(function() {
+  window.slider = {
+    name: 'Eve'
+  };
+})();
+```
+
+- better module approaches were found (AMD, CommonJS, UMD)
+
+</details>
+
+<details>
+<summary>ES6 exports and imports</summary>
+
+- `'use strict;'` by default
+- syntax looks like destructuring, but not the same
+- imported variable is not created, the same as in export
+- better export const or class
+- import without variable when just need to execute the code
+- do not fold `export` and `import` into code blocks `{}`
+- no hoisting, so that's why `import` is always on top
+- `import` of unexcited variable = error, module won't be loaded
+- there are dynamic imports, but browser support is still pretty low
+
+Import paths:
+- both `''` and `""` available
+- path is a immutable constant, can't generate the path
+- if 2 same imports => browser downloads only one
+- paths abs or rel
+  - `https://google.com` url
+  - `/utils/helpers.js` abs domain-name
+  - `./helpers.js` rel
+  - `../helpers.js` rel
+- `helpers.js` or `utils/helpers.js` is not supported (reserved for libs from package managers)
+- If there is an error while downloading the module or its children => all connected modules won't be loaded
+
+Modules loaders ()
+- browsers: ES modules in browsers
+- static: webpack, rollupJS, parcel, ...
+- orders files
+- downloads, stores files
+- builds, minifies, packs
+
+```JavaScript
+// named
+// names should be equal or error, module won't get loaded
+// could import not all the export
+// can't export the same variable 2x
+// better not to combine line and group exports
+export { name, age };
+export const name = 'Max';
+import { name } from './module-name.js';
+// import all as child (ignores default, insecure, have no control on import)
+import * as child from './module-name.js';
+
+// renamed
+export { name as userName};
+import { name as userName} from './module-name.js';
+
+// default
+// better for classes
+// could be hard to debug (imported by any name)
+export default name;
+export default { name };
+export { name as default };
+import name from './module-name.js';
+```
+
+```JavaScript
+// proxy
+// module-1.js
+export { name as nameOne };
+
+// module-2.js
+export { name as nameTwo };
+
+// module-3.js
+export * from './module-1.js';
+export * from './module-2.js';
+
+// module-target.js
+import { nameOne, nameTwo } from './module-3.js';
+```
+
+- all dependencies load relatively to the 1st loaded module
+- browser cashes not only a file, but also the result of executing the module + returned values
+
+```HTML
+<!-- adding modules to the page -->
+<!-- by default works like defer -->
+<script type="module">
+  // some code here
+</script>
+<script src="module-1.js" type="module"></script>
+<!-- fallbacks (ignored by browsers, which support modules) -->
+<script src="module-1.js" nomodule></script>
 ```
 
 </details>

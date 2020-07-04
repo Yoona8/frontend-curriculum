@@ -2,10 +2,8 @@
 
 - [To content](#readme.md)
 
-- 3 Data types and structures
 - 4 Numbers
 - 5 Strings
-- 6 Iterables
 - 7 Objects
 - 9 Constructors and prototypes
 - 10 Classes
@@ -26,7 +24,7 @@
 
 ## 1 - ECMAScript
 <details>
-<summary>Notes</summary>
+<summary>## Notes</summary>
 
 Global changes:
 - new strategy of spec updating
@@ -66,6 +64,84 @@ const LIGHT_SPEED = 255792458;
 // declares a variable with immutable link
 const element = document.querySelector('p');
 const arr = [1, 2, 3, 4];
+```
+
+</details>
+
+## 3 - Data types and structures
+<details>
+<summary>Table</summary>
+
+- lists
+  - elements can be repeated
+  - order matters
+  - access via key `arr[0]`
+- sets
+  - order doesn't matter
+  - unique elements `set.add('item');`
+  - has no keys
+  - access via value `set.has('item');`
+
+|Name|Notes and usage|Level|
+|----|---------------|:---:|
+|undefined|`'undefined'`|:deciduous_tree:|
+|Boolean|`'boolean'`|:blossom:|
+|Number|`'number'`|:blossom:|
+|String|`'string'`|:deciduous_tree:|
+|BigInt|`'bigint'`|:seedling:|
+|Symbol|`'symbol'`|:seedling:|
+|null|`'object'`|:deciduous_tree:|
+|Object|- `'object'`<br> - `Object`<br>- iterable lists: `Array`, collections<br>- collections: `NodeList`, `HTMLElementsList`, `classList`, `arguments`<br>- iterable dictionaries: `Map`, `WeakMap`<br>- iterable sets: `Set`, `WeakSet`|:deciduous_tree:|
+|Function|`'function'`|:blossom:|
+
+</details>
+
+## 6 - Iterables
+<details>
+<summary>Arrays creation</summary>
+
+```JavaScript
+// before ES6
+var numbers = new Array();
+var letters = [];
+
+// ES6+
+// make an array of any iterable (collection, separate values)
+const elements = Array.from(document.querySelectorAll('li'));
+const values = Array.of(1, 2, 3);
+const items = [...elements, ...values];
+```
+
+</details>
+
+<details>
+<summary>Iterables usage table</summary>
+
+|Method|Usage and notes|Level|
+|------|---------------|:---:|
+|`for ... of`|- almost the same to `for` loop<br>- can use `break` and `continue`<br>- could be used with every iterable|:deciduous_tree:|
+|`...`|- rest operator - collects several values into one iterable structure|:deciduous_tree:|
+|`...`|any iterable into values|:deciduous_tree:|
+
+```JavaScript
+// rest
+// before
+function doSomething() {
+  return Array.from(arguments);
+}
+// with rest
+const doSomething = (...values) => {
+  return values;
+};
+```
+```JavaScript
+// spread
+// before
+const values = [1, 2, 40, 73, 5];
+Math.max.apply(null, values);
+// with spread
+Math.max(...values);
+
 ```
 
 </details>

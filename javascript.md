@@ -1,6 +1,6 @@
 # JavaScript
 
-- [To content](#readme.md)
+- [To content](readme.md)
 
 - 4 Numbers
 - 5 Strings
@@ -24,7 +24,7 @@
 
 ## 1 - ECMAScript
 <details>
-<summary>## Notes</summary>
+<summary>Notes</summary>
 
 Global changes:
 - new strategy of spec updating

@@ -11,9 +11,8 @@
 - 18 Forms
 
 ## 1 - Selectors
-### 1.1 - Pseudo classes
 <details>
-<summary>Table</summary>
+<summary>Pseudo classes</summary>
 
 |Pseudo class|Notes|Level|
 |------------|-----|:---:|
@@ -41,9 +40,8 @@
 
 </details>
 
-### 1.2 - Pseudo elements
 <details>
-<summary>Table</summary>
+<summary>Pseudo elements</summary>
 
 |Pseudo element|Notes|Level|
 |--------------|-----|:---:|
@@ -54,9 +52,8 @@
 
 </details>
 
-### 1.3 - Attribute
 <details>
-<summary>Table</summary>
+<summary>Attribute</summary>
 
 |Attribute selector|Notes|Level|
 |------------------|-----|:---:|
@@ -129,9 +126,8 @@
 </details>
 
 ## 11 - Grid
-### 11.1 - Applied to the container
 <details>
-<summary>Table</summary>
+<summary>Applied to the container</summary>
 
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
@@ -139,9 +135,8 @@
 
 </details>
 
-### 11.2 - Applied to children
 <details>
-<summary>Table</summary>
+<summary>Applied to children</summary>
 
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
@@ -319,9 +314,8 @@
 </details>
 
 ## 24 - Transforms
-### 24.1 - 2D Transforms
 <details>
-<summary>Table</summary>
+<summary>2D Transforms</summary>
 
 |Property or function|Usage and notes|Level|
 |--------|---------------|:---:|

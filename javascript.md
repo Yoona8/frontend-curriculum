@@ -4,7 +4,6 @@
 
 - 4 Numbers
 - 5 Strings
-- 7 Objects
 - 9 Constructors and prototypes
 - 10 Classes
 - 12 Control structures
@@ -81,6 +80,10 @@ const arr = [1, 2, 3, 4];
   - unique elements `set.add('item');`
   - has no keys
   - access via value `set.has('item');`
+- dictionaries
+  - associative array
+  - no order, has keys
+  - unique keys
 
 |Name|Notes and usage|Level|
 |----|---------------|:---:|
@@ -96,9 +99,9 @@ const arr = [1, 2, 3, 4];
 
 </details>
 
-## 6 - Iterables
+## 6 - Iterables: Arrays
 <details>
-<summary>Arrays creation</summary>
+<summary>Creation</summary>
 
 ```JavaScript
 // before ES6
@@ -115,33 +118,176 @@ const items = [...elements, ...values];
 </details>
 
 <details>
-<summary>Iterables usage table</summary>
+<summary>Methods</summary>
 
-|Method|Usage and notes|Level|
-|------|---------------|:---:|
-|`for ... of`|- almost the same to `for` loop<br>- can use `break` and `continue`<br>- could be used with every iterable|:deciduous_tree:|
-|`...`|- rest operator - collects several values into one iterable structure|:deciduous_tree:|
-|`...`|any iterable into values|:deciduous_tree:|
+|Method|Notes|Level|
+|------|-----|:---:|
+|`arr.sort()`|changes the initial array|:deciduous_tree:|
+|`arr.filter()`|creates a new array|:deciduous_tree:|
+|`arr.slice()`|creates a new array|:deciduous_tree:|
+|`arr.map()`|creates a new array|:deciduous_tree:|
+|`arr.reduce()`|creates a new value|:deciduous_tree:|
+
+</details>
+
+<details>
+<summary>Arrays as a stack LIFO</summary>
+
+- for tasks, when we have to store previous item (history, browser history, games)
+- store the action (function) and add to the history array
+- use `history.pop()();` to get back the stored value
+- also available to 'go forward' the history (have to store the removed action back to the stack)
 
 ```JavaScript
-// rest
-// before
-function doSomething() {
-  return Array.from(arguments);
-}
-// with rest
-const doSomething = (...values) => {
-  return values;
-};
+history.push(() => {
+  questions[0].text = oldText;
+  return newText;
+});
 ```
-```JavaScript
-// spread
-// before
-const values = [1, 2, 40, 73, 5];
-Math.max.apply(null, values);
-// with spread
-Math.max(...values);
 
+</details>
+
+<details>
+<summary>Arrays as a queue FIFO</summary>
+
+- for tasks to be executed in a row after some async event
+- for unique actions can use `Set` instead of `Array`
+
+```JavaScript
+const startAsync = () => {
+  setTimeout(() => {
+    for (const cb of callbacks) {
+      callbacks.delete(cb);
+      cb();
+    }
+  }, 500);
+};
+
+// before .find was used to check
+// breaks the loop when the 1st item is found
+callbacks.find((it) => it === 'some');
+```
+
+</details>
+
+## 7 - Objects
+<details>
+<summary>Dictionaries</summary>
+
+Object
+- keys are strings or numbers (other not possible)
+- not iterable (can use `for ... in` old cycle has some issues, not `for ... of`)
+Map + WeakMap
+- any keys possible
+- iterable
+- pairs are objects
+
+```JavaScript
+// object
+const filterValueToScale = {
+  'smallest': 0.25,
+  'small': 0.5,
+  'normal': 1,
+  'large': 2
+};
+
+// map
+let pairs = new Map();
+pairs.set('John', 'May');
+pairs.set('Ichigo', 'Rukiya');
+// or with iterable
+let pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+// iterating
+for (const [first, second] of pairs) {
+  console.log(first.name + second.name);
+}
+```
+
+```JavaScript
+// new features for objects in ES6
+// creation with variable
+const name = 'Harry';
+const user = {
+  name,
+  level: 1
+};
+// complex keys (could be useful for dictionaries)
+const potter = 'Harry Potter';
+const voldemort = 'Tom Riddle';
+const antagonist = {
+  [potter]: voldemort,
+  ['Sirius Black']: 'Bellatrix Lestrange'
+};
+// destructuring
+const newAntagonist = {...antagonist};
+// new syntax for methods
+const character = {
+  _level: 1,
+  // before
+  go: function() {},
+  // ES6
+  go() {},
+  // getters and setters
+  // can't use getter/setter + property
+  // can't address itself = infinite cycle
+  get level() {
+    return this._level;
+  },
+  // always strictly 1 parameter
+  set level(value) {
+    this._level = value;
+  }
+};
+// addressing the getter or setter
+const level = character.level;
+character.level = 100;
+// it there is only setter, can't access the value
+```
+
+</details>
+
+<details>
+<summary>Iterating</summary>
+
+```JavaScript
+// before ES6
+// for ... in
+// deprecated
+// requires additional check, otherwise can go through the whole prototype chain
+
+// ES6
+// for ... of works
+const player = {
+  name: 'Harry',
+  level: 10
+};
+// [['name', 'Harry'], ['level', 10]]
+const playerEntries = Object.entries(player);
+// ['Harry', 10]
+const playerValues = Object.values(player);
+// ['name', 'level']
+const playerKeys = Object.keys(player);
+```
+
+</details>
+
+<details>
+<summary>Delete a property or method</summary>
+
+- `delete player.name;`
+
+</details>
+
+<details>
+<summary>Check if property exists</summary>
+
+```JavaScript
+// but if the property = undefined, also returns false
+player.name !== undefined;
+// true even with undefined
+'name' in player;
+// true even if undefined
+player.hasOwnProperty('name');
 ```
 
 </details>
@@ -254,6 +400,52 @@ for (let i = 0; i < elements.length; i++) {
 
 // can combine [] and {} destructuring
 const [, {textContent: text}] = document.querySelectorAll('li');
+```
+
+</details>
+
+<details>
+<summary>:deciduous_tree: For ... of loop</summary>
+
+- almost the same to `for` loop
+- can use `break` and `continue`
+- could be used with every iterable
+
+</details>
+
+<details>
+<summary>:deciduous_tree: Rest and spread operators</summary>
+
+```JavaScript
+// rest collects several values into one iterable structure
+// before
+function doSomething() {
+  return Array.from(arguments);
+}
+// with rest
+const doSomething = (...values) => {
+  return values;
+};
+// destructuring + rest = first and an array of others
+const [first, ...others] = doSomething();
+```
+
+```JavaScript
+// spread - any iterable into separate values
+// before
+const values = [1, 2, 40, 73, 5];
+// find max
+Math.max.apply(null, values);
+// merge arrays
+const newValues = [];
+newValues.concat(values);
+
+// with spread
+// find max
+Math.max(...values);
+// merge arrays
+const newValues = [...values];
+const filteredValues = [...values].filter();
 ```
 
 </details>

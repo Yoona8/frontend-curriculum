@@ -10,6 +10,7 @@
 - Procedural programming
 - Functional programming
 - Data structures and Algorithms
+- [Architecture](architecture.md)
 - TypeScript
 - [Angular](angular.md)
 - React

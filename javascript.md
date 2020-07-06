@@ -71,20 +71,6 @@ const arr = [1, 2, 3, 4];
 <details>
 <summary>Table</summary>
 
-- lists
-  - elements can be repeated
-  - order matters
-  - access via key `arr[0]`
-- sets
-  - order doesn't matter
-  - unique elements `set.add('item');`
-  - has no keys
-  - access via value `set.has('item');`
-- dictionaries
-  - associative array
-  - no order, has keys
-  - unique keys
-
 |Name|Notes and usage|Level|
 |----|---------------|:---:|
 |undefined|`'undefined'`|:deciduous_tree:|

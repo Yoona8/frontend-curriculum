@@ -9,7 +9,7 @@
 - [OOP](oop.md)
 - Procedural programming
 - Functional programming
-- Data structures and Algorithms
+- [Data structures and Algorithms](algorithms.md)
 - [Architecture](architecture.md)
 - TypeScript
 - [Angular](angular.md)

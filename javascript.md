@@ -2,25 +2,6 @@
 
 - [To content](readme.md)
 
-- 4 Numbers
-- 5 Strings
-- 9 Constructors and prototypes
-- 10 Classes
-- 12 Control structures
-- 14 DOM
-- 17 Http requests
-- 18 Browser storage
-- 19 Meta-programming
-- 20 Performance and optimizations
-- 21 Security
-- 22 Deploying
-- 23 Testing
-- 24 Debugging
-- 25 Browser support
-- 26 Tools and workflow
-- 27 Libraries
-- 28 Frameworks
-
 ## 1 - ECMAScript
 <details>
 <summary>Notes</summary>
@@ -84,6 +65,10 @@ const arr = [1, 2, 3, 4];
 |Function|`'function'`|:blossom:|
 
 </details>
+
+## 4 - Numbers
+
+## 5 - Strings
 
 ## 6 - Iterables: Arrays
 <details>
@@ -278,6 +263,28 @@ player.hasOwnProperty('name');
 
 </details>
 
+<details>
+<summary>Copy</summary>
+
+```JavaScript
+// не избавляет от проблем с вложенностью
+// {} - where
+// player - what
+const newPlayer = Object.assign({}, player);
+// for several
+const newPlayer = Object.assign({}, player, {options: 'code'});
+
+// также не избавляет от проблем с вложенностью
+const newPlayer = {...player};
+
+// копирование с вложенностью - рекурсивно по всем ключам
+// с проверкой typeof function or object
+// есть в lodash
+// hack with json.parse, json.stringify
+```
+
+</details>
+
 ## 8 - Functions
 <details>
 <summary>Notes</summary>
@@ -323,7 +330,36 @@ const getWizard = (name, level) => ({
 
 </details>
 
-## 11 - Expressions and Operators
+## 9 - Scope
+
+## 10 - Constructors and prototypes
+<details>
+<summary>Notes</summary>
+
+- naming `GuitarPlayer`
+- creation of an instance with new
+- add a method in prototype
+```JavaScript
+GuitarPlayer.prototype.play = function() {};
+```
+- without new => undefined (void = return undefined) will not be created
+- ES6 проверка if new inside constructor
+```JavaScript
+if (!new.target) { throw new Error(); }
+```
+- проверить принадлежность `instanceof`
+- why new if we can return an object?
+  - `instanceof` becomes useless
+  - inheritance (prototype) won't work
+- `new` keyword не вызывает функцию, а берет и на основе полей этой функции (то, что записывается через `this.name = name`) создает объект
+  - созданный с `new GuitarPlayer` объект JS наделяет свойством вновь созданный объект, которое содержит информацию, с помощью какой функции-конструктора он создан
+- если попробовать сымитировать функцию-конструктор и `return this;`, будет ссылаться на глобальный объект
+
+</details>
+
+## 11 - Classes
+
+## 12 - Expressions and Operators
 <details>
 <summary>Destructuring: Arrays and alike</summary>
 
@@ -391,7 +427,7 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 </details>
 
 <details>
-<summary>:deciduous_tree: For ... of loop</summary>
+<summary>:deciduous_tree: - For ... of loop</summary>
 
 - almost the same to `for` loop
 - can use `break` and `continue`
@@ -400,7 +436,7 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 </details>
 
 <details>
-<summary>:deciduous_tree: Rest and spread operators</summary>
+<summary>:deciduous_tree: - Rest and spread operators</summary>
 
 ```JavaScript
 // rest collects several values into one iterable structure
@@ -436,7 +472,19 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 13 - Modules
+<details>
+<summary>New and instance of</summary>
+
+- утиная типизация - ненадежно
+- add some field to function, which will create an object and compare that key - велосипед
+- функции-конструкторы
+- more information [constructors and prototypes](#constructors-and-prototypes)
+
+</details>
+
+## 13 - Control structures
+
+## 14 - Modules
 <details>
 <summary>Tasks to solve</summary>
 
@@ -561,7 +609,9 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 15 - Events
+## 15 - DOM
+
+## 16 - Events
 <details>
 <summary>Events</summary>
 
@@ -571,7 +621,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 16 - Async JavaScript (promises and callbacks, async/await)
+## 17 - Async JavaScript (promises and callbacks, async/await)
 
 <details>
 <summary>Sync data loading</summary>
@@ -592,6 +642,30 @@ const data = getResponse('https://data.com/users');
   
 Async ES5 (callbacks)
 Async ES6 (promises) 
+
+## 17 - Http requests
+
+## 18 - Browser storage
+
+## 19 - Meta-programming
+
+## 20 - Performance and optimizations
+
+## 21 - Security
+
+## 22 - Deploying
+
+## 23 - Testing
+
+## 24 - Debugging
+
+## 25 - Browser support
+
+## 26 - Tools and workflow
+
+## 27 - Libraries
+
+## 28 - Frameworks
 
 ## Notes
 <details>

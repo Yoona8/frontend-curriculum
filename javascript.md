@@ -358,6 +358,41 @@ if (!new.target) { throw new Error(); }
 </details>
 
 ## 11 - Classes
+<details>
+<summary>Notes</summary>
+
+- `class Player {}` better to use instead of `const Singer = class {};`
+- `constructor() {}` предопределенный метод класса, помогает создать экземпляр класса, все свойства определяются в нем
+- `play() {}` методы записываются в `prototype`, определяются как у объекта
+- `constructor` необязателен
+- `new` для создания instance (or type error)
+- если внутри класса обратиться к несуществующему свойству, получим `undefined`
+- есть статические методы (не передаются потомкам (экземплярам))
+```JavaScript
+static createJuniorPlayer() {
+  return new this(5, 2);
+}
+```
+- также статическими могут быть свойства (но плохая поддержка)
+- можно использовать getters / setters
+- можно и без setter, но нарушим правило ООП, так как проверки будут снаружи
+- приватные поля, но пока плохая поддержка `this.#skill = value;`
+
+</details>
+
+<details>
+<summary>Difference between class and constructor functions</summary>
+
+- `class` нельзя без `new` (в функции-конструкторе можно сделать имитацию с проверкой `target.new`)
+- вывод в консоль (`class` / `f`)
+- методы класса не перечисляемые
+```JavaScript
+for (const prop in player) {
+  console.log(prop);
+}
+```
+
+</details>
 
 ## 12 - Expressions and Operators
 <details>

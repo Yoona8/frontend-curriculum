@@ -331,6 +331,14 @@ const getWizard = (name, level) => ({
 </details>
 
 ## 9 - Scope
+- окружение, в котором выполняется функция
+- `this` ссылка на текущий object внутри `class`
+- зависит от способа вызова функции
+- может быть изменен, в том числе с методами `apply`, `call`, `bind`
+- `bind` создает новую функцию, исходная остается неизменной
+- `bind` context нельзя изменить `apply`, `call`
+- arrow functions не имеют своего контекста
+
 
 ## 10 - Constructors and prototypes
 <details>

@@ -2,44 +2,48 @@
 
 - [To content](#readme.md)
 
-- методология программирования, основанная преимущественно на представлении программы в виде совокупности объектов, каждый из которых является экземпляром определенного класса
-- код в виде объектов (интерфейсы) и взаимосвязи между ними
-- мышление абстракциями
-- высокий порог входа
+## General info
+<details>
+<summary>Notes</summary>
 
-## Классы
-- группа предметов или явлений, обладающих общими признаками.
+- programming methodology, based mostly on representing a program as a set of objects, which are instances of some class
+- consists of interfaces and relations
+- abstract thinking
+</details>
 
-## Интерфейс
-- описание структуры объекта, его свойств и методов, а также аргументов этих методов и их возвращаемых значений. Не описывает реализацию, только типы данных.
+## Classes
+- a group of objects or scenes, which have similar signs
+
+## Interface
+- describes an object's structure, it's properties and methods (+ arguments and return values), does not describe the realization, only data types.
 ```
 Math.abs: function(number): number;
 Math.random: function(): number;
 Array.map: function(function(*, number, Array): *): Array;
 ```
-- интерфейс важен, чтобы избежать ошибок, использовать методы по назначению
+- interface is important to minimize errors and for proper usage
 ```JavaScript
 [1, 2, 3].map(parseInt); // 1, NaN,  NaN
 parseInt: function(number, number): number;
 ```
 
-## Принципы ООП
+## OOP principles
 <details>
 <summary>Encapsulation</summary>
 
-- in capsula, интерфейсы, сокрытие деталей реализации
+- in capsula, interfaces, closed realization details
 
 </details>
 
 <details>
 <summary>Inheritance</summary>
 
-- один из способов исп. методы и свойства одних obj (parent) в других (child)
+- one of the ways to use methods and properties from parents in their children
 - But Gotchas!
-  - не создавать long prototypes chains
+  - do not create long prototypes chains
   - parent max abstract (banana + jungle)
-  - if wrong abstract => проблема множественного наследования, которое работает не во всех языках
-- Альтернативы наследованию
+  - if wrong abstract => multiple inheritance problem, works not in all languages
+- Inheritance alternatives
   - Composition (react)
   - Delegation
   - Mixins

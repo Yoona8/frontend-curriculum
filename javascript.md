@@ -338,6 +338,22 @@ const getWizard = (name, level) => ({
 - `bind` creates a new function, the initial function stays the same
 - `bind` context can't be changed even with `apply`, `call`
 - arrow functions do not have their context
+- while the function is not called, it doesn't have any context
+- context is being created upon the function call
+- `this` assigns only upon the function call
+- `use strict` affects `this` value
+  - no `use strict` = `window`, with = `undefined`
+- in an object (method) `this` = link to the object itself
+- doesn't matter how the function is created, matters only how it's called
+```JavaScript
+const walk = function() {
+  console.log(this + 'walk!');
+};
+const player = {walk};
+player.walk(); // this === link to player object
+walk(); // TypeError: Cannot read property '...' of undefined
+```
+- doesn't matter how the function is written, context will be the same `walk = player.walk`
 
 ## 10 - Constructors and prototypes
 <details>

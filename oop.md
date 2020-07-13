@@ -13,6 +13,14 @@
 
 ## Classes
 - a group of objects or scenes, which have similar signs
+- good class
+  - describes one entity
+  - solves only one task
+  - is not a collection of functions for everything
+  - uses correctly when needed (ex. when we need several objects with similar behavior and interface, but the state is different)
+- good methods
+  - one method = one action
+  - if method is not called from the outside, make it private
 
 ## Interface
 - describes an object's structure, it's properties and methods (+ arguments and return values), does not describe the realization, only data types.
@@ -50,6 +58,23 @@ parseInt: function(number, number): number;
   - Interfaces (not in JS)
 
 </details>
-- Polymorphism
-- Inheritance and polymorphism
-- Data-binding
+
+<details>
+<summary>Polymorphism</summary>
+
+- (many forms) an ability to use the same identifier (name) for solving alike problems (but different upon realization)
+- one interface and many ways or one signature and several interfaces
+- overload
+```JavaScript
+parseInt(42, 10); // float (number)
+parseInt('42', 10); // string
+parseInt({ name: 'Max', value: 42 }, 10); // NaN
+```
+- overrides in depths of the prototype chain
+- what if w/o polymorphism?
+  - naming problem
+  - more complex working with code
+
+</details>
+
+## Data-binding

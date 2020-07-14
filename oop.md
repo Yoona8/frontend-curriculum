@@ -56,6 +56,15 @@ parseInt: function(number, number): number;
   - Delegation
   - Mixins
   - Interfaces (not in JS)
+```JavaScript
+class GuitarPlayer extends Man {
+  constructor(firstName) {
+    super(firstName);
+
+    this.guitarCount = 6;
+  }
+}
+```
 
 </details>
 

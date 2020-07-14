@@ -354,6 +354,60 @@ player.walk(); // this === link to player object
 walk(); // TypeError: Cannot read property '...' of undefined
 ```
 - doesn't matter how the function is written, context will be the same `walk = player.walk`
+- with closure the result is more obvious
+```JavaScript
+const guitarPlayer = {
+  firstName: 'Michael',
+  lastName: 'Lantsov',
+  play() {
+    console.log(`${guitarPlayer.firstName} ${guitarPlayer.lastName}`);
+  }
+};
+
+// the result will be the same
+const anotherPlayer = {
+  play: guitarPlayer.play
+};
+```
+- calling a function with binded context (1st param in those functions is always context, the 2nd parameter differs)
+```JavaScript
+// arguments separated with ',' will be function params
+// perfect when there are not many params
+play.call(anotherPlayer, '20.02.1967');
+// array, which values will be function params
+// good for many params or undefined number of params
+play.apply(guitarPlayer, ['20.02.1967']);
+```
+```JavaScript
+const numbers = [1, 3, 100, 5];
+
+// we don't need context here, so pass 'null'
+console.log(Math.max.apply(null, numbers));
+```
+- listener's context is always === the element, to which the listener is applied `document.body` or `evt.currentTarget`
+  - can override if create the event handler and execute the method
+  ```JavaScript
+  item.addEventListener('click', function() {
+    cart.print();
+  });
+  // browser will store the function
+  callback = cart.print;
+  // and executes the callback
+  callback();
+  // so just won't work
+  ```
+- with bind (but careful, `bind` returns a new function, store first in a separate variable to unsubscribe if needed)
+```JavaScript
+item.addEventListener('click', cart.print.bind(cart));
+```
+```JavaScript
+// custom binder (like the bind works)
+const customBind = function(fn, context) {
+  return function() {
+    return fn.apply(context, arguments);
+  };
+};
+```
 
 ## 10 - Constructors and prototypes
 <details>

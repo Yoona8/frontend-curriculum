@@ -64,6 +64,16 @@ class GuitarPlayer extends Man {
     this.guitarCount = 6;
   }
 }
+
+// if we're not adding new properties, not necessary to call the constructor
+class GuitarPlayer extends Man {
+  // reuse parent properties inside the child class
+  // this.jump(); also works
+  doubleJump() {
+    super.jump();
+    super.jump();
+  }
+}
 ```
 
 </details>
@@ -83,6 +93,43 @@ parseInt({ name: 'Max', value: 42 }, 10); // NaN
 - what if w/o polymorphism?
   - naming problem
   - more complex working with code
+```JavaScript
+class GuitarPlayer extends Man {
+  // to override parent method
+  jump() {
+    console.log('Mega jump!');
+  }
+
+  doubleJump() {
+    // to use parent method
+    super.jump();
+    // to use own overridden method
+    this.jump();
+  }
+}
+```
+- polymorph class almost = interface in TS
+```JavaScript
+// adding an abstract class
+class AbstractMan {
+  constructor(firstName) {
+    if (new.target === AbstractMan) {
+      throw new Error('...');
+    }
+
+    this.name = firstName;
+  }
+
+  walk() {
+    // for the methods needed to be implemented
+    throw new Error('...');
+  }
+
+  jump() {}
+}
+
+const man = new AbstractMan('Tom'); // error
+```
 
 </details>
 

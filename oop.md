@@ -134,3 +134,24 @@ const man = new AbstractMan('Tom'); // error
 </details>
 
 ## Data-binding
+<details>
+<summary>Notes</summary>
+
+- mechanics used to synchronize data and view
+- data - information, doesn't depend on view
+- view - a part of an interface (UI), doesn't depend on the way of implementation
+
+</details>
+
+<details>
+<summary>MV* patterns</summary>
+
+- ways to organize business login in an app
+![MVC](./images/mvc.jpg)
+
+</details>
+
+<details>
+<summary>MVC</summary>
+
+</details>

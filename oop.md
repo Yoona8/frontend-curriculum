@@ -9,9 +9,13 @@
 - programming methodology, based mostly on representing a program as a set of objects, which are instances of some class
 - consists of interfaces and relations
 - abstract thinking
+
 </details>
 
 ## Classes
+<details>
+<summary>Notes</summary>
+
 - a group of objects or scenes, which have similar signs
 - good class
   - describes one entity
@@ -22,7 +26,12 @@
   - one method = one action
   - if method is not called from the outside, make it private
 
+</details>
+
 ## Interface
+<details>
+<summary>Notes</summary>
+
 - describes an object's structure, it's properties and methods (+ arguments and return values), does not describe the realization, only data types.
 ```
 Math.abs: function(number): number;
@@ -34,6 +43,8 @@ Array.map: function(function(*, number, Array): *): Array;
 [1, 2, 3].map(parseInt); // 1, NaN,  NaN
 parseInt: function(number, number): number;
 ```
+
+</details>
 
 ## OOP principles
 <details>
@@ -185,7 +196,7 @@ const man = new AbstractMan('Tom'); // error
 - Load
   - controller calls model update
   - model loads data and tells the view about changes
-<img src="./images/mvc.jpg" alt="MVC" width="300">
+<img src="./images/mvc.jpg" alt="MVC" width="200">
 
 </details>
 
@@ -202,7 +213,7 @@ const man = new AbstractMan('Tom'); // error
   - presenter subscribes to model changes
   - presenter directs binding between model and view
   - listens to changes in both and calls the update methods
-<img src="./images/mvp.jpg" alt="MVP" width="400">
+<img src="./images/mvp.jpg" alt="MVP" width="200">
 
 </details>
 
@@ -212,7 +223,7 @@ const man = new AbstractMan('Tom'); // error
 - viewmodel creates model and view
 - viewmodel creates a binding between them
 - view and model states synchronize automatically
-<img src="./images/mvvm.jpg" alt="MVVM" width="300">
+<img src="./images/mvvm.jpg" alt="MVVM" width="200">
 
 </details>
 

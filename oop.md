@@ -185,7 +185,7 @@ const man = new AbstractMan('Tom'); // error
 - Load
   - controller calls model update
   - model loads data and tells the view about changes
-<img src="./images/mvc.jpg" alt="MVC" width="500">
+<img src="./images/mvc.jpg" alt="MVC" width="300">
 
 </details>
 
@@ -202,8 +202,7 @@ const man = new AbstractMan('Tom'); // error
   - presenter subscribes to model changes
   - presenter directs binding between model and view
   - listens to changes in both and calls the update methods
-![MVP]()
-<img src="./images/mvp.jpg" alt="MVP" width="500">
+<img src="./images/mvp.jpg" alt="MVP" width="400">
 
 </details>
 
@@ -213,7 +212,7 @@ const man = new AbstractMan('Tom'); // error
 - viewmodel creates model and view
 - viewmodel creates a binding between them
 - view and model states synchronize automatically
-<img src="./images/mvvm.jpg" alt="MVVM" width="500">
+<img src="./images/mvvm.jpg" alt="MVVM" width="300">
 
 </details>
 

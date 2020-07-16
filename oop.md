@@ -162,7 +162,7 @@ const man = new AbstractMan('Tom'); // error
     - know about each other
     - export only the abstract interface
   - could not exist without high cohesion. If there are abstract modules, there should be logic, which connects them
-![MV*](./images/mv.jpg)
+![MV*](./images/mv.jpg =300x)
 
 </details>
 

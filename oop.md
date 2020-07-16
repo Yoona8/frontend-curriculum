@@ -213,6 +213,16 @@ const man = new AbstractMan('Tom'); // error
   - presenter subscribes to model changes
   - presenter directs binding between model and view
   - listens to changes in both and calls the update methods
+- User interactions
+  - user interacts with a view
+  - view tells the presenter about the changes
+  - presenter runs the model update logic
+  - model tells the presenter about updates
+  - presenter updates the view
+- Load
+  - presenter runs the model update logic
+  - model tells the presenter about updates
+  - presenter updates the view
 <img src="./images/mvp.jpg" alt="MVP" width="200">
 
 </details>
@@ -220,9 +230,18 @@ const man = new AbstractMan('Tom'); // error
 <details>
 <summary>MVVM</summary>
 
-- viewmodel creates model and view
-- viewmodel creates a binding between them
-- view and model states synchronize automatically
+- Model - data only
+- View - view only
+- ViewModel - binds view and model via binder, which describes the connection between model and view
+- Creation
+  - ViewModel receives the view
+  - ViewModel receives the model
+  - ViewModel binds view and model vie binding method (some binder)
+  - view and model states synchronize automatically
+- User interactions
+  - view updates model via binding, described in the ViewModel
+- Load
+  - model after being loaded synchronizes with the view via binding
 <img src="./images/mvvm.jpg" alt="MVVM" width="200">
 
 </details>

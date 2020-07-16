@@ -162,7 +162,7 @@ const man = new AbstractMan('Tom'); // error
     - know about each other
     - export only the abstract interface
   - could not exist without high cohesion. If there are abstract modules, there should be logic, which connects them
-<img src="./images/mv.jpg" alt="MV*" width="300">
+<img src="./images/mv.jpg" alt="MV*" width="500">
 
 </details>
 
@@ -185,7 +185,7 @@ const man = new AbstractMan('Tom'); // error
 - Load
   - controller calls model update
   - model loads data and tells the view about changes
-![MVC](./images/mvc.jpg)
+<img src="./images/mvc.jpg" alt="MVC" width="500">
 
 </details>
 
@@ -202,7 +202,8 @@ const man = new AbstractMan('Tom'); // error
   - presenter subscribes to model changes
   - presenter directs binding between model and view
   - listens to changes in both and calls the update methods
-![MVP](./images/mvp.jpg)
+![MVP]()
+<img src="./images/mvp.jpg" alt="MVP" width="500">
 
 </details>
 
@@ -212,7 +213,7 @@ const man = new AbstractMan('Tom'); // error
 - viewmodel creates model and view
 - viewmodel creates a binding between them
 - view and model states synchronize automatically
-![MVVM](./images/mvvm.jpg)
+<img src="./images/mvvm.jpg" alt="MVVM" width="500">
 
 </details>
 

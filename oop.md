@@ -1,6 +1,6 @@
 # OOP
 
-- [To content](#readme.md)
+- [To content](readme.md)
 
 ## General info
 <details>

@@ -144,14 +144,81 @@ const man = new AbstractMan('Tom'); // error
 </details>
 
 <details>
-<summary>MV* patterns</summary>
+<summary>MV* general info</summary>
 
 - ways to organize business login in an app
-![MVC](./images/mvc.jpg)
+- hierarchy
+  - model
+    - flat structure - all models are at the same level
+    - hierarchical structure - there are nested models, frequently the parent models are collections, mostly used for working with large applications
+  - view
+    - flat - all views init in one controller and work directly with it
+    - hierarchical - views are added directly into other views and build their hierarchy independently. Parent views could subscribe to child events and handle it in it's own way
+  - controller
+    - mega-controller - one big controller for the whole application (or for every screen), which describes all business logic
+    - HMVC - the system, where there are many nested controllers, abstractions for higher levels (c list - c elem)
+- low coupling
+  - model and view must be abstract and should not
+    - know about each other
+    - export only the abstract interface
+  - could not exist without high cohesion. If there are abstract modules, there should be logic, which connects them
+![MV*](./images/mv.jpg)
 
 </details>
 
 <details>
 <summary>MVC</summary>
+
+- Model - data, controls the view
+- View - components, low coupling
+- Controller - stores the business logic, meets model and view
+- Creation
+  - controller creates a model
+  - controller creates a view
+  - controller subscribes view to model changes
+  - model and view interact directly with each other
+- User interactions
+  - user interacts with a view
+  - view tells the controller about user actions
+  - controller calls model changes
+  - model updates the view via subscription
+- Load
+  - controller calls model update
+  - model loads data and tells the view about changes
+![MVC](./images/mvc.jpg)
+
+</details>
+
+<details>
+<summary>MVP</summary>
+
+- Model - data only, low coupled component
+- View - view only, low coupled component
+- Presenter - connects view and model, all the interactions go through presenter
+- Creation
+  - presenter creates model
+  - presenter creates view
+  - presenter subscribes to view changes
+  - presenter subscribes to model changes
+  - presenter directs binding between model and view
+  - listens to changes in both and calls the update methods
+![MVP](./images/mvp.jpg)
+
+</details>
+
+<details>
+<summary>MVVM</summary>
+
+- viewmodel creates model and view
+- viewmodel creates a binding between them
+- view and model states synchronize automatically
+![MVVM](./images/mvvm.jpg)
+
+</details>
+
+<details>
+<summary>Pattern Observer</summary>
+
+- the way to bind components so that they tell each other about changes
 
 </details>

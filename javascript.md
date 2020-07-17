@@ -752,32 +752,65 @@ const data = getResponse('https://data.com/users');
 
 </details>
   
-Async ES5 (callbacks)
+<details>
+<summary>Async ES5 (callbacks)</summary>
+
+- async - run the operation without blocking the main script process
+- minuses:
+  - complex interface, have to add all possible callbacks, difficult to make optional manipulation for some cases
+  - difficult to read the code, recreate the methods sequence is quite hard
+  - callback hell - several chained async methods turn into nested sequences of callbacks, too hard to support https://callbackhell.ru/
+```JavaScript
+const getResponse = (url, onload, onerror) => {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onload = () => onload(xhr.response);
+  xhr.onerror = () => onerror(xhr.status);
+  xhr.send();
+};
+
+getResponse('data.json',
+  (response) => console.log(response),
+  (errorStatus) => console.log(errorStatus)
+);
+```
+
+</details>
 Async ES6 (promises) 
 
 ## 17 - Http requests
 
-## 18 - Browser storage
+## 18 - Working with data
+<details>
+<summary>Issues</summary>
 
-## 19 - Meta-programming
+- user input - user can enter unsafe data for the view and UI has to be ready for it
+- storing and passing data formats could be different to the format needed on the UI, so we need to convert data in our app
+  - some ES6 objects (Date, Sets, Maps) could not be converted to JSON, so have to convert into standard data types (primitives, arrays, objects)
 
-## 20 - Performance and optimizations
+</details>
 
-## 21 - Security
+## 19 - Browser storage
 
-## 22 - Deploying
+## 20 - Meta-programming
 
-## 23 - Testing
+## 21 - Performance and optimizations
 
-## 24 - Debugging
+## 22 - Security
 
-## 25 - Browser support
+## 23 - Deploying
 
-## 26 - Tools and workflow
+## 24 - Testing
 
-## 27 - Libraries
+## 25 - Debugging
 
-## 28 - Frameworks
+## 26 - Browser support
+
+## 27 - Tools and workflow
+
+## 28 - Libraries
+
+## 29 - Frameworks
 
 ## Notes
 <details>

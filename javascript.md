@@ -69,6 +69,12 @@ const arr = [1, 2, 3, 4];
 ## 4 - Numbers
 
 ## 5 - Strings
+<details>
+<summary>How to remove duplicates?</summary>
+
+- easy way is to convert into an array and use `Set`
+
+</details>
 
 ## 6 - Iterables: Arrays
 <details>
@@ -331,6 +337,9 @@ const getWizard = (name, level) => ({
 </details>
 
 ## 9 - Scope
+<details>
+<summary>Notes</summary>
+
 - scope where the function runs
 - `this` links to current object in a `class`
 - depends on how the function is called
@@ -408,6 +417,8 @@ const customBind = function(fn, context) {
   };
 };
 ```
+
+</details>
 
 ## 10 - Constructors and prototypes
 <details>
@@ -722,6 +733,18 @@ import { nameOne, nameTwo } from './module-3.js';
 </details>
 
 ## 15 - DOM
+<details>
+<summary>Notes</summary>
+
+- browser searches DOM in depths, so that the first tag is being found (otherwise not obvious)
+- `querySelectorAll` `NodeList` static collection, DOM changes doesn't affect (nodes, not only DOM elements, also text, spaces, etc)
+- `parentElement.children` `HTMLCollection` all those collections are live (only DOM elements)
+- `getElementById` could be called only on `document`, not on element
+- `appendChild` removes the element from where it was and adds to the new place (need to clone not to be removed)
+- `element.cloneNode(boolean);` better to pass an argument (default could be different for some browsers)
+
+</details>
+
 <details>
 <summary>Working with styles in JS</summary>
 

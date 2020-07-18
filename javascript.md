@@ -722,6 +722,20 @@ import { nameOne, nameTwo } from './module-3.js';
 </details>
 
 ## 15 - DOM
+<details>
+<summary>Working with styles in JS</summary>
+
+- `style` to get styles but only the inline styles
+- `window.getComputedStyle` to get all styles applied to the element
+
+</details>
+
+<details>
+<summary>Show password case</summary>
+
+- change type of input from `password` to `text`
+
+</details>
 
 ## 16 - Events
 <details>
@@ -733,8 +747,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 17 - Async JavaScript (promises and callbacks, async/await)
-
+## 17 - Async JavaScript (promises and callbacks, async/await), http requests
 <details>
 <summary>Sync data loading</summary>
 
@@ -823,7 +836,124 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 17 - Http requests
+<details>
+<summary>Async Promise.all</summary>
+
+- when you need an array of requests at the same time (accepts an array of promises, runs at the same time, then calls when all the promises are resolved)
+- `Promise.then` could return
+  - just value/array - goes to the next promise
+  - object Promise
+  - array of values / promises - can turn into something else
+
+</details>
+
+<details>
+<summary>Async fetch</summary>
+
+- `fetch` is a wrapper above promise
+- function for sending/fetching data (`XMLHttpRequest` under hood)
+```JavaScript
+// response.json(); returns promise
+// resolves when the string will parse json into an object
+// if no 2nd param, get request, returns Promise
+// resolves into response object
+// if fetch => error, but the response is received,
+// fetch doesn't count it as a throw new Error (for catching inside catch)
+// and returns that response into then
+// because the request is fulfilled and response received from server
+// 404 / redirect / etc - for fetch those are normal server responses
+// so have to add our own status handling
+fetch('https://data.com', {
+  method: 'POST',
+  body: JSON.stringify({
+    'date': Date.now(),
+    'time': 402,
+    'lives': 3
+  }),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+```
+
+</details>
+
+<details>
+<summary>Http</summary>
+
+- Data transfer protocol - the way computer uses to exchange the information (there are many different protocols, in the web we use http)
+- HTTP - hypertext transfer protocol - client exchanges data with the server
+- HTTP request is always text
+- request to the server = text
+```
+GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+```
+- server response = text
+```
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: text/html
+Date: Tue, 24 Oct 2017 11:08:24 GMT
+Etag: "359670651+ident"
+Expires: Tue, 30 Oct 2017 11:08:24 GMT
+Last-Modified: Fri, 09 Aug 2016 23:23:35 GMT
+Server: ECS (dcs/53DB)
+Vary: Accept-Encoding
+X-Cache: HIT
+Content-Length: 1270
+
+<!doctype html>
+<html>
+  <head></head>
+  <body></body>
+</html>
+```
+
+</details>
+
+<details>
+<summary>Feedback in UI</summary>
+
+- When you sync data with a server, don't change control state, change only if the request was successful (returned 200+ codes)
+- View => Model => Server => Model => View
+
+Issues
+- click on favorites - gone on update, if there was an error response from server
+- comment doubles if you don't disable the submit button
+
+</details>
+
+## 17 - Authorization
+<details>
+<summary>Notes</summary>
+
+- restricts the access for different users
+
+</details>
+
+<details>
+<summary>Ways to identify a user</summary>
+
+- Identification - tell the site who you are
+- Authentication - (authentic - true, genuine) the confirmation that you are who you state you are
+- Authorization - check if you are allowed to get access to some parts of the website or webapp
+
+</details>
+
+<details>
+<summary>Authorization order</summary>
+
+1. Identification - user enters login and password
+2. Authentication - server checks if the login and password are correct and gives a token (access to the web app, often holds the rules and never stores open)
+3. Authorization - you give the token to the server and the server decides whether to give you an access or not
+  - 200 - success, allowed
+  - 401 - unauthorized
+  - 403 - not enough rights
+
+</details>
 
 ## 18 - Working with data
 <details>

@@ -776,7 +776,14 @@ getResponse('data.json',
 ```
 
 </details>
-Async ES6 (promises) 
+<details>
+<summary>Async ES6 (promises)</summary>
+
+- promise is a way to work with an async function as if it's sync
+- returns an object, which replaces returned value, which is still undefined when the function already executed
+<img src="./images/promise.jpg" alt="promises" width="300">
+
+</details>
 
 ## 17 - Http requests
 

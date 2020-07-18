@@ -781,7 +781,45 @@ getResponse('data.json',
 
 - promise is a way to work with an async function as if it's sync
 - returns an object, which replaces returned value, which is still undefined when the function already executed
-<img src="./images/promise.jpg" alt="promises" width="300">
+- different states if a promise object
+<img src="./images/promise.jpg" alt="promises" width="400">
+
+```JavaScript
+const getResponse = (url) => new Promise(
+  (resolve, reject) => {
+    // Object => Pending...
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = () => resolve(xhr.response); // Object => Fulfilled
+    xhr.onerror = () => reject(xhr.status); // Object => Rejected
+    xhr.send();
+  }
+);
+
+getResponse('data.json')
+  // callback on success
+  // could work with several promises
+  // returns new Promise()
+  .then(
+    (data) => console.log(data),
+    // but better to use catch
+    (error) => console.warning(error)
+  );
+
+getResponse('data.json')
+  // if there is anywhere in then chain throw new Error
+  // it's going to be caught in catch
+  .then((data) => console.log(data))
+  // catches all the errors before
+  .catch((error) => console.warning(error));
+
+// you can work with promises chaining then
+// every then returns a promise, where we can also call then
+Promise.resolve('a') // 'a'
+  .then((val) => val.concat('b')) // 'ab'
+  .then((val) => val.concat('c')) // 'abc'
+  .then((val) => val.concat('d')); // 'abcd'
+```
 
 </details>
 

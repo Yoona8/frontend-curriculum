@@ -3,7 +3,7 @@
 ## Content
 - [HTML](html.md)
 - [CSS](css.md)
-- A11y
+- [A11y](a11y.md)
 - [Graphics](graphics.md)
 - [JavaScript](javascript.md)
 - [OOP](oop.md)

@@ -420,6 +420,13 @@ const customBind = function(fn, context) {
 
 </details>
 
+if obj.getThis4 = obj.getThis2.bind(obj); then here obj.getThis4.call(a); we get this === obj instead of a (respects the first binding)
+if created like that, always returns undefined (arrow functions have never their own this, only lexical scope's this, even if we use call or bind)
+const obj = {
+    getThis: () => this;
+};
+if we use new keyword to create an instance, lexical this will be the object (binds this in the constructor)
+
 ## 10 - Constructors and prototypes
 <details>
 <summary>Notes</summary>
@@ -1015,5 +1022,8 @@ Issues
 <summary>Other</summary>
 
 - cycle is more optimal than a recursion (call stack overflow), any recursion could be rewritten into a cycle
+- you can also use `element.textContent++;` instead of `element.textContent = element.textContent++;
+- `parent.append(child);` removes child and moves to the new place (if existed)
+- `data-cat-name="Cat"` access from JS `element.dataset.catName`
 
 </details>

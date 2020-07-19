@@ -33,6 +33,18 @@ Content sectioning
 |`<audio>`|- almost like a video<br>- `controls`, `autoplay` boolean attributes<br>- source types: `MP3`, `OGG`|:seedling:|
 |`<source>`|- set `src="video.mp4"`, `type="video/mp4"` diff available, first loads first which could be played|:seedling:|
 
+- a11y for complex images (graphs or alike)
+- use short and long descriptions
+<img src="#" alt="short description" longdesc="#long-desc">
+<!--or-->
+<img src="#" alt="short description" aria-labelledby="#long-desc">
+<p id="long-desc">Long description here.</p>
+use figure
+<figure>
+ <img src="#" alt="short description">
+ <figcaption>Long description here.</figcaption>
+</figure>
+
 Scripts
 
 ## Tables
@@ -144,3 +156,5 @@ Web components
 ```
 
 </details>
+
+- `target="_blank" rel="noopener"` to avoid fishing

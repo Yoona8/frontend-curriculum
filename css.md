@@ -37,6 +37,7 @@
 |`:invalid`||:deciduous_tree:|
 |`:in-range`||:seedling:|
 |`:out-of-range`||:seedling:|
+|`:lang(ko)`|styling on lang attributes|:seedling:|
 
 </details>
 
@@ -76,7 +77,14 @@
 
 </details>
 
-3 - Colors
+## 3 - Colors
+<details>
+<summary>Notes</summary>
+
+- `color: currentColor` to reset color to normal text color
+
+</details>
+
 4 - Variables
 5 - Functions
 6 - Media Queries

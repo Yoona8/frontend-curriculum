@@ -87,6 +87,7 @@ export class AppComponent {}
 import { NgModule } from '@angular/core';
 // needed to use two-way binding
 import { FormsModule } from '@angular/forms';
+import { NameComponent } from './components/name/name.component';
 
 @NgModule({
   declarations: [NameComponent],

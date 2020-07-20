@@ -22,6 +22,7 @@
 - Web components
 - [Dev tools](dev-tools.md)
 - [Webpack](webpack.md)
+- [Optimizations](optimizations.md)
 
 ## Reference
 <details>

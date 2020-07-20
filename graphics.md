@@ -1,9 +1,8 @@
 # Graphics
 
 ## 1 - SVG
-### 1.1 - Basics
 <details>
-<summary>Notes</summary>
+<summary>Basics</summary>
 
 - all tags should be closed
 - `<svg width="100" height="200"></svg>` `px` default or `%`
@@ -30,9 +29,8 @@
 
 </details>
 
-### 1.2 - Shapes
 <details>
-<summary>Table</summary>
+<summary>Shapes</summary>
 
 |Tag|Parameters|Notes|Level|
 |---|----------|-----|:---:|
@@ -45,9 +43,8 @@
 
 </details>
 
-### 1.3 - Attribute and CSS styling
 <details>
-<summary>Table</summary>
+<summary>Attribute and CSS styling</summary>
 
 |Attribute|Property|Notes|Level|
 |---------|--------|-----|:---:|
@@ -62,20 +59,24 @@
 |`stroke-dashoffset="10"`|`stroke-dashoffset: 1;`|move of dasharray +-|:seedling:|
 </details>
 
-### 1.4 - Optimization
 <details>
-<summary>Notes</summary>
+<summary>Optimization</summary>
 
 - use fewer nodes
 - fewer handlers
 - integer numbers
 - not too big grid
 
+Compressing smaller raw data would probably produce smaller compressed data.
+Fewer distinct characters means less entropy. Less entropy is better compression.
+More frequently found characters are compressed with less number of bits. Getting rid of less common characters and making the more common chars to be even more common would most probably improve the compression.
+Long runs of duplicated code are compressed with a few bits. DRY is not always the best option. Sometimes you’d like to repeat yourself to get better results.
+Sometimes more raw data will produce smaller compressed data. Removing entropy will allow the compressor to better remove what is redundant.
+
 </details>
 
-### 1.5 - Sprites
 <details>
-<summary>Notes</summary>
+<summary>Sprites</summary>
 
 - HTML inline sprites `<svg style="display: none;"><symbol></symbol></svg>`
     - minus: doesn't cache in the browser
@@ -86,5 +87,17 @@
     - can't change svg style properties
 - using SVG fragment ids and views
     - bugs in safari
+
+</details>
+
+<details>
+<summary>SVG as a placeholder for images</summary>
+
+nothing - just add sizes for browser not to re-render
+placeholder static - ex. a person svg for a person avatar
+solid color or gradient most suitable colors for the image
+svg simple shapes (vary 10-100), could be heavy
+svg simple shapes + blur filter more light and smooth
+svg silhouettes even with 2 colors look nice
 
 </details>

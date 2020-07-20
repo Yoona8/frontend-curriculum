@@ -100,6 +100,7 @@ const items = [...elements, ...values];
 |Method|Notes|Level|
 |------|-----|:---:|
 |`arr.sort()`|changes the initial array|:deciduous_tree:|
+|`arr.splice()`|changes the initial array|:deciduous_tree:|
 |`arr.filter()`|creates a new array|:deciduous_tree:|
 |`arr.slice()`|creates a new array|:deciduous_tree:|
 |`arr.map()`|creates a new array|:deciduous_tree:|

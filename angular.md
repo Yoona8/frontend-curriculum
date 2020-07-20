@@ -80,26 +80,20 @@ export class AppComponent {}
 
 ## 3 - Components
 <details>
-<summary>Notes</summary>
-
-- `declarations: [NameComponent]` add to module
-- `<app-name></app-name>` or `<p appDir></p>` or `<p class="class"></p>` add to view
-- data-binding - communication between business logic and view
-- updates dynamically at runtime
-- event-binding - reaction to events
-- two-way binding - needs a FormsModule
+<summary>Component creation and data binding</summary>
 
 ```TypeScript
 // app/app.module.ts
 import { NgModule } from '@angular/core';
+// needed to use two-way binding
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
+  declarations: [NameComponent],
   imports: [FormsModule]
 })
 export class AppModule {}
 ```
-
 ```TypeScript
 // app/components/name/name.component.ts
 import { Component } from '@angular/core';
@@ -127,11 +121,13 @@ export class NameComponent {
 ```
 ```HTML
 <!-- app/components/name/name.component.html -->
-
-<!-- data-binding -->
+<app-name></app-name>
+<p appDir></p>
+<p class="class"></p>
+<!-- data-binding - communication between business logic and view -->
 <!-- no multiline expressions -->
 <!-- resolved to a string -->
-<!-- updated dynamically -->
+<!-- updated dynamically at runtime -->
 <!-- string interpolation -->
 <p>{{ title }}</p> <!-- Hello from name component! -->
 <!-- property binding -->
@@ -139,7 +135,7 @@ export class NameComponent {
 <!-- DON'T! improper usage -->
 <p [innerText]="{{ title }}"></p>
 
-<!-- event-binding -->
+<!-- event-binding - reaction to events -->
 <!-- $event - browser event of type Event -->
 <button type="button" (click)="onButtonClick($event)">Click</button>
 
@@ -148,6 +144,34 @@ export class NameComponent {
 <!-- when BL is updated programmatically, updates the input -->
 <input type="text" [(ngModel)]="name">
 <p>{{ name }}</p>
+```
+
+</details>
+
+<details>
+<summary>Binding to custom properties</summary>
+
+- to pass value from parent to child component
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p></p>'
+})
+export class ChildComponent {
+  // to allow access from the outside
+  // (by default props are accessible
+  // only from the inside of the component)
+  // if object = same object (reference type)
+  @Input() user: object;
+  @Input('fieldLabel') label: string;
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<app-child [user]="{ name: 'Lala' }" fieldLabel="E-mail"></app-child>
 ```
 
 </details>

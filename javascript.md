@@ -1004,6 +1004,37 @@ Issues
 
 ## 22 - Security
 
+## 23 - Regular expressions
+<details>
+<summary>Notes</summary>
+
+- `myRegEx.test(myString);` to check if any part of the string matches
+- `myString.match(myRegEx);` to check if there is this part in a string and extract it (returns `['matching part']`)
+- case matters `/Kevin/` !== `/kevin/`
+- add `i` flag to ignore the case `/kevin/i`
+- add `g` flag to search or extract a pattern more than once `/little/g`, match returns `['match', 'match']` or more items
+- to alternate search use `|` `/yes|no/`
+- if you wanted to match "hug", "huh", "hut", and "hum", you can use the regex `/hu./` to match all four words (wildcard `.` matches any one character)
+- `/[abc]/` character classes to define a group of characters you wish to match, ex "bag", "big", and "bug" but not "bog" `/b[aiu]g/`
+- `/[a-e]/` works the same as character classes but given a group of characters to match
+- `/[0-9]/` for numbers
+- `/[a-e0-9]/` for numbers and letters
+- `/[^aeiou]/gi` to create a negated character set, you place a caret character after the opening bracket and before the characters you do not want to match
+- `+` the character or pattern has to be present consecutively (the character has to repeat one after the other) `/a+/g` will match 
+  - `['a']` - `"abc"`
+  - `['aa']` - `"aabc"`
+  - `['a', 'a']` - `"abab"`
+- `*` for 0 or more occurrence `/go*/`
+- `/t[a-z]*i/` is greedy and matches the largest substring, ex `titanic` => `['titani']`
+- `/t[a-z]*?i/` lazy matching `titanic` => `['ti']`
+- `/^a/` matches the beginning of a string
+- `/a$/` matches the ending of a string
+- `/\w/` === `/[A-Za-z0-9_]/`
+- `/\W/` the opposite to `/\w/`
+- `/\d/` for numbers 
+
+</details>
+
 ## 23 - Deploying
 
 ## 24 - Testing

@@ -1380,6 +1380,75 @@ public fetchPosts() {
 
 </details>
 
+<details>
+<summary>Using a service for http requests</summary>
+
+- it's better to use service for http handling and let the component be simple, only handling the template work
+- move functions
+```TypeScript
+storePost(title: string, content: string) {
+  // http.post() here
+}
+
+fetchPosts() {
+  // http.get() here
+}
+```
+- if the components are not interested in receiving data, can subscribe in service
+- if data needed in the component, `return get/post` and don't subscribe
+- or use `Subject` and `.next` method
+- where using loader and fetching, don't forget to reset `isLoading` to `true` first!
+
+</details>
+
+<details>
+<summary>Sending a delete request</summary>
+
+- not always allowed by backend API
+- add delete method to the service
+```TypeScript
+deletePosts() {
+  return this.http.delete('url');
+}
+```
+- get the data (subscribe to null the array) from component
+```TypeScript
+onClearPosts() {
+  this.postsService.deletePosts().subscribe(() => this.posts = []);
+}
+```
+
+</details>
+
+<details>
+<summary>Handling errors</summary>
+
+- firebase settings to rules (simulate error to test)
+- add a reaction to an error (different ways)
+- pass 2nd argument to subscribe method, which handles error
+```TypeScript
+(error) => this.error = error.message;
+```
+- subject for using error handling (especially for cases when we do not subscribe in the components)
+- add to service
+```TypeScript
+error = new Subject<string>(); // from rxjs
+...
+(error) => this.error.next(error.message);
+```
+- and subscribe in the component
+```TypeScript
+this.errorSub = this.postsService.error.subscribe((errorMsg) => {
+  this.error = errorMsg; 
+});
+
+ngOnDestroy() {
+  this.errorSub.unsubscribe();
+}
+```
+
+</details>
+
 ## 14 - Authentication
 ## 15 - Offline
 ## 16 - Testing

@@ -1638,6 +1638,7 @@ providers: [{
 <summary>General info</summary>
 
 <img width="500" src="./images/auth.jpg" alt="authentication process">
+
 - user enters data on client
   - can't check on client
   - insecure

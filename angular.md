@@ -1637,7 +1637,7 @@ providers: [{
 <details>
 <summary>General info</summary>
 
-<img src="./images/auth.jpg" alt="authentication process">
+<img width="500" src="./images/auth.jpg" alt="authentication process">
 
 </details>
 

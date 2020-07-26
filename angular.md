@@ -1477,7 +1477,7 @@ ngOnDestroy() {
 </details>
 
 <details>
-<summary>Setting headers<summary>
+<summary>Setting headers</summary>
 
 - for auth (ex), some custom headers etc. (depends on server API)
 - any http method has the last argument (post - 3rd) (get - 2nd), which is an object with some configurations

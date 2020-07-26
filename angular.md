@@ -1615,6 +1615,24 @@ return next.handle(modifiedReq)
 
 </details>
 
+<details>
+<summary>Multiple interceptors</summary>
+
+- the order in the app module matters, the first will be executed first
+```TypeScript
+providers: [{
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptorService,
+  multi: true
+}, {
+  provide: HTTP_INTERCEPTORS,
+  useClass: LoggingInterceptorService,
+  multi: true
+}]
+```
+
+</details>
+
 ## 15 - Authentication
 ## 16 - Offline
 ## 17 - Testing

@@ -1634,6 +1634,13 @@ providers: [{
 </details>
 
 ## 15 - Authentication
+<details>
+<summary>General info</summary>
+
+<img src="./images/auth.jpg" alt="authentication process">
+
+</details>
+
 ## 16 - Offline
 ## 17 - Testing
 

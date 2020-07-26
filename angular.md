@@ -1638,6 +1638,20 @@ providers: [{
 <summary>General info</summary>
 
 <img width="500" src="./images/auth.jpg" alt="authentication process">
+- user enters data on client
+  - can't check on client
+  - insecure
+- send auth data to server to authenticate the user
+- server validates user
+  - if valid - sends a token to client (json web-token typically)
+  - encoded (not encrypted) - string with lots of metadata
+  - could be unpacked and read by a client
+  - generated on the server with secret algorithm only server knows, so only the server can validate the incoming token for validity
+- client stores token in browser localStorage
+- when one more time client sends to a server a request, it attaches the stored token in header or query param
+- can't generate, edit or change the token on the client (not secure!)
+
+- traditionally (not SPA) we work with session (stored on server, state existed), in stateless server and client don't know about each other
 
 </details>
 

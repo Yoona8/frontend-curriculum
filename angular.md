@@ -1548,11 +1548,78 @@ if (event.type === HttpEventType.response) {...}
 
 </details>
 
-## 14 - Authentication
-## 15 - Offline
-## 16 - Testing
+## 14 - Interceptors
+<details>
+<summary>General info</summary>
 
-## 17 - Debugging
+- when to use? for ex when we want to attach the same custom header to all our requests, more realistic when we need to auth user and send a header
+- `auth-interceptor.service.ts` export `AuthInterceptorService`
+- `implements HttpInterceptor` from `@angular/common/http`
+```TypeScript
+// next - function, which will forward the request
+intercept(req: HttpRequest<any>, next) {...}
+```
+- interceptor runs a code before the request lives our app, we need to add next to allow the request continue its journey, otherwise error
+```TypeScript
+{
+  console.log('Request is on its way');
+  return next.handle(req);
+}
+```
+- provide in app module in a special way
+```TypeScript
+providers: [{
+  // from '@angular/common/http
+  // a token how ang identifies that should be treated
+  // as an http interceptor and run in the whole app
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptorService,
+  // if > 1 interceptors
+  multi: true
+}]
+```
+- angular by default will run the interceptor with all the http methods, but we can configure the restriction inside the interceptor function
+```TypeScript
+intercept(...) {
+  if (req.url === '...') {
+    // do something
+  }
+}
+```
+- inside we can modify the request object (case with added headers), but req object itself is immutable
+```TypeScript
+const modifiedReq = req.clone({
+  url: '...',
+  headers: req.headers.append('Auth', 'some-value')
+});
+return next.handle(modifiedReq);
+```
+
+</details>
+
+<details>
+<summary>Response interceptors</summary>
+
+- add something to `return next...` of the intercept function
+```TypeScript
+return next.handle(modifiedReq)
+  // here in the interceptor we always get the events,
+  // no matter what was chosen on the request http method
+  .pipe(tap((event) => {
+    if (event.type === HttpEventType.response) {
+      console.log(event.body);
+    }
+  }));
+```
+- be careful not to change data to break the application
+
+</details>
+
+## 15 - Authentication
+## 16 - Offline
+## 17 - Testing
+
+## 18 - Debugging
 <details>
 <summary>Notes</summary>
 
@@ -1564,6 +1631,6 @@ if (event.type === HttpEventType.response) {...}
 
 </details>
 
-## 18 - Deploy
-## 19 - Animation
-## 20 - Universal
+## 19 - Deploy
+## 20 - Animation
+## 21 - Universal

@@ -1031,7 +1031,17 @@ Issues
 - `/a$/` matches the ending of a string
 - `/\w/` === `/[A-Za-z0-9_]/`
 - `/\W/` the opposite to `/\w/`
-- `/\d/` for numbers 
+- `/\d/` for numbers and `/\D/` is an opposite
+- `/\s/` not only matches whitespace, but also carriage return, tab, form feed, and new line characters === character class `/[ \r\t\f\n\v]/` `/\S/` is an opposite
+- `/a{3,5}h/` to match only the letter a appearing between 3 and 5 times in the string "ah"
+- `/ha{3,}h/` to specify only the lower count
+- `/ha{3}h/` exact number of matches
+- `/u?/` checks for zero or one of the preceding element, you can think of this symbol as saying the previous element is optional
+- `/q(?=u)/` => `['q']` positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it
+- `/q(?!u)/` => `['q']` negative lookahead will look to make sure the element is not there, won't match it
+- `/(a|b)/` are used to group patterns
+- () are used to find repeat substrings
+- `/(\w+)\s\1/` matches any word that occurs twice separated by a space, `.match()` method on a string will return an array with the string it matches, along with its capture group
 
 </details>
 

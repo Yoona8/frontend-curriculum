@@ -1449,6 +1449,105 @@ ngOnDestroy() {
 
 </details>
 
+<details>
+<summary>Cases when error can occur in different situations</summary>
+
+- there is also an operator to assist with errors, for example when we pipe data (not always http related)
+- `throwError` from `rxjs/operators` is specific for this case also possible, wraps error into observable
+```TypeScript
+{ return throwError(errorResult); } // inside catchError
+```
+```TypeScript
+// from 'rxjs/operators'
+// need to pass something, which could be subscribed to (need to subscribe)
+// subject if possible
+.pipe(map(...), catchError(errorResponse => {
+  // do something with the error (analytics or UI)
+}));
+```
+
+</details>
+
+<details>
+<summary>Good practice for UI handling errors</summary>
+
+- add a button to remove an error from the UI
+- don't forget to reset isLoading and other props for correct messages on the view
+
+</details>
+
+<details>
+<summary>Setting headers<summary>
+
+- for auth (ex), some custom headers etc. (depends on server API)
+- any http method has the last argument (post - 3rd) (get - 2nd), which is an object with some configurations
+```TypeScript
+// from '@angular/common/http
+{ headers: new HttpHeaders ({
+  'Custom header': 'Hello'
+}) }
+```
+
+</details>
+
+<details>
+<summary>Setting query parameters</summary>
+
+- also depends on what parameters are supported by server API
+- add to the same object as for headers
+```TypeScript
+{
+  params: new HttpParams().set('print', 'pretty')
+}
+```
+- works the same as if you add `?print=pretty` to the URL, but params is more clear and better
+- for more params
+```TypeScript
+let params = new HttpParams();
+// append returns a new object
+params = params.append('print', 'pretty');
+params = params.append('custom', 'value');
+{
+  params: params
+}
+```
+
+</details>
+
+<details>
+<summary>Observing different types of responses</summary>
+
+- for the cases when we need not / not only body, but other props of response data (headers, status, etc)
+- added to the same config object as query params or headers
+```TypeScript
+{
+  observe: 'body' // default
+  observe: 'response' // whole response
+  observe: 'events' // a series of events encoded with numbers
+  // like 4 = response
+}
+.pipe(tap(event => console.log(event)));
+if (event.type === HttpEventType.response) {...}
+```
+- for ex needed to give info to the user if something is being sent etc
+
+</details>
+
+<details>
+<summary>Changing the response body type</summary>
+
+- also added to the same config object as headers etc
+```TypeScript
+{
+  responseType: 'json' // default
+  responseType: 'text'
+  responseType: 'blob'
+  ...
+}
+```
+
+</details>
+
 ## 14 - Authentication
 ## 15 - Offline
 ## 16 - Testing

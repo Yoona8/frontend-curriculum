@@ -73,6 +73,8 @@ More frequently found characters are compressed with less number of bits. Gettin
 Long runs of duplicated code are compressed with a few bits. DRY is not always the best option. Sometimes you’d like to repeat yourself to get better results.
 Sometimes more raw data will produce smaller compressed data. Removing entropy will allow the compressor to better remove what is redundant.
 
+- [Optimising SVGs for Web Use](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)
+
 </details>
 
 <details>

@@ -1,7 +1,6 @@
 # CSS
 
 ## Content (yet to add)
-- 3 Colors
 - 4 Variables
 - 5 Functions
 - 6 Media Queries
@@ -154,6 +153,13 @@
 |`grid-row-start: 5;`|starts from 5 horizontal line, if end is undefined, ends on next line|:seedling:|
 |`grid-row-end: 7;`||:seedling:|
 |`grid-row: 5 / 7;`|- start / end<br>- when used without 2nd param, will behave like `-start` property|:seedling:|
+
+</details>
+
+<details>
+<summary>More read</summary>
+
+- [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 </details>
 

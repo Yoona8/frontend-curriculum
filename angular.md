@@ -29,7 +29,7 @@ ng g d <directive-name>
 <details>
 <summary>Notes</summary>
 
-- don't import with .ts extensions, webpack adds it
+- don't import with `.ts` extensions, webpack adds it
 ```TypeScript
 // main.ts
 import { enableProdMode } from '@angular/core';
@@ -329,12 +329,6 @@ export class SomeDirective implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: string = transparent;
   // won't work on init
   @HostBinding('style.backgroundColor') backgroundColor: string = this.defaultColor;
-
-  constructor(private renderer: Renderer2) {}
-
-  // have to set color here
-  ngOnInit() { this.backgroundColor = this.defaultColor; }
-
   // works like adding an event listener on the tag, where the directive is used
   @HostListener('mouseenter') hover(eventData: Event) {
     this.renderer.setStyle(...);
@@ -342,7 +336,10 @@ export class SomeDirective implements OnInit {
     this.backgroundColor = 'blue';
   }
 
-  
+  constructor(private renderer: Renderer2) {}
+
+  // have to set color here to work on init
+  ngOnInit() { this.backgroundColor = this.defaultColor; }
 }
 ```
 
@@ -352,7 +349,7 @@ export class SomeDirective implements OnInit {
 <summary>Structural custom</summary>
 
 - `ng g d directive_name` to generate directive with Angular CLI
-```html
+```HTML
 <div *ngIf="condition">
   <p>Some content</p>
 </div>
@@ -381,7 +378,10 @@ export class UnlessDirective {
     }
   }
 
-  constructor(private vcRef: ViewContainerRef, private templateRef: TemplateRef<any>) {}
+  constructor(
+    private vcRef: ViewContainerRef, 
+    private templateRef: TemplateRef<any>
+  ) {}
 }
 ```
 - `<div *appUnless="condition">...</div>` to use
@@ -1656,6 +1656,157 @@ providers: [{
 
 </details>
 
+<details>
+<summary>Adding a sign up request</summary>
+
+- `auth.service.ts` `AuthService`
+- `@Injectable()` from `@angular/core`
+- `constructor(private http: HttpClient) {}` inject http service from `@angular/http`
+- add the interface of response data (good practice)
+- add method to a class
+```TypeScript
+signup(email, password) {
+  return this.http.post<AuthResponseData>('url', {
+    email,
+    password
+  });
+}
+```
+
+</details>
+
+<details>
+<summary>Sending the sign up request</summary>
+
+- in the form containing the component
+```TypeScript
+onSubmit() {
+  if (!form.valid) {
+    return;
+  }
+
+  const {email, password} = form.value;
+
+  this.authService.signup(email, password)
+    .subscribe(data => console.log(data), error => {});
+
+  form.reset();
+}
+```
+- inject the service `constructor(private authService: AuthService) {}`
+- don't forget to add `isLoggedIn` logic
+
+</details>
+
+<details>
+<summary>Adding loading spinner</summary>
+
+- add prop on top `isLoading = false;`
+- on submit before sending the request set to true
+- and back to false on success or errors
+
+</details>
+
+<details>
+<summary>Adding an error handling</summary>
+
+- add prop on top `error: string = null;`
+- set an error message in error handler of the http request
+- for custom error handling better to use in service with operator `catchError/throwError` (because have to wrap an observable to pass to the subscribe)
+- in service add after the request
+```TypeScript
+.pipe(catchError(errorRes => {
+  let errorMessage = 'Some default error message';
+
+  if (!errorRes.error || !errorRes.error.error) {
+    return throwError(errorMessage);
+  }
+
+  switch(errorRes.error.error) {
+    case 'EMAIL_EXISTS':
+      errorMessage = 'Email exists';
+      break;
+  }
+
+  return throwError(errorMessage);
+}))
+```
+
+</details>
+
+<details>
+<summary>Login handling</summary>
+
+- also when 2 similar subscriptions handling
+```TypeScript
+onSubmit() {
+  // ...
+  let authObservable: Observable<AuthResponseData>;
+
+  if (this.isLoginMode) {
+    authObservable = this.authService.login(email, password);
+  } else {
+    authObservable = this.authService.signup(email, password);
+  }
+
+  authObservable.subscribe();
+}
+```
+
+</details>
+
+<details>
+<summary>Handling errors in separate method</summary>
+
+- remove code from `.pipe(catchError(...))` to other method
+```TypeScript
+// from @angular/http
+private handleError(errorRes: HttpErrorResponse) {}
+```
+- use where we need to catch an error `catchError(this.handleError)`
+
+</details>
+
+<details>
+<summary>Creating and storing user data</summary>
+
+- create a user model (with user data and validation if token exists and not expired)
+```TypeScript
+export class User {
+  constructor(
+    public email: string,
+    public id: string,
+    private _token: string,
+    private _tokenExpirationDate: Date
+  ) {}
+}
+
+get token () {
+  if (!this._tokenExpirationDate 
+    || new Date() > this._tokenExpirationDate) {
+      return null;
+    }
+
+    return this._token;
+}
+```
+- add a user subject in the auth service `user = new Subject<User>();`
+- emit a new user every time the user changes (login / logout / exp date / etc.)
+- add tap operator after catchError for handling user data
+```TypeScript
+private handleAuthentication(email: string, id: string, token: string, expIn: number) {
+  const expDate = new Date(new Date.getTime() + expIn * 1000);
+  const user = new User(email, id, token, expDate);
+
+  this.user.next(user);
+}
+
+tap(this.handleAuthentication());
+```
+
+
+</details>
+
 ## 16 - Offline
 ## 17 - Testing
 
@@ -1672,5 +1823,16 @@ providers: [{
 </details>
 
 ## 19 - Deploy
+
+<details>
+<summary>Order</summary>
+
+1. Use and check environment variables
+2. Polish the code
+3. `ng build --prod` uses ahead-of-time compilation
+4. Deploy built artifacts (generated files) to static host (because it's only html css and js)
+
+</details>
+
 ## 20 - Animation
 ## 21 - Universal

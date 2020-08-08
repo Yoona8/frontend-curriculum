@@ -427,6 +427,7 @@ const obj = {
     getThis: () => this;
 };
 if we use new keyword to create an instance, lexical this will be the object (binds this in the constructor)
+- [What is `this`? The Inner Workings of JavaScript Objects](https://medium.com/javascript-scene/what-is-this-the-inner-workings-of-javascript-objects-d397bfa0708a)
 
 ## 10 - Constructors and prototypes
 <details>

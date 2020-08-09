@@ -1804,6 +1804,38 @@ private handleAuthentication(email: string, id: string, token: string, expIn: nu
 tap(this.handleAuthentication());
 ```
 
+</details>
+
+<details>
+<summary>Reflecting the Auth status in the UI</summary>
+
+- add user navigation on success of login (not in the service is better if you don't want to mix UI and service)
+```TypeScript
+// AuthComponent
+// from @angular/router
+constructor(private router: Router) {}
+
+resData => {
+  // ...
+  this.router.navigate(...);
+}
+```
+- change controls in the header (and other dependable UI), add logout button (later based on token, for now on user)
+```TypeScript
+// HeaderComponent
+constructor(private authService: AuthService) {}
+
+ngOnInit() {
+  this.userSub = this.authService.user.subscribe(
+    user => this.isAuth = !!user
+  );
+}
+
+ngOnDestroy() {
+  this.useSub.unsubscribe();
+}
+```
+- update the logic on the UI with `*ngIf`
 
 </details>
 

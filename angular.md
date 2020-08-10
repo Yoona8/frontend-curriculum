@@ -1941,6 +1941,68 @@ autoLogin() {
 
 </details>
 
+<details>
+<summary>Adding auto logout</summary>
+
+- need to clear user on token expired
+- in auth service in logout clear the `localStorage.removeItem('userData');`
+- set a timer for auto logout
+```TypeScript
+autoLogout(expirationDuration: number) {
+  this.logoutTimer = setTimeout(() => {
+    this.logout();
+  }, expirationDuration);
+}
+```
+- clear the timer in logout (in case it still exists)
+```TypeScript
+logout() {
+  // ...
+  if (this.logoutTimer) {
+    clearTimeout(this.logoutTimer);
+  }
+  this.logoutTimer = null;
+}
+```
+- call autologout every time we emit new user
+
+</details>
+
+<details>
+<summary>Adding AuthGuard</summary>
+
+- to prevent visiting for unauthorized users
+- add `auth.guard.ts`
+```TypeScript
+// AuthGuard
+implements CanActivate {
+  canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot):
+    boolean |
+    Promise<boolean> |
+    Observable<boolean> {
+    return this.authService.user.pipe(map(user => !!user));
+  }
+}
+```
+- but we want to navigate
+  - earlier with `tap` operator
+  - now with `urlTree`
+```TypeScript
+<boolean | urlTree>
+map(user => {
+  const isAuth = !!user;
+
+  if (isAuth) {
+    return true;
+  }
+
+  return this.router.createUrlTree(['/auth']);
+});
+```
+- don't set constant subscription, add `take(1)` before map
+
+</details>
+
 ## 16 - Offline
 ## 17 - Testing
 

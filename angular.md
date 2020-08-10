@@ -1911,6 +1911,36 @@ logout() {
 
 </details>
 
+<details>
+<summary>Adding auto-login</summary>
+
+- to keep the logged in state on reload
+- store user either in `localStorage` or use cookie
+- in `handleAuth` inside `AuthService` add save to local storage
+```TypeScript
+localStorage.setItem('userData', JSON.stringify(user));
+```
+- add autoLogin method
+```TypeScript
+autoLogin() {
+  const userData = JSON.parse(localStorage.getItem('userData'));
+
+  if (!userData) {
+    return;
+  }
+
+  const loadedUser = new User(userData.email, ...);
+
+  if (loadedUser.token) {
+    this.user.next(loadedUser);
+  }
+}
+```
+- convert date string into Date (in JSON it's a string)
+- use the method inside app component (first entry basically)
+
+</details>
+
 ## 16 - Offline
 ## 17 - Testing
 

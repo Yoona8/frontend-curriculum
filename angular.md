@@ -1870,6 +1870,32 @@ this.authService.user.pipe(take(1)).subscribe();
 
 </details>
 
+<details>
+<summary>Attaching the token with an interceptor</summary>
+
+- don't add `{providedIn: 'root'}`, interceptors provided differently
+```TypeScript
+// auth-interceptor.service.ts
+// AuthInterceptorService
+// @angular/common/http
+implements HttpInterceptor
+intercept(req: HttpRequest<any>, next: HttpHandler) {
+  return next.handle(req);
+}
+```
+- inject `AuthService` to get user and `this.authService.user.subscribe();`
+- use `exhaustMap()` to return a request observable
+```TypeScript
+const modReq = req.clone({params: ...});
+exhaustMap(user => next.handle(modReq));
+```
+- now interceptor will add token to all outgoing requests
+- provide in module `HTTP_INTERCEPTORS`
+- can specify either url or `if (!user) { return next.handle(req); }`
+- fails on login because we have no user yet (= null in `BehaviorSubject`)
+
+</details>
+
 ## 16 - Offline
 ## 17 - Testing
 

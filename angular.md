@@ -1839,6 +1839,37 @@ ngOnDestroy() {
 
 </details>
 
+<details>
+<summary>Adding the token to outgoing requests</summary>
+
+- In the data-storage.service.ts
+```TypeScript
+// DataStorageService
+constructor(private authService: AuthService) {}
+```
+- Update auth service to be able to fetch data about user on demand
+  - can store token in a variable, but there is a better way
+  - use `BehaviorSubject` almost = `Subject` but gives the subscribers immediate access to the previously emitted value even if they haven't subscribed at the point of time when the value was emitted. That means we can get access to the currently active user even if we only subscribe after that user has been emitted, so when we fetch data and we only need the token at this point even if the user logged in before that time, we get the access to this latest user, therefore `BehaviorSubject` needs to be initialized with the starting value.
+- Add to the data storage service where we fetch recipes. Operator `take()` gives the value `(1)` time and automatically unsubscribes. Because we need the user only when we fetch recipes, but not constantly.
+```TypeScript
+this.authService.user.pipe(take(1)).subscribe();
+```
+- Pipe user observable and http observable into one bigger observable. `exhaustMap()` waits for the 1st observable (user) to complete after we `take(1)` user, `exhaustMap(user => this.http...)` observable will replace out user observable in the higher observable chain
+```TypeScript
+....user.pipe(take(1), exhaustMap(user => this.http...), map(recipes => {}));
+```
+- Add the token either as a query string (param) or in the second argument of the `http` method
+```TypeScript
+'....json?auth=' + user.token
+{
+  // from @angular/common/http
+  params: new HttpParams().set('auth', user.token)
+}
+```
+- if the token is not valid => error but we add logout when token is expired
+
+</details>
+
 ## 16 - Offline
 ## 17 - Testing
 

@@ -1896,6 +1896,21 @@ exhaustMap(user => next.handle(modReq));
 
 </details>
 
+<details>
+<summary>Adding logout</summary>
+
+```TypeScript
+// auth.service.ts
+logout() {
+  this.user.next(null);
+  this.router.navigate(['/auth']);
+}
+```
+- add `onLogout()`to where needed (ex. click on logout button in header)
+- redirect in service because we have only 1 place to login but multiple to logout
+
+</details>
+
 ## 16 - Offline
 ## 17 - Testing
 

@@ -250,7 +250,118 @@ export class ChildComponent {
 
 </details>
 
-## 4 - Directives
+## 4 - Dynamic Components
+
+<details>
+<summary>General info</summary>
+
+- components, which are loaded programmatically
+  - declarative with `*ngIf` (better if we can use this approach)
+  - programmatic with Dynamic Component Loader (mostly when we want to create some external library)
+    - component created and added to DOM via code (imperatively)
+    - component is added and managed by a developer
+
+</details>
+
+<details>
+<summary>Preparing Programmatic Creation</summary>
+
+- import to auth component `AlertComponent`
+```TypeScript
+private showErrorAlert(message: string) {}
+```
+- is valid TS code, but not valid for angular, won't work
+  - Angular doest lots of things to instantiate a component (change detection in the DOM)
+  - need component factory
+```TypeScript
+// won't work
+const alertComponent = new AlertComponent();
+
+// with component factory
+constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+
+private showErrorAlert(...) {
+  // pass the component type here
+  // returns not component but component factory
+  const alertComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+}
+```
+- now need a place to attach that component
+- can't attach with `@ViewChild()`, need viewContainerRef (object managed by angular, which gives angular a reference to a place in the DOM with which it can interact)
+```TypeScript
+// placeholder.directive.ts
+@Directive({
+  selector: '[appPlaceholder]'
+})
+export class PlaceholderDirective {
+  // pointer to where this directive is going to be used
+  // has useful methods to create a component in that place
+  constructor(public viewContainerRef: ViewContainerRef) {}
+}
+```
+- access the directive
+```HTML
+<ng-template appPlaceholder></ng-template>
+```
+```TypeScript
+// type, will look for the 1st occurrence in the component
+@ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
+
+private showErrorAlert(...) {
+  // ...
+  const hostViewContainerRef = this.alertHost.viewContainerRef;
+  // to clean all that was here before
+  hostViewContainerRef.clear();
+  hostViewContainerRef.createComponent(alertComponentFactory);
+}
+```
+
+</details>
+
+<details>
+<summary>Entry Components</summary>
+
+- error before Angular 9 (ivi has no such error) when creating the component manually
+- angular checks for the component either in module declarations or in router
+- but it doesn't work when we create the component manually
+- have to prepare angular that it will be created at some point
+```TypeScript
+@NgModule({
+  // ...
+  // only for components, which are not created via selector <app-component>
+  // or in router
+  entryComponents: [
+    AlertComponent
+  ]
+})
+```
+
+</details>
+
+<details>
+<summary>Data binding and Event binding</summary>
+
+```TypeScript
+private showErrorAlert(...) {
+  // ...
+  const componentRef = hostViewContainerRef.createComponent(alertComponentFactory);
+  // instance has our props
+  componentRef.instance.message = message;
+  this.closeSub = componentRef.instance.close.subscribe(() => {
+    this.closeSub.unsubscribe();
+    hostViewContainerRef.clear();
+  });
+}
+
+// when the upper component is destroyed
+ngOnDestroy() {
+  this.closeSub.unsubscribe();
+}
+```
+
+</details>
+
+## 5 - Directives
 <details>
 <summary>Attribute built-in</summary>
 
@@ -388,7 +499,7 @@ export class UnlessDirective {
 
 </details>
 
-## 5 - Models
+## 6 - Models
 <details>
 <summary>Usage</summary>
 
@@ -404,7 +515,7 @@ export class UnlessDirective {
 
 </details>
 
-## 6 - Services
+## 7 - Services
 <details>
 <summary>Usage, hierarchical injector</summary>
 
@@ -448,7 +559,7 @@ export class UnlessDirective {
 
 </details>
 
-## 7 - Routing
+## 8 - Routing
 <details>
 <summary>Setting up</summary>
 
@@ -685,7 +796,7 @@ Complex data (dynamic)
 
 </details>
 
-## 8 - Pipes
+## 9 - Pipes
 <details>
 <summary>Usage</summary>
 
@@ -801,7 +912,7 @@ export class FilterPipe implements PipeTransform {
 
 </details>
 
-## 9 - Forms (Template Driven)
+## 10 - Forms (Template Driven)
 <details>
 <summary>Basic idea</summary>
 
@@ -947,7 +1058,7 @@ this.form.reset();
 
 </details>
 
-## 10 - Forms (Reactive)
+## 11 - Forms (Reactive)
 <details>
 <summary>R Creation</summary>
 
@@ -1143,7 +1254,7 @@ this.form.reset(); // can also pass {} with values to reset to
 
 </details>
 
-## 11 - Modules
+## 12 - Modules
 <details>
 <summary>Notes</summary>
 
@@ -1169,7 +1280,7 @@ export class AppModule {}
 
 </details>
 
-## 12 - Observables
+## 13 - Observables
 <details>
 <summary>Theory</summary>
 
@@ -1283,7 +1394,7 @@ ngOnDestroy() {
 
 </details>
 
-## 13 - Http
+## 14 - Http
 <details>
 <summary>Http and backend interaction</summary>
 
@@ -1548,7 +1659,7 @@ if (event.type === HttpEventType.response) {...}
 
 </details>
 
-## 14 - Interceptors
+## 15 - Interceptors
 <details>
 <summary>General info</summary>
 
@@ -1633,7 +1744,7 @@ providers: [{
 
 </details>
 
-## 15 - Authentication
+## 16 - Authentication
 <details>
 <summary>General info</summary>
 
@@ -2003,10 +2114,18 @@ map(user => {
 
 </details>
 
-## 16 - Offline
-## 17 - Testing
+<details>
+<summary>Useful links</summary>
 
-## 18 - Debugging
+- [Firebase Auth REST API](https://firebase.google.com/docs/reference/rest/auth)
+- [JSON Web Tokens](https://jwt.io/)
+
+</details>
+
+## 17 - Offline
+## 18 - Testing
+
+## 19 - Debugging
 <details>
 <summary>Notes</summary>
 
@@ -2018,7 +2137,7 @@ map(user => {
 
 </details>
 
-## 19 - Deploy
+## 20 - Deploy
 
 <details>
 <summary>Order</summary>
@@ -2030,5 +2149,5 @@ map(user => {
 
 </details>
 
-## 20 - Animation
-## 21 - Universal
+## 21 - Animation
+## 22 - Universal

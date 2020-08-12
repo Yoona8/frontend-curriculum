@@ -1377,6 +1377,32 @@ export class SharedModule {}
 
 </details>
 
+<details>
+<summary>Core modules</summary>
+
+- to make the app module leaner
+- can use the core module to move the services from AppModule => CoreModule (but `{providedIn: 'root'}` is better)
+- for interceptors still good to use CoreModule
+```TypeScript
+// core.module.ts
+@NgModule({
+  providers: [
+    // if not in 'root'
+    RecipesService,
+    ...,
+    {
+      provide: HTTP_INTERCEPTOR,
+      ...
+    }
+  ]
+})
+export class CoreModule {}
+```
+- don't need to export services (automatically injected on the root level)
+- but still need to import the CoreModule in the AppModule
+
+</details>
+
 ## 13 - Observables
 <details>
 <summary>Theory</summary>

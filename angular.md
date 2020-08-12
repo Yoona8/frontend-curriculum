@@ -2263,6 +2263,33 @@ map(user => {
 
 </details>
 
+<details>
+<summary>Implementing lazy loading</summary>
+
+- check files sizes in the network panel of the dev tools
+- have to register the routes for the module (feature module needs to bring its own routes for lazy loading with `.forChild()`)
+- have to change `path: ''` to the empty path
+- add path to app-routing module for lazy loading to work
+```TypeScript
+// app-routing.module.ts
+{
+  path: 'recipes',
+  // old syntax
+  // recipes, not recipes-routing
+  // angular doesn't know the class name, have to set
+  loadChildren: './recipes/recipes.module#RecipesModule'
+  // new syntax (old could not work in the new versions)
+  loadChildren: () => import('./recipes/recipes.module').then(module => module.RecipesModule)
+}
+```
+- `loadChildren` gives Angular the direction to only load the module when the user visits this path
+- now the code is split and all the declarations will be put into separate code bundle, which will be downloaded on demand
+- don't import in the top (even unused) files into the AppModule or will be loaded when the app starts
+- also remove the module from `imports: []` => error (2 times imported)
+- when we go to '/recipes', the RecipesModule will be loaded and we already will be on '/recipes', that's why change path to `''`
+
+</details>
+
 ## 18 - Offline
 ## 19 - Testing
 

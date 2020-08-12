@@ -546,6 +546,16 @@ export class UnlessDirective {
 </details>
 
 <details>
+<summary>Usage strategies</summary>
+
+- AppModule => app-wide (same instance) === {providedIn: 'root'} => root injector => use by default
+- Component => component-tree (new instance) => component specific injector => use if needed
+- Eager-loaded modules => app-wide, but if included into both AppModule and LazyModule === new instance! => root injector / child injector => never use, unexpected issues
+- Lazy-loaded module => module-lazy-wide (new instance) => child injector => use only when needed
+
+</details>
+
+<details>
 <summary>In other services</summary>
 
 1. provide on module level

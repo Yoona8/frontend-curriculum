@@ -1354,6 +1354,29 @@ export class RecipesRoutingModule {}
 
 </details>
 
+<details>
+<summary>Shared modules</summary>
+
+- to avoid code duplication we can outsource the shared features into the shared module and import where needed
+- can have multiple shared modules
+```TypeScript
+// shared.module.ts
+@NgModule({
+  declarations: [AlertComponent, PlaceholderDirective, ...],
+  imports: [CommonModule],
+  exports: [AlertComponent, PlaceholderDirective, CommonModule, ...],
+  entryComponents: [AlertComponent]
+})
+export class SharedModule {}
+```
+- here we just centralize the functionality, so need to export all the features to use in other modules
+- can only declare directives once!
+- can import modules several times in different modules
+- imports are ok, but declarations are not => get an error
+- the solution: to export from module and to import module to use it in the other module
+
+</details>
+
 ## 13 - Observables
 <details>
 <summary>Theory</summary>

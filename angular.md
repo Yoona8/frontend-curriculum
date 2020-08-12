@@ -361,6 +361,13 @@ ngOnDestroy() {
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [Dynamic component loader](https://angular.io/guide/dynamic-component-loader)
+
+</details>
+
 ## 5 - Directives
 <details>
 <summary>Attribute built-in</summary>
@@ -1256,11 +1263,27 @@ this.form.reset(); // can also pass {} with values to reset to
 
 ## 12 - Modules
 <details>
-<summary>Notes</summary>
+<summary>General info</summary>
 
-- bundles different pieces into one package
+- bundles different pieces into one package (components, directives, services, pipes, etc)
+- have to group because Angular doesn't scan the files, have to inform what will be used
+- requires at least 1 module (AppModule) but may be split into multiple modules
+- Angular analyzes NgModules to understand your app and its features
+- define all the building blocks your app uses: Components, Directives, Services, etc.
+- core Angular features are wrapped in Angular modules (ex. FormsModule) to load them only when needed
 - custom modules mostly for big projects
 - gives Angular info on which features to use
+- can't use a feature / building block without including it in a module
+
+</details>
+
+<details>
+<summary>Analyzing the AppModule</summary>
+
+- the service could be used not only in the module it's provided in
+- bootstrap typically includes only one root component but if there are more components, will create a different root, will be detached from other components 
+- every module in Angular works on its own, they don't communicate with each other, we can use the declared components only in the module
+- have to export to be available where the module is imported
 ```TypeScript
 // app/app.module.ts
 import { NgModule } from '@angular/core';
@@ -1270,10 +1293,14 @@ import { NgModule } from '@angular/core';
   declarations: [],
   // modules
   imports: [],
+  // for exported features to use in other modules
+  exports: [],
   // root needed on start component
   bootstrap: [],
   // services, interceptors
-  providers: []
+  providers: [],
+  // for the case when we want to create a dynamic component in code
+  entryComponents: []
 })
 export class AppModule {}
 ```

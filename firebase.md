@@ -26,3 +26,10 @@
 - find docs on Auth REST API
 
 </details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Authenticate REST Requests](https://firebase.google.com/docs/database/rest/auth)
+
+</details>

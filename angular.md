@@ -2245,10 +2245,28 @@ map(user => {
 
 </details>
 
-## 17 - Offline
-## 18 - Testing
+## 17 - Lazy loading
+<details>
+<summary>General info</summary>
 
-## 19 - Debugging
+- separating the code into modules makes it easier to work with, but doesn't improve the performance
+- by default (without lazy loading) all the modules are loaded from the start (for all routes: `/`, `/admin`, `/user`, `/recipes`, ...) even when we don't navigate there
+- so we want to load like that:
+```
+'path' => FeatureModule
+'/' => AppModule / CoreModule
+'/admin' => AdminModule
+'/user' => UserModule
+'/recipes' => RecipesModule
+...
+```
+
+</details>
+
+## 18 - Offline
+## 19 - Testing
+
+## 20 - Debugging
 <details>
 <summary>Notes</summary>
 
@@ -2260,7 +2278,7 @@ map(user => {
 
 </details>
 
-## 20 - Deploy
+## 21 - Deploy
 
 <details>
 <summary>Order</summary>
@@ -2272,5 +2290,5 @@ map(user => {
 
 </details>
 
-## 21 - Animation
-## 22 - Universal
+## 22 - Animation
+## 23 - Universal

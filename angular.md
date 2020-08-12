@@ -1307,6 +1307,53 @@ export class AppModule {}
 
 </details>
 
+<details>
+<summary>Feature modules</summary>
+
+- groups together the pieces, which are used in the certain area of the app (recipes, shopping-list, auth)
+- leaner code, easy to work, needed for future optimization (lazy loading)
+```TypeScript
+// recipes.module.ts
+@NgModule({
+  // remove from AppModule
+  declarations: [RecipesComponent, ...],
+  exports: [RecipesComponent, ...]
+})
+export class RecipesModule {}
+```
+- `imports: [RecipesModule]` to the app module
+- error: router-outlet is not a known element => using but this directive is provided by Angular, available from RouterModule
+- RouterModule is used not only to config the routes, but also provides all the directives to use (like router-outlet)
+- it's available in AppModule, but not in the RecipesModule (the modules live on their own, have to import!)
+- only services could be set up once in the app module and used in different modules
+1. `imports: [RouterModule]` for using router
+2. `imports: [CommonModule]` not `BrowserModule` - special case (only one) as `BrowserModule` is used only once in the AppModule, does more than `ngIf` and `ngFor`, also some app startup work that only needs to run once
+3. `imports: [ReactiveFormsModule]` to use forms
+
+</details>
+
+<details>
+<summary>Adding routes to Feature modules</summary>
+
+- `imports: [RouterModule.forChild(routes)]` will automatically merge these routes with root routes (.forRoot)
+```TypeScript
+// recipes-routing.module.ts
+const routes: Routes = [{
+  path: 'recipes', ... // + all the child routes, remove from app-routing
+}];
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class RecipesRoutingModule {}
+```
+- import to RecipesModule
+- now routes are part of the general routing config (since we import the RecipesModule to AppModule)
+- need not only add Components to router but have to declare them on the module level or there will be an error
+- but now we load the components via router, no need to export them in the RecipesModule, Angular knows how to load components because of router
+
+</details>
+
 ## 13 - Observables
 <details>
 <summary>Theory</summary>

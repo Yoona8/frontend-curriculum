@@ -2290,6 +2290,21 @@ map(user => {
 
 </details>
 
+<details>
+<summary>Preloading lazy loaded code</summary>
+
+- to avoid delay can preload modules
+```TypeScript
+// app-routing.module.ts
+.forRoot(routes, {preloadingStrategy: PreloadAllModules});
+```
+- default is `NoPreloading`
+- `PreloadAllModules` - code is split, will be preloaded as soon as possible
+- initial bundle is still small
+- can build own preload strategies
+
+</details>
+
 ## 18 - Offline
 ## 19 - Testing
 

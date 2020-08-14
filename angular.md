@@ -2368,6 +2368,45 @@ map(user => {
 2. Polish the code
 3. `ng build --prod` uses ahead-of-time compilation
 4. Deploy built artifacts (generated files) to static host (because it's only html css and js)
+  - static host means it can run only html, css and js logic, not backend
+
+</details>
+
+<details>
+<summary>Environment variables</summary>
+
+- built-in feature in every Angular project
+- `environments` directive may have several files
+  - the name of the exported constant is the same
+  - can add there API keys for different modes
+  - for production Angular automatically swaps `environment.ts` => `environment.prod.ts`
+  - to use just import where needed `import { environment } from '../environment/environment'` (don't add .prod here, Angular swaps those files automatically for different modes)
+
+</details>
+
+<details>
+<summary>Deployment example (Firebase hosting)</summary>
+
+1. build the project for production `ng build --prod`
+2. need a static website host
+  - AWS
+  - Firebase hosting (don't need to have backend here also)
+3. install firebase CLI -g (node.js and npm required)
+4. `firebase login`
+5. `firebase init` to connect the project to firebase project
+6. add only `hosting` (other features if needed) here database is in case we use the firebase CDK for that but we already have firebase database setup (works without CLI already)
+7. choose the project to connect
+8. set public directory to `dist/ng-complete...`
+9. configure as an SPA? y - to be sure that all the requests sent to the API will be redirected to the `index.html` (have to config the server so that it always hit the `index.html`, no matter what path is in the browser) but by default server is set to different path requests and if the url is unknown to the server => error, we have router but it's only client side and runs only if the server serves the request, so all the requests should be redirected to the `index.html` and since any request reaches this page, Angular router can load the content via router
+10. do not overwrite `index.html`
+11. run `firebase deploy`
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [How to fix broken Routes after Deployment](https://academind.com/learn/angular/angular-q-a/#how-to-fix-broken-routes-after-deployment)
 
 </details>
 

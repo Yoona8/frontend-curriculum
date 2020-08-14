@@ -1413,6 +1413,14 @@ export class CoreModule {}
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [NgModules](https://angular.io/guide/ngmodules)
+- [NgModule FAQ](https://angular.io/guide/ngmodule-faq)
+
+</details>
+
 ## 13 - Observables
 <details>
 <summary>Theory</summary>
@@ -2315,10 +2323,31 @@ map(user => {
 
 </details>
 
-## 18 - Offline
-## 19 - Testing
+## 18 - Ahead-of-Time Compilation
 
-## 20 - Debugging
+<details>
+<summary>Ahead-of-Time vs Just-in-Time Compilation</summary>
+
+1. Your code and templates include syntax only Angular understands (*ngFor etc)
+2. TypeScript compiler compiles the code to JavaScript
+3. Angular compiler (automatically included in the built code) compiles template syntax to JavaScript DOM instructions
+4. JiT vs AoT
+  - JiT - Angular template compiler runs in browser (at runtime)
+    - the compiler is too large and affects the performance
+    - nice to use for development
+    - `ng serve` uses JiT compiler
+  - AoT - Angular template compiler runs during build process (before the app is deployed)
+    - here the compiler runs only before the app is deployed and not in the browser
+    - AoT removes the compiler from the final bundle
+    - good for production
+    - `ng build --prod`
+
+</details>
+
+## 19 - Offline
+## 20 - Testing
+
+## 21 - Debugging
 <details>
 <summary>Notes</summary>
 
@@ -2330,7 +2359,7 @@ map(user => {
 
 </details>
 
-## 21 - Deploy
+## 22 - Deploy
 
 <details>
 <summary>Order</summary>
@@ -2342,5 +2371,5 @@ map(user => {
 
 </details>
 
-## 22 - Animation
-## 23 - Universal
+## 23 - Animation
+## 24 - Universal

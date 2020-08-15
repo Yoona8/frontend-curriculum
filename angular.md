@@ -23,8 +23,11 @@
 # create a project
 ng new <project-name>
 
-# run the app
+# run the app in dev mode
 ng serve
+
+# build for production
+ng build --prod
 
 # create a component
 ng g c <component-name or path + name>

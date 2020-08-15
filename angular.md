@@ -1,6 +1,6 @@
 # Angular
 
-## 1 - Setup with Angular CLI
+## 1 - Angular CLI
 <details>
 <summary>Installation</summary>
 
@@ -38,11 +38,17 @@ ng g d <directive-name>
 
 </details>
 
-## 2 - How the app is being built?
+## 2 - Initial files
 <details>
-<summary>Notes</summary>
+<summary>Imports</summary>
 
 - don't import with `.ts` extensions, webpack adds it
+
+</details>
+
+<details>
+<summary>Entry file</summary>
+
 ```TypeScript
 // main.ts
 import { enableProdMode } from '@angular/core';
@@ -58,6 +64,12 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 ```
+
+</details>
+
+<details>
+<summary>AppModule - the only required module</summary>
+
 ```TypeScript
 // app/app.module.ts
 import { NgModule } from '@angular/core';
@@ -69,6 +81,12 @@ import { AppComponent } from './app.component';
 })
 export class AppModule {}
 ```
+
+</details>
+
+<details>
+<summary>AppComponent - the only required component</summary>
+
 ```TypeScript
 // app/app.component.ts
 import { Component } from '@angular/core';
@@ -79,6 +97,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {}
 ```
+
+</details>
+
+<details>
+<summary>Add the root component to html</summary>
+
 ```HTML
 <!-- index.html -->
 <!doctype html>

@@ -1,14 +1,24 @@
 # Angular
 
-- [To content](#readme.md)
-
 ## 1 - Setup with Angular CLI
 <details>
-<summary>Notes</summary>
+<summary>Installation</summary>
 
 - install node + npm
 - install angular CLI
+
+</details>
+
+<details>
+<summary>Global styles</summary>
+
 - global style files could be added to `angular.json`
+
+</details>
+
+<details>
+<summary>Common commands</summary>
+
 ```bash
 # create a project
 ng new <project-name>

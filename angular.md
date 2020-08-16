@@ -2386,7 +2386,8 @@ map(user => {
 <summary>Application State</summary>
 
 - data that is imported into the application and displayed on the screen
-<img src="./images/app-state.png" width="400" alt="Application State">
+<img src="./images/app-state.png" width="600" alt="Application State">
+
   - not only the data display, but also states like loading
     - initial ingredients
     - loading on auth component (not application state but local state)

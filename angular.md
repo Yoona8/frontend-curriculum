@@ -2381,10 +2381,34 @@ map(user => {
 
 </details>
 
-## 19 - Offline
-## 20 - Testing
+## 19 - NgRx
+<details>
+<summary>Application State</summary>
 
-## 21 - Debugging
+- data that is imported into the application and displayed on the screen
+<img src="./images/app-state.png" width="400" alt="Application State">
+  - not only the data display, but also states like loading
+    - initial ingredients
+    - loading on auth component (not application state but local state)
+    - the application state could be managed with services, components, rxjs (recipes service manages recipes, stores the data on the server in a persistent state for not to be lost)
+      - this approach works fine for small applications
+      - for larger applications we can use
+        - rxjs (event in the UI => (State changing event => Observable => Operators => Listener) => Update UI) but has some issues
+          - state can be updated anywhere
+          - state is (possibly) mutable
+          - handling side effects (like http management) is unclear (write in the component? or use in the service? etc)
+          - no specific pattern is enforced
+        - Redux
+  - any information, which controls what should be visible is a state
+- lost when the application refreshes
+- persistent state is on backend
+
+</details>
+
+## 20 - Offline
+## 21 - Testing
+
+## 22 - Debugging
 <details>
 <summary>Notes</summary>
 
@@ -2396,7 +2420,7 @@ map(user => {
 
 </details>
 
-## 22 - Deploy
+## 23 - Deploy
 
 <details>
 <summary>Order</summary>
@@ -2447,5 +2471,5 @@ map(user => {
 
 </details>
 
-## 23 - Animation
-## 24 - Universal
+## 24 - Animation
+## 25 - Universal

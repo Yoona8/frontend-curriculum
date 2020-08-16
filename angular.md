@@ -2426,9 +2426,32 @@ map(user => {
 <details>
 <summary>App State management for large projects</summary>
 
-- Redux
-
 <img src="./images/redux.png" alt="Redux">
+
+- Redux - the state management pattern and library that helps to implement this pattern
+1. Has one central store (holds the app state - large object, that contains all the data the parts of your app need, single source of truth, that manages the entire app state).
+2. Services and Components can still communicate with each other but their receive their state from the store
+3. Sometimes we need to change the state (ex: add, delete, change the recipe)
+4. Dispatch Actions (JS object with identifier (kind of action) and optionally the payload (if the action needs some data to complete (recipe add => attach the recipe to the action))) - supported by Redux
+5. The action doesn't directly go to the store => it reaches the reducer
+6. Reducer is just a JS function, that gets the state and the action (passed by Redux if used).
+7. Reducer looks for an action identifier (add, delete the recipe) and performs the code on the state to update in immutable way
+8. The reducer returns the new state, which is forwarded to the app store (overrides the old state of the app).
+- With that approach we have a clear data flow
+- In Redux it is unclear when and where you should send the http requests, async code was always a problem because reducers can only execute the sync code, so you can't send the http request from the reducer function
+
+</details>
+
+<details>
+<summary>Differences between Redux and NgRx</summary>
+
+<img src="./images/ngrx.png" alt="NgRx">
+
+With Angular Redux could be used but NgRx is an Angular implementation of Redux.
+- comes with injectable services, can access the store in any part of the app by injecting it
+- uses rxjs and Observables - all the state is managed as one large Observable, many advantages (can use operators) to fetch the state in the component when needed in the way we need it, will not change the store
+- uses TypeScript
+- extra plus - managing side effects (http operations) - gives a tool to work with side effects easier
 
 </details>
 

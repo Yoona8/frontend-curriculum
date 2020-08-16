@@ -2385,24 +2385,50 @@ map(user => {
 <details>
 <summary>Application State</summary>
 
-- data that is imported into the application and displayed on the screen
-<img src="./images/app-state.png" width="600" alt="Application State">
+<img src="./images/app-state.png" alt="Application State">
 
-  - not only the data display, but also states like loading
-    - initial ingredients
-    - loading on auth component (not application state but local state)
-    - the application state could be managed with services, components, rxjs (recipes service manages recipes, stores the data on the server in a persistent state for not to be lost)
-      - this approach works fine for small applications
-      - for larger applications we can use
-        - rxjs (event in the UI => (State changing event => Observable => Operators => Listener) => Update UI) but has some issues
-          - state can be updated anywhere
-          - state is (possibly) mutable
-          - handling side effects (like http management) is unclear (write in the component? or use in the service? etc)
-          - no specific pattern is enforced
-        - Redux
-  - any information, which controls what should be visible is a state
+- data that is imported into the application and displayed on the screen
+- any information, which controls what should be visible is a state
+- not only the data display, but also states like loading
+  - initial ingredients
+  - loading on auth component (not application state but local state)
 - lost when the application refreshes
 - persistent state is on backend
+
+</details>
+
+<details>
+<summary>Application State management for small projects</summary>
+
+- the application state could be managed with services, components, rxjs (recipes service manages recipes, stores the data on the server in a persistent state for not to be lost)
+
+</details>
+
+<details>
+<summary>App State management for middle projects</summary>
+
+<img src="./images/app-state-1.png" alt="Application State">
+
+- rxjs (event in the UI => (State changing event => Observable => Operators => Listener) => Update UI) 
+
+<img src="./images/rxjs.png" alt="RxJS">
+
+- but has some issues
+  - state can be updated anywhere
+  - state is (possibly) mutable
+  - handling side effects (like http management) is unclear (write in the component? or use in the service? etc)
+  - no specific pattern is enforced
+
+<img src="./images/rxjs-issues.png" alt="RxJS issues">
+
+</details>
+
+<details>
+<summary>App State management for large projects</summary>
+
+- Redux
+
+<img src="./images/redux.png" alt="Redux">
 
 </details>
 

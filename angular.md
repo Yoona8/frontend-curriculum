@@ -2474,13 +2474,25 @@ const initialState = {
   ingredients: [...]
 };
 
-export function shoppingListReducer(state = initialState, action) {}
+export function shoppingListReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'ADD_INGREDIENT':
+      return {
+        ...state,
+        // the ingredient should be a part of an action. change later
+        ingredients: [...state.ingredients, action]
+      };
+    default:
+      // to set the initial state use default and return unchanged state
+      return state;
+  }
+}
 ```
 
 </details>
 
 <details>
-<summary>Actions</summary>
+<summary>Actions setup</summary>
 
 - the naming convention is uppercase snake notation
 - return state, which has to be immutable (copy the state and override the changed properties)
@@ -2514,11 +2526,74 @@ export class AddIngredient implements Action {
   payload: Ingredient;
 }
 ```
+```TypeScript
+// shopping-list/store/shopping-list.reducer.ts
+import * as ShoppingListActions from './shopping-list.actions';
+
+export function shoppingListReducer(
+  state,
+  action: ShoppingListActions.AddIngredient
+) {
+  switch (action.type) {
+    case ShoppingListActions.ADD_INGREDIENT:
+      return {
+        ...state,
+        // the ingredient should be a part of an action. change later
+        ingredients: [...state.ingredients, action]
+      };
+  }
+}
+```
 
 </details>
 
 <details>
 <summary>Setting up the Store</summary>
+
+- have to tell Angular which reducers are involved and where to get them and store the state
+```TypeScript
+// app.module.ts
+import { StoreModule } from '';
+import { shoppingListReducer } from '';
+
+@NgModule({
+  // ...
+  imports: [
+    // ActionReducerMap is a JS object: id (any key name): reducer function
+    StoreModule.forRoot({shoppingList: shoppingListReducer})
+  ]
+})
+```
+
+</details>
+
+<details>
+<summary>Using the state manager</summary>
+
+```TypeScript
+// shopping-list.component.ts
+public ingredients: Observable<{ingredients: Ingredient[]}>;
+
+constructor(
+  // can't do it with Redux
+  // but NgRx gives this ability (injectable store)
+  // key as in .forRoot
+  // Store from @ngrx/store
+  // {} not the reducer, but the return value (the state like an init state)
+  private store: Store<{shoppingList: {ingredients: Ingredient[]}}>
+) {}
+
+ngOnInit() {
+  // selects the slice of a state
+  // returns an Observable, no need to unsubscribe
+  this.ingredients = this.store.select('shoppingList');
+}
+```
+```HTML
+<!-- shopping-list.component.html -->
+<!-- use async pipe on view -->
+<li *ngFor="let ingredient of (ingredients | async).ingredients">
+```
 
 </details>
 

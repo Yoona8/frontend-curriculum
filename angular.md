@@ -2455,6 +2455,80 @@ With Angular Redux could be used but NgRx is an Angular implementation of Redux.
 
 </details>
 
+<details>
+<summary>Adding NgRx to the project</summary>
+
+- install the package `npm install --save @ngrx/store
+- first add the reducer
+
+</details>
+
+<details>
+<summary>Reducers</summary>
+
+- it's just an ordinary function
+- NgRx calls the functions and pass as arguments state and action
+- we can setup an initial state (has to be a JS object)
+```TypeScript
+const initialState = {
+  ingredients: [...]
+};
+
+export function shoppingListReducer(state = initialState, action) {}
+```
+
+</details>
+
+<details>
+<summary>Actions</summary>
+
+- the naming convention is uppercase snake notation
+- return state, which has to be immutable (copy the state and override the changed properties)
+```TypeScript
+// shopping-list/store/shopping-list.reducer.ts
+import { Action } from '@ngrx/store';
+
+// ...
+
+export function shoppingListReducer(state, action: Action) {
+  switch (action.type) {
+    case 'ADD_INGREDIENT':
+      return {
+        ...state,
+        // the ingredient should be a part of an action. change later
+        ingredients: [...state.ingredients, action]
+      };
+  }
+}
+```
+- have to standardize the action creation process to avoid mistakes (when using a string for type)
+```TypeScript
+// shopping-list/store/shopping-list.action.ts
+import { Action } from '@ngrx/store';
+
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+
+export class AddIngredient implements Action {
+  readonly type = ADD_INGREDIENT;
+  // could be any (or no prop) name here, only type is needed
+  payload: Ingredient;
+}
+```
+
+</details>
+
+<details>
+<summary>Setting up the Store</summary>
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [NgRx official](https://ngrx.io/docs)
+
+</details>
+
 ## 20 - Offline
 ## 21 - Testing
 

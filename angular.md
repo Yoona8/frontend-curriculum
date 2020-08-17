@@ -2470,8 +2470,19 @@ With Angular Redux could be used but NgRx is an Angular implementation of Redux.
 - NgRx calls the functions and pass as arguments state and action
 - we can setup an initial state (has to be a JS object)
 ```TypeScript
-const initialState = {
-  ingredients: [...]
+
+// to use as the type and change only here export the state interface
+// import * as fromShoppingList from ''; naming convention for imports
+export interface State {
+  ingredients: Ingredient[];
+  editedIngredient: Ingredient;
+  editedIngredientIndex: number;
+}
+
+const initialState: State = {
+  ingredients: [...],
+  editedIngredient: null,
+  editedIngredientIndex: -1
 };
 
 export function shoppingListReducer(state = initialState, action) {
@@ -2484,6 +2495,9 @@ export function shoppingListReducer(state = initialState, action) {
       };
     default:
       // to set the initial state use default and return unchanged state
+      // very important to use the default state
+      // on init store module sends one initial action to all reducers
+      // also when the action is dispatch, it is sent to all reducers
       return state;
   }
 }
@@ -2519,12 +2533,25 @@ export function shoppingListReducer(state, action: Action) {
 import { Action } from '@ngrx/store';
 
 export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+export const ADD_INGREDIENTS = 'ADD_INGREDIENTS';
+// all the actions have to have a unique value through the whole app
+// as they are sent to all reducers on dispatch
+export const ADD_INGREDIENT = '[Shopping List] Add Ingredient';
 
 export class AddIngredient implements Action {
   readonly type = ADD_INGREDIENT;
   // could be any (or no prop) name here, only type is needed
   payload: Ingredient;
 }
+
+export class AddIngredients implements Action {
+  readonly type = ADD_INGREDIENTS;
+
+  constructor(public payload: Ingredient[]) {}
+}
+
+// to fix the type error in the reducer
+export type ShoppingListActions = AddIngredient | AddIngredients;
 ```
 ```TypeScript
 // shopping-list/store/shopping-list.reducer.ts
@@ -2532,7 +2559,10 @@ import * as ShoppingListActions from './shopping-list.actions';
 
 export function shoppingListReducer(
   state,
-  action: ShoppingListActions.AddIngredient
+  action: ShoppingListActions.AddIngredient,
+  // to use multiple change type
+  // if we use just Action, another error with payload
+  action: ShoppingListActions.ShoppingListActions
 ) {
   switch (action.type) {
     case ShoppingListActions.ADD_INGREDIENT:
@@ -2540,6 +2570,11 @@ export function shoppingListReducer(
         ...state,
         // the ingredient should be a part of an action. change later
         ingredients: [...state.ingredients, action]
+      };
+    case ShoppingListActions.ADD_INGREDIENTS:
+      return {
+        ...state,
+        ingredients: [...state.ingredients, ...action.payload]
       };
   }
 }
@@ -2611,6 +2646,29 @@ ngOnInit() {
 <!-- shopping-list.component.html -->
 <!-- use async pipe on view -->
 <li *ngFor="let ingredient of (ingredients | async).ingredients">
+```
+
+</details>
+
+<details>
+<summary>Using one root state</summary>
+
+- add store directive on app level and create there a reducer
+```TypeScript
+// app.reducer.ts
+import {ActionReducerMap} from '@ngrx/store';
+import * as fromShoppingList from '';
+import * as fromAuth from '';
+
+export interface AppState {
+  shoppingList: fromShoppingList.State;
+  auth: fromAuth.State;
+}
+
+export const appReducer: ActionReducerMap<AppState> = {
+  shoppingList: fromShoppingList.shoppingListReducer,
+  auth: fromAuth.authReducer
+};
 ```
 
 </details>

@@ -2548,6 +2548,23 @@ export function shoppingListReducer(
 </details>
 
 <details>
+<summary>Dispatching the Actions</summary>
+
+```TypeScript
+constructor(private store: Store<...>) {}
+
+this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient));
+```
+```TypeScript
+// shopping-list.actions.ts
+// change in AddIngredient
+constructor(public payload: Ingredient) {}
+```
+- Angular will check all the reducers registered in app module and update the state according to the dispatched action
+
+</details>
+
+<details>
 <summary>Setting up the Store</summary>
 
 - have to tell Angular which reducers are involved and where to get them and store the state
@@ -2570,6 +2587,7 @@ import { shoppingListReducer } from '';
 <details>
 <summary>Using the state manager</summary>
 
+- can also subscribe instead of using async pipe (but in that case need to unsubscribe)
 ```TypeScript
 // shopping-list.component.ts
 public ingredients: Observable<{ingredients: Ingredient[]}>;

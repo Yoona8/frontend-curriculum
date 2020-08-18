@@ -1549,6 +1549,14 @@ ngOnDestroy() {
 - import operators from `'rxjs/operators'`
 - there are a lot of different operators
 - `tap` allows to execute code without altering the result
+- `switchMap` allows to create a new observable by taking another observable's data
+- `filter`
+- `map`
+- `catchError`
+- `throwError`
+- `take`
+- `exhaustMap`
+- `of` creates a new observable
 - ```TypeScript
   this.ownIntSubscription = this.customIntObservable.pipe(
     filter(data => data > 0),
@@ -2669,6 +2677,193 @@ export const appReducer: ActionReducerMap<AppState> = {
   shoppingList: fromShoppingList.shoppingListReducer,
   auth: fromAuth.authReducer
 };
+```
+
+</details>
+
+<details>
+<summary>What are side effects?</summary>
+
+- effects are things in the app, which don't affect the state while running and don't need to immediately update the state
+- ex. http requests (result matters) when we start sign-up process, this is not important (split into 2-3 actions: start sign-up, sign-up success, sign-up error)
+- the request is not something our store/state cares about, only the result, so it's just some side-effect code we run
+- the same is for localStorage, though it runs sync and theoretically we could use it inside the reducer but it's a bad practice, it doesn't affect our state, it won't break the app (as an async code will) but still a bad practice, because it's just a side effect of the application
+- things like that when the result matters but the process not are side effects
+
+</details>
+
+<details>
+<summary>Using the NgRx Effects</summary>
+
+- `npm install --save @ngrx/effects`
+- gives a place to manage the side effects in between dispatching actions
+- basically you can still manage side effects using services and reducers to manage the state
+
+</details>
+
+<details>
+<summary>Define the Effect</summary>
+
+- add `auth.effects.ts` to the store directive
+- `Actions` here are is different from `Actions` of `@ngrx/store` package
+- here we don't change the state but manage all the other code related to dispatched actions
+- `actions$` is a stream of dispatched actions
+- `ofType` operator is not a part of `rxjs`, it's provided by `@ngrx/effects` - allows to define a filter for which types of actions you want to continue in this observable pipe you're creating, this observable stream here because you can have multiple effects by adding multiple props to your class here and you can simply define different types of effects that you want to handle in each chain
+- just returning an observable won't work in the effect
+- an effect by default should always return a new action
+- effect itself doesn't change the state
+- but when it's done we want to change the state
+- `@Effect()` to turn the method into an effect `@ngrx/effects` could be able to pick up later (required for `ngrx/effects` to pick up this method as an effect) to subscribe and so on
+- have to return a new action at the end of the chain
+```TypeScript
+// auth.effects.ts
+import {switchMap} from 'rxjs/operators';
+import {Actions} from '@ngrx/effects';
+import * as AuthActions from './auth.actions';
+
+// to be able to inject things here
+// or there would be an error
+// don't add providedIn: 'root'
+// because we're not going to inject it elsewhere
+@Injectable()
+export class AuthEffects {
+  // effects are added as a normal prop of a class
+  // don't subscribe here, @ngrx/effects will subscribe
+  // just call the pipe
+  @Effect()
+  authLogin = this.actions$.pipe(
+    // need to pipe a special ngrx operator
+    // can pass several actions
+    // filters to chain only when the action is LOGIN_START type,
+    // all other actions will not trigger the effect
+    ofType(AuthActions.LOGIN_START),
+    // allows to create a new observable by taking
+    // another observable's data
+    switchMap((authData: AuthActions.LoginStart) => {
+      // need to return an observable
+      return this.http.post(...).pipe(
+        // if no error - use map
+        map(resultData => {
+          // return from inside the pipe new action
+          // no need to dispatch, will automatically be treated
+          // as an action by @ngrx/effects and will be dispatched
+          return new AuthActions.Login(...);
+        }),
+        catchError(error => {
+          // ...
+          // have to return a non-error observable
+          // of creates a new observable w/o an error
+          return of(new AuthActions.LoginFail(errorMessage));
+        })
+      );
+    }),
+    // but we want to login user only if we don't have an error
+    // observable completes when the error is thrown, observable dies
+    // for actions$ we can't stop the observable, it's an ongoing stream
+    // otherwise the login won't work after the error is thrown
+    // so can't add the catchError here
+    // or not to add at all and request throws an error, actions$ will die
+    // have to call the pipe on inner observable
+    catchError()
+  );
+  // one big observable, that will give the access to
+  // all the dispatched actions so that you can react to them
+  // just react differently than in the reducer
+  constructor(private actions$: Actions) {}
+}
+```
+- add new action to actions
+```TypeScript
+// auth.actions.ts
+// the point where we want to start sending our request
+export const LOGIN_START = '[Auth] Login Start';
+export const LOGIN_FAIL = '[Auth] Login Fail';
+
+export class LoginStart implements Actions {
+  readonly type = LOGIN_START;
+
+  constructor(public payload: {email: string; password: string}) {}
+}
+
+export class LoginFail implements Actions {
+  readonly type = LOGIN_FAIL;
+
+  constructor(public payload: string) {}
+}
+```
+- fix the reducer
+```TypeScript
+export interface State {
+  // ...
+  authError: string;
+}
+
+const initialState = {
+  // ...
+  authError: null
+};
+
+// and add the logic to the reducer function for all the actions
+```
+- register effects in the AppModule
+```TypeScript
+// app.module.ts
+import {EffectsModule} from '@ngrx/effects';
+
+@NgModule({
+  imports: [EffectsModule.forRoot([AuthEffects])]
+})
+```
+- subscribe to the state in `ngOnInit` of the component
+```TypeScript
+this.store.select('auth').subscribe(authState => {
+  this.isLoading = authState.loading;
+  this.error = authState.authError;
+})
+```
+- but where to redirect the user?
+- in `OnInit` there could be strange scenarios
+- navigation could also be seen like a side effect
+- add a new effect for successful login
+- and this effect won't dispatch an action `@Effect({dispatch: false})` will not yield a dispatchable action at the end
+
+</details>
+
+<details>
+<summary>Using the Store Devtools</summary>
+
+- redux-devtools-extension (search)
+- add to chrome / firefox
+- `npm install --save-dev @ngrx/store-devtools`
+- register tools in AppModule
+```TypeScript
+// app.module.ts
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+
+@NgModule({
+  // only log when in prod mode
+  imports: [StoreDevtoolsModule.instruments({logOnly: environment.production})]
+})
+```
+- open redux tool in devtools in the browser
+
+</details>
+
+<details>
+<summary>The Router Store</summary>
+
+- `npm install --save @ngrx/router-store`
+- helps with reacting to router actions
+- dispatches some actions automatically based on angular router
+- will allow to run code in the reducer / effects when such a routing action occurs
+```TypeScript
+// app.module.ts
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
+
+@NgModule({
+  // .forRoot() empty
+  imports: [StoreRouterConnectingModule.forRoot()]
+})
 ```
 
 </details>

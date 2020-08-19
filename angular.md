@@ -2971,4 +2971,66 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 </details>
 
 ## 24 - Animation
+
+<details>
+<summary>General info</summary>
+
+- with Angular animations we can animate different states of DOM elements with triggers
+- can also animate from `void` (when there is no element in the DOM) to when the element is added to the DOM
+- can use keyframes in animations
+- can also run several animations at once (with `group`)
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Animations Official](https://angular.io/guide/animations)
+
+</details>
+
 ## 25 - Universal
+<details>
+<summary>General info</summary>
+
+- used to pre-render Angular pages on the server
+- when the app is loaded and runs on the client, it's a normal SPA again
+- server-side rendering (SSR) can make sense because of SEO considerations (crawler should see what your users see) or because you want to deliver a finished page to your users (rather than creating the page in the browser)
+- but that also has one important implication: you MUST NOT use any browser-only APIs like `document.querySelector()` in your Angular code! 
+- simply because it will execute on the server and there such APIs are not available
+- that's why it's better to use Angular features only: these features are safe to use because Angular will check if a certain API can be used before it uses it
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Angular Universal Official](https://angular.io/guide/universal)
+
+</details>
+
+## 26 - Angular Elements
+
+<details>
+<summary>General info</summary>
+
+- allows to load a component dynamically as a native web component
+- Angular Elements allows to turn Angular components into native Web Components
+  - Web Components are part of JS DOM API, not related to Angular
+- good thing to use if we want to insert Angular components into HTML
+- allows to dynamically insert HTML code holding Angular Components after the Angular App has been compiled and loaded
+  - app is compiled ahead-of-time and with JiT compilation it is also compiled before the content is loaded
+- for now can be used only in Angular Projects
+
+</details>
+
+## 26 - Updating Angular
+
+<details>
+<summary>Learn more</summary>
+
+- [Update Official](https://update.angular.io/)
+- [Version 9 of Angular Now Available — Project Ivy has arrived!](https://blog.angular.io/version-9-of-angular-now-available-project-ivy-has-arrived-23c97b63cfa3)
+- [Angular 9 - What's New? What changed?](https://www.youtube.com/watch?v=TcdhAxDWWxM&feature=youtu.be)
+
+</details>

@@ -1549,7 +1549,7 @@ ngOnDestroy() {
 - import operators from `'rxjs/operators'`
 - there are a lot of different operators
 - `tap` allows to execute code without altering the result
-- `switchMap` allows to create a new observable by taking another observable's data
+- `switchMap` allows to create a new observable by taking another observable's data (switches the observable to another one)
 - `filter`
 - `map`
 - `catchError`
@@ -2826,6 +2826,34 @@ this.store.select('auth').subscribe(authState => {
 - navigation could also be seen like a side effect
 - add a new effect for successful login
 - and this effect won't dispatch an action `@Effect({dispatch: false})` will not yield a dispatchable action at the end
+
+</details>
+
+<details>
+<summary>Using the effect in a resolver</summary>
+
+- the resolver expects an observable as a return value on the resolve method and waits for the observable to complete before it loads the route
+- but when we dispatch an action, we don't get back the observable, so the resolve would instantly resolve and we will instantly resolve the route when the data is not there yet
+- can fix with using effects
+```TypeScript
+export class RecipesResolverService implements Resolve<Recipe[]> {
+  constructor(
+    private store: Store<fromApp.AppState>,
+    private actions$: Actions
+  ) {}
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // can't return an action, it doesn't yield the observable
+    this.store.dispatch(new RecipesActions.FetchRecipes());
+    // have to wait the effect triggered by this action to complete
+    // actions$ could be used in any class and also w/o @Effect()
+    return this.actions$.pipe(
+      ofType(RecipesActions.SET_RECIPES),
+      take(1)
+    );
+  }
+}
+```
 
 </details>
 

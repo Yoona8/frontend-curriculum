@@ -1557,6 +1557,7 @@ ngOnDestroy() {
 - `take`
 - `exhaustMap`
 - `of` creates a new observable
+- `withLatestFrom` allows to merge another observable into this observable
 - ```TypeScript
   this.ownIntSubscription = this.customIntObservable.pipe(
     filter(data => data > 0),
@@ -2438,7 +2439,7 @@ map(user => {
 
 - Redux - the state management pattern and library that helps to implement this pattern
 1. Has one central store (holds the app state - large object, that contains all the data the parts of your app need, single source of truth, that manages the entire app state).
-2. Services and Components can still communicate with each other but their receive their state from the store
+2. Services and Components can still communicate with each other but they receive their state from the store
 3. Sometimes we need to change the state (ex: add, delete, change the recipe)
 4. Dispatch Actions (JS object with identifier (kind of action) and optionally the payload (if the action needs some data to complete (recipe add => attach the recipe to the action))) - supported by Redux
 5. The action doesn't directly go to the store => it reaches the reducer

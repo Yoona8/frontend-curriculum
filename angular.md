@@ -2905,6 +2905,15 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 </details>
 
 ## 20 - Offline
+
+<details>
+<summary>Learn more</summary>
+
+- [Service Workers in Angular Official](https://angular.io/guide/service-worker-intro)
+- [PWA Courses](https://academind.com/learn/progressive-web-apps/)
+
+</details>
+
 ## 21 - Testing
 
 ## 22 - Debugging

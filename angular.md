@@ -22,6 +22,8 @@
 ```bash
 # create a project
 ng new <project-name>
+# for multiple projects in one folder
+ng new <project-name> --create-application=false
 
 # run the app in dev mode
 ng serve
@@ -34,7 +36,33 @@ ng g c <component-name or path + name>
 
 # create a directive
 ng g d <directive-name>
+
+# check linting errors
+ng lint
+
+# generate one more application
+ng generate application <application-name>
+
+# generate a library
+ng generate library <library-name>
 ```
+
+</details>
+
+<details>
+<summary>Creating and using libraries</summary>
+
+- not an app to use on it's own but to use across the applications (ex Angular Material)
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Angular CLI Official](https://angular.io/cli)
+- [Angular Compiler Options](https://angular.io/guide/angular-compiler-options)
+- [Angular workspace configuration](https://angular.io/guide/workspace-config)
+- [Schematics for the Angular CLI](https://angular.io/guide/schematics)
 
 </details>
 
@@ -2915,6 +2943,10 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 </details>
 
 ## 21 - Testing
+<details>
+<summary></summary>
+
+</details>
 
 ## 22 - Debugging
 <details>
@@ -3019,7 +3051,6 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 </details>
 
 ## 26 - Angular Elements
-
 <details>
 <summary>General info</summary>
 
@@ -3034,7 +3065,6 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 </details>
 
 ## 26 - Updating Angular
-
 <details>
 <summary>Learn more</summary>
 

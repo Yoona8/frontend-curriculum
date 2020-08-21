@@ -1,15 +1,13 @@
 # CSS
+## 1 - Naming
+<details>
+<summary>Learn more</summary>
 
-## Content (yet to add)
-- 4 Variables
-- 5 Functions
-- 6 Media Queries
-- 7 Feature Queries
-- 12 Centering
-- 17 Lists
-- 18 Forms
+- [Слова, часто используемые в CSS-классах](https://github.com/yoksel/common-words)
 
-## 1 - Selectors
+</details>
+
+## 2 - Selectors
 <details>
 <summary>Pseudo classes</summary>
 
@@ -66,7 +64,15 @@
 
 </details>
 
-## 2 - Measure Units
+<details>
+<summary>Learn more</summary>
+
+- [Intriguing CSS Level 4 Selectors](https://webdesign.tutsplus.com/tutorials/intriguing-css-level-4-selectors--cms-29499)
+- [Селектор обобщенных родственных элементов](https://habr.com/ru/post/150720/)
+
+</details>
+
+## 3 - Measure Units
 <details>
 <summary>Table</summary>
 
@@ -76,7 +82,7 @@
 
 </details>
 
-## 3 - Colors
+## 4 - Colors
 <details>
 <summary>Notes</summary>
 
@@ -84,12 +90,12 @@
 
 </details>
 
-4 - Variables
-5 - Functions
-6 - Media Queries
-7 - Feature Queries
+## 5 - Variables
+## 6 - Functions
+## 7 - Media Queries
+## 8 - Feature Queries
 
-## 8 - Box Model
+## 9 - Box Model
 <details>
 <summary>Table</summary>
 
@@ -105,7 +111,7 @@
 
 </details>
 
-## 9 - Positioning
+## 10 - Positioning
 <details>
 <summary>Table</summary>
 
@@ -119,7 +125,7 @@
 
 </details>
 
-## 10 - Flexbox
+## 11 - Flexbox
 <details>
 <summary>Table</summary>
 
@@ -132,7 +138,15 @@
 
 </details>
 
-## 11 - Grid
+<details>
+<summary>Learn more</summary>
+
+- [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Harnessing Flexbox For Today’s Web Apps](https://www.smashingmagazine.com/2015/03/harnessing-flexbox-for-todays-web-apps/)
+
+</details>
+
+## 12 - Grid
 <details>
 <summary>Applied to the container</summary>
 
@@ -157,15 +171,21 @@
 </details>
 
 <details>
-<summary>More read</summary>
+<summary>Learn more</summary>
 
 - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 </details>
 
-12 Centering
+## 13 - Centering
+<details>
+<summary>Learn more</summary>
 
-## 13 - Floats and Shapes for Floats
+- [Centering in CSS: A Complete Guide](https://css-tricks.com/centering-css-complete-guide/)
+
+</details>
+
+## 14 - Floats and Shapes for Floats
 <details>
 <summary>Table</summary>
 
@@ -176,10 +196,9 @@
 
 </details>
 
-## 14 - Tables
-### 14.1 - Styling tables
+## 15 - Tables
 <details>
-<summary>Table</summary>
+<summary>Styling tables</summary>
 
 |Property|Usage and notes|Level|
 |--------|---------------|:---:|
@@ -191,9 +210,8 @@
 
 </details>
 
-### 14.2 - Make it a table with CSS
 <details>
-<summary>Table</summary>
+<summary>Make it a table with CSS</summary>
 
 |Display value|Usage and notes|Level|
 |-------------|---------------|:---:|
@@ -210,7 +228,14 @@
 
 </details>
 
-## 15 - Typography
+<details>
+<summary>Learn more</summary>
+
+- [A Complete Guide to the Table Element](https://css-tricks.com/complete-guide-table-element/)
+
+</details>
+
+## 16 - Typography
 <details>
 <summary>Table</summary>
 
@@ -242,7 +267,7 @@
 
 </details>
 
-## 16 - Columns
+## 17 - Columns
 <details>
 <summary>Table</summary>
 
@@ -254,10 +279,23 @@
 
 </details>
 
-17 - Lists
-18 - Forms
+## 18 - Lists
+## 19 - Forms
+<details>
+<summary>Snippets</summary>
 
-## 19 - Backgrounds
+- [Radio button styles](https://freebiesupply.com/blog/css-radio-buttons/)
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [A Sliding Nightmare: Understanding the Range Input](https://css-tricks.com/sliding-nightmare-understanding-range-input/)
+
+</details>
+
+## 20 - Backgrounds
 <details>
 <summary>Table</summary>
 
@@ -275,7 +313,7 @@
 
 </details>
 
-## 20 - Gradients
+## 21 - Gradients
 <details>
 <summary>Table</summary>
 
@@ -286,7 +324,7 @@
 
 </details>
 
-## 21 - Borders
+## 22 - Borders
 <details>
 <summary>Table</summary>
 
@@ -305,7 +343,7 @@
 
 </details>
 
-## 22 - Outlines
+## 23 - Outlines
 <details>
 <summary>Table</summary>
 
@@ -317,7 +355,7 @@
 
 </details>
 
-## 23 - Shadows
+## 24 - Shadows
 <details>
 <summary>Table</summary>
 
@@ -327,7 +365,7 @@
 
 </details>
 
-## 24 - Transforms
+## 25 - Transforms
 <details>
 <summary>2D Transforms</summary>
 
@@ -342,7 +380,7 @@
 
 </details>
 
-## 25 - Transitions
+## 26 - Transitions
 <details>
 <summary>Table</summary>
 
@@ -356,7 +394,7 @@
 
 </details>
 
-## 26 - Animations
+## 27 - Animations
 <details>
 <summary>Table</summary>
 
@@ -375,16 +413,35 @@
 
 </details>
 
-Overflow
-Opacity
-Filter
-Cursor
-Counters
-Single Element Shapes
-Inline-Block
-Clipping and Masking
-Fragmentation
-CSSOM
-Stacking Context
-Block Formatting Contexts
-Object Fit and Placement
+<details>
+<summary>Snippets</summary>
+
+- [Hovers, loaders](https://emilkowalski.github.io/css-effects-snippets/)
+- [Different animations](https://animate.style/)
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Creating smooth CSS animations — even with a heavy DOM](https://medium.com/purpledesign/creating-smooth-css-animations-even-with-a-heavy-dom-212cb80441a9)
+
+</details>
+
+## 28 - Overflow
+## 29 - Opacity
+## 30 - Filter
+## 31 - Cursor
+## 32 - Counters
+## 33 - Single Element Shapes
+## 34 - Inline-Block
+## 35 - Clipping and Masking
+## 36 - Fragmentation
+## 37 - CSSOM
+## 38 - Stacking Context
+## 39 - Block Formatting Contexts
+## 40 - Object Fit and Placement
+
+## 41 - Books
+- [Cascading Style Sheets: The Definitive Guide, 2nd Edition](http://shop.oreilly.com/product/9780596005252.do)
+- [CSS: The Missing Manual, 4th Edition](http://shop.oreilly.com/product/0636920036357.do)

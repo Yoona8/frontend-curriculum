@@ -2944,7 +2944,12 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 ## 21 - Testing
 <details>
-<summary></summary>
+<summary>Learn more</summary>
+
+- [Angular Testing Official](https://angular.io/guide/testing)
+- [Testing Components in Angular 2 with Jasmine](https://semaphoreci.com/community/tutorials/testing-components-in-angular-2-with-jasmine)
+- [Ng Test CLI](https://github.com/angular/angular-cli/wiki/test)
+- [Ng e2e CLI](https://github.com/angular/angular-cli/wiki/e2e)
 
 </details>
 

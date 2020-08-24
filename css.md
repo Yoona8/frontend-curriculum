@@ -1,5 +1,5 @@
 # CSS
-## 1 - Naming
+## Naming
 <details>
 <summary>Learn more</summary>
 
@@ -7,7 +7,7 @@
 
 </details>
 
-## 2 - Selectors
+## Selectors
 <details>
 <summary>Pseudo classes</summary>
 
@@ -72,7 +72,7 @@
 
 </details>
 
-## 3 - Measure Units
+## Measure Units
 <details>
 <summary>Table</summary>
 
@@ -82,7 +82,7 @@
 
 </details>
 
-## 4 - Colors
+## Colors
 <details>
 <summary>Notes</summary>
 
@@ -90,12 +90,12 @@
 
 </details>
 
-## 5 - Variables
-## 6 - Functions
-## 7 - Media Queries
-## 8 - Feature Queries
+## Variables
+## Functions
+## Media Queries
+## Feature Queries
 
-## 9 - Box Model
+## Box Model
 <details>
 <summary>Table</summary>
 
@@ -111,7 +111,7 @@
 
 </details>
 
-## 10 - Positioning
+## Positioning
 <details>
 <summary>Table</summary>
 
@@ -125,7 +125,7 @@
 
 </details>
 
-## 11 - Flexbox
+## Flexbox
 <details>
 <summary>Table</summary>
 
@@ -143,6 +143,7 @@
 
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [Harnessing Flexbox For Today’s Web Apps](https://www.smashingmagazine.com/2015/03/harnessing-flexbox-for-todays-web-apps/)
+- [Flexbugs](https://github.com/philipwalton/flexbugs#flexbugs)
 
 </details>
 

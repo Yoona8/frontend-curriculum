@@ -1,8 +1,6 @@
 # JavaScript
 
-- [To content](readme.md)
-
-## 1 - ECMAScript
+## ECMAScript Standard
 <details>
 <summary>Notes</summary>
 
@@ -22,7 +20,15 @@ Global changes:
 
 </details>
 
-## 2 - Constants and variables
+## Code style
+<details>
+<summary>Tips</summary>
+
+- Semi-colons `;` are placed after every expression except blocks of code `{}` (exceptions are objects and everything declared with `var`, `let` or `const`, basically variables)
+
+</details>
+
+## Constants and variables
 <details>
 <summary>Examples</summary>
 
@@ -48,7 +54,7 @@ const arr = [1, 2, 3, 4];
 
 </details>
 
-## 3 - Data types and structures
+## Data types and structures
 <details>
 <summary>Table</summary>
 
@@ -66,9 +72,9 @@ const arr = [1, 2, 3, 4];
 
 </details>
 
-## 4 - Numbers
+## Numbers
 
-## 5 - Strings
+## Strings
 <details>
 <summary>How to remove duplicates?</summary>
 
@@ -76,7 +82,7 @@ const arr = [1, 2, 3, 4];
 
 </details>
 
-## 6 - Iterables: Arrays
+## Iterables: Arrays
 <details>
 <summary>Creation</summary>
 
@@ -491,7 +497,14 @@ for (const prop in player) {
 
 </details>
 
-## 12 - Expressions and Operators
+## Expressions and Operators
+<details>
+<summary>Exponentiation</summary>
+
+- `**` exponentiation operator (not supported in IE)
+
+</details>
+
 <details>
 <summary>Destructuring: Arrays and alike</summary>
 

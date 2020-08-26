@@ -154,7 +154,7 @@ callbacks.find((it) => it === 'some');
 
 </details>
 
-## 7 - Objects
+## Objects
 <details>
 <summary>Dictionaries</summary>
 
@@ -298,7 +298,7 @@ const newPlayer = {...player};
 
 </details>
 
-## 8 - Functions
+## Functions
 <details>
 <summary>Notes</summary>
 
@@ -343,7 +343,7 @@ const getWizard = (name, level) => ({
 
 </details>
 
-## 9 - Scope
+## Scope
 <details>
 <summary>Notes</summary>
 
@@ -435,7 +435,7 @@ const obj = {
 if we use new keyword to create an instance, lexical this will be the object (binds this in the constructor)
 - [What is `this`? The Inner Workings of JavaScript Objects](https://medium.com/javascript-scene/what-is-this-the-inner-workings-of-javascript-objects-d397bfa0708a)
 
-## 10 - Constructors and prototypes
+## Constructors and prototypes
 <details>
 <summary>Notes</summary>
 
@@ -460,7 +460,7 @@ if (!new.target) { throw new Error(); }
 
 </details>
 
-## 11 - Classes
+## Classes
 <details>
 <summary>Notes</summary>
 
@@ -498,6 +498,14 @@ for (const prop in player) {
 </details>
 
 ## Expressions and Operators
+<details>
+<summary>Increment and decrement</summary>
+
+- `return result++;` returns first the result and then increments
+- `return ++result;` increments and then returns the changed value
+
+</details>
+
 <details>
 <summary>Exponentiation</summary>
 

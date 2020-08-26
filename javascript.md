@@ -557,11 +557,17 @@ console.log('a' > 'B'); // => true
 - `>=` and `<=`
 - `!`
 
+<hr>
+
 - `a && b` if both are true `=== true`
 - `a || b` if at least one is true `=== true`
 - `&&` precedence is higher than `||`
 
+<hr>
+
 - `isNaN()` to check if NaN or not
+
+<hr>
 
 - `isNaN(value) || value <= 0` if the first part is `true`, JS doesn't go further
 

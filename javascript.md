@@ -30,20 +30,23 @@ Global changes:
 
 ## Constants and variables
 <details>
-<summary>Examples</summary>
+<summary>Declarations</summary>
 
+- immutable (code agreement: protected, hardcoded) constant primitive value (physical constants, coefficients, etc)
 ```JavaScript
-// constants - code agreements
-// protected values, hardcoded (default configs, physical consts, coefficients)
-// distinguished by it's appearance
-// any constant declares as a const
-// is immutable
+const LIGHT_SPEED = 255792458;
+```
+- immutable constant array
+```JavaScript
+const DEFAULT_NAMES = ['Michael', 'Anna', 'Chris'];
+```
+- immutable constant object (ex default configurations)
+- enumeration
+```JavaScript
 const Earth = {
   RADIUS: 6.371,
   GRAVITATION: 6.67408
 };
-const DEFAULT_NAMES = ['Michael', 'Anna', 'Chris'];
-const LIGHT_SPEED = 255792458;
 
 // consts
 // not any const = constant
@@ -497,19 +500,68 @@ for (const prop in player) {
 
 </details>
 
-## Expressions and Operators
+## Expressions, Control structures and Operators
 <details>
-<summary>Increment and decrement</summary>
+<summary>Basic operators</summary>
 
-- `return result++;` returns first the result and then increments
-- `return ++result;` increments and then returns the changed value
+- `=`
+- `+` or `+=`
+- `-` or `-=`
+- `*` or `*=`
+- `/` or `/=`
+- `%`
+- `**` exponentiation operator (not supported in IE)
 
 </details>
 
 <details>
-<summary>Exponentiation</summary>
+<summary>Increment and decrement</summary>
 
-- `**` exponentiation operator (not supported in IE)
+- `return result++;` returns first the result and then increments
+- `return --result;` decrements and then returns the changed value
+
+</details>
+
+<details>
+<summary>Conditions and boolean operators</summary>
+
+- `if ... else` and `? :`
+  - `if ... else` returns no value, `? :` always returns a value
+- falsy values
+  - `0`
+  - `''`
+  - `NaN`
+  - `null`
+  - `undefined`
+- truthy values
+  - numbers `!== 0`
+  - not empty strings
+  - `[]`, `{}` and all other objects and arrays
+
+- `==` and `===`
+- `!=` and `!==`
+- `>` and `<`
+```JavaScript
+// JS compares strings based on standard lexicographical ordering (Unicode)
+console.log('b' > 'a'); // => true
+
+// JS always looks at the first char and only considers other chars if the 1st
+// chars are the same
+console.log('ab' > 'aa'); // => true
+
+// uppercase chars are smaller than lowercase
+console.log('a' > 'B'); // => true
+```
+- `>=` and `<=`
+- `!`
+
+- `a && b` if both are true `=== true`
+- `a || b` if at least one is true `=== true`
+- `&&` precedence is higher than `||`
+
+- `isNaN()` to check if NaN or not
+
+- `isNaN(value) || value <= 0` if the first part is `true`, JS doesn't go further
 
 </details>
 
@@ -635,7 +687,12 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 13 - Control structures
+<details>
+<summary>Learn more</summary>
+
+- [Operator precedence]
+
+</details>
 
 ## 14 - Modules
 <details>

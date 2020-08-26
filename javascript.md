@@ -538,6 +538,8 @@ for (const prop in player) {
   - not empty strings
   - `[]`, `{}` and all other objects and arrays
 
+<hr>
+
 - `==` and `===`
 - `!=` and `!==`
 - `>` and `<`

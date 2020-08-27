@@ -670,10 +670,50 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 <details>
 <summary>Loops</summary>
 
-- `for ... of`
-- almost the same to `for` loop
-- can use `break` and `continue`
-- could be used with every iterable
+- `for (let i = 0; i < 5; i++) {}`
+- `for (const item of items) {}`
+  - almost the same as `for` loop
+  - can use `break` and `continue`
+  - could be used with every iterable (not only `Array`)
+- `for (const key in someObject) {}`
+  - requires additional check, otherwise can go through the whole prototype chain
+- `while (isEdit) {}` as long as the condition is true
+- `do { ... } while (isEdit);` runs at least once
+
+<hr>
+
+- `break;` stops the loop execution
+  - if inside the nested loop - stops only the nested one, outer continues
+- `continue;` skips only the current iteration and moves to the next
+
+<hr>
+
+- labeled statements could be used with any expression but mostly used with loops
+- to break or continue the outer loop from inner
+```JavaScript
+outerLoop: for (const item of items) {
+  console.log('Outer', item);
+
+  innerLoop: for (let i = 0; i < 5; i++) {
+    if (i === 2) {
+      break outerLoop;
+      // or
+      continue outerLoop;
+    }
+
+    console.log('Inner', i);
+  }
+}
+
+// could also break from somewhere else in the code
+const button = document.querySelector('.button');
+
+button.addEventListener('click', () => {
+  break outerLoop;
+  // or
+  continue outerLoop;
+});
+```
 
 </details>
 

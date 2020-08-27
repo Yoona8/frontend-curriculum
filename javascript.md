@@ -525,8 +525,12 @@ for (const prop in player) {
 <details>
 <summary>Conditions and boolean operators</summary>
 
-- `if ... else` and `? :`
-  - `if ... else` returns no value, `? :` always returns a value
+- `if ... else`
+  - returns no value
+- `? :`
+  - always returns a value
+- `switch () { case: ... }`
+  - always uses `===` to compare
 - falsy values
   - `0`
   - `''`
@@ -556,11 +560,35 @@ console.log('a' > 'B'); // => true
 ```
 - `>=` and `<=`
 - `!`
+  - `!!userName` converts into a boolean
 
 <hr>
 
 - `a && b` if both are true `=== true`
+```JavaScript
+
+// use value if the condition is true
+const isLoggedIn = true; // if false => false
+const userName = isLoggedIn && 'Mary'; // => 'Mary'
+
+// returns the 1st falsy value
+const useName = null && 'Mary'; // => null
+
+// if both truthy, the second is returned
+const userName = 'Max' && 'Mary'; // => 'Mary'
+
+```
 - `a || b` if at least one is true `=== true`
+```JavaScript
+// default value assignment
+// doesn't convert into a boolean
+// returns 1st truthy value
+const userName = '' || 'Mary'; // => 'Mary'
+const userName = 'Max' || 'Mary'; // => 'Max'
+
+// if both falsy, the second value is returned
+const userName = null || ''; // => ''
+```
 - `&&` precedence is higher than `||`
 
 <hr>
@@ -640,8 +668,9 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 </details>
 
 <details>
-<summary>:deciduous_tree: - For ... of loop</summary>
+<summary>Loops</summary>
 
+- `for ... of`
 - almost the same to `for` loop
 - can use `break` and `continue`
 - could be used with every iterable
@@ -649,7 +678,7 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 </details>
 
 <details>
-<summary>:deciduous_tree: - Rest and spread operators</summary>
+<summary>Rest and spread operators</summary>
 
 ```JavaScript
 // rest collects several values into one iterable structure

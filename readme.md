@@ -33,3 +33,6 @@
 - :blossom: - good
 
 </details>
+
+## Cross-content links
+- [Web Skills map](https://andreasbm.github.io/web-skills/)

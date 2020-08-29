@@ -1,26 +1,54 @@
 # HTML
 
-Main root
-Metadata
-Sectioning root
-Content sectioning
+## Metadata content
+## Flow content
+<details>
+<summary>Lists</summary>
 
-## Text content
+- `<ol>`
+  - `start`, `reversed` bool change the order
 
-|Element|Usage and notes|Level|
-|-------|---------------|:---:|
-|`<ol>`|`start`, `reversed` bool change the order|:blossom:|
-|`<figure>`||:deciduous_tree:|
-|`<figcaption>`|1st or last in parent `<figure>`|:deciduous_tree:|
+</details>
 
-## Inline text semantics
+<details>
+<summary>Presentation</summary>
 
-|Element|Usage and notes|Level|
-|-------|---------------|:---:|
-|`<q>`|`cite="https://..."` can cite the e-address also|:blossom:|
-|`<ins>`|`datetime="ISO"` and `today` or any other text in tag|:deciduous_tree:|
-|`<del>`|`datetime` and content same to `<ins>`|:deciduous_tree:|
-|`<time>`|`datetime` and content same to `<ins>`|:deciduous_tree:|
+- `<figure>`
+- `<figcaption>` 1st or last in parent `<figure>`
+
+</details>
+
+<details>
+<summary>Tables</summary>
+
+- `<table>` by default shrinks to content
+- `<caption>` should be the first child
+- `<tr>`
+- `<td>`
+  - `colspan` for horizontal expanding, moves right cell, have to delete in html
+  - `rowspan` for vertical expanding, moves lower cell in it's own row to right
+
+</details>
+
+## Sectioning content
+## Heading content
+## Phrasing content
+<details>
+<summary>Text semantics</summary>
+
+- `<q cite="https://..."></q>` can cite the e-address also
+- `<ins>` and `<del>` are phrasing if contain only phrasing content
+- `<ins>today</ins>`, `<del>yesterday</del>`, `<time>2 days ago</time>`  
+  - `datetime="ISO"` and `today` or any other text in tag
+
+</details>
+
+## Embedded content
+## Interactive content
+## Palpable content
+## Form-associated content
+## Script-supporting elements
+## Transparent content model
 
 ## Images and multimedia, embedded content
 
@@ -46,15 +74,6 @@ use figure
 </figure>
 
 Scripts
-
-## Tables
-
-|Element|Usage and notes|Level|
-|-------|---------------|:---:|
-|`<table>`|by default  shrinks to content|:blossom:|
-|`<caption>`|should be the first child|:blossom:|
-|`<tr>`||:blossom:|
-|`<td>`|- `colspan` for horizontal expanding, moves right cell, have to delete in html<br>- `rowspan` for vertical expanding, moves lower cell in it's own row to right|:blossom:|
 
 ## Forms
 |Element|Usage and notes|Level|

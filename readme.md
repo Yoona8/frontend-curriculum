@@ -2,6 +2,20 @@
 
 ## Content
 - [HTML](html.md)
+
+<details>
+<summary></summary>
+
+- syntax
+- basic tags
+- forms
+- SEO
+- Discoverable content
+- Svg
+- best practices
+
+</details>
+
 - [CSS](css.md)
 - [A11y](a11y.md)
 - [Graphics](graphics.md)

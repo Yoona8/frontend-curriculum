@@ -818,7 +818,9 @@ console.log(doSomething()); // => 0, 1, 3, false
 <details>
 <summary>Learn more</summary>
 
-- [Operator precedence]
+- [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+- [Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+- [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
 
 </details>
 
@@ -1263,6 +1265,12 @@ Issues
 ## 24 - Testing
 
 ## 25 - Debugging
+<details>
+<summary>Learn more</summary>
+
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+
+</details>
 
 ## 26 - Browser support
 

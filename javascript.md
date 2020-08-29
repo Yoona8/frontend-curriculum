@@ -6,12 +6,7 @@
 
 Global changes:
 - new strategy of spec updating
-- problem concepts
-  - hoisting
-  - `var` rewriting
-  - scope (var with no block-scope)
 - new opportunities
-  - `let`, `const` - hoisting, scope, rewriting solved
   - template strings
   - function default params
   - arrow functions
@@ -30,7 +25,20 @@ Global changes:
 
 ## Constants and variables
 <details>
-<summary>Declarations</summary>
+<summary>General info</summary>
+
+- `name = 'Mary';` works (JS adds `var name = Mary;`) but bad practice (not allowed with `'use strict';`)
+- `var`
+  - hoisting
+  - `var i = 21; var i = 45;` recreating 
+  - function and global scope (but no block scope)
+  - `var undefined = 67;` reserved names usage (not allowed with `'use strict;`)
+- `let`, `const` - no hoisting, no recreating, block scope, using reserved names is not allowed
+
+</details>
+
+<details>
+<summary>Declarations (naming conventions)</summary>
 
 - immutable (code agreement: protected, hardcoded) constant primitive value (physical constants, coefficients, etc)
 ```JavaScript
@@ -776,6 +784,7 @@ const filteredValues = [...values].filter();
   - some cleanup work (release data, clear the variables, etc)
 - if the error is thrown from `catch`, only finally executes, code after `try ... catch ... finally` block won't be executed
 - `finally` always runs
+
 ```JavaScript
 function doSomething() {
   try {
@@ -1199,6 +1208,12 @@ Issues
 ## 20 - Meta-programming
 
 ## 21 - Performance and optimizations
+<details>
+<summary>Code parsing, compilation and execution</summary>
+
+<img src="./images/code-parsing.png" alt="Code parsing">
+
+</details>
 
 ## 22 - Security
 

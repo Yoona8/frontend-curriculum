@@ -1222,6 +1222,20 @@ Issues
 
 </details>
 
+<details>
+<summary>Primitive and Reference values</summary>
+
+- primitive - strings, numbers, booleans, `null`, `undefined`, symbol
+  - stored in a memory (normally on stack)
+  - variable stores the value itself
+  - copying a variable copies the value
+- reference - all other objects (more expensive to create)
+  - stored in a memory (heap)
+  - variable stores a pointer (address) to location in memory
+  - copying a variable copies the pointer (reference)
+
+</details>
+
 ## 22 - Security
 
 ## 23 - Regular expressions

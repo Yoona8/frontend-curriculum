@@ -1213,9 +1213,9 @@ Issues
 <details>
 <summary>Code parsing, compilation and execution</summary>
 
-<img src="./images/code-parsing.png" alt="Code parsing">
+<img src="../images/code-parsing.png" alt="Code parsing">
 
-<img src="./images/heap-stack.png" alt="Heap, stack (how JS engine works)">
+<img src="../images/heap-stack.png" alt="Heap, stack (how JS engine works)">
 
 - JS is single-threaded
 - event loop is not a JS-engine feature (only heap and stack - simple sync code), it's a browser feature

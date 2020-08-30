@@ -9,7 +9,7 @@
 - [JavaScript](./notes/javascript.md)
 - Canvas API
 - WebGl and animations
-- Browser
+- [Browsers](./notes/browsers.md)
 
 </details>
 

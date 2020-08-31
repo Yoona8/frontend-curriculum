@@ -311,12 +311,16 @@ const newPlayer = {...player};
 
 ## Functions
 <details>
-<summary>Notes</summary>
+<summary>General info</summary>
 
 - function without `return` statement returns `undefined`
 
+</details>
+
+<details>
+<summary>Default parameters</summary>
+
 ```JavaScript
-// default params
 // Earlier
 var doSomething = function (caption, amount, isChecked) {
   if (typeof isChecked === 'undefined') {
@@ -330,6 +334,11 @@ const doSomething = (caption, amount, isChecked = false) => {
 };
 ```
 
+</details>
+
+<details>
+<summary>Arrow functions</summary>
+
 - doesn't have it's own scope (only lexical) - when global, `this === window`
 - doesn't have `arguments` object
 - can't rewrite `this` (`bind` and `call` won't work)
@@ -337,7 +346,6 @@ const doSomething = (caption, amount, isChecked = false) => {
   - can't be method of an object or prototype
 
 ```JavaScript
-// arrow functions
 // only 1 param?
 const doSomething = param => console.log(param);
 
@@ -1233,6 +1241,40 @@ Issues
   - stored in a memory (heap)
   - variable stores a pointer (address) to location in memory
   - copying a variable copies the pointer (reference)
+
+</details>
+
+<details>
+<summary>Garbage collection and Memory management</summary>
+
+- the stack is cleared automatically (mostly ok)
+- the heap may overflow more frequently
+  - if exceeded the allocated memory for the browser (chrome crashes the site, but the app still runs)
+  - no need to manually manage in most cases
+- V8 garbage collector
+  - periodically checks the heap for unused objects (objects without references) and removes them
+- memory leaks (due to unused objects you still hold the reference to)
+```JavaScript
+function printMsg() { ... }
+
+function addListener() {
+  // JS replaces the function, the listener is only one
+  button.addEventListener('click', printMsg);
+
+  // JS adds the new listener every time
+  button.addEventListener('click', function() { ... });
+}
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Reference vs Primitive values](https://academind.com/learn/javascript/reference-vs-primitive-values/)
+- [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+- [JavaScript V8 Engine Explained](https://hackernoon.com/javascript-v8-engine-explained-3f940148d4ef)
+- [Getting garbage collection for free](https://v8.dev/blog/free-garbage-collection)
 
 </details>
 

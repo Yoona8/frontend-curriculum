@@ -318,6 +318,34 @@ const newPlayer = {...player};
 </details>
 
 <details>
+<summary>Parameters vs Arguments</summary>
+
+- parameters are variables, which are specified when defining a function
+```JavaScript
+function printMsg(msg) {}
+```
+- arguments are the concrete values passed to a function when calling it
+```JavaScript
+printMsg('Some message');
+```
+
+</details>
+
+<details>
+<summary>Anonymous function</summary>
+
+- when there is an error inside the anonymous function, name of the function will be `<anonymous>`
+```JavaScript
+button.addEventListener('click', function() {});
+```
+- the only case why to add a name to anonymous function is for debugging, in that case the name of the function will be specified
+```JavaScript
+button.addEventListener('click', function onClick() {});
+```
+
+</details>
+
+<details>
 <summary>Default parameters</summary>
 
 ```JavaScript

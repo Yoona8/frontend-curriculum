@@ -40,7 +40,7 @@
 <summary>Tools</summary>
 
 - TypeScript
-- [Dev tools](./notes/dev-tools.md)
+- [Dev tools (Chrome, Git, GitHub)](./notes/dev-tools.md)
 - [Webpack](./notes/webpack.md)
 
 </details>

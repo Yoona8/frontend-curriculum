@@ -20,15 +20,28 @@
 </details>
 
 ## Git and GitHub
-- setup git
-  - download git (both mac and win)
-  - download terminal
-  - for ru version (if needed): `environment` => `set LC_ALL=ru_RU.UTF-8` and `set LANG=ru_RU.UTF-8`
-- git line endings
-  - set inside `.gitattributes` file
-  - `*.md text` for text file to be converted `CRLF` (win) => `LF` (macOS, linux)
-  - `*.png binary` for `-text -diff` macros
-- config git
+<details>
+<summary>Setup git</summary>
+
+- download git (both mac and win)
+- download terminal
+- for ru version (if needed): `environment` => `set LC_ALL=ru_RU.UTF-8` and `set LANG=ru_RU.UTF-8`
+
+</details>
+
+<details>
+<summary>Git line endings</summary>
+
+- set inside `.gitattributes` file
+- `*.md text` for text file to be converted `CRLF` (win) => `LF` (macOS, linux)
+- `*.png binary` for `-text -diff` macros
+
+</details>
+
+
+<details>
+<summary>Config git</summary>
+
 ```bash
 git config --global user.name "<name>"
 git config -g user.email "<email>"
@@ -39,7 +52,12 @@ git config --list
 # to add git to current folder
 git init
 ```
-- git commands (general)
+
+</details>
+
+<details>
+<summary>Git commands (general)</summary>
+
 ```bash
 git help <command>
 git status
@@ -107,17 +125,21 @@ git branch --set-upstream-to=origin/<name>
 # to show links between branches
 git branch -vv 
 ```
-- set SSH and integrations
+
+</details>
+
+<details>
+<summary>Set SSH and integrations</summary>
+
+- store private key only on your computer
+- load public key to repo
 ```bash
 # to link remote and local repos
 git remote add origin <git@github.com...>
 # shows remote repos
 git remote -v
 git push -u origin master
-```
-- store private key only on your computer
-- load public key to repo
-```bash
+
 # creates a folder in user's folder, create an SSH key in this folder
 mkdir ~/.ssh
 # where -t rsa sets key type and -b 4096 sets key length (bit)
@@ -135,13 +157,33 @@ Host github.com
     IdentityFile ~/.ssh/key
 ```
 
+</details>
+
 ## Terminal
-pwd full path to current dir
-cd change dir
-cd - to previous folder
-mkdir name and touch name creates a dir or file
+<details>
+<summary>Common commands</summary>
+
+```bash
+# full path to current dir
+pwd
+# change dir
+cd
+# to previous folder
+cd -
+# creates a dir or file
+mkdir name
+touch name
+
 ls <path/to>
-ls -1 vertically
-ls -a +hidden
-open . or start . or instead of . add path to open dir or file
-cat <file> shows the content
+# vertically
+ls -1
+# +hidden
+ls -a
+# or instead of . add path to open dir or file
+open .
+start .
+# shows the content
+cat <file>
+```
+
+</details>

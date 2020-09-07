@@ -357,9 +357,14 @@ var doSomething = function (caption, amount, isChecked) {
 };
 
 // ES2015
+// even if we explicitly pass instead of isChecked undefined,
+// the default value will be assigned
 const doSomething = (caption, amount, isChecked = false) => {
   // some code here
 };
+
+// can also use the previous parameter in default value assignment
+const doSomething = (amount, isChecked = amount > 5 ? true : false) => {};
 ```
 
 </details>
@@ -377,7 +382,7 @@ const doSomething = (caption, amount, isChecked = false) => {
 // only 1 param?
 const doSomething = param => console.log(param);
 
-// only 1 line?
+// only 1 expression?
 // = return left * right;
 const doSomething = (left, right) => left * right;
 
@@ -387,6 +392,14 @@ const getWizard = (name, level) => ({
   level
 });
 ```
+
+</details>
+
+<details>
+<summary>Arguments keyword</summary>
+
+- don't have to pass as a parameter (accessible as a keyword inside any function)
+- iterable structure
 
 </details>
 
@@ -764,8 +777,9 @@ button.addEventListener('click', () => {
 <details>
 <summary>Rest and spread operators</summary>
 
+- rest collects several values into one iterable structure
+- rest must be last parameter in the function (or error)
 ```JavaScript
-// rest collects several values into one iterable structure
 // before
 function doSomething() {
   return Array.from(arguments);
@@ -1071,7 +1085,7 @@ getResponse('data.json',
 - promise is a way to work with an async function as if it's sync
 - returns an object, which replaces returned value, which is still undefined when the function already executed
 - different states if a promise object
-<img src="./images/promise.jpg" alt="promises" width="400">
+<img src="../images/promise.jpg" alt="promises" width="400">
 
 ```JavaScript
 const getResponse = (url) => new Promise(

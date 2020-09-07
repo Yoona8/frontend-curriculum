@@ -103,7 +103,12 @@ git commit --amend --no-edit
 git rm --cached <file>
 git commit --amend --no-edit
 ```
-- git branches
+
+</details>
+
+<details>
+<summary>Git branches</summary>
+
 - `HEAD` indicates current state (where we currently are)
 - when we create a new commit in a branch, the pointer jumps to the last commit
 ```bash

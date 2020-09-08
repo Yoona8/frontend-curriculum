@@ -26,6 +26,20 @@
 </details>
 
 ## Metadata content
+<details>
+<summary>Meta tags</summary>
+
+```HTML
+<!-- add always -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- optional -->
+<meta name="keywords" content="...">
+<meta name="description" content="...">
+```
+
+</details>
 
 ## Flow content
 <details>

@@ -1,6 +1,6 @@
 # Data structures and Algorithms
 
-## 1 - Data Structures
+## Data Structures (JS implementation)
 <details>
 <summary>Lists</summary>
 

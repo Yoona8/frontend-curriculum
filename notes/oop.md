@@ -1,7 +1,5 @@
 # OOP
 
-- [To content](readme.md)
-
 ## General info
 <details>
 <summary>Notes</summary>
@@ -173,7 +171,7 @@ const man = new AbstractMan('Tom'); // error
     - know about each other
     - export only the abstract interface
   - could not exist without high cohesion. If there are abstract modules, there should be logic, which connects them
-<img src="./images/mv.jpg" alt="MV*" width="500">
+<img src="../images/mv.jpg" alt="MV*" width="500">
 
 </details>
 
@@ -196,7 +194,7 @@ const man = new AbstractMan('Tom'); // error
 - Load
   - controller calls model update
   - model loads data and tells the view about changes
-<img src="./images/mvc.jpg" alt="MVC" width="200">
+<img src="../images/mvc.jpg" alt="MVC" width="200">
 
 </details>
 
@@ -223,7 +221,7 @@ const man = new AbstractMan('Tom'); // error
   - presenter runs the model update logic
   - model tells the presenter about updates
   - presenter updates the view
-<img src="./images/mvp.jpg" alt="MVP" width="200">
+<img src="../images/mvp.jpg" alt="MVP" width="200">
 
 </details>
 
@@ -242,7 +240,7 @@ const man = new AbstractMan('Tom'); // error
   - view updates model via binding, described in the ViewModel
 - Load
   - model after being loaded synchronizes with the view via binding
-<img src="./images/mvvm.jpg" alt="MVVM" width="200">
+<img src="../images/mvvm.jpg" alt="MVVM" width="200">
 
 </details>
 

@@ -1,7 +1,4 @@
 # Firebase
-
-- [To content](#readme.md)
-
 <details>
 <summary>Basic setup</summary>
 

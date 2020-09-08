@@ -218,39 +218,73 @@
 </details>
 
 <details>
-<summary>Input types</summary>
+<summary>Inputs of different types</summary>
 
-|Input type|Usage and notes|Level|
-|----------|---------------|:---:|
-|`hidden`|good for support needs|:deciduous_tree:|
-|`file`|- `name` is required<br>- `enctype` on `<form>`is required|:seedling:|
-|`image`|- almost = submit + sends the click coordinates on the image<br>- has `alt` and `src` attributes|:seedling:|
-|`date`|- for all date types if browser doesn't support, shows text field<br>- with locale|:seedling:|
-|`time`|with locale|:seedling:|
-|`datetime`|with time zone|:seedling:|
-|`datetime-local`|w/o time zone|:seedling:|
-|`week`|N of week, year|:seedling:|
-|`month`|month + year|:seedling:|
-|`number`|- doesn't have min/maxlength<br>- `step="10"` is applied by clicking arrows, out of step = validation error<br>- number keyboard on mobile<br>- has `min="0"` `max="100"` attributes|:deciduous_tree:|
-|`search`|almost like text, in some browsers has a cross|:blossom:|
-|`range`|- has `min="0"` `max="100"` `step="10"` attributes<br>- still has no multiple handles|:deciduous_tree:|
-|`tel`|- good with patterns<br>- tel keyboard on mobile|:blossom:|
-|`email`|- native validation for correct urls, emails<br>- proper keyboard on mobile|:deciduous_tree:|
-|`url`|same to `email`|:deciduous_tree:|
-|`color`|- opens special pallette with colors<br>- if browser doesn't support = text field|:seedling:|
+```HTML
+<!-- good for support needs -->
+<input type="hidden">
+
+<!-- name is required, enctype on form is required -->
+<input name="some-file" type="file">
+
+<!-- almost = submit + sends the click coordinates on the image -->
+<input type="image" src="#" alt="">
+
+<!-- for all date types if browser doesn't support, shows text field -->
+<!-- with locale -->
+<input type="date">
+<!-- with locale -->
+<input type="time">
+<!-- with time zone -->
+<input type="datetime">
+<!-- w/o time zone -->
+<input type="datetime-local">
+<!-- N of week, year -->
+<input type="week">
+<!-- month + year -->
+<input type="month">
+
+<!-- doesn't have min/maxlength -->
+<!-- step is applied by clicking arrows, out of step = validation error -->
+<!-- number keyboard on mobile -->
+<input type="number" min="1" max="100" step="10">
+
+<!-- almost like text, in some browsers has a cross -->
+<input type="search">
+
+<!-- still has no multiple handles -->
+<input type="range" min="0" max="100" step="10">
+
+<!-- good with patterns -->
+<!-- tel keyboard on mobile -->
+<input type="tel">
+<!-- native validation for correct urls, emails -->
+<!-- proper keyboard on mobile -->
+<input type="email">
+<input type="url">
+
+<!-- opens special pallette with colors -->
+<!-- if browser doesn't support = text field -->
+<input type="color">
+```
 
 </details>
 
 <details>
 <summary>Attributes</summary>
 
-|Attribute|Usage and notes|Level|
-|---------|---------------|:---:|
-|`autofocus`|only one attribute for the whole page|:blossom:|
-|`pattern`|regexp, if incorrect - validation error|:deciduous_tree:|
-|`readonly`|can't change but can select and copy, **posts to the server**|:blossom:|
-|`disabled`|can't change, focus, select or copy, **doesn't post to the server**|:blossom:|
-|`autocomplete`|`on` `off` allow/block browser autocomplete option|:blossom:|
+```HTML
+<!-- only one attribute for the whole page -->
+<input type="text" autofocus>
+<!-- regexp, if incorrect - validation error -->
+<input type="tel" pattern="">
+<!-- can't change but can select and copy, posts to the server -->
+<input type="text" readonly>
+<!-- can't change, focus, select or copy, doesn't post to the server -->
+<input type="text" disabled>
+<!-- allow/block browser autocomplete option -->
+<input type="text" autocomplete="on/off">
+```
 
 </details>
 

@@ -8,7 +8,7 @@
 
 ```HTML
 <!-- start to set the start point -->
-<!-- reverser - bool, changes the order -->
+<!-- reversed - bool, changes the order -->
 <ol start="10" reversed>
   <li></li>
 </ol>
@@ -75,36 +75,97 @@
 </details>
 
 ## Embedded content
+
 ## Interactive content
+
 ## Palpable content
+
 ## Form-associated content
+
 ## Script-supporting elements
+
 ## Transparent content model
 
 ## Images and multimedia, embedded content
+<details>
+<summary>Images</summary>
 
-|Element|Usage and notes|Level|
-|-------|---------------|:---:|
-|`<img>`|`alt` added to only one img of a group, others are "" description|:blossom:|
-|`<map>`|image maps (for super strange cases like block-schemes etc)|:seedling:|
-|`<area>`|defines a hot-spot region on a map, only used within a `<map>`|:seedling:|
-|`<video>`|- `preload="none/metadata"` metadata service data (length, 1 slide)<br>- `preload="auto"` whole video<br>- `poster="#"` img when not yet loaded<br> - `controls`, `autoplay` boolean attributes<br>- source types: `video/mp4`, `MPEG-4/H.264`, `OGG/Theora`, `WebM`|:seedling:|
-|`<audio>`|- almost like a video<br>- `controls`, `autoplay` boolean attributes<br>- source types: `MP3`, `OGG`|:seedling:|
-|`<source>`|- set `src="video.mp4"`, `type="video/mp4"` diff available, first loads first which could be played|:seedling:|
+```HTML
+<!-- alt is added to only one img of a group, others are "" description -->
+<img width="20" height="20" src="star.svg" alt="Rating of 5 stars">
+<img width="20" height="20" src="star.svg" alt="">
+<img width="20" height="20" src="star.svg" alt="">
+<img width="20" height="20" src="star.svg" alt="">
+<img width="20" height="20" src="star.svg" alt="">
 
-- a11y for complex images (graphs or alike)
-- use short and long descriptions
-<img src="#" alt="short description" longdesc="#long-desc">
-<!--or-->
-<img src="#" alt="short description" aria-labelledby="#long-desc">
+<!-- for complex images (graphs or alike) with long descriptions -->
+<!-- use short and long descriptions -->
+<img src="#" alt="Short description" longdesc="#long-desc">
 <p id="long-desc">Long description here.</p>
-use figure
+<!--or-->
+<img src="#" alt="Short description" aria-labelledby="#long-desc">
+<p id="long-desc">Long description here.</p>
+<!-- or use figure -->
 <figure>
- <img src="#" alt="short description">
- <figcaption>Long description here.</figcaption>
+  <img src="#" alt="Short description">
+  <figcaption>Long description here.</figcaption>
 </figure>
+```
 
-Scripts
+</details>
+
+<details>
+<summary>Image maps</summary>
+
+- for super strange cases like block-schemes etc
+```HTML
+<map name="map">
+  <!-- defines a hot-spot region on a map, only used within a <map> -->
+  <area shape="circle" coords="75,75,75" href="left.html">
+</map>
+<img usemap="#map" src="#" alt="Map">
+```
+
+</details>
+
+<details>
+<summary>Video and audio</summary>
+
+```HTML
+<!-- preload metadata service data (length, 1 slide) -->
+<!-- preload auto - whole video -->
+<!-- poster img when not yet loaded -->
+<video 
+  preload="none/metadata/auto"
+  poster="#"
+  controls
+  autoplay
+>
+  <!-- first loads first if could be played -->
+  <source src="video.webm" type="video/webm">
+  <source src="video.mp4" type="video/mp4">
+  <source src="" type="MPEG-4/H.264">
+  <source src="" type="OGG/Theora">
+</video>
+
+<!-- almost like a video -->
+<audio controls autoplay>
+  <!-- first loads first if could be played -->
+  <source src="" type="mp3">
+  <source src="" type="ogg">
+</audio>
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Video tag on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
+
+</details>
+
+## Scripts
 
 ## Forms
 |Element|Usage and notes|Level|

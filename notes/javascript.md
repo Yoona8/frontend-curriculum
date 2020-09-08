@@ -403,6 +403,36 @@ const getWizard = (name, level) => ({
 
 </details>
 
+<details>
+<summary>Bind, call, apply</summary>
+
+- `call` and `apply` call the function (as `()`)
+- `bind` doesn't call the function
+- the arguments passed after context are preset arguments, when the arguments are passed on function call, append to the end
+```JavaScript
+const addNumbers = (cb, ...numbers) => {
+  // sum numbers
+  let result = 100;
+
+  cb(result);
+};
+
+const printResult = (text, result) => console.log(`${text} ${result}`);
+
+addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
+```
+- more info in [scope](#scope) section
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Functions on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+- [Bind on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+
+</details>
+
 ## Scope
 <details>
 <summary>Notes</summary>

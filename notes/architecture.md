@@ -1,7 +1,5 @@
 # Architecture
 
-- [To content](readme.md)
-
 ## Structuring
 <details>
 <summary>Notes</summary>

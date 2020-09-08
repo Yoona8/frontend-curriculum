@@ -110,7 +110,7 @@ var numbers = new Array();
 var letters = [];
 
 // ES6+
-// make an array of any iterable (collection, separate values)
+// makes an array of any iterable (collection, separate values)
 const elements = Array.from(document.querySelectorAll('li'));
 const values = Array.of(1, 2, 3);
 const items = [...elements, ...values];
@@ -121,14 +121,21 @@ const items = [...elements, ...values];
 <details>
 <summary>Methods</summary>
 
-|Method|Notes|Level|
-|------|-----|:---:|
-|`arr.sort()`|changes the initial array|:deciduous_tree:|
-|`arr.splice()`|changes the initial array|:deciduous_tree:|
-|`arr.filter()`|creates a new array|:deciduous_tree:|
-|`arr.slice()`|creates a new array|:deciduous_tree:|
-|`arr.map()`|creates a new array|:deciduous_tree:|
-|`arr.reduce()`|creates a new value|:deciduous_tree:|
+```JavaScript
+const numbers = [1, 2, 4, 7, 5, 10, 15, 8];
+
+// change the initial array
+numbers.sort();
+numbers.splice();
+
+// return new array
+const filteredNumbers = numbers.filter();
+const clonedNumbers = numbers.slice();
+const newNumbers = numbers.map();
+
+// return new something
+const sum = numbers.reduce();
+```
 
 </details>
 
@@ -136,15 +143,52 @@ const items = [...elements, ...values];
 <summary>Arrays as a stack LIFO</summary>
 
 - for tasks, when we have to store previous item (history, browser history, games)
-- store the action (function) and add to the history array
-- use `history.pop()();` to get back the stored value
 - also available to 'go forward' the history (have to store the removed action back to the stack)
 
 ```JavaScript
-history.push(() => {
-  questions[0].text = oldText;
-  return newText;
-});
+const questions = [{
+  question: 'Which class has a different teacher every year?',
+  answers: [{
+    answer: 'Defence against the dark arts',
+    isCorrect: true
+  }, {
+    answer: 'Potions',
+    isCorrect: false
+  }]
+}, {
+  question: 'What animal represents Hufflepuff house?',
+  answers: [{
+    answer: 'The Burrow',
+    isCorrect: true
+  }, {
+    answer: 'The Fox',
+    isCorrect: false
+  }]
+}];
+
+const history = [];
+
+const changeQuestion = (newQuestion) => {
+  const oldQuestion = questions[0].question;
+
+  questions[0].question = newQuestion;
+  
+  // store the action (function) and add to the history array
+  // works because of closures
+  history.push(() => questions[0].question = oldQuestion;
+};
+
+console.log(questions[0].question);
+changeQuestion('What was the original question?');
+console.log(questions[0].question);
+changeQuestion('Who is Harry Potter?');
+console.log(questions[0].question);
+
+// to get back the stored value
+history.pop()();
+console.log(questions[0].question);
+history.pop()();
+console.log(questions[0].question);
 ```
 
 </details>
@@ -156,18 +200,40 @@ history.push(() => {
 - for unique actions can use `Set` instead of `Array`
 
 ```JavaScript
+const callbacks = [];
+
+const addAsyncListener = (fn) => {
+  // check if the callback exists (used before set was created)
+  if (!callbacks.find((it) => it === fn)) {
+    callbacks.push(fn);
+  }
+};
+
 const startAsync = () => {
   setTimeout(() => {
     for (const cb of callbacks) {
       callbacks.delete(cb);
       cb();
     }
+
+    console.log('Done');
   }, 500);
 };
 
-// before .find was used to check
-// breaks the loop when the 1st item is found
-callbacks.find((it) => it === 'some');
+const log2 = () => console.log(2);
+
+addAsyncListener(() => console.log(1));
+addAsyncListener(log2);
+addAsyncListener(log2); // won't be added to array
+addAsyncListener(() => console.log(3));
+
+console.log('Start!');
+startAsync();
+
+addAsyncListener(() => console.log(4));
+addAsyncListener(() => console.log(5));
+
+// the log will be: Start! 1 2 3 4 5 Done
 ```
 
 </details>

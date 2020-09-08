@@ -1,5 +1,30 @@
 # HTML
 
+## Main root
+<details>
+<summary>HTML basic structure</summary>
+
+- `<html>` represents the root (top-level element)
+```HTML
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- optional: start -->
+    <meta name="keywords" content="...">
+    <meta name="description" content="...">
+    <!-- optional: end -->
+    <title>Title</title>
+    <link href="#" rel="stylesheet">
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+</details>
+
 ## Metadata content
 
 ## Flow content
@@ -68,6 +93,16 @@
 </details>
 
 <details>
+<summary>Links</summary>
+
+```HTML
+<!-- to avoid fishing -->
+<a href="https://google.com" target="_blank" rel="noopener">
+```
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [Datetime attribute valid values](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
@@ -75,18 +110,6 @@
 </details>
 
 ## Embedded content
-
-## Interactive content
-
-## Palpable content
-
-## Form-associated content
-
-## Script-supporting elements
-
-## Transparent content model
-
-## Images and multimedia, embedded content
 <details>
 <summary>Images</summary>
 
@@ -165,44 +188,23 @@
 
 </details>
 
-## Scripts
+## Interactive content
 
-## Forms
-|Element|Usage and notes|Level|
-|-------|---------------|:---:|
-|`<form>`|`enctype="multipart/form-data"` required for working with files|:deciduous_tree:|
-|`<fieldset>`|`disabled` for all the fields inside|:deciduous_tree:|
-|`<legend>`|first child of `<fieldset>`|:deciduous_tree:|
-|`<button>`|`name` will also get posted to server|:blossom:|
-|`<select>`|- `multiple` - ctrl/cmd to choose with<br>- `multiple` + `size` to change height|:deciduous_tree:|
-|`<optgroup>`|- could have group children<br>- could be used with multiple select|:deciduous_tree:|
-|`<option>`|- `selected` to choose value, could be several<br>- `value` ? value : text content goes to server|:deciduous_tree:|
-|`<textarea>`|- `rows="10"` strings<br>- `cols="100"` symbols|:blossom:|
-|`<datalist>`|- connected via `list` of `<input>` and `id` of `<datalist>`<br>- if inputs type != `text`, shows only correct items|:seedling:|
-|`<output>`|- has `name` attribute<br>- value accessible from js via `element.value`|:seedling:|
+## Palpable content
 
+## Form-associated content
 <details>
-<summary>Examples</summary>
+<summary>Form tag</summary>
 
 ```HTML
-<input type="text" list="browsers" name="browsers">
-<datalist id="browsers">
-  <option>Google Chrome</option>
-  <option>Mozilla Firefox</option>
-  <option>Edge</option>
-  <option>Opera</option>
-</datalist>
+<!-- enctype="multipart/form-data" required for working with files -->
+<form enctype="multipart/form-data"></form>
 ```
 
 </details>
 
-|Attribute|Usage and notes|Level|
-|---------|---------------|:---:|
-|`autofocus`|only one attribute for the whole page|:blossom:|
-|`pattern`|regexp, if incorrect - validation error|:deciduous_tree:|
-|`readonly`|can't change but can select and copy, **posts to the server**|:blossom:|
-|`disabled`|can't change, focus, select or copy, **doesn't post to the server**|:blossom:|
-|`autocomplete`|`on` `off` allow/block browser autocomplete option|:blossom:|
+<details>
+<summary>Input types</summary>
 
 |Input type|Usage and notes|Level|
 |----------|---------------|:---:|
@@ -223,49 +225,104 @@
 |`url`|same to `email`|:deciduous_tree:|
 |`color`|- opens special pallette with colors<br>- if browser doesn't support = text field|:seedling:|
 
-Interactive elements
-Web components
-
-## Notes
+</details>
 
 <details>
-<summary>HTML basic structure</summary>
+<summary>Attributes</summary>
+
+|Attribute|Usage and notes|Level|
+|---------|---------------|:---:|
+|`autofocus`|only one attribute for the whole page|:blossom:|
+|`pattern`|regexp, if incorrect - validation error|:deciduous_tree:|
+|`readonly`|can't change but can select and copy, **posts to the server**|:blossom:|
+|`disabled`|can't change, focus, select or copy, **doesn't post to the server**|:blossom:|
+|`autocomplete`|`on` `off` allow/block browser autocomplete option|:blossom:|
+
+</details>
+
+<details>
+<summary>Select</summary>
 
 ```HTML
-<!doctype html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- optional: start -->
-  <meta name="keywords" content="...">
-  <meta name="description" content="...">
-  <!-- optional: end -->
-  <title>Title</title>
-  <link href="#" rel="stylesheet">
-</head>
-<body>
-</body>
+<!-- if multiple - ctrl/cmd to choose with -->
+<!-- multiple + size to change height -->
+<select multiple size="3">
+  <!-- value ? value : text content goes to server -->
+  <option value="option-1" selected>Option 1</select>
+  <option selected>Option 2</select>
+  <optgroup>
+    <optgroup>
+      <option>Group-inner: Option 1</select>
+    </optgroup>
+    <option>Group-outer: Option 1</select>
+  </optgroup>
+</select>
 ```
 
 </details>
 
 <details>
-<summary>Using a group of images</summary>
+<summary>Textarea</summary>
 
 ```HTML
-<!-- alt added to only one img of a group, others are "" description -->
-<img src="./star.png" alt="4 out of 5 stars">
-<img src="./star.png" alt="">
-<img src="./star.png" alt="">
-<img src="./star.png" alt="">
-<img src="./star.png" alt="">
-
-<!-- there are also image maps (for super strange cases like block-schemes etc) -->
-<!-- consider using tags below -->
-<map>
-<area>
+<!-- rows - strings, cols - symbols -->
+<textarea rows="10" cols="100"></textarea>
 ```
 
 </details>
 
-- `target="_blank" rel="noopener"` to avoid fishing
+<details>
+<summary>Datalist</summary>
+
+- if input's type != `text`, shows only correct items
+```HTML
+<input type="text" list="browsers" name="browsers">
+<datalist id="browsers">
+  <option>Google Chrome</option>
+  <option>Mozilla Firefox</option>
+  <option>Edge</option>
+  <option>Opera</option>
+</datalist>
+```
+
+</details>
+
+<details>
+<summary>Fieldset</summary>
+
+```HTML
+<!-- disabled works for all the fields inside -->
+<fieldset disabled>
+  <legend>Always first child</legend>
+</fieldset>
+```
+
+</details>
+
+<details>
+<summary>Buttons</summary>
+
+```HTML
+<!-- name will also get posted to server -->
+<button name="button-name">Click</button>
+```
+
+</details>
+
+<details>
+<summary>Output</summary>
+
+```HTML
+<!-- value accessible from js via element.value -->
+<output name="some-output">Content here</output>
+```
+
+</details>
+
+## Script-supporting elements
+
+## Transparent content model
+
+## Scripts
+
+## Web components

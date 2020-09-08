@@ -1,20 +1,5 @@
 # JavaScript
 
-## ECMAScript Standard
-<details>
-<summary>Notes</summary>
-
-Global changes:
-- new strategy of spec updating
-- new opportunities
-  - template strings
-  - function default params
-  - arrow functions
-  - destructuring
-- better objects
-
-</details>
-
 ## Code style
 <details>
 <summary>Tips</summary>
@@ -34,6 +19,12 @@ Global changes:
   - function and global scope (but no block scope)
   - `var undefined = 67;` reserved names usage (not allowed with `'use strict;`)
 - `let`, `const` - no hoisting, no recreating, block scope, using reserved names is not allowed
+```JavaScript
+// not any const = constant
+// declares a variable with immutable link
+const element = document.querySelector('p');
+const arr = [1, 2, 3, 4];
+```
 
 </details>
 
@@ -48,19 +39,19 @@ const LIGHT_SPEED = 255792458;
 ```JavaScript
 const DEFAULT_NAMES = ['Michael', 'Anna', 'Chris'];
 ```
-- immutable constant object (ex default configurations)
-- enumeration
+- enumeration (immutable constant) is a complete list of constants grouped by some sign
 ```JavaScript
+const Code = {
+  SUCCESS: 200,
+  CACHED: 302,
+  NOT_FOUND: 404,
+  SERVER_ERROR: 500
+};
+
 const Earth = {
   RADIUS: 6.371,
   GRAVITATION: 6.67408
 };
-
-// consts
-// not any const = constant
-// declares a variable with immutable link
-const element = document.querySelector('p');
-const arr = [1, 2, 3, 4];
 ```
 
 </details>

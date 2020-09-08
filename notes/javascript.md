@@ -58,19 +58,35 @@ const Earth = {
 
 ## Data types and structures
 <details>
-<summary>Table</summary>
+<summary>Available data types</summary>
 
-|Name|Notes and usage|Level|
-|----|---------------|:---:|
-|undefined|`'undefined'`|:deciduous_tree:|
-|Boolean|`'boolean'`|:blossom:|
-|Number|`'number'`|:blossom:|
-|String|`'string'`|:deciduous_tree:|
-|BigInt|`'bigint'`|:seedling:|
-|Symbol|`'symbol'`|:seedling:|
-|null|`'object'`|:deciduous_tree:|
-|Object|- `'object'`<br> - `Object`<br>- iterable lists: `Array`, collections<br>- collections: `NodeList`, `HTMLElementsList`, `classList`, `arguments`<br>- iterable dictionaries: `Map`, `WeakMap`<br>- iterable sets: `Set`, `WeakSet`|:deciduous_tree:|
-|Function|`'function'`|:blossom:|
+```JavaScript
+// 1 - undefined
+console.log(typeof undefined); // => undefined
+// 2 - null
+console.log(typeof null); // => object
+// 3 - Boolean
+console.log(typeof false); // => boolean
+// 4 - Number
+console.log(typeof 10); // => number
+// 5 - String
+console.log(typeof 'text'); // => string
+// 6 - Object
+// iterable lists: Array
+// collections: NodeList, HTMLElementsList, classList, arguments
+// iterable dictionaries: Map, WeakMap
+// iterable sets: Set, WeakSet
+// function is also an object, but of type function
+console.log(typeof {}); // => object
+console.log(typeof []); // => object
+console.log(typeof function() {}); // => function
+// 7 - BitInt
+console.log(typeof 1n); // => bigint
+console.log(typeof BigInt(9)); // => bigint
+console.log(typeof BigInt('9')); // => bigint
+// 8 - Symbol
+console.log(typeof Symbol('sym')); // => symbol
+```
 
 </details>
 

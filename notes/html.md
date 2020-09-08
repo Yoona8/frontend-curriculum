@@ -1,45 +1,76 @@
 # HTML
 
 ## Metadata content
+
 ## Flow content
 <details>
 <summary>Lists</summary>
 
-- `<ol>`
-  - `start`, `reversed` bool change the order
+```HTML
+<!-- start to set the start point -->
+<!-- reverser - bool, changes the order -->
+<ol start="10" reversed>
+  <li></li>
+</ol>
+```
 
 </details>
 
 <details>
 <summary>Presentation</summary>
 
-- `<figure>`
-- `<figcaption>` 1st or last in parent `<figure>`
+```HTML
+<figure>
+  <figcaption>1st or last element inside the figure</figcaption>
+</figure>
+```
 
 </details>
 
 <details>
 <summary>Tables</summary>
 
-- `<table>` by default shrinks to content
-- `<caption>` should be the first child
-- `<tr>`
-- `<td>`
-  - `colspan` for horizontal expanding, moves right cell, have to delete in html
-  - `rowspan` for vertical expanding, moves lower cell in it's own row to right
+```HTML
+<!-- by default shrinks to content -->
+<table>
+  <caption>Always the 1st child</caption>
+  <tr>
+    <!-- for horizontal expanding, moves right cell, have to delete in html -->
+    <td colspan="2"></td>
+    <!-- for vertical expanding, moves lower cell in it's own row to right -->
+    <td rowspan="2"></td>
+  </tr>
+</table>
+```
 
 </details>
 
 ## Sectioning content
+
 ## Heading content
+
 ## Phrasing content
 <details>
 <summary>Text semantics</summary>
 
-- `<q cite="https://..."></q>` can cite the e-address also
-- `<ins>` and `<del>` are phrasing if contain only phrasing content
-- `<ins>today</ins>`, `<del>yesterday</del>`, `<time>2 days ago</time>`  
-  - `datetime="ISO"` and `today` or any other text in tag
+```HTML
+<!-- can cite the e-address also -->
+<q cite="https://google.com">Google</q>
+
+<!-- phrasing if contain only phrasing content -->
+<ins datetime="2020-09-08">today</ins>
+<del datetime="2020-09-07T14:14">yesterday at 14:14</del>
+
+<!-- phrasing always -->
+<time datetime="2020-09-06">2 days ago</time>
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Datetime attribute valid values](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
 
 </details>
 

@@ -19,6 +19,13 @@
 
 </details>
 
+<details>
+<summary>Elements tab</summary>
+
+- last selected element has `== $0` added, browser creates this variable to access from the Console tab: print `$0` or `console.dir($0);`
+
+</details>
+
 ## Git and GitHub
 <details>
 <summary>Setup git</summary>

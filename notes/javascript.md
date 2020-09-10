@@ -977,7 +977,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 14 - Modules
+## Modules
 <details>
 <summary>Tasks to solve</summary>
 
@@ -1102,14 +1102,114 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 15 - DOM
+## Window Object
+<details>
+<summary>General info</summary>
+
+- browser API, contains all the global properties and methods
+```JavaScript
+// can call both ways
+alert('Say something');
+window.alert('Say something');
+```
+
+</details>
+
+## DOM
 <details>
 <summary>Notes</summary>
 
+- a part of `window` object
 - browser searches DOM in depths, so that the first tag is being found (otherwise not obvious)
-- `querySelectorAll` `NodeList` static collection, DOM changes doesn't affect (nodes, not only DOM elements, also text, spaces, etc)
-- `parentElement.children` `HTMLCollection` all those collections are live (only DOM elements)
-- `getElementById` could be called only on `document`, not on element
+
+</details>
+
+<details>
+<summary>Selecting Elements</summary>
+
+- query methods
+- if no matching => `null` for single or empty collection
+```JavaScript
+// any css selector
+// returns first matching element in the DOM
+document.querySelector('ul li:last-child');
+// any css selector
+// returns NodeList - static collection
+// DOM changes doesn't affect 
+// (nodes, not only DOM elements, also text, spaces, etc)
+document.querySelectorAll('li');
+
+// all those methods could be called only on document, not on element
+document.getElementById('title');
+// return HTMLCollection
+document.getElementsByClassName('class');
+document.getElementsByTagName('li');
+```
+- parents, children, descendants, ancestors
+```JavaScript
+const element = document.querySelector('ul');
+
+// parent node (any parent node: element, text etc)
+// but in many cases work the same
+element.parentNode;
+// selects document
+document.documentElement.parentNode;
+// parent html element
+element.parentElement;
+// returns null
+element.documentElement.parentElement;
+// ancestor
+element.closest('selector');
+
+// child nodes (any: element, text etc)
+element.childNodes;
+// returns HTMLCollection - live collection (only DOM elements)
+element.children;
+// descendant, and other select methods
+element.querySelector('selector');
+// first or last child node
+element.firstChild;
+element.lastChild;
+// first or last child html element
+element.firstElementChild;
+element.lastElementChild;
+
+// siblings
+element.previousSibling;
+element.previousElementSibling;
+element.nextSibling;
+element.nextElementSibling;
+```
+- special properties
+```JavaScript
+// to select the <html>
+document.documentElement;
+// to select the <body>
+document.body;
+// to select the <head>
+document.head;
+```
+
+</details>
+
+<details>
+<summary>Attributes and properties</summary>
+
+```JavaScript
+const input = document.querySelector('input');
+
+// UI changes but value html attribute stays the same
+// classes, ids etc do change the html attribute
+input.value = 'Some new text';
+// UI stays the same but value attribute changes
+input.setAttribute('value', 'Other text');
+```
+
+</details>
+
+<details>
+<summary>Manipulating DOM</summary>
+
 - `appendChild` removes the element from where it was and adds to the new place (need to clone not to be removed)
 - `element.cloneNode(boolean);` better to pass an argument (default could be different for some browsers)
 
@@ -1119,6 +1219,12 @@ import { nameOne, nameTwo } from './module-3.js';
 <summary>Working with styles in JS</summary>
 
 - `style` to get styles but only the inline styles
+```JavaScript
+const element = document.querySelector('p');
+
+// for CSS properties in several words camelCase is used in JS
+element.style.backgroundColor = 'green';
+```
 - `window.getComputedStyle` to get all styles applied to the element
 
 </details>
@@ -1127,6 +1233,18 @@ import { nameOne, nameTwo } from './module-3.js';
 <summary>Show password case</summary>
 
 - change type of input from `password` to `text`
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [querySelector on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+- [querySelectorAll on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+- [getElementById on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
+- [getElementsByClassName on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
+- [getElementsByTagName on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)
+- [getElementsByName on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName)
 
 </details>
 
@@ -1471,6 +1589,16 @@ function addListener() {
 ## 24 - Testing
 
 ## 25 - Debugging
+<details>
+<summary>Console</summary>
+
+- if by default logs the html tree, use to log as an object
+```JavaScript
+console.dir(document);
+```
+
+</details>
+
 <details>
 <summary>Learn more</summary>
 

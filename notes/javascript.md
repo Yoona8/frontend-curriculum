@@ -240,45 +240,27 @@ addAsyncListener(() => console.log(5));
 
 ## Objects
 <details>
-<summary>Dictionaries</summary>
+<summary>Dictionaries - Object</summary>
 
-Object
 - keys are strings or numbers (other not possible)
 - not iterable (can use `for ... in` old cycle has some issues, not `for ... of`)
-Map + WeakMap
-- any keys possible
-- iterable
-- pairs are objects
-
 ```JavaScript
-// object
 const filterValueToScale = {
   'smallest': 0.25,
   'small': 0.5,
   'normal': 1,
   'large': 2
 };
-
-// map
-let pairs = new Map();
-pairs.set('John', 'May');
-pairs.set('Ichigo', 'Rukiya');
-// or with iterable
-let pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
-// iterating
-for (const [first, second] of pairs) {
-  console.log(first.name + second.name);
-}
 ```
-
+- new ES6 features
 ```JavaScript
-// new features for objects in ES6
 // creation with variable
 const name = 'Harry';
 const user = {
   name,
   level: 1
 };
+
 // complex keys (could be useful for dictionaries)
 const potter = 'Harry Potter';
 const voldemort = 'Tom Riddle';
@@ -286,16 +268,19 @@ const antagonist = {
   [potter]: voldemort,
   ['Sirius Black']: 'Bellatrix Lestrange'
 };
+
 // destructuring
 const newAntagonist = {...antagonist};
+
 // new syntax for methods
 const character = {
+  go() {}
+};
+
+// getters and setters
+const character = {
   _level: 1,
-  // before
-  go: function() {},
-  // ES6
-  go() {},
-  // getters and setters
+
   // can't use getter/setter + property
   // can't address itself = infinite cycle
   get level() {
@@ -306,10 +291,34 @@ const character = {
     this._level = value;
   }
 };
+
 // addressing the getter or setter
+// it there is only setter, can't access the value
 const level = character.level;
 character.level = 100;
-// it there is only setter, can't access the value
+```
+
+</details>
+
+<details>
+<summary>Dictionaries - Map and WeakMap</summary>
+
+- any keys possible
+- iterable
+- pairs are objects
+```JavaScript
+let pairs = new Map();
+
+pairs.set('John', 'May');
+pairs.set('Ichigo', 'Rukiya');
+
+// or with iterable
+let pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+
+// iterating
+for (const [first, second] of pairs) {
+  console.log(first.name + second.name);
+}
 ```
 
 </details>
@@ -342,7 +351,9 @@ const playerKeys = Object.keys(player);
 <details>
 <summary>Delete a property or method</summary>
 
-- `delete player.name;`
+```JavaScript
+delete player.name;
+```
 
 </details>
 
@@ -352,7 +363,7 @@ const playerKeys = Object.keys(player);
 ```JavaScript
 // but if the property = undefined, also returns false
 player.name !== undefined;
-// true even with undefined
+// true even if undefined
 'name' in player;
 // true even if undefined
 player.hasOwnProperty('name');
@@ -363,22 +374,19 @@ player.hasOwnProperty('name');
 <details>
 <summary>Copy</summary>
 
+- not a deep copy
 ```JavaScript
-// не избавляет от проблем с вложенностью
 // {} - where
 // player - what
 const newPlayer = Object.assign({}, player);
 // for several
 const newPlayer = Object.assign({}, player, {options: 'code'});
 
-// также не избавляет от проблем с вложенностью
 const newPlayer = {...player};
-
-// копирование с вложенностью - рекурсивно по всем ключам
-// с проверкой typeof function or object
-// есть в lodash
-// hack with json.parse, json.stringify
 ```
+- copying deep - recursive with checking typeof function or object
+  - lodash has deep copy
+  - also there is hack with json.parse, json.stringify
 
 </details>
 
@@ -508,31 +516,29 @@ addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
 
 ## Scope
 <details>
-<summary>Notes</summary>
+<summary>General info</summary>
 
 - scope where the function runs
+- arrow functions do not have their own context (even when we use `call`, `apply` or `bind`)
 - `this` links to current object in a `class`
-- depends on how the function is called
-- could be changed, also with `apply`, `call`, `bind`
-- `bind` creates a new function, the initial function stays the same
-- `bind` context can't be changed even with `apply`, `call`
-- arrow functions do not have their context
-- while the function is not called, it doesn't have any context
-- context is being created upon the function call
-- `this` assigns only upon the function call
+- in an object (method) `this` = link to the object itself
 - `use strict` affects `this` value
   - no `use strict` = `window`, with = `undefined`
-- in an object (method) `this` = link to the object itself
-- doesn't matter how the function is created, matters only how it's called
+- while the function is not called, it doesn't have any context
+- context is being created upon the function call
+- depends on how the function is called
 ```JavaScript
 const walk = function() {
   console.log(this + 'walk!');
 };
+
 const player = {walk};
-player.walk(); // this === link to player object
-walk(); // TypeError: Cannot read property '...' of undefined
+
+// this === link to player object
+player.walk();
+// TypeError: Cannot read property '...' of undefined
+walk();
 ```
-- doesn't matter how the function is written, context will be the same `walk = player.walk`
 - with closure the result is more obvious
 ```JavaScript
 const guitarPlayer = {
@@ -543,12 +549,27 @@ const guitarPlayer = {
   }
 };
 
-// the result will be the same
 const anotherPlayer = {
+  firstName: 'Anna',
+  lastName: 'Starkov'
   play: guitarPlayer.play
 };
+
+// output will be the same
+guitarPlayer.play();
+anotherPlayer.play();
 ```
-- calling a function with binded context (1st param in those functions is always context, the 2nd parameter differs)
+- could be changed, also with `apply`, `call`, `bind`
+- if we use `new` keyword to create an instance, lexical `this` will be the object (binds `this` in the constructor)
+
+</details>
+
+<details>
+<summary>Bind, call and apply</summary>
+
+- `bind` creates a new function, the initial function stays the same
+- `bind` context can't be changed even with `apply`, `call`
+- calling a function with bound context (1st param in those functions is always context, the 2nd parameter differs)
 ```JavaScript
 // arguments separated with ',' will be function params
 // perfect when there are not many params
@@ -564,20 +585,37 @@ const numbers = [1, 3, 100, 5];
 console.log(Math.max.apply(null, numbers));
 ```
 - listener's context is always === the element, to which the listener is applied `document.body` or `evt.currentTarget`
-  - can override if create the event handler and execute the method
-  ```JavaScript
-  item.addEventListener('click', function() {
-    cart.print();
-  });
-  // browser will store the function
-  callback = cart.print;
-  // and executes the callback
-  callback();
-  // so just won't work
-  ```
+- can override if create the event handler and execute the method
+```JavaScript
+const cart = {
+  item: 'Book',
+  price: 6,
+  print() {
+    console.log(`${this.item} \$${this.price}`)
+  }
+};
+
+item.addEventListener('click', function() {
+  cart.print();
+});
+
+// in this case
+item.addEventListener('click', cart.print);
+// browser will store the function
+callback = cart.print;
+// and executes the callback
+// so just won't work (because it's not cart.callback(), but callback())
+callback();
+```
 - with bind (but careful, `bind` returns a new function, store first in a separate variable to unsubscribe if needed)
 ```JavaScript
+// can't remove the listener
 item.addEventListener('click', cart.print.bind(cart));
+
+const printCart = cart.print.bind(cart);
+
+item.addEventListener('click', printCart);
+item.removeEventListener('click', printCart);
 ```
 ```JavaScript
 // custom binder (like the bind works)
@@ -587,16 +625,20 @@ const customBind = function(fn, context) {
   };
 };
 ```
+- here `this === obj` instead of `a` (respects the first binding)
+```JavaScript
+obj.getThis4 = obj.getThis2.bind(obj);
+obj.getThis4.call(a);
+```
 
 </details>
 
-if obj.getThis4 = obj.getThis2.bind(obj); then here obj.getThis4.call(a); we get this === obj instead of a (respects the first binding)
-if created like that, always returns undefined (arrow functions have never their own this, only lexical scope's this, even if we use call or bind)
-const obj = {
-    getThis: () => this;
-};
-if we use new keyword to create an instance, lexical this will be the object (binds this in the constructor)
+<details>
+<summary>Learn more</summary>
+
 - [What is `this`? The Inner Workings of JavaScript Objects](https://medium.com/javascript-scene/what-is-this-the-inner-workings-of-javascript-objects-d397bfa0708a)
+
+</details>
 
 ## Constructors and prototypes
 <details>

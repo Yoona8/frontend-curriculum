@@ -1070,12 +1070,45 @@ console.log(doSomething()); // => 0, 1, 3, false
 - import without variable when just need to execute the code
 - do not fold `export` and `import` into code blocks `{}`
 - no hoisting, so that's why `import` is always on top
-- `import` of unexcited variable = error, module won't be loaded
-- there are dynamic imports, but browser support is still pretty low
+- `import` of unexcited variable = error, module won't get loaded
+- there are dynamic imports, but browser support is still pretty poor
+```JavaScript
+// module-name.js
+// named - names should be the same (or error, module won't get loaded)
+// could import not all the export
+// can't export the same variable 2x
+// better not to combine inline and group exports
+export { name, age };
+// or
+export const name = 'Max';
+export const age = 40;
+// renamed
+export { name as userName };
+// default
+// better for classes
+// could be hard to debug (imported by any name)
+export default name;
+export default { name };
+export { name as default };
 
-Import paths:
+// other-module.js
+// import using the same variable name
+import { name } from './module-name.js';
+// import all as child (ignores default, insecure, have no control on import)
+import * as child from './module-name.js';
+// renamed
+import { name as userName } from './module-name.js';
+// default
+import name from './module-name.js';
+```
+
+</details>
+
+<details>
+<summary>Import paths</summary>
+
 - both `''` and `""` available
-- path is a immutable constant, can't generate the path
+- path is an immutable constant, can't generate the path
 - if 2 same imports => browser downloads only one
 - paths abs or rel
   - `https://google.com` url
@@ -1083,42 +1116,37 @@ Import paths:
   - `./helpers.js` rel
   - `../helpers.js` rel
 - `helpers.js` or `utils/helpers.js` is not supported (reserved for libs from package managers)
-- If there is an error while downloading the module or its children => all connected modules won't be loaded
+- if there is an error while downloading the module or its children => all connected modules won't get loaded
 
-Modules loaders ()
+</details>
+
+<details>
+<summary>Module loaders</summary>
+
 - browsers: ES modules in browsers
+```HTML
+<!-- adding modules to the page -->
+<!-- by default works like defer -->
+<script type="module">
+  // some code here
+</script>
+<script src="module-1.js" type="module"></script>
+<!-- fallbacks (ignored by browsers, which support modules) -->
+<script src="module-1.js" nomodule></script>
+```
 - static: webpack, rollupJS, parcel, ...
 - orders files
 - downloads, stores files
 - builds, minifies, packs
+- all dependencies are loaded relatively to the 1st loaded module
+- browser cashes not only a file, but also the result of executing the module + returned values
+
+</details>
+
+<details>
+<summary>Proxy</summary>
 
 ```JavaScript
-// named
-// names should be equal or error, module won't get loaded
-// could import not all the export
-// can't export the same variable 2x
-// better not to combine line and group exports
-export { name, age };
-export const name = 'Max';
-import { name } from './module-name.js';
-// import all as child (ignores default, insecure, have no control on import)
-import * as child from './module-name.js';
-
-// renamed
-export { name as userName};
-import { name as userName} from './module-name.js';
-
-// default
-// better for classes
-// could be hard to debug (imported by any name)
-export default name;
-export default { name };
-export { name as default };
-import name from './module-name.js';
-```
-
-```JavaScript
-// proxy
 // module-1.js
 export { name as nameOne };
 
@@ -1131,20 +1159,6 @@ export * from './module-2.js';
 
 // module-target.js
 import { nameOne, nameTwo } from './module-3.js';
-```
-
-- all dependencies load relatively to the 1st loaded module
-- browser cashes not only a file, but also the result of executing the module + returned values
-
-```HTML
-<!-- adding modules to the page -->
-<!-- by default works like defer -->
-<script type="module">
-  // some code here
-</script>
-<script src="module-1.js" type="module"></script>
-<!-- fallbacks (ignored by browsers, which support modules) -->
-<script src="module-1.js" nomodule></script>
 ```
 
 </details>

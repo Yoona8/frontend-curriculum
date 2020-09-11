@@ -887,6 +887,8 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 <details>
 <summary>Loops</summary>
 
+- in most cases loop is more efficient than a recursion (call stack overflow)
+- any recursion could be rewritten into a loop
 - `for (let i = 0; i < 5; i++) {}`
 - `for (const item of items) {}`
   - almost the same as `for` loop
@@ -1273,6 +1275,9 @@ input.setAttribute('value', 'Other text');
 
 - `appendChild` removes the element from where it was and adds to the new place (need to clone not to be removed)
 - `element.cloneNode(boolean);` better to pass an argument (default could be different for some browsers)
+- you can also use `element.textContent++;` instead of `element.textContent = element.textContent++;
+- `parent.append(child);` removes child and moves to the new place (if existed)
+- `data-cat-name="Cat"` access from JS `element.dataset.catName`
 
 </details>
 
@@ -1309,17 +1314,16 @@ element.style.backgroundColor = 'green';
 
 </details>
 
-## 16 - Events
+## Events
 <details>
-<summary>Events</summary>
+<summary>Difference between `change` and `input`</summary>
 
-- difference between `change` and `input`
-  - `change` works when `field.value` changed and the user finished to enter the value (moved the handle and released)
-  - `input` works with every value change
+- `change` works when `field.value` changed and the user finished to enter the value (moved the handle and released)
+- `input` works with every value change
 
 </details>
 
-## 17 - Async JavaScript (promises and callbacks, async/await), http requests
+## Async JavaScript (promises and callbacks, async/await), http requests
 <details>
 <summary>Sync data loading</summary>
 
@@ -1341,10 +1345,9 @@ const data = getResponse('https://data.com/users');
 <summary>Async ES5 (callbacks)</summary>
 
 - async - run the operation without blocking the main script process
-- minuses:
-  - complex interface, have to add all possible callbacks, difficult to make optional manipulation for some cases
-  - difficult to read the code, recreate the methods sequence is quite hard
-  - callback hell - several chained async methods turn into nested sequences of callbacks, too hard to support https://callbackhell.ru/
+- complex interface, have to add all possible callbacks, difficult to make optional manipulation for some cases
+- difficult to read the code, recreate the methods sequence is quite hard
+- callback hell - several chained async methods turn into nested sequences of callbacks, too hard to support https://callbackhell.ru/
 ```JavaScript
 const getResponse = (url, onload, onerror) => {
   const xhr = new XMLHttpRequest();
@@ -1366,7 +1369,7 @@ getResponse('data.json',
 
 - promise is a way to work with an async function as if it's sync
 - returns an object, which replaces returned value, which is still undefined when the function already executed
-- different states if a promise object
+- different states of a promise object
 <img src="../images/promise.jpg" alt="promises" width="400">
 
 ```JavaScript
@@ -1375,8 +1378,10 @@ const getResponse = (url) => new Promise(
     // Object => Pending...
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url);
-    xhr.onload = () => resolve(xhr.response); // Object => Fulfilled
-    xhr.onerror = () => reject(xhr.status); // Object => Rejected
+    // Object => Fulfilled
+    xhr.onload = () => resolve(xhr.response);
+    // Object => Rejected
+    xhr.onerror = () => reject(xhr.status);
     xhr.send();
   }
 );
@@ -1422,7 +1427,7 @@ Promise.resolve('a') // 'a'
 <details>
 <summary>Async fetch</summary>
 
-- `fetch` is a wrapper above promise
+- `fetch` is a wrapper around promise
 - function for sending/fetching data (`XMLHttpRequest` under hood)
 ```JavaScript
 // response.json(); returns promise
@@ -1487,20 +1492,18 @@ Content-Length: 1270
 </details>
 
 <details>
-<summary>Feedback in UI</summary>
+<summary>Feedback in the UI</summary>
 
 - When you sync data with a server, don't change control state, change only if the request was successful (returned 200+ codes)
 - View => Model => Server => Model => View
-
-Issues
 - click on favorites - gone on update, if there was an error response from server
 - comment doubles if you don't disable the submit button
 
 </details>
 
-## 17 - Authorization
+## Authorization
 <details>
-<summary>Notes</summary>
+<summary>General info</summary>
 
 - restricts the access for different users
 
@@ -1527,7 +1530,7 @@ Issues
 
 </details>
 
-## 18 - Working with data
+## Working with data
 <details>
 <summary>Issues</summary>
 
@@ -1537,11 +1540,11 @@ Issues
 
 </details>
 
-## 19 - Browser storage
+## Browser storage
 
-## 20 - Meta-programming
+## Meta-programming
 
-## 21 - Performance and optimizations
+## Performance and optimizations
 <details>
 <summary>Code parsing, compilation and execution</summary>
 
@@ -1602,11 +1605,11 @@ function addListener() {
 
 </details>
 
-## 22 - Security
+## Security
 
-## 23 - Regular expressions
+## Regular expressions
 <details>
-<summary>Notes</summary>
+<summary>Some common cases</summary>
 
 - `myRegEx.test(myString);` to check if any part of the string matches
 - `myString.match(myRegEx);` to check if there is this part in a string and extract it (returns `['matching part']`)
@@ -1645,11 +1648,11 @@ function addListener() {
 
 </details>
 
-## 23 - Deploying
+## Deploying
 
-## 24 - Testing
+## Testing
 
-## 25 - Debugging
+## Debugging
 <details>
 <summary>Console</summary>
 
@@ -1667,21 +1670,10 @@ console.dir(document);
 
 </details>
 
-## 26 - Browser support
+## Browser support
 
-## 27 - Tools and workflow
+## Tools and workflow
 
-## 28 - Libraries
+## Libraries
 
-## 29 - Frameworks
-
-## Notes
-<details>
-<summary>Other</summary>
-
-- cycle is more optimal than a recursion (call stack overflow), any recursion could be rewritten into a cycle
-- you can also use `element.textContent++;` instead of `element.textContent = element.textContent++;
-- `parent.append(child);` removes child and moves to the new place (if existed)
-- `data-cat-name="Cat"` access from JS `element.dataset.catName`
-
-</details>
+## Frameworks

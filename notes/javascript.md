@@ -677,20 +677,20 @@ console.log(harryPotter instanceof Player); // => true
   - `instanceof` becomes useless
   - inheritance (prototype) won't work
 - `new` keyword doesn't call the function, it creates an object with it's fields (when we use `this.name = name`)
-  - JS gives the information to object created with `new Player` on what constructor was used to create it
+  - JS gives the information to an object created with `new Player` on what constructor was used to create it
 - if you try to imitate a constructor and `return this;`, `this` would be a global object
 
 </details>
 
 ## Classes
 <details>
-<summary>Notes</summary>
+<summary>General info</summary>
 
 - `class Player {}` better to use instead of `const Singer = class {};`
-- `constructor() {}` helps to create and instance of a class, all the properties are defined there
+- `constructor() {}` helps to create an instance of a class, all the properties are defined there
 - `play() {}` methods are still inside `prototype`, like when using an object
 - `constructor` is optional
-- `new` for creating an instance instance (or type error)
+- `new` for creating an instance (or type error)
 - `undefined` if try to access the property, which is not in the class
 - static methods are not inherited, used on a class
 ```JavaScript
@@ -698,7 +698,7 @@ static createJuniorPlayer() {
   return new this(5, 2);
 }
 ```
-- properties can also be static (but still poor browser support) (recheck)
+- properties can also be static (but still poor browser support)
 - getters / setters can be used
 - private fields, soon to use `this.#skill = value;`
 

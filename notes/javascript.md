@@ -642,26 +642,43 @@ obj.getThis4.call(a);
 
 ## Constructors and prototypes
 <details>
-<summary>Notes</summary>
+<summary>General info</summary>
 
-- naming `GuitarPlayer`
-- creation of an instance with new
-- add a method in prototype
+- naming `Player`
+- creation of an instance with `new` keyword
+- add a method to the prototype
 ```JavaScript
-GuitarPlayer.prototype.play = function() {};
+const Player = function(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+};
+
+Player.prototype.play = function() {};
+
+const harryPotter = new Player('Harry', 'Potter');
 ```
-- without new => undefined (void = return undefined) will not be created
-- ES6 проверка if new inside constructor
+- without `new` => `undefined` (void = return undefined) will not be created
 ```JavaScript
-if (!new.target) { throw new Error(); }
+const ron = Player('Ron', 'Weasley'); // undefined, not created
 ```
-- проверить принадлежность `instanceof`
-- why new if we can return an object?
+- ES6 check if `new` is used inside constructor
+```JavaScript
+const Player = function(firstName, lastName) {
+  if (!new.target) { 
+    throw new Error('Should be called with new operator.'); 
+  }
+};
+```
+- check the constructor with `instanceof`
+```JavaScript
+console.log(harryPotter instanceof Player); // => true
+```
+- why `new` if we can return an object?
   - `instanceof` becomes useless
   - inheritance (prototype) won't work
-- `new` keyword не вызывает функцию, а берет и на основе полей этой функции (то, что записывается через `this.name = name`) создает объект
-  - созданный с `new GuitarPlayer` объект JS наделяет свойством вновь созданный объект, которое содержит информацию, с помощью какой функции-конструктора он создан
-- если попробовать сымитировать функцию-конструктор и `return this;`, будет ссылаться на глобальный объект
+- `new` keyword doesn't call the function, it creates an object with it's fields (when we use `this.name = name`)
+  - JS gives the information to object created with `new Player` on what constructor was used to create it
+- if you try to imitate a constructor and `return this;`, `this` would be a global object
 
 </details>
 
@@ -670,30 +687,28 @@ if (!new.target) { throw new Error(); }
 <summary>Notes</summary>
 
 - `class Player {}` better to use instead of `const Singer = class {};`
-- `constructor() {}` предопределенный метод класса, помогает создать экземпляр класса, все свойства определяются в нем
-- `play() {}` методы записываются в `prototype`, определяются как у объекта
-- `constructor` необязателен
-- `new` для создания instance (or type error)
-- если внутри класса обратиться к несуществующему свойству, получим `undefined`
-- есть статические методы (не передаются потомкам (экземплярам))
+- `constructor() {}` helps to create and instance of a class, all the properties are defined there
+- `play() {}` methods are still inside `prototype`, like when using an object
+- `constructor` is optional
+- `new` for creating an instance instance (or type error)
+- `undefined` if try to access the property, which is not in the class
+- static methods are not inherited, used on a class
 ```JavaScript
 static createJuniorPlayer() {
   return new this(5, 2);
 }
 ```
-- также статическими могут быть свойства (но плохая поддержка)
-- можно использовать getters / setters
-- можно и без setter, но нарушим правило ООП, так как проверки будут снаружи
-- приватные поля, но пока плохая поддержка `this.#skill = value;`
+- properties can also be static (but still poor browser support) (recheck)
+- getters / setters can be used
+- private fields, soon to use `this.#skill = value;`
 
 </details>
 
 <details>
 <summary>Difference between class and constructor functions</summary>
 
-- `class` нельзя без `new` (в функции-конструкторе можно сделать имитацию с проверкой `target.new`)
-- вывод в консоль (`class` / `f`)
-- методы класса не перечисляемые
+- `class` can't be used without `new` (could be imitated inside the constructor function with `target.new`)
+- class methods are not iterable
 ```JavaScript
 for (const prop in player) {
   console.log(prop);
@@ -954,16 +969,6 @@ Math.max(...values);
 const newValues = [...values];
 const filteredValues = [...values].filter();
 ```
-
-</details>
-
-<details>
-<summary>New and instance of</summary>
-
-- утиная типизация - ненадежно
-- add some field to function, which will create an object and compare that key - велосипед
-- функции-конструкторы
-- more information [constructors and prototypes](#constructors-and-prototypes)
 
 </details>
 

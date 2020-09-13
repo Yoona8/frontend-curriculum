@@ -1180,7 +1180,7 @@ window.alert('Say something');
 
 ## DOM
 <details>
-<summary>Notes</summary>
+<summary>General info</summary>
 
 - a part of `window` object
 - browser searches DOM in depths, so that the first tag is being found (otherwise not obvious)
@@ -1197,14 +1197,14 @@ window.alert('Say something');
 // returns first matching element in the DOM
 document.querySelector('ul li:last-child');
 // any css selector
-// returns NodeList - static collection
+// returns NodeList - static collection (snapshot)
 // DOM changes doesn't affect 
 // (nodes, not only DOM elements, also text, spaces, etc)
 document.querySelectorAll('li');
 
 // all those methods could be called only on document, not on element
 document.getElementById('title');
-// return HTMLCollection
+// return HTMLCollection - live collection
 document.getElementsByClassName('class');
 document.getElementsByTagName('li');
 ```
@@ -1267,17 +1267,71 @@ input.value = 'Some new text';
 // UI stays the same but value attribute changes
 input.setAttribute('value', 'Other text');
 ```
+- data attributes
+```JavaScript
+// html attribute data-cat-name="Cat" can be accessed
+const catName = element.dataset.catName;
+```
 
 </details>
 
 <details>
-<summary>Manipulating DOM</summary>
+<summary>Insert DOM elements and nodes</summary>
 
-- `appendChild` removes the element from where it was and adds to the new place (need to clone not to be removed)
-- `element.cloneNode(boolean);` better to pass an argument (default could be different for some browsers)
-- you can also use `element.textContent++;` instead of `element.textContent = element.textContent++;
-- `parent.append(child);` removes child and moves to the new place (if existed)
-- `data-cat-name="Cat"` access from JS `element.dataset.catName`
+- HTML string or text
+```JavaScript
+const element = document.querySelector('section');
+// replace all the content inside the element
+element.innerHTML = '<p>Description</p>';
+// add html to a specific position
+element.insertAdjacentHTML('beforeend', '<p>Description</p>');
+
+// text
+element.textContent++;
+// is the same
+element.textContent = element.textContent++;
+```
+- Create an element
+```JavaScript
+const element = document.querySelector('section');
+const newElement = document.createElement('p');
+
+newElement.textContent = 'Description';
+
+// all these methods remove the element (if existed)
+// and move to the new position
+// (need to clone not to be removed)
+// append new DOM element or node
+// any node, several nodes (IE not supported)
+element.append('Some text', newElement);
+// first inside the element
+element.prepend(newElement);
+// before the element (as sibling) (problems with Safari)
+element.before(newElement);
+// after the element (as sibling) (problems with Safari)
+element.after(newElement);
+// replace existing DOM element or node with a new one
+element.replaceWith(newElement);
+
+// only one element (older methods, have IE support)
+element.appendChild(newElement);
+insertBefore();
+replaceChild();
+
+// alternative method (supports IE, Safari)
+element.insertAdjacentElement('beforeend', newElement);
+```
+
+</details>
+
+<details>
+</summary>Cloning DOM Nodes</summary>
+
+- better to pass an argument (default could be different for some browsers)
+```JavaScript
+// deep? boolean
+const newElement = element.cloneNode(true);
+```
 
 </details>
 

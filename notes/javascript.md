@@ -1314,8 +1314,11 @@ element.after(newElement);
 element.replaceWith(newElement);
 
 // only one element (older methods, have IE support)
+// = append();
 element.appendChild(newElement);
+// = before();
 insertBefore();
+// = replaceWith();
 replaceChild();
 
 // alternative method (supports IE, Safari)
@@ -1331,6 +1334,21 @@ element.insertAdjacentElement('beforeend', newElement);
 ```JavaScript
 // deep? boolean
 const newElement = element.cloneNode(true);
+```
+
+</details>
+
+<details>
+<summary>Removing elements</summary>
+
+```JavaScript
+const element = document.querySelector('p');
+
+element.innerHTML = '';
+// IE is not supported
+element.remove();
+// works with IE
+element.parentElement.removeChild(element);
 ```
 
 </details>
@@ -1365,6 +1383,18 @@ element.style.backgroundColor = 'green';
 - [getElementsByClassName on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
 - [getElementsByTagName on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)
 - [getElementsByName on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName)
+- [insertAdjacentHTML on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
+- [append on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append)
+- [appendChild on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+- [prepend on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend)
+- [insertBefore on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
+- [before on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/before)
+- [after on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after)
+- [insertAdjacentElement on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement)
+- [replaceWith on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith)
+- [replaceChild on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild)
+- [remove on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove)
+- [removeChild on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
 
 </details>
 

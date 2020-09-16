@@ -357,6 +357,13 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [Array on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+</details>
+
 ## Iterables: Sets
 <details>
 <summary>Working with sets</summary>
@@ -396,7 +403,7 @@ users.add(user);
 // do some operations with user
 // still need the set, but not the user
 // JS garbage collector will remove the object
-// but is we use the Set(), the object (reference type) will not be removed
+// but if we use the Set(), the object (reference type) will not be removed
 // from the Set
 user = null;
 ```
@@ -446,6 +453,24 @@ for (const value of pairs.values()) {
 for (const [first, second] of pairs) {
   console.log(first.name + second.name);
 }
+```
+
+</details>
+
+<details>
+<summary>WeakMap</summary>
+
+- less methods available
+```JavaScript
+let user = {name: 'Harry'};
+const users = new WeakMap();
+
+users.set(user, 'Some info');
+
+// do some operations with user
+// still need the map, but not the user
+// JS garbage collector will remove the object
+user = null;
 ```
 
 </details>
@@ -1569,6 +1594,7 @@ element.style.backgroundColor = 'green';
 <details>
 <summary>Learn more</summary>
 
+- [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 - [querySelector on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
 - [querySelectorAll on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
 - [getElementById on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)

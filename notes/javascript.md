@@ -71,7 +71,9 @@ console.log(typeof false); // => boolean
 console.log(typeof 10); // => number
 // 5 - String
 console.log(typeof 'text'); // => string
-// 6 - Object
+// 6 - Symbol
+console.log(typeof Symbol('sym')); // => symbol
+// 7 - Object
 // iterable lists: Array
 // collections: NodeList, HTMLElementsList, classList, arguments
 // iterable dictionaries: Map, WeakMap
@@ -80,12 +82,10 @@ console.log(typeof 'text'); // => string
 console.log(typeof {}); // => object
 console.log(typeof []); // => object
 console.log(typeof function() {}); // => function
-// 7 - BitInt
+// 8 - BitInt
 console.log(typeof 1n); // => bigint
 console.log(typeof BigInt(9)); // => bigint
 console.log(typeof BigInt('9')); // => bigint
-// 8 - Symbol
-console.log(typeof Symbol('sym')); // => symbol
 ```
 
 </details>
@@ -93,6 +93,19 @@ console.log(typeof Symbol('sym')); // => symbol
 ## Numbers
 
 ## Strings
+<details>
+<summary>Methods</summary>
+
+```JavaScript
+const playerName = 'Harry Potter';
+
+// case sensitive
+console.log(playerName.includes('rr')); // => true
+console.log(playerName.includes('h')); // => false
+```
+
+</details>
+
 <details>
 <summary>How to remove duplicates?</summary>
 
@@ -477,10 +490,16 @@ user = null;
 
 ## Objects
 <details>
-<summary>Dictionaries</summary>
+<summary>General info</summary>
 
-- keys are strings, numbers or symbols (other not possible)
+- keys are strings, numbers (positive int or floats) or symbols (other not possible)
 - not iterable (can use `for ... in` old cycle has some issues, not `for ... of`)
+
+</details>
+
+<details>
+<summary>As dictionaries</summary>
+
 ```JavaScript
 const filterValueToScale = {
   'smallest': 0.25,
@@ -489,16 +508,43 @@ const filterValueToScale = {
   'large': 2
 };
 ```
-- new ES6 features
+
+</details>
+
+<details>
+<summary>Creation and accessing</summary>
+
 ```JavaScript
-// creation with variable
+// simple object
+const person = {
+  'short-name': 'Ron',
+  age: 22,
+  level: 3,
+  3.2: 'some value',
+  walk: function() {}
+};
+
+// collapsed = the object (if not all the keys are numbers) is not sorted
+// if numbers = order ascending
+// when not collapsed = any object is sorted, numbers first
+console.log(person);
+
+console.log(person.age);
+console.log(person['short-name']);
+console.log(person[3.2]);
+console.log(person['3.2']);
+
+// if no property or method => undefined (not an error)
+console.log(person.hobbies);
+
+// creation with variable (ES6+)
 const name = 'Harry';
 const user = {
   name,
   level: 1
 };
 
-// complex keys (could be useful for dictionaries)
+// complex keys (could be useful for dictionaries) (ES6+)
 const potter = 'Harry Potter';
 const voldemort = 'Tom Riddle';
 const antagonist = {
@@ -506,16 +552,24 @@ const antagonist = {
   ['Sirius Black']: 'Bellatrix Lestrange'
 };
 
-// destructuring
+// destructuring (ES6+)
 const newAntagonist = {...antagonist};
 
-// new syntax for methods
+// new syntax for methods (ES6+)
 const character = {
   go() {}
 };
+```
 
-// getters and setters
+</details>
+
+<details>
+<summary>Getters and setters</summary>
+
+```JavaScript
 const character = {
+  // not necessary to create a property
+  // can just omit
   _level: 1,
 
   // can't use getter/setter + property
@@ -525,6 +579,11 @@ const character = {
   },
   // always strictly 1 parameter
   set level(value) {
+    if (value < 0) {
+      this._level = this._level;
+      // or set the default value
+      // or throw an error
+    }
     this._level = value;
   }
 };
@@ -563,9 +622,16 @@ const playerKeys = Object.keys(player);
 </details>
 
 <details>
-<summary>Delete a property or method</summary>
+<summary>Add, modify, delete a property or method</summary>
 
 ```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
+player.age = 33;
+player.level = 20;
 delete player.name;
 ```
 
@@ -733,7 +799,6 @@ addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
 <summary>General info</summary>
 
 - scope where the function runs
-- arrow functions do not have their own context (even when we use `call`, `apply` or `bind`)
 - `this` links to current object in a `class`
 - in an object (method) `this` = link to the object itself
 - `use strict` affects `this` value
@@ -742,16 +807,34 @@ addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
 - context is being created upon the function call
 - depends on how the function is called
 ```JavaScript
+// using outer function
 const walk = function() {
   console.log(this + 'walk!');
 };
 
-const player = {walk};
+const player = {
+  name: 'Ron',
+  walk
+};
 
-// this === link to player object
+// this links to player object
 player.walk();
 // TypeError: Cannot read property '...' of undefined
 walk();
+```
+```JavaScript
+// with destructuring
+const player = {
+  name: 'Harry',
+  age: 28,
+  run() {
+    console.log(this + ' runs!');
+  }
+};
+
+const { run } = player;
+// TypeError: Cannot read property '...' of undefined
+run();
 ```
 - with closure the result is more obvious
 ```JavaScript
@@ -779,10 +862,36 @@ anotherPlayer.play();
 </details>
 
 <details>
+<summary>Using array methods inside the object methods</summary>
+
+```JavaScript
+const players = {
+  team: 'Griffindor',
+  members: ['Harry', 'Ron', 'Hermione'],
+  getMembers() {
+    this.members.forEach(function(member) {
+      // here this is created when the forEach calls it
+      // it is called not on players object
+      // so this here === global scope or undefined
+      // could be solved with arrow function
+      console.log(this);
+    });
+  }
+};
+```
+
+</details>
+
+<details>
 <summary>Bind, call and apply</summary>
 
 - `bind` creates a new function, the initial function stays the same
 - `bind` context can't be changed even with `apply`, `call`
+```JavaScript
+// here `this === obj` instead of `a` (respects the first binding)
+obj.getThis4 = obj.getThis2.bind(obj);
+obj.getThis4.call(a);
+```
 - calling a function with bound context (1st param in those functions is always context, the 2nd parameter differs)
 ```JavaScript
 // arguments separated with ',' will be function params
@@ -798,9 +907,15 @@ const numbers = [1, 3, 100, 5];
 // we don't need context here, so pass 'null'
 console.log(Math.max.apply(null, numbers));
 ```
-- listener's context is always === the element, to which the listener is applied `document.body` or `evt.currentTarget`
-- can override if create the event handler and execute the method
+
+</details>
+
+<details>
+<summary>Event listeners and scope</summary>
+
+- listener's context is always === the element, to which the listener is applied `document.body` or `evt.currentTarget` (the browser binds `this` (on event listeners) to the DOM element that triggered the event)
 ```JavaScript
+// even in this case
 const cart = {
   item: 'Book',
   price: 6,
@@ -809,23 +924,25 @@ const cart = {
   }
 };
 
+item.addEventListener('click', cart.print);
+// browser will store the function
+item.callback = cart.print;
+// and executes the callback
+// so just won't work (because it's not cart.callback(), but callback())
+item.callback();
+```
+- can override if create the event handler and execute the method
+```JavaScript
 item.addEventListener('click', function() {
   cart.print();
 });
-
-// in this case
-item.addEventListener('click', cart.print);
-// browser will store the function
-callback = cart.print;
-// and executes the callback
-// so just won't work (because it's not cart.callback(), but callback())
-callback();
 ```
 - with bind (but careful, `bind` returns a new function, store first in a separate variable to unsubscribe if needed)
 ```JavaScript
 // can't remove the listener
 item.addEventListener('click', cart.print.bind(cart));
 
+// to remove a listener
 const printCart = cart.print.bind(cart);
 
 item.addEventListener('click', printCart);
@@ -839,10 +956,31 @@ const customBind = function(fn, context) {
   };
 };
 ```
-- here `this === obj` instead of `a` (respects the first binding)
+
+</details>
+
+<details>
+<summary>Arrow functions and scope</summary>
+
+- arrow functions do not have their own context (even when we use `call`, `apply` or `bind`)
+- arrow functions passed as a callback to event listeners also have no context
+- even with strict mode `this` won't be undefined but referred to the global scope (arrow functions do not have `this` property)
+- arrow functions **NEVER** have their own context
 ```JavaScript
-obj.getThis4 = obj.getThis2.bind(obj);
-obj.getThis4.call(a);
+const players = {
+  team: 'Griffindor',
+  members: ['Harry', 'Ron', 'Hermione'],
+  getMembers() {
+    this.members.forEach((member) => {
+      // works fine because arrow function
+      // doesn't bind this
+      // so this is the same as in getMembers function
+      console.log(member, this.team);
+    });
+  }
+};
+
+players.getMembers();
 ```
 
 </details>
@@ -850,6 +988,7 @@ obj.getThis4.call(a);
 <details>
 <summary>Learn more</summary>
 
+- [this on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [What is `this`? The Inner Workings of JavaScript Objects](https://medium.com/javascript-scene/what-is-this-the-inner-workings-of-javascript-objects-d397bfa0708a)
 
 </details>
@@ -1086,6 +1225,8 @@ const {name: catName, color: catColor = 'White'} = cat;
 const {address: {street: catStreet}} = cat;
 // for combined prop use quotes
 const {'home city': catCity} = cat;
+// creates name and object of remained properties
+const {name, ...otherProperties} = cat;
 
 // great to use for DOM nodes
 const elements = document.querySelectorAll('li');
@@ -1579,6 +1720,8 @@ const element = document.querySelector('p');
 
 // for CSS properties in several words camelCase is used in JS
 element.style.backgroundColor = 'green';
+element.style['backgroundColor'] = 'green';
+element.style['background-color'] = 'green';
 ```
 - `window.getComputedStyle` to get all styles applied to the element
 

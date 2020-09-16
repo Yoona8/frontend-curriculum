@@ -100,18 +100,66 @@ console.log(typeof Symbol('sym')); // => symbol
 
 </details>
 
+## Iterables
+<details>
+<summary>General info</summary>
+
+- objects that implement the 'iterable' protocol and have an `@@iterator` method (ex `Symbol.iterator`)
+- basically objects where you can use `for ... of` loop
+- in JS there are many iterables: Array, NodeList, String, Map, Set
+
+</details>
+
+<details>
+<summary>Array</summary>
+
+- store data of any kind and length
+- has many special methods
+- order is guaranteed
+- duplicates are allowed
+- index-based access
+
+</details>
+
+<details>
+<summary>Set</summary>
+
+- store data of any kind and length
+- has own special methods
+- order is not guaranteed
+- duplicates are not allowed
+- no index-based access
+
+</details>
+
+<details>
+<summary>Map</summary>
+
+- store key-value data of any kind and length
+- any key values are allowed
+- has own special methods
+- order is guaranteed
+- duplicate keys are not allowed
+- key-based access
+
+</details>
+
 ## Iterables: Arrays
 <details>
 <summary>Creation</summary>
 
 ```JavaScript
 // before ES6
-var numbers = new Array();
-var letters = [];
+var numbers = new Array(3, 5); // => [3, 5]
+var numbers2 = Array(3, 5);
+var emptyArray = new Array(3); // => [] with length === 3
+var emptyArray2 = Array(3);
+var letters = ['a', 'r']; // => ['a', 'r']
 
 // ES6+
 // makes an array of any iterable (collection, separate values)
 const elements = Array.from(document.querySelectorAll('li'));
+const letters = Array.from('string');
 const values = Array.of(1, 2, 3);
 const items = [...elements, ...values];
 ```
@@ -122,19 +170,90 @@ const items = [...elements, ...values];
 <summary>Methods</summary>
 
 ```JavaScript
-const numbers = [1, 2, 4, 7, 5, 10, 15, 8];
+const numbers = [1, 2, 5];
+const text = 'One two three';
+
+// doesn't change the initial array
+numbers.forEach();
+// arrays and strings
+const words = text.split(' ');
+// by default separates with ,
+const newText = words.join();
+const newText2 = words.join(' ');
 
 // change the initial array
-numbers.sort();
-numbers.splice();
+// --- *** ---
+// add/remove to the end/last of the array
+const newNumbersLength = numbers.push(7, 9);
+const removedItem = numbers.pop();
+// add/remove first, slower than push and pop
+const newNumbersLengthValue = numbers.unshift(9, 12, 15);
+const removedItem2 = numbers.shift();
+// items in between will be empty of undefined value
+numbers[5] = 23;
+// --- *** ---
+// start index, delete count, value to add (or more 10, 15)
+numbers.splice(1, 0, 10); // => [1, 10, 2, 5]
+// removes from the end
+numbers.splice(-1, 1); // => [1, 2]
+// will delete all items starting with the provided index
+const removedElements = numbers.splice(0);
+// --- *** ---
+const reversedNumbers = numbers.reverse();
+// --- *** ---
+// by default converts to a string and sorts characters
+const sortedDefault = numbers.sort();
+const sortedNumbers = numbers.sort((a, b) => {
+  if (a > b) {
+    // or any positive value
+    return 1;
+  } else if (a === b) {
+    return 0;
+  } else {
+    // or any negative value
+    return -1;
+  }
+
+  // or
+  return a - b;
+});
 
 // return new array
-const filteredNumbers = numbers.filter();
+// --- *** ---
+// copy an array
 const clonedNumbers = numbers.slice();
-const newNumbers = numbers.map();
+// copy starting from index till the end
+const clonedNumbers2 = numbers.slice(2);
+// end item not included
+const clonedNumbers3 = numbers.slice(0, 2); // => [1, 2]
+// [] if nothing is in between
+const emptyNumbers = numbers.slice(3, 2);
+const emptyNumbers2 = numbers.slice(-3, -4);
+// from the end
+const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
+// --- *** ---
+// clones array and adds values from another array
+const newNumbers = numbers.concat([8, 5, 2]);
+// --- *** ---
+const filteredNumbers = numbers.filter();
+// --- *** ---
+const newTransformedNumbers = numbers.map();
 
 // return new something
-const sum = numbers.reduce();
+// --- *** ---
+// if several same values => returns the index of the first
+const index = numbers.indexOf(5);
+// if several same values => returns the index of the last
+const lastIndex = numbers.lastIndexOf(5);
+// the same numbers.indexOf(5) !== -1
+const isNumberInNumbers = numbers.includes(5);
+// --- *** ---
+const number = numbers.find();
+const numberIndex = numbers.findIndex();
+// --- *** ---
+const sum = numbers.reduce((prevValue, number, index, numbers) => {
+  return prevValue + number;
+}, 0);
 ```
 
 </details>
@@ -238,11 +357,104 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
+## Iterables: Sets
+<details>
+<summary>Working with sets</summary>
+
+```JavaScript
+const data = new Set();
+data.add(1);
+
+const data2 = new Set([1, 4, 8]);
+
+const isElementInData = data2.has(1); // => true
+
+// delete not existed item does nothing
+data2.delete(1);
+
+// iterable
+const entries = data2.entries();
+for (const entry of entries) {
+  console.log(entry); // => [1, 1] => [4, 4] => [8, 8]
+}
+```
+
+</details>
+
+<details>
+<summary>WeakSet</summary>
+
+- less methods available
+- have to store objects, not primitives
+- that's because JS clears those objects (releases to garbage collection) if you don't work with the certain piece of data anymore
+```JavaScript
+let user = {name: 'Harry'};
+const users = new WeakSet();
+
+users.add(user);
+
+// do some operations with user
+// still need the set, but not the user
+// JS garbage collector will remove the object
+// but is we use the Set(), the object (reference type) will not be removed
+// from the Set
+user = null;
+```
+
+</details>
+
+## Iterables: Maps
+<details>
+<summary>Dictionaries - Map</summary>
+
+- any keys possible
+- iterable
+- pairs are objects
+- better performance (than object) for large quantities of data
+- better performance when adding / removing data frequently
+```JavaScript
+let pairs = new Map();
+
+pairs.set('John', 'May');
+pairs.set('Ichigo', 'Rukiya');
+
+// or with iterable
+let pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+
+// get the value
+const pair = pairs.get('John');
+
+// entries
+for (const entry of pairs.entries()) {
+  console.log(entry); // => ['John', 'May'] => ['Ichigo', 'Rukiya']
+}
+for (const [key, value] of pairs.entries()) {
+  console.log(key, value);
+}
+
+// keys
+for (const key of pairs.keys()) {
+  console.log(key);
+}
+
+// values
+for (const value of pairs.values()) {
+  console.log(value);
+}
+
+// iterating
+for (const [first, second] of pairs) {
+  console.log(first.name + second.name);
+}
+```
+
+</details>
+
 ## Objects
 <details>
-<summary>Dictionaries - Object</summary>
+<summary>Dictionaries</summary>
 
-- keys are strings or numbers (other not possible)
+- keys are strings, numbers or symbols (other not possible)
 - not iterable (can use `for ... in` old cycle has some issues, not `for ... of`)
 ```JavaScript
 const filterValueToScale = {
@@ -296,29 +508,6 @@ const character = {
 // it there is only setter, can't access the value
 const level = character.level;
 character.level = 100;
-```
-
-</details>
-
-<details>
-<summary>Dictionaries - Map and WeakMap</summary>
-
-- any keys possible
-- iterable
-- pairs are objects
-```JavaScript
-let pairs = new Map();
-
-pairs.set('John', 'May');
-pairs.set('Ichigo', 'Rukiya');
-
-// or with iterable
-let pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
-
-// iterating
-for (const [first, second] of pairs) {
-  console.log(first.name + second.name);
-}
 ```
 
 </details>
@@ -833,6 +1022,8 @@ const third = numbers[2];
 const [first, , third] = numbers;
 // when there is no value, can use defaults
 const [first, , , , , sixth = 45] = numbers;
+// when we want specific values and an array of the rest
+const [first, ...otherNumbers] = numbers;
 // good for swapping the values
 let first = 'Harry';
 let second = 'Ron';
@@ -1341,6 +1532,7 @@ const newElement = element.cloneNode(true);
 <details>
 <summary>Removing elements</summary>
 
+- when the element is deleted (no reference left), all the listeners are also cleaned up - no memory leaks
 ```JavaScript
 const element = document.querySelector('p');
 

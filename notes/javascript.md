@@ -671,7 +671,7 @@ const newPlayer = {...player};
 </details>
 
 <details>
-</summary>Object Descriptors</summary>
+<summary>Object Descriptors</summary>
 
 ```JavaScript
 const character = {

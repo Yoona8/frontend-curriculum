@@ -33,13 +33,16 @@
 <summary>Design and UX</summary>
 
 - [Graphics](./notes/graphics.md)
+- Color Theory
+- [Fonts](./notes/fonts.md)
+- Design
 
 </details>
 
 <details>
 <summary>Tools</summary>
 
-- TypeScript
+- [TypeScript](./notes/typescript.md)
 - [Dev tools (Chrome, Git, GitHub)](./notes/dev-tools.md)
 - [Webpack](./notes/webpack.md)
 

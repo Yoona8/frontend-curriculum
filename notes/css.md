@@ -463,6 +463,14 @@
 
 </details>
 
+## Houdini
+<details>
+<summary>Learn more</summary>
+
+- [Houdini](https://css-houdini.rocks/js-in-css/)
+
+</details>
+
 ## Resources
 <details>
 <summary>Learn more</summary>

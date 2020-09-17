@@ -1,6 +1,6 @@
 # Graphics
 
-## 1 - SVG
+## SVG
 <details>
 <summary>Basics</summary>
 
@@ -66,14 +66,11 @@
 - fewer handlers
 - integer numbers
 - not too big grid
-
-Compressing smaller raw data would probably produce smaller compressed data.
-Fewer distinct characters means less entropy. Less entropy is better compression.
-More frequently found characters are compressed with less number of bits. Getting rid of less common characters and making the more common chars to be even more common would most probably improve the compression.
-Long runs of duplicated code are compressed with a few bits. DRY is not always the best option. Sometimes you’d like to repeat yourself to get better results.
-Sometimes more raw data will produce smaller compressed data. Removing entropy will allow the compressor to better remove what is redundant.
-
-- [Optimising SVGs for Web Use](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)
+- Compressing smaller raw data would probably produce smaller compressed data.
+- Fewer distinct characters means less entropy. Less entropy is better compression.
+- More frequently found characters are compressed with less number of bits. Getting rid of less common characters and making the more common chars to be even more common would most probably improve the compression.
+- Long runs of duplicated code are compressed with a few bits. DRY is not always the best option. Sometimes you’d like to repeat yourself to get better results.
+- Sometimes more raw data will produce smaller compressed data. Removing entropy will allow the compressor to better remove what is redundant.
 
 </details>
 
@@ -95,11 +92,38 @@ Sometimes more raw data will produce smaller compressed data. Removing entropy w
 <details>
 <summary>SVG as a placeholder for images</summary>
 
-nothing - just add sizes for browser not to re-render
-placeholder static - ex. a person svg for a person avatar
-solid color or gradient most suitable colors for the image
-svg simple shapes (vary 10-100), could be heavy
-svg simple shapes + blur filter more light and smooth
-svg silhouettes even with 2 colors look nice
+- nothing - just add sizes for browser not to re-render
+- placeholder static - ex. a person svg for a person avatar
+- solid color or gradient most suitable colors for the image
+- svg simple shapes (vary 10-100), could be heavy
+- svg simple shapes + blur filter more light and smooth
+- svg silhouettes even with 2 colors look nice
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Optimizing SVG for Web Use](https://medium.com/larsenwork-andreas-larsen/optimising-svgs-for-web-use-part-1-67e8f2d4035)
+- [An Overview of SVG Sprite Creation Techniques](https://24ways.org/2014/an-overview-of-svg-sprite-creation-techniques/)
+- [How to use SVG as a Placeholder, and Other Image Loading Techniques](https://medium.freecodecamp.org/using-svg-as-placeholders-more-image-loading-techniques-bed1b810ab2c)
+- [SVG, Minification and Gzip](https://blog.usejournal.com/of-svg-minification-and-gzip-21cd26a5d007)
+- [Making the Switch Away from Icon Fonts to SVG: Converting Font Icons to SVG](https://www.sarasoueidan.com/blog/icon-fonts-to-svg/)
+
+</details>
+
+## Resources
+<details>
+<summary>Photos</summary>
+
+- [Free images](https://unsplash.com/)
+- [Free photos and videos](https://www.pexels.com/)
+
+</details>
+
+<details>
+<summary>Vector</summary>
+
+- [Free illustrations](https://undraw.co/illustrations)
 
 </details>

@@ -2193,6 +2193,16 @@ function addListener() {
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [8 полезных регэкспов с наглядным разбором](https://habr.com/ru/post/66931/)
+- [Regex testing service](https://regex101.com/)
+- [A collection of different regexps](http://html5pattern.com/)
+- Mastering Regular Expressions (O'Reilly, by Jeffrey Friedl)
+
+</details>
+
 ## Deploying
 
 ## Testing
@@ -2233,9 +2243,25 @@ console.dir(document);
 ## Resources
 
 <details>
+<summary>Read</summary>
+
+</details>
+
+<details>
 <summary>Practice</summary>
 
 - [JavaScript Questions](https://github.com/lydiahallie/javascript-questions)
+- [Codewars](https://www.codewars.com/dashboard)
+- [FreeCodeCamp](https://www.freecodecamp.org/)
+- [HackerRank](https://www.hackerrank.com/dashboard)
+- [CodinGame](https://www.codingame.com/)
+
+</details>
+
+<details>
+<summary>Courses</summary>
+
+
 
 </details>
 

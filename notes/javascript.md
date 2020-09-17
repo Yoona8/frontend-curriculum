@@ -1037,23 +1037,59 @@ console.log(harryPotter instanceof Player); // => true
 
 ## Classes
 <details>
-<summary>General info</summary>
+<summary>Creation</summary>
 
-- `class Player {}` better to use instead of `const Singer = class {};`
-- `constructor() {}` helps to create an instance of a class, all the properties are defined there
-- `play() {}` methods are still inside `prototype`, like when using an object
-- `constructor` is optional
-- `new` for creating an instance (or type error)
-- `undefined` if try to access the property, which is not in the class
-- static methods are not inherited, used on a class
+- `class` better than `const` when creating a class
+- properties and fields are basically the same thing
 ```JavaScript
-static createJuniorPlayer() {
-  return new this(5, 2);
+class Player {
+  // fields
+  level = 2;
+
+  // is optional
+  // helps to create an instance of a class
+  // all properties are defined here
+  constructor(name) {
+    // properties
+    this.name = name;
+  }
+
+  // methods are still inside prototype
+  play() {}
 }
+
+// don't create classes like this
+const Singer = class {};
 ```
-- properties can also be static (but still poor browser support)
+- `new` for creating an instance (or type error)
+```JavaScript
+const player = new Player('Harry');
+```
+- `undefined` if try to access the property/field, which is not in the class
 - getters / setters can be used
 - private fields, soon to use `this.#skill = value;`
+
+</details>
+
+<details>
+<summary>Static properties, fields and methods</summary>
+
+- properties can also be static (but still poor browser support)
+- not inherited, accessible on a class without instantiation
+```JavaScript
+class Player {
+  constructor(level, weaponsCount) {
+    this.level = level;
+    this.weaponsCount = weapons;
+  }
+
+  static createJuniorPlayer() {
+    return new this(5, 2);
+  }
+}
+
+const juniorPlayer = Player.createJuniorPlayer();
+```
 
 </details>
 
@@ -1067,6 +1103,13 @@ for (const prop in player) {
   console.log(prop);
 }
 ```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [OOP notes](./oop.md)
 
 </details>
 

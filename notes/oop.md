@@ -67,7 +67,10 @@ parseInt: function(number, number): number;
   - Interfaces (not in JS)
 ```JavaScript
 class GuitarPlayer extends Man {
+  team = 'Red';
+
   constructor(firstName) {
+    // parent constructor is called before the fields are created
     super(firstName);
 
     this.guitarCount = 6;

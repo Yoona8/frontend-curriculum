@@ -670,6 +670,47 @@ const newPlayer = {...player};
 
 </details>
 
+<details>
+</summary>Object Descriptors</summary>
+
+```JavaScript
+const character = {
+  name: 'Harry',
+  printName: function() {
+    console.log(this.name);
+  }
+};
+
+Object.getOwnPropertyDescriptors(character);
+Object.defineProperty(character, 'name', {
+  // defaults
+  // can delete or define property
+  configurable: true,
+  // is accessible in for ... in loop
+  enumerable: true,
+  value: character.name,
+  // can rewrite
+  writable: true
+});
+
+// if writable === false
+// no error but won't change, stays the same (Harry)
+character.name = 'Ron';
+
+// if configurable === false
+// no error but won't delete, stays the same (Harry)
+// can't reset configuration also, be careful
+delete character.name;
+
+// if enumerable === false
+for (const key in character) {
+  // will skip the name key, logs only printName
+  console.log(key);
+}
+```
+
+</details>
+
 ## Functions
 <details>
 <summary>General info</summary>
@@ -1052,10 +1093,25 @@ class Player {
   constructor(name) {
     // properties
     this.name = name;
+    this.onButtonClickArrowFn = () => {
+      // this === current instance of a class
+      console.log(this);
+    };
+  }
+
+  onButtonClick() {
+    console.log(this);
   }
 
   // methods are still inside prototype
-  play() {}
+  play() {
+    // this === button
+    button.addEventListener('click', this.onButtonClick);
+    // this === current instance of a class
+    button.addEventListener('click', this.onButtonClick.bind(this));
+    button.addEventListener('click', () => this.onButtonClick());
+    button.addEventListener('click', this.onButtonClickArrowFn);
+  }
 }
 
 // don't create classes like this
@@ -1110,6 +1166,7 @@ for (const prop in player) {
 <summary>Learn more</summary>
 
 - [OOP notes](./oop.md)
+- [Classes on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
 </details>
 
@@ -2163,5 +2220,32 @@ console.dir(document);
 ## Tools and workflow
 
 ## Libraries
+<details>
+<summary>Working with dates</summary>
+
+- [Flatpickr](https://flatpickr.js.org/getting-started/)
+- [Moment.js](https://momentjs.com/)
+
+</details>
 
 ## Frameworks
+
+## Resources
+
+<details>
+<summary>Practice</summary>
+
+- [JavaScript Questions](https://github.com/lydiahallie/javascript-questions)
+
+</details>
+
+<details>
+<summary>Books</summary>
+
+- [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS) by Kyle Simpson
+- [Head First JavaScript Programming (O'Reilly, by Elisabeth Robson, Eric Freeman)
+- [JavaScript: The Definitive Guide (O'Reilly, by David Flanagan)
+- [JavaScript: The Good Parts (O'Reilly, by Douglas Crockford)
+- [JavaScript Patterns (O'Reilly, by Stoyan Stefanov)
+
+</details>

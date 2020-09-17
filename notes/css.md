@@ -69,6 +69,8 @@
 
 - [Intriguing CSS Level 4 Selectors](https://webdesign.tutsplus.com/tutorials/intriguing-css-level-4-selectors--cms-29499)
 - [Селектор обобщенных родственных элементов](https://habr.com/ru/post/150720/)
+- [Article: CSS-селекторы](https://learn.javascript.ru/css-selectors)
+
 
 </details>
 
@@ -125,6 +127,14 @@
 
 </details>
 
+## Layouts
+<details>
+<summary>Learn more</summary>
+
+- [Relearn CSS layout](https://every-layout.dev/)
+
+</details>
+
 ## Flexbox
 <details>
 <summary>Table</summary>
@@ -147,7 +157,7 @@
 
 </details>
 
-## 12 - Grid
+## Grid
 <details>
 <summary>Applied to the container</summary>
 
@@ -175,6 +185,8 @@
 <summary>Learn more</summary>
 
 - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [Grid Layout on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [Grid Resources](https://gridbyexample.com/resources/)
 
 </details>
 
@@ -395,7 +407,7 @@
 
 </details>
 
-## 27 - Animations
+## Animations
 <details>
 <summary>Table</summary>
 
@@ -442,7 +454,30 @@
 ## 38 - Stacking Context
 ## 39 - Block Formatting Contexts
 ## 40 - Object Fit and Placement
+## Optimization
 
-## 41 - Books
+<details>
+<summary>Learn more</summary>
+
+- [CSS triggers](https://csstriggers.com/)
+
+</details>
+
+## Resources
+<details>
+<summary>Learn more</summary>
+
+- [CSS Reference](https://tympanus.net/codrops/css_reference/)
+- [State of CSS 2019](https://2019.stateofcss.com/)
+- [Refactoring (the way we talk about) CSS](https://noti.st/rachelandrew/VqOEAa/refactoring-the-way-we-talk-about-css#sNdvV9Y)
+
+</details>
+
+<details>
+<summary>Books</summary>
+
 - [Cascading Style Sheets: The Definitive Guide, 2nd Edition](http://shop.oreilly.com/product/9780596005252.do)
 - [CSS: The Missing Manual, 4th Edition](http://shop.oreilly.com/product/0636920036357.do)
+
+</details>
+

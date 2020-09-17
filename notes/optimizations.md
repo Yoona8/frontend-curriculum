@@ -29,7 +29,7 @@
 </details>
 
 <details>
-<summary>Learn more</summary>
+<summary>Checklists</summary>
 
 - [Service: The Front-End Checklist](https://frontendchecklist.io/) great checklist on what to check before deployment
 - [Service: Checklist Design](https://www.checklist.design/) a collection of the best UX and UI practices

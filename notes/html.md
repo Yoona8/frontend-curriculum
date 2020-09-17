@@ -120,6 +120,7 @@
 <summary>Learn more</summary>
 
 - [Datetime attribute valid values](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
+- [HTML characters UNICODE](https://dev.w3.org/html5/html-author/charref)
 
 </details>
 
@@ -129,7 +130,7 @@
 
 ```HTML
 <!-- alt is added to only one img of a group, others are "" description -->
-<img width="20" height="20" src="star.svg" alt="Rating of 5 stars">
+<img width="20" height="20" src="star.svg" alt="5 out of 5 stars">
 <img width="20" height="20" src="star.svg" alt="">
 <img width="20" height="20" src="star.svg" alt="">
 <img width="20" height="20" src="star.svg" alt="">

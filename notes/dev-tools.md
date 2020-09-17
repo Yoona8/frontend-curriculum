@@ -171,6 +171,13 @@ Host github.com
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [Git Book](https://git-scm.com/book/en/v2)
+
+</details>
+
 ## Terminal
 <details>
 <summary>Common commands</summary>

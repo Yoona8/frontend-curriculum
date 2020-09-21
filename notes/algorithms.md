@@ -6,7 +6,8 @@
 
 - elements can be repeated
 - order matters
-- access via key `arr[0]`
+- numbered lists
+- access via key `list[0]`
 
 </details>
 
@@ -26,5 +27,22 @@
 - associative array
 - no order, has keys
 - unique keys
+```JavaScript
+const filterValueToScale = {
+  'smallest': 0.25,
+  'small': 0.5,
+  'normal': 1,
+  'big': 1.5
+};
 
-</details>  
+// if you need to iterate, use Map
+const pairs = new Map([
+  ['Ron', 'Hermione'],
+  ['Harry', 'Ginny']
+]);
+for (const pair of pairs) {
+  console.log(pair); // ['Ron', 'Hermione']
+}
+```
+
+</details>

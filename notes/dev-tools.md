@@ -26,6 +26,13 @@
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [Learn How To Debug JavaScript with Chrome DevTools](https://codeburst.io/learn-how-to-debug-javascript-with-chrome-devtools-9514c58479db)
+
+</details>
+
 ## Git and GitHub
 <details>
 <summary>Setup git</summary>
@@ -175,6 +182,17 @@ Host github.com
 <summary>Learn more</summary>
 
 - [Git Book](https://git-scm.com/book/en/v2)
+- [Git How To](https://githowto.com/)
+- [Основные команды для работы с Git и GitHub через консоль](https://github.com/ivan1kazantsev/dev-helper/tree/master/cmdline/git)
+- [gitignore](https://docs.github.com/en/github/using-git/ignoring-files)
+- [gitattributes](https://git-scm.com/docs/gitattributes)
+
+</details>
+
+<details>
+<summary>Practice</summary>
+
+- [Learn Git Branching](https://learngitbranching.js.org/)
 
 </details>
 
@@ -204,5 +222,13 @@ start .
 # shows the content
 cat <file>
 ```
+
+</details>
+
+## Linters
+<details>
+<summary>Learn more</summary>
+
+- [ES Lint](https://eslint.org/)
 
 </details>

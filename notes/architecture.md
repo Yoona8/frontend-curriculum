@@ -10,3 +10,11 @@
 - figure out the relations between entities
 
 </details>
+
+## Architectures
+<details>
+<summary>Learn more</summary>
+
+- [Contemporary Front-end Architectures](https://blog.webf.zone/contemporary-front-end-architectures-fb5b500b0231)
+
+</details>

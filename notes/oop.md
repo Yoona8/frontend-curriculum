@@ -158,7 +158,7 @@ const man = new AbstractMan('Tom'); // error
 <details>
 <summary>MV* general info</summary>
 
-- ways to organize business login in an app
+- ways to organize business logic in an app
 - hierarchy
   - model
     - flat structure - all models are at the same level

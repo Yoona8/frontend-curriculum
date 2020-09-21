@@ -1,5 +1,13 @@
 # JavaScript
 
+## Good practices
+<details>
+<summary>Notes</summary>
+
+- don't pass the reference type, pass the id when possible (primitive value)
+
+</details>
+
 ## Code style
 <details>
 <summary>Tips</summary>
@@ -15,7 +23,7 @@
 - `name = 'Mary';` works (JS adds `var name = Mary;`) but bad practice (not allowed with `'use strict';`)
 - `var`
   - hoisting
-  - `var i = 21; var i = 45;` recreating 
+  - `var i = 21; var i = 45;` recreating
   - function and global scope (but no block scope)
   - `var undefined = 67;` reserved names usage (not allowed with `'use strict;`)
 - `let`, `const` - no hoisting, no recreating, block scope, using reserved names is not allowed
@@ -157,6 +165,15 @@ console.log(playerName.includes('h')); // => false
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [7 Tips to Handle undefined in JavaScript](https://dmitripavlutin.com/7-tips-to-handle-undefined-in-javascript/)
+- [Array vs Set vs Map vs Object — Real-time use cases in Javascript](https://codeburst.io/array-vs-set-vs-map-vs-object-real-time-use-cases-in-javascript-es6-47ee3295329b)
+- [Iteration protocols on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+
+</details>
+
 ## Iterables: Arrays
 <details>
 <summary>Creation</summary>
@@ -173,6 +190,7 @@ var letters = ['a', 'r']; // => ['a', 'r']
 // makes an array of any iterable (collection, separate values)
 const elements = Array.from(document.querySelectorAll('li'));
 const letters = Array.from('string');
+// of separate values
 const values = Array.of(1, 2, 3);
 const items = [...elements, ...values];
 ```
@@ -374,6 +392,7 @@ addAsyncListener(() => console.log(5));
 <summary>Learn more</summary>
 
 - [Array on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [Which Array Function When?](https://dev.to/andrew565/which-array-function-when)
 
 </details>
 
@@ -385,6 +404,7 @@ addAsyncListener(() => console.log(5));
 const data = new Set();
 data.add(1);
 
+// based on array or any other iterable
 const data2 = new Set([1, 4, 8]);
 
 const isElementInData = data2.has(1); // => true
@@ -393,6 +413,10 @@ const isElementInData = data2.has(1); // => true
 data2.delete(1);
 
 // iterable
+for (const item of data2) {
+  console.log(item);
+}
+
 const entries = data2.entries();
 for (const entry of entries) {
   console.log(entry); // => [1, 1] => [4, 4] => [8, 8]
@@ -420,6 +444,14 @@ users.add(user);
 // from the Set
 user = null;
 ```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Set on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+- [WeakSet on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Weakset)
 
 </details>
 
@@ -485,6 +517,30 @@ users.set(user, 'Some info');
 // JS garbage collector will remove the object
 user = null;
 ```
+
+</details>
+
+<details>
+<summary>Convert object into map</summary>
+
+```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
+const playerMap = new Map(Object.entries(player));
+
+const newPlayer = Object.fromEntries(playerMap.entries());
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Map on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+- [WeakMap on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 
 </details>
 
@@ -606,7 +662,7 @@ character.level = 100;
 // requires additional check, otherwise can go through the whole prototype chain
 
 // ES6
-// for ... of works
+// for ... of works if using Symbol.iterator protocol
 const player = {
   name: 'Harry',
   level: 10
@@ -708,6 +764,13 @@ for (const key in character) {
   console.log(key);
 }
 ```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ES6 in Action: Enhanced Object Literals](https://www.sitepoint.com/es6-enhanced-object-literals/)
 
 </details>
 
@@ -824,6 +887,25 @@ const printResult = (text, result) => console.log(`${text} ${result}`);
 addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
 ```
 - more info in [scope](#scope) section
+
+</details>
+
+<details>
+<summary>Calling a function with template literals</summary>
+
+- with tagged template literals the value of the first argument is always an array of the string values, the remaining arguments are of the passed expressions
+```JavaScript
+const getPlayerInfo = (first, second, third) => {
+  console.log(first); // ['', ' is ', ' for now']
+  console.log(second); // 'Harry'
+  console.log(third); // 10
+};
+
+const name = 'Harry';
+const level = 10;
+
+getPlayerInfo`${name} is ${level} for now`;
+```
 
 </details>
 
@@ -1038,6 +1120,7 @@ players.getMembers();
 <details>
 <summary>General info</summary>
 
+- base `Object` doesn't have a prototype
 - naming `Player`
 - creation of an instance with `new` keyword
 - add a method to the prototype
@@ -1047,7 +1130,13 @@ const Player = function(firstName, lastName) {
   this.lastName = lastName;
 };
 
+// __proto__: { play: function() {} }
 Player.prototype.play = function() {};
+
+// will add method to object Player
+// available Player.play() only
+// if called on instance = TypeError
+Player.play = function() {};
 
 const harryPotter = new Player('Harry', 'Potter');
 ```
@@ -1055,7 +1144,7 @@ const harryPotter = new Player('Harry', 'Potter');
 ```JavaScript
 const ron = Player('Ron', 'Weasley'); // undefined, not created
 ```
-- ES6 check if `new` is used inside constructor
+- ES6 check if `new` is used to create an instance
 ```JavaScript
 const Player = function(firstName, lastName) {
   if (!new.target) { 
@@ -1073,6 +1162,13 @@ console.log(harryPotter instanceof Player); // => true
 - `new` keyword doesn't call the function, it creates an object with it's fields (when we use `this.name = name`)
   - JS gives the information to an object created with `new Player` on what constructor was used to create it
 - if you try to imitate a constructor and `return this;`, `this` would be a global object
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Prototypal Object-Oriented Programming using JavaScript](https://alistapart.com/article/prototypal-object-oriented-programming-using-javascript/)
 
 </details>
 
@@ -1480,6 +1576,10 @@ console.log(doSomething()); // => 0, 1, 3, false
 - [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 - [Control flow and error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 - [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+- [For ... of on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+- [Rest on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+- [Spread on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [Destructuring on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 </details>
 
@@ -1524,13 +1624,14 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 - `'use strict;'` by default
 - syntax looks like destructuring, but not the same
-- imported variable is not created, the same as in export
-- better export const or class
+- imported variable is not created (exported and imported the created inside the module variable), the same as in export
+- better export const or class (if you export let, can't reassign in the other module anyway)
 - import without variable when just need to execute the code
 - do not fold `export` and `import` into code blocks `{}`
 - no hoisting, so that's why `import` is always on top
-- `import` of unexcited variable = error, module won't get loaded
+- `import` of inexistent variable = error, module won't get loaded
 - there are dynamic imports, but browser support is still pretty poor
+- even when you import the same module several times, browser loads only once
 ```JavaScript
 // module-name.js
 // named - names should be the same (or error, module won't get loaded)
@@ -1559,6 +1660,9 @@ import * as child from './module-name.js';
 import { name as userName } from './module-name.js';
 // default
 import name from './module-name.js';
+import { default as name } from './module-name.js';
+// import without a variable if we only need to execute the code from module
+import './log.js';
 ```
 
 </details>
@@ -1619,6 +1723,23 @@ export * from './module-2.js';
 // module-target.js
 import { nameOne, nameTwo } from './module-3.js';
 ```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
+- [What is AMD, CommonJS, and UMD?](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/)
+- [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
+- [Common.js](http://www.commonjs.org/)
+- [UMD](https://github.com/umdjs/umd)
+- [ECMAScript modules in browsers](https://jakearchibald.com/2017/es-modules-in-browsers/)
+- [ES6 In Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/)
+- [ES6 Modules in Depth](https://ponyfoo.com/articles/es6-modules-in-depth)
+- [import on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+- [export on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+- [Exploring ES6 - 16. Modules](https://exploringjs.com/es6/ch_modules.html)
 
 </details>
 
@@ -2046,6 +2167,14 @@ Content-Length: 1270
 
 </details>
 
+## Forms
+<details>
+<summary>Learn more</summary>
+
+- [How to Build and Validate Beautiful Forms with Vanilla HTML, CSS, & JS](https://www.freecodecamp.org/news/build-and-validate-beautiful-forms-with-vanilla-html-css-js/)
+
+</details>
+
 ## Authorization
 <details>
 <summary>General info</summary>
@@ -2228,6 +2357,12 @@ console.dir(document);
 ## Browser support
 
 ## Tools and workflow
+<details>
+<summary>Learn more</summary>
+
+- [Introduction to JavaScript Source Maps](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/)
+
+</details>
 
 ## Libraries
 <details>
@@ -2235,6 +2370,13 @@ console.dir(document);
 
 - [Flatpickr](https://flatpickr.js.org/getting-started/)
 - [Moment.js](https://momentjs.com/)
+
+</details>
+
+<details>
+<summary>Animations</summary>
+
+- [Mojs](https://mojs.github.io/)
 
 </details>
 
@@ -2255,6 +2397,13 @@ console.dir(document);
 - [FreeCodeCamp](https://www.freecodecamp.org/)
 - [HackerRank](https://www.hackerrank.com/dashboard)
 - [CodinGame](https://www.codingame.com/)
+
+</details>
+
+<details>
+<summary>Create</summary>
+
+- [Responsive and Dynamic Progress Bar with HTML, CSS, and JavaScript](https://www.freecodecamp.org/news/how-to-build-a-responsive-and-dynamic-progress-bar/)
 
 </details>
 

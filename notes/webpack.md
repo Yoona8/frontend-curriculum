@@ -27,7 +27,7 @@ module.exports = {
   // settings for the output file
   output: {
     filename: 'bundle.js',
-    // __dirname is a root directory of out app
+    // __dirname is a root directory of our app
     path: path.join(__dirname, 'public')
   },
   devtool: 'source-maps',
@@ -54,5 +54,12 @@ module.exports = {
 // component.js
 import "./src/style.css";
 ```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Webpack official](https://webpack.js.org/)
 
 </details>

@@ -1180,7 +1180,9 @@ console.log(harryPotter instanceof Player); // => true
 - properties and fields are basically the same thing
 ```JavaScript
 class Player {
-  // fields
+  // fields (still poor support)
+  // for now use methods only
+  // and add all the properties inside of constructor
   level = 2;
 
   // is optional

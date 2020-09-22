@@ -253,3 +253,10 @@ const man = new AbstractMan('Tom'); // error
 - the way to bind components so that they tell each other about changes
 
 </details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Паттерны ООП в метафорах](https://habr.com/ru/post/136766/)
+
+</details>

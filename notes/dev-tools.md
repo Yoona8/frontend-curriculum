@@ -92,6 +92,8 @@ git cat-file -p <commit hash>
 git diff
 # indexed files
 git diff --staged
+# compare the file to another branch (same file)
+git diff <branch name> -- <file name>
 
 # history
 git log
@@ -104,12 +106,24 @@ git log -1<2/3/4...>
 # to show the content of the commit
 git show <commit hash>
 
-# for not commited, reset file to last commit, even if the file was deleted, can't reverse this command
+# unstage a file but leave its actual changed untouched
+git restore --staged <file name>
+# for not commited, reset file to last commit, 
+# even if the file was deleted, can't reverse this command
+# discard your local changes in a file
 git checkout <file>
+git restore <file name>
+# undo all the local changes in the working copy
+git restore .
 # resets file to the state in the commit
 git checkout <commit hash> <file>
+git restore --source <commit hash> <file name>
 # to unstage indexed, but not yet commited file
 git reset HEAD <file>
+# to undo the last commit with getting changes back to unstaged
+# --mixed changes are not being discarded
+# HEAD~1 the commit before the last one
+git reset --mixed HEAD~1
 # these 2 commands remove file from commit and delete from folder
 git rm <file>
 git commit --amend --no-edit
@@ -126,8 +140,13 @@ git commit --amend --no-edit
 - `HEAD` indicates current state (where we currently are)
 - when we create a new commit in a branch, the pointer jumps to the last commit
 ```bash
+# to switch branch
+git checkout <branch name>
+git switch <branch name>
+# switch back to previously active branch
+git switch -
 # or without hash for current commit, creates a pointer to commit
-git checkout -b <pointer name> <comment hash>
+git checkout -b <pointer name> <commit hash>
 # creates a merge commit, the pointer will be current branch
 git merge <pointer-to-merge> -m "<message>"
 git push origin <what-to-push>:<where-to-push>

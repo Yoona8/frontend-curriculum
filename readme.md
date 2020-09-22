@@ -61,6 +61,7 @@
 - [Functional programming](./notes/functional-programming.md)
 - Procedural programming
 - [Architecture](./notes/architecture.md)
+- [Design patterns](./notes/design-patterns.md)
 
 </details>
 

@@ -48,7 +48,7 @@ parseInt: function(number, number): number;
 <details>
 <summary>Encapsulation</summary>
 
-- in capsula, interfaces, closed realization details
+- in capsulo, interfaces, closed realization details
 
 </details>
 

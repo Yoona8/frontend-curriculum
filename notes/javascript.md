@@ -772,6 +772,7 @@ for (const key in character) {
 
 - [ ] [ES6 in Action: Enhanced Object Literals](https://www.sitepoint.com/es6-enhanced-object-literals/)
 - [ ] [Objects on MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
+- [ ] [Object.create on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
 
 </details>
 
@@ -1170,6 +1171,7 @@ console.log(harryPotter instanceof Player); // => true
 <summary>Learn more</summary>
 
 - [Prototypal Object-Oriented Programming using JavaScript](https://alistapart.com/article/prototypal-object-oriented-programming-using-javascript/)
+- [Inheritance in JavaScript on MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
 
 </details>
 
@@ -1264,8 +1266,9 @@ for (const prop in player) {
 <details>
 <summary>Learn more</summary>
 
-- [OOP notes](./oop.md)
-- [Classes on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [ ] [OOP notes](./oop.md)
+- [ ] [Classes on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [ ] [ES6 Classes in Depth](https://ponyfoo.com/articles/es6-classes-in-depth)
 
 </details>
 

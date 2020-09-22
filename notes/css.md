@@ -11,6 +11,14 @@
 <details>
 <summary>Pseudo classes</summary>
 
+- pseudo classes are dynamic (if we check the checkbox in the DOM - attribute is not added, `input:checked` will select this input but attribute selector `input[checked]` will not)
+```CSS
+/* forms */
+input:checked {}
+
+/* styles based on language */
+:lang(ko) {}
+```
 |Pseudo class|Notes|Level|
 |------------|-----|:---:|
 |`:not(...)`|- can use: `:not(:last-child)` `:not(p):not(#id)` `:not([attribute])` `:not(.class)`<br>- cannot use: `:not(:not())` `:not(.class-one.class-two)` `:not(::after)`<br>`:not(a span + span ~ span)` (any combined selector)|:deciduous_tree:|
@@ -29,38 +37,43 @@
 |`:read-only`||:deciduous_tree:|
 |`:required`||:deciduous_tree:|
 |`:optional`||:deciduous_tree:|
-|`:checked`||:blossom:|
 |`:valid`||:deciduous_tree:|
 |`:invalid`||:deciduous_tree:|
 |`:in-range`||:seedling:|
 |`:out-of-range`||:seedling:|
-|`:lang(ko)`|styling on lang attributes|:seedling:|
 
 </details>
 
 <details>
 <summary>Pseudo elements</summary>
 
-|Pseudo element|Notes|Level|
-|--------------|-----|:---:|
-|`::first-line`||:seedling:|
-|`::first-letter`||:seedling:|
-|`::before`||:blossom:|
-|`::after`||:blossom:|
+```CSS
+p::first-line {}
+p::first-letter {}
+
+p::before {}
+p::after {}
+```
 
 </details>
 
 <details>
 <summary>Attribute</summary>
 
-|Attribute selector|Notes|Level|
-|------------------|-----|:---:|
-|`[type="text"]`|exact|:deciduous_tree:|
-|`[foo^="bar"]`|starts with 'bar'|:deciduous_tree:|
-|`[foo$="bar"]`|ends with 'bar' (good for docs .jpg)|:deciduous_tree:|
-|`[foo*="bar"]`|contains 'bar'|:deciduous_tree:|
-|`[foo~="bar"]`|'bar' is a separate word|:deciduous_tree:|
-|`[foo\|="bar"]`|prefix 'bar', the value has to be either alone or followed by '-'|:deciduous_tree:|
+```CSS
+/* exact */
+[type="text"] {}
+/* starts with 'bar' */
+[foo^="bar"] {}
+/* ends with 'bar' (good for docs .jpg) */
+[foo$="bar"] {}
+/* contains 'bar' */
+[foo*="bar"] {}
+/* 'bar' is a separate word */
+[foo~="bar"] {}
+/* prefix 'bar', the value has to be either single or followed by '-' */
+[foo\|="bar"] {}
+```
 
 </details>
 
@@ -70,7 +83,6 @@
 - [Intriguing CSS Level 4 Selectors](https://webdesign.tutsplus.com/tutorials/intriguing-css-level-4-selectors--cms-29499)
 - [Селектор обобщенных родственных элементов](https://habr.com/ru/post/150720/)
 - [Article: CSS-селекторы](https://learn.javascript.ru/css-selectors)
-
 
 </details>
 

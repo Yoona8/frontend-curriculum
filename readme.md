@@ -58,7 +58,7 @@
 <summary>Architecture and paradigms</summary>
 
 - [OOP](./notes/oop.md)
-- Functional programming
+- [Functional programming](./notes/functional-programming.md)
 - Procedural programming
 - [Architecture](./notes/architecture.md)
 

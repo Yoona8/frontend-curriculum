@@ -2039,8 +2039,7 @@ getResponse('data.json',
 <details>
 <summary>Async ES6 (promises)</summary>
 
-- promise is a way to work with an async function as if it's sync
-- returns an object, which replaces returned value, which is still undefined when the function already executed
+- promise is a way to work with an async function as if it's sync 
 - different states of a promise object
 <img src="../images/promise.jpg" alt="promises" width="400">
 
@@ -2073,7 +2072,10 @@ getResponse('data.json')
   // it's going to be caught in catch
   .then((data) => console.log(data))
   // catches all the errors before
-  .catch((error) => console.warning(error));
+  .catch((error) => console.warning(error))
+  // optional, executes always 
+  // after the promise is completed (success/error)
+  .finally(cb);
 
 // you can work with promises chaining then
 // every then returns a promise, where we can also call then
@@ -2086,9 +2088,16 @@ Promise.resolve('a') // 'a'
 </details>
 
 <details>
-<summary>Async Promise.all</summary>
+<summary>Async Promise.all and Promise.allSettled</summary>
 
-- when you need an array of requests at the same time (accepts an array of promises, runs at the same time, then calls when all the promises are resolved)
+- when you need an array of requests at the same time 
+  - `Promise.all(<Array.Promise>)`
+    - executed when all the promises are resolved
+    - if one with error, drops, can't access the data
+  - `Promise.allSettled(<Array.Promise>)`
+    - waits till all the promises are completed (success/error)
+    - can access the data even when some promises complete with an error
+    - poor browser support
 - `Promise.then` could return
   - just value/array - goes to the next promise
   - object Promise
@@ -2217,6 +2226,13 @@ Content-Length: 1270
 - user input - user can enter unsafe data for the view and UI has to be ready for it
 - storing and passing data formats could be different to the format needed on the UI, so we need to convert data in our app
   - some ES6 objects (Date, Sets, Maps) could not be converted to JSON, so have to convert into standard data types (primitives, arrays, objects)
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Why Mutation Can Be Scary](https://alistapart.com/article/why-mutation-can-be-scary/)
 
 </details>
 
@@ -2383,6 +2399,20 @@ console.dir(document);
 <summary>Animations</summary>
 
 - [Mojs](https://mojs.github.io/)
+
+</details>
+
+<details>
+<summary>Charts</summary>
+
+- [Chart.js](https://www.chartjs.org/)
+
+</details>
+
+<details>
+<summary>Security</summary>
+
+- [He.js](https://github.com/mathiasbynens/he)
 
 </details>
 

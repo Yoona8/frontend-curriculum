@@ -43,7 +43,7 @@ module.exports = {
       test: /\.s?css/,
       // style-loader handles the importing of the files (injects css into DOM as link tag by default)
       // css-loader handles the css code (resolves the css file)
-      // order matters (which loader to use)
+      // order matters (from right to left css, style)
       use: ['style-loader', 'css-loader']
     }]
   }

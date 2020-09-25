@@ -258,5 +258,7 @@ const man = new AbstractMan('Tom'); // error
 <summary>Learn more</summary>
 
 - [ ] [Паттерны ООП в метафорах](https://habr.com/ru/post/136766/)
+- [ ] [One-way data binding in vanilla JS (POC)](https://dev.to/phoinixi/one-way-data-binding-in-vanilla-js-poc-4dj7)
+- [ ] [Understanding two-way data binding in JS](https://foxypanda.me/understanding-two-way-data-binding-in-js/)
 
 </details>

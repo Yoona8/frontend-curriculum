@@ -1120,9 +1120,38 @@ players.getMembers();
 
 ## Constructors and prototypes
 <details>
-<summary>General info</summary>
+<summary>Prototypes</summary>
 
-- base `Object` doesn't have a prototype
+- base `Object` doesn't have a prototype (`__proto__`)
+- constructor prototype is assigned to instance upon creation
+- `prototype` property exists only on function object
+- prototype chain under the hood
+```JavaScript
+const Player = function(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+};
+
+// == extends in classes
+Player.prototype.play = function() {};
+
+const harryPotter = new Player('Harry', 'Potter');
+const ronWeasley = new harryPotter.__proto__.constructor('Ron', 'Weasley');
+// first looks inside the Player
+// than in Player prototype (harryPotter.__proto__.play())
+harryPotter.play();
+console.log(harryPotter.__proto__ === Player.prototype); // => true
+// than in the Player's prototype's prototype
+// till it reaches the Object.prototype
+// harryPotter.__proto__.__proto__.toString();
+harryPotter.toString();
+```
+
+</details>
+
+<details>
+<summary>Create a constructor function</summary>
+
 - naming `Player`
 - creation of an instance with `new` keyword
 - add a method to the prototype
@@ -1130,6 +1159,11 @@ players.getMembers();
 const Player = function(firstName, lastName) {
   this.firstName = firstName;
   this.lastName = lastName;
+};
+
+// to add a static method
+Player.describe = function() {
+  console.log('Creating players.');
 };
 
 // __proto__: { play: function() {} }
@@ -1141,6 +1175,27 @@ Player.prototype.play = function() {};
 Player.play = function() {};
 
 const harryPotter = new Player('Harry', 'Potter');
+```
+
+</details>
+
+<details>
+<summary>New keyword</summary>
+
+- what `new` does?
+```JavaScript
+const Player = function(firstName, lastName) {
+  // new 'creates' this as an object
+  this = {};
+  // adds properties and methods
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.greet = function() {
+    console.log(`Hello! I'm ${this.firstName} ${this.lastName}`);
+  };
+  // returns the object
+  return this;
+};
 ```
 - without `new` => `undefined` (void = return undefined) will not be created
 ```JavaScript
@@ -1225,6 +1280,37 @@ const player = new Player('Harry');
 - `undefined` if try to access the property/field, which is not in the class
 - getters / setters can be used
 - private fields, soon to use `this.#skill = value;`
+
+</details>
+
+<details>
+<summary>Classes under the hood</summary>
+
+```JavaScript
+class Person {}
+
+class Player extends Person {
+  name = 'Harry';
+
+  constructor() {
+    super();
+    this.age = 33;
+    // if created like this => part of any instance (like a property)
+    this.play = function() {};
+  }
+
+  // methods are added to prototype
+  greet() {
+    console.log(`Hi! My name is ${this.name}.`);
+  }
+
+  // if created like this => part of any instance (like a property)
+  play = function() {};
+  // if we use an arrow function here, context will stay the same
+  // even when added as an event handler (don't have to bind)
+  play = () => {};
+}
+```
 
 </details>
 

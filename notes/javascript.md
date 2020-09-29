@@ -2032,6 +2032,13 @@ element.parentElement.removeChild(element);
 </details>
 
 <details>
+<summary>Dataset attributes</summary>
+
+- works great for tooltips
+
+</details>
+
+<details>
 <summary>Working with styles in JS</summary>
 
 - `style` to get styles but only the inline styles
@@ -2123,10 +2130,66 @@ element.scrollIntoView();
 
 ## Events
 <details>
+<summary>General info</summary>
+
+- made with `Event` constructor
+- has specific constructors inherited from `Event` (ex `MouseEvent`, `DragEvent`)
+- can be added to any element (even div)
+- event listeners are removed when there is no reference to the element left (either in code or DOM)
+
+</details>
+
+<details>
+<summary>Usage</summary>
+
+- `onclick` attribute or adding via JS `element.onclick = console.log();` overrides previous handler (can't add 2 handlers)
+- the best way to add events is `element.addEventListener();`
+
+</details>
+
+<details>
 <summary>Difference between `change` and `input`</summary>
 
 - `change` works when `field.value` changed and the user finished to enter the value (moved the handle and released)
 - `input` works with every value change
+
+</details>
+
+<details>
+<summary>Scroll event</summary>
+
+- useful for infinite loading
+```JavaScript
+let currentElementNumber = 0;
+
+const onScroll = () => {
+  // measure the distance between our viewport (top left corner)
+  // and the end of the page (not viewport)
+  const distanceToBottom = document.body.getBoundingClientRect().bottom;
+  const viewportHeight = document.documentElement.clientHeight;
+
+  // compare to the window height + threshold
+  // if we have < 100px to the end of the content,
+  // append new data
+  if (distanceToBottom < viewportHeight + 100) {
+    const newElement = document.createElement('div');
+
+    currentElementNumber++;
+    newElement.innerHTML = `<p>Add element ${currentElementNumber}</p>`;
+    document.body.append(newElement);
+  }
+};
+
+window.addEventListener('scroll', onScroll);
+```
+
+</details>
+
+<details>
+<summary>Bubbling and capturing</summary>
+
+- (1) capturing (out - in) => (2) bubbling (in - out)
+- `addEventListener` by default registers event in a bubbling phase (when we have a listener on button and it's wrapper, first fires button, second wrapper)
 
 </details>
 

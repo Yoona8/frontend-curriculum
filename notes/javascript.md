@@ -1848,6 +1848,13 @@ window.alert('Say something');
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Window on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window)
+
+</details>
+
 ## DOM
 <details>
 <summary>General info</summary>
@@ -2041,9 +2048,50 @@ element.style['background-color'] = 'green';
 </details>
 
 <details>
-<summary>Show password case</summary>
+<summary>Element coordinates and measurements</summary>
 
-- change type of input from `password` to `text`
+- always relative to the start of the document, not the viewport (doesn't change upon scrolling)
+```JavaScript
+// readonly property
+const topPosition = element.offsetTop;
+```
+- inner coordinates of the element not including the border, rounds the value to an integer
+```JavaScript
+// readonly integer property
+const innerTop = element.clientTop;
+const innerLeft = element.clientLeft;
+```
+- height of an element's content (including the content not visible on the screen due to overflow)
+```JavaScript
+// readonly property
+const elementFullHeight = element.scrollHeight;
+```
+- window width and height in pixels
+```JavaScript
+// readonly properties
+const viewportWidthWithScroll = window.innerWidth;
+const viewportHeightWithScroll = window.innerHeight;
+
+// real available window sizes not including the scroll
+const viewportWidth = document.documentElement.clientWidth;
+const viewportHeight = document.documentElement.clientHeight;
+```
+
+</details>
+
+<details>
+<summary>Scrolling</summary>
+
+```JavaScript
+element.scrollIntoView();
+```
+
+</details>
+
+<details>
+<summary>Templates</summary>
+
+- `importNode` (learn more)
 
 </details>
 
@@ -2069,6 +2117,7 @@ element.style['background-color'] = 'green';
 - [replaceChild on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild)
 - [remove on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove)
 - [removeChild on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
+- [getBoundingClientRect on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
 
 </details>
 
@@ -2080,6 +2129,8 @@ element.style['background-color'] = 'green';
 - `input` works with every value change
 
 </details>
+
+## Timers and intervals
 
 ## Async JavaScript (promises and callbacks, async/await), http requests
 <details>
@@ -2270,6 +2321,13 @@ Content-Length: 1270
 
 ## Forms
 <details>
+<summary>Show password case</summary>
+
+- change type of input from `password` to `text`
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [How to Build and Validate Beautiful Forms with Vanilla HTML, CSS, & JS](https://www.freecodecamp.org/news/build-and-validate-beautiful-forms-with-vanilla-html-css-js/)
@@ -2319,6 +2377,55 @@ Content-Length: 1270
 <summary>Learn more</summary>
 
 - [ ] [Why Mutation Can Be Scary](https://alistapart.com/article/why-mutation-can-be-scary/)
+
+</details>
+
+## Loading scripts to the page
+<details>
+<summary>Loading script files from JS dynamically</summary>
+
+- basically generate html and add it to the page
+
+</details>
+
+## Location API
+<details>
+<summary>Usage</summary>
+
+- for the app url and navigation
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Location on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Location)
+
+</details>
+
+## History API
+<details>
+<summary>Usage</summary>
+
+- works with location
+- can use `history.back()` to navigate back (ex different cases with questions like age)
+
+</details>
+
+## Navigator API
+<details>
+<summary>Why to use?</summary>
+
+- don't use for defining browser version
+- could be useful when we need
+  - geolocation
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Navigator on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)
 
 </details>
 

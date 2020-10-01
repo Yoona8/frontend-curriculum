@@ -2190,6 +2190,43 @@ window.addEventListener('scroll', onScroll);
 
 - (1) capturing (out - in) => (2) bubbling (in - out)
 - `addEventListener` by default registers event in a bubbling phase (when we have a listener on button and it's wrapper, first fires button, second wrapper)
+- third parameter of `addEventListener(, , true);` switches to the capturing phase (can add to only one listener in a chain)
+- to prevent propagation
+```JavaScript
+evt.stopPropagation();
+evt.stopImmediatePropagation();
+```
+
+</details>
+
+<details>
+<summary>Event delegation</summary>
+
+- `event.target` is referred to the actual item triggered the event
+- `event.currentTarget` always referred to the element, where the listener is added
+- `event.target.closest('li');` can also get the item itself
+
+</details>
+
+<details>
+<summary>Triggering DOM events programmatically</summary>
+
+```JavaScript
+// if triggered like that, the event listener added
+// is skipped (won't get executed)
+// but triggering click event on submit button will work
+form.submit();
+// works with added listeners
+button.click();
+```
+
+</details>
+
+<details>
+<summary>This keyword inside the handler</summary>
+
+- with arrow functions as handlers `this === window`
+- with regular function as handler `this === evt.currentTarget`
 
 </details>
 

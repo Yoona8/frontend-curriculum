@@ -2230,6 +2230,54 @@ button.click();
 
 </details>
 
+<details>
+<summary>Drag & Drop</summary>
+
+1. set attribute to `draggable="true"`
+2. listen to `dragstart` event (describe the operation and append some data here)
+```JavaScript
+elementToDrag.addEventListener('dragstart', evt => {
+  evt.dataTransfer.setData('text/plain', id);
+  evt.dataTransfer.effectAllowed = 'move';
+});
+```
+3. allow to drop into the droppable area (add `preventDefault()` to `dragenter` and `dragover` events)
+```JavaScript
+// if in drop ared we won't prevent default,
+// drop event won't be triggered
+containerDroppable.addEventListener('dragenter', evt => {
+  // can get the data type
+  // but not the actual data
+  if (evt.dataTransfer.types[0] === 'text/plain') {
+    evt.preventDefault();
+    // add some visual effect to indicate
+    // it's droppable (on dragenter)
+    containerDroppable.parentElement.classList.add('droppable');
+  }
+});
+
+containerDroppable.addEventListener('dragover', evt => {
+  if (evt.dataTransfer.types[0] === 'text/plain') {
+    evt.preventDefault();
+  }
+});
+```
+4. (optional) listen to `dragleave` event (ex. to update some styles)
+```JavaScript
+containerDroppable.addEventListener('dragleave', evt => {
+  // check if only left the element, not just moved
+  // to it's children 
+  // (w/o this will be triggered when move over the children elements)
+  if (evt.relatedTarget.closest('ul') !== containerDroppable) {
+    containerDroppable.parentElement.classList.remove('droppable');
+  }
+});
+```
+5. listen to `drop` event and update data and UI
+6. (optional) listen to `dragend` event and update data and UI (triggered event when the drag was canceled)
+
+</details>
+
 ## Timers and intervals
 
 ## Async JavaScript (promises and callbacks, async/await), http requests

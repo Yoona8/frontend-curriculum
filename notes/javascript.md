@@ -912,6 +912,55 @@ getPlayerInfo`${name} is ${level} for now`;
 </details>
 
 <details>
+<summary>Pure functions and side effects</summary>
+
+- for the same input always give the same output
+- no side effects
+```JavaScript
+// pure function
+const addNumbers = (num1, num2) => {
+  return num1 + num2;
+};
+
+// impure - output changes
+const addRandomNumber = (num) => {
+  return num + Math.random();
+};
+
+// impure - side effect
+let result = 0;
+
+const addNumber = (num) => {
+  result += num;
+  return result;
+};
+
+// impure - side effect
+const books = ['If I Never Met You', 'Atomic Habits'];
+
+const addBook = (book) => {
+  books.push(book);
+};
+```
+
+</details>
+
+<details>
+<summary>Factory functions</summary>
+
+</details>
+
+<details>
+<summary>Closures</summary>
+
+</details>
+
+<details>
+<summary>Recursion</summary>
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [Functions on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
@@ -2243,7 +2292,7 @@ elementToDrag.addEventListener('dragstart', evt => {
 ```
 3. allow to drop into the droppable area (add `preventDefault()` to `dragenter` and `dragover` events)
 ```JavaScript
-// if in drop ared we won't prevent default,
+// if in drop area we won't prevent default,
 // drop event won't be triggered
 containerDroppable.addEventListener('dragenter', evt => {
   // can get the data type
@@ -2274,7 +2323,36 @@ containerDroppable.addEventListener('dragleave', evt => {
 });
 ```
 5. listen to `drop` event and update data and UI
+```JavaScript
+// to react to the drop event need to add a listener
+// to the droppable container
+containerDroppable.addEventListener('drop', evt => {
+  // can get any data we set in dragstart event
+  // (now it's available)
+  const id = evt.dataTransfer.getData('text/plain');
+
+  // check if the item is in the list and do nothing
+  // if not - add item to the list and remove where it was
+});
+```
 6. (optional) listen to `dragend` event and update data and UI (triggered event when the drag was canceled)
+```JavaScript
+// is added to a draggable element
+elementToDrag.addEventListener('dragend', evt => {
+  // check if the drag wasn't done
+  evt.dataTransfer.dropEffect === 'none';
+});
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Introduction to events on MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+- [ ] [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
+- [ ] [Event on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+- [ ] [Drag and drop API on MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
 
 </details>
 

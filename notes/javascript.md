@@ -2807,6 +2807,8 @@ Content-Length: 1270
 <summary>Learn more</summary>
 
 - [How to Build and Validate Beautiful Forms with Vanilla HTML, CSS, & JS](https://www.freecodecamp.org/news/build-and-validate-beautiful-forms-with-vanilla-html-css-js/)
+- [ ] [JavaScript Promises: An introduction](https://web.dev/promises/)
+- [ ] [async function on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
 </details>
 

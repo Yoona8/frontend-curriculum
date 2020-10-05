@@ -2634,12 +2634,25 @@ Promise.resolve('a') // 'a'
 </details>
 
 <details>
+<summary>Async Promise.race</summary>
+
+```JavaScript
+Promise.race([getPromise1(), getPromise2()])
+  .then(dataFromTheFastest => {});
+// the other promise is not canceled!
+// just ignored (the http request will still be sent)
+```
+
+</details>
+
+<details>
 <summary>Async Promise.all and Promise.allSettled</summary>
 
 - when you need an array of requests at the same time 
   - `Promise.all(<Array.Promise>)`
     - executed when all the promises are resolved
     - if one with error, drops, can't access the data
+    - returns an array
   - `Promise.allSettled(<Array.Promise>)`
     - waits till all the promises are completed (success/error)
     - can access the data even when some promises complete with an error

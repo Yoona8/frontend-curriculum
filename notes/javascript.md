@@ -2652,6 +2652,60 @@ Promise.resolve('a') // 'a'
 </details>
 
 <details>
+<summary>Async await</summary>
+
+- uses promises under the hood
+- can be used only with functions
+```JavaScript
+// can't use like that
+await setTimer(1000);
+// but can wrap into IIFE
+(async function() {
+  await setTimer(1000);
+})();
+```
+- when `async` is added, function automatically return a promise
+- wraps everything inside into a promise
+```JavaScript
+const setTimer = async () => {
+  // waits till the promise is resolved and goes to the next line
+  const data = await getData();
+  const otherData = await getOtherData();
+  // won't get executed till the await block resolved
+  // as if wrapping into then() block
+  console.log('Done!');
+  // returns promise
+};
+
+async function setTimer() {
+  // to handle errors can use try ... catch
+  try {
+    // if anything here yields an error,
+    // the block fails into the catch
+    // if error is in the 1st line, 2nd won't be executed
+    const data = await getData();
+    const otherData = await getOtherData();
+  } catch (error) {
+    console.log(error);
+  }
+  // this code will be executed anyways
+  console.log('Done!');
+  // returns promise
+}
+
+// creates a wrapping promise
+function setTimer() {
+  return new Promise((resolve, reject) => {
+    // all the code here
+  });
+}
+```
+- `await` wraps everything into a `then()` block
+- not good for cases when we need to run some code and not wait for promise to resolve or reject
+
+</details>
+
+<details>
 <summary>Async fetch</summary>
 
 - `fetch` is a wrapper around promise

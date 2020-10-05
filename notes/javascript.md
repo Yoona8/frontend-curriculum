@@ -158,6 +158,13 @@ parseInt(10n) - 5; // => 5
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Number on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+</details>
+
 ## Strings
 <details>
 <summary>Methods</summary>
@@ -951,7 +958,7 @@ addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
 </details>
 
 <details>
-<summary>Calling a function with template literals</summary>
+<summary>Calling a function with template literals (tagged templates)</summary>
 
 - with tagged template literals the value of the first argument is always an array of the string values, the remaining arguments are of the passed expressions
 ```JavaScript
@@ -1116,6 +1123,7 @@ console.log(getTeamMemberNames(player));
 - [Bind on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
 - [Closures on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 - [Recursion on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#Recursion)
+- [ ] [Tagged templates on  MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates)
 
 </details>
 

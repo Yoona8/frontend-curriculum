@@ -106,6 +106,9 @@ console.log(typeof BigInt('9')); // => bigint
 - numbers are stored as 64 Bit Floating Points (some issues and limits)
 - JS works with binary numbers and converts into decimal
 ```JavaScript
+// infinite number
+1 / 0; // => Infinity
+// max numbers
 Number.MAX_SAFE_INTEGER; // 2^53 - 1
 Number.MIN_SAFE_INTEGER; // -(2^53 - 1)
 // floats

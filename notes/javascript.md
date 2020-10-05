@@ -99,6 +99,40 @@ console.log(typeof BigInt('9')); // => bigint
 </details>
 
 ## Numbers
+<details>
+<summary>General info</summary>
+
+- every number is a float
+- numbers are stored as 64 Bit Floating Points (some issues and limits)
+- JS works with binary numbers and converts into decimal
+```JavaScript
+Number.MAX_SAFE_INTEGER; // 2^53 - 1
+Number.MIN_SAFE_INTEGER; // -(2^53 - 1)
+// floats
+Number.MAX_VALUE;
+// > or < calculations won't work, only display
+// if we do such calculations, no errors
+// but strange results because of binary system
+```
+
+</details>
+
+<details>
+<summary>Strange cases</summary>
+
+- because JS works with binary and converts into decimal, there are some strange cases
+```JavaScript
+0.2 + 0.4 === 0.6; // => false (0.6000...1)
+// something similar to 1/3 happens (0.33333(3))
+(1).toString(2); // => 1
+(5).toString(2); // => 101
+(1/5).toString(2); // => 0.001100110011...
+(0.2).toString(2); // => 0.001100110011...
+0.2; // => 0.2
+0.2.toFixed(20); // => 0.2000...1110
+```
+
+</details>
 
 ## Strings
 <details>
@@ -948,15 +982,106 @@ const addBook = (book) => {
 <details>
 <summary>Factory functions</summary>
 
+- functions which create a function
+- good for pre-configuring some values
+```JavaScript
+// for not to pass the tax rate all the time
+const createCalculateTax = (tax) => {
+  return (amount) => {
+    return amount * tax;
+  };
+};
+
+const calculateVatAmount = createCalculateTax(0.19);
+const calculateIncomeTaxAmount = createCalculateTax(0.25);
+
+console.log(calculateVatAmount(100));
+console.log(calculateIncomeTaxAmount(100));
+```
+
 </details>
 
 <details>
 <summary>Closures</summary>
 
+- all functions in JS are closures
+- function locks in all surrounding variables
+- mostly used for factory functions
+
 </details>
 
 <details>
 <summary>Recursion</summary>
+
+- sometimes it's shorter than other ways
+- if too many calls => stack overflow
+```JavaScript
+const getPower = (a, n) => {
+  let result = 1;
+
+  for (let i = 0; i < n; i++) {
+    result *= a;
+  }
+
+  return result;
+};
+
+const getPowerRec = (a, n) => {
+  // don't forget to add an exit condition
+  if (n === 1) {
+    return a;
+  }
+
+  return a * getPowerRec(a, n - 1);
+};
+
+// even shorter
+const getPowerRec = (a, n) => {
+  return n === 1 ? a : a * getPowerRec(a, n - 1);
+};
+```
+- where do we need the recursion?
+- when there are some nested objects but we don't know exactly how many
+```JavaScript
+const player = {
+  name: 'Harry',
+  teamMembers: [{
+    name: 'Ron',
+    teamMembers: [{
+      name: 'Ginny'
+    }]
+  }, {
+    name: 'Hermione',
+    teamMembers: [{
+      name: 'Luna',
+      teamMembers: [{
+        name: 'Mary'
+      }]
+    }]
+  }, {
+    name: 'Sirius'
+  }, {
+    name: 'Ellie'
+  }]
+};
+
+const getTeamMemberNames = (player) => {
+  const names = [];
+
+  if (!player.teamMembers) {
+    return [];
+  }
+
+  for (const teamMember of player.teamMembers) {
+    names.push(teamMember.name);
+    names.push(...getTeamMemberNames(teamMember));
+  }
+
+  return names;
+};
+
+console.log(getTeamMemberNames(player));
+```
 
 </details>
 
@@ -965,6 +1090,8 @@ const addBook = (book) => {
 
 - [Functions on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [Bind on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+- [Closures on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [Recursion on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#Recursion)
 
 </details>
 

@@ -134,6 +134,27 @@ Number.MAX_VALUE;
 
 </details>
 
+<details>
+<summary>BidInt</summary>
+
+- to work with > max or < min numbers
+- only integer, decimal => error
+```JavaScript
+// to create add n
+9007199254740991985392n;
+10n;
+// can't mix with numbers
+10n - 5; // => error
+// but can use like this
+10n - 5n; // => 5n
+parseInt(10n) - 5; // => 5
+10n - BigInt(5); // => 5n
+// omits decimal
+5n / 2n; // => 2n (not 2.5n)
+```
+
+</details>
+
 ## Strings
 <details>
 <summary>Methods</summary>

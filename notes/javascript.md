@@ -2534,6 +2534,17 @@ const data = getResponse('https://data.com/users');
 ```
 
 </details>
+
+<details>
+<summary>Event loop</summary>
+
+- JS is single threaded
+- browser is multi threaded
+- all kind of async tasks (like timers, event listeners, etc) are going to browser (message queue)
+- when the call stack is empty, event loop goes through message queue
+- and executes the functions from there
+
+</details>
   
 <details>
 <summary>Async ES5 (callbacks)</summary>
@@ -2558,6 +2569,7 @@ getResponse('data.json',
 ```
 
 </details>
+
 <details>
 <summary>Async ES6 (promises)</summary>
 
@@ -2569,11 +2581,14 @@ getResponse('data.json',
 const getResponse = (url) => new Promise(
   (resolve, reject) => {
     // Object => Pending...
+    // neither then() or catch() executes at this moment
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     // Object => Fulfilled
+    // then() executes
     xhr.onload = () => resolve(xhr.response);
     // Object => Rejected
+    // catch() executes
     xhr.onerror = () => reject(xhr.status);
     xhr.send();
   }
@@ -2594,15 +2609,24 @@ getResponse('data.json')
   // it's going to be caught in catch
   .then((data) => console.log(data))
   // catches all the errors before
+  // the blocks before are skipped but
+  // doesn't stop the chain (if there are some then after)
   .catch((error) => console.warning(error))
-  // optional, executes always 
-  // after the promise is completed (success/error)
+  // if there are no more then() blocks left
+  // promise enters the final mode: settled
+  // once settled, you can use the special block finally()
+  // to do some cleanup work
+  // this block is reached anyways (resolve or reject before)
+  // optional, executes always
+  // will not return a promise in the end (like then() and catch())
   .finally(cb);
 
 // you can work with promises chaining then
 // every then returns a promise, where we can also call then
 Promise.resolve('a') // 'a'
   .then((val) => val.concat('b')) // 'ab'
+  // when we have another then() or catch()
+  // the promise re-enters pending mode
   .then((val) => val.concat('c')) // 'abc'
   .then((val) => val.concat('d')); // 'abcd'
 ```

@@ -15,3 +15,9 @@
 
 ## Browser engines
 ## The Internet
+<details>
+<summary>Learn more</summary>
+
+- [ ] [How Websites Work](https://academind.com/learn/web-dev/how-the-web-works/)
+
+</details>

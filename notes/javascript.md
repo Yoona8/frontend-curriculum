@@ -2719,37 +2719,6 @@ function setTimer() {
 </details>
 
 <details>
-<summary>Async fetch</summary>
-
-- `fetch` is a wrapper around promise
-- function for sending/fetching data (`XMLHttpRequest` under hood)
-```JavaScript
-// response.json(); returns promise
-// resolves when the string will parse json into an object
-// if no 2nd param, get request, returns Promise
-// resolves into response object
-// if fetch => error, but the response is received,
-// fetch doesn't count it as a throw new Error (for catching inside catch)
-// and returns that response into then
-// because the request is fulfilled and response received from server
-// 404 / redirect / etc - for fetch those are normal server responses
-// so have to add our own status handling
-fetch('https://data.com', {
-  method: 'POST',
-  body: JSON.stringify({
-    'date': Date.now(),
-    'time': 402,
-    'lives': 3
-  }),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
-```
-
-</details>
-
-<details>
 <summary>Http</summary>
 
 - Data transfer protocol - the way computer uses to exchange the information (there are many different protocols, in the web we use http)
@@ -2786,12 +2755,171 @@ Content-Length: 1270
 </details>
 
 <details>
+<summary>XMLHttpRequest</summary>
+
+```JavaScript
+// can be used on its own
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://google.com');
+xhr.send();
+
+// or inside a function
+const sendRequest = (method, url) => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open(method, url);
+  xhr.responseType = 'json';
+  // to add more headers use the method multiple times
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  
+  // to get and use the data have to listen to onload event
+  // for XHR .addEventListener is not supported in some browsers
+  xhr.onload = function() {
+    // check if the status is success
+    if (xhr.status >= 200 && xhr.status < 300) {
+      // JSON data (mostly, depends on server)
+      console.log(xhr.response);
+      // either parse JSON.parse(...)
+      // or configure responseType (will be parsed automatically)
+    } else {
+      console.log(xhr.response);
+      console.log('Something went wrong.');
+    }
+  };
+  
+  // not for sent requests (when we get a response)
+  // only for the errors of sending the request
+  // like timeout or wasn't sent
+  xhr.onerror = function() {
+    console.log(xhr.response);
+    console.log(xhr.status);
+  };
+  
+  xhr.send();
+};
+
+// with using a promise
+const sendHttpRequest = (method, url, data) => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.open(method, url);
+    xhr.responseType = 'json';
+
+    xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject(new Error('Something went wrong!'));
+      }
+    };
+
+    xhr.onerror = function() {
+      reject(new Error('Error while sending a request!'));
+    };
+
+    xhr.send(JSON.stringify(data));
+  });
+};
+
+const fetchPosts = () => {
+  sendHttpRequest('GET', 'https://...')
+    .then(responseData => console.log(responseData))
+    .catch(error => console.log(error));
+};
+
+const addPosts = async () => {
+  try {
+    const responseData = await sendHttpRequest(
+      'POST',
+      'https://...',
+      post
+    );
+  } catch (error) {
+    console.log(error);
+  } 
+};
+```
+
+</details>
+
+<details>
+<summary>Async fetch</summary>
+
+- `fetch` is a wrapper around promise
+- function for sending/fetching data (`XMLHttpRequest` under hood)
+```JavaScript
+// response.json(); returns promise
+// resolves when the string will parse json into an object
+// if no 2nd param, get request, returns Promise
+// resolves into response object
+// if fetch => error, but the response is received,
+// fetch doesn't count it as a throw new Error (for catching inside catch)
+// and returns that response into then
+// because the request is fulfilled and response received from server
+// 404 / redirect / etc - for fetch those are normal server responses
+// so have to add our own status handling
+fetch('https://data.com', {
+  method: 'POST',
+  body: JSON.stringify({
+    'date': Date.now(),
+    'time': 402,
+    'lives': 3
+  }),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+
+const sendHttpRequest = (method, url, data) => {
+  // returns a JSON (unparsed), have to parse
+  // with .json() available in fetch API
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data)
+  })
+    .then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      } else {
+        // if we need the response, error handling could be tricky
+        return response.json()
+          .then(errorData => {
+            console.log(errorData);
+            throw new Error('Something went wrong on the server side!');
+          });
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      throw new Error('Something went wrong with the request!');
+    });
+};
+```
+
+</details>
+
+<details>
 <summary>Feedback in the UI</summary>
 
 - When you sync data with a server, don't change control state, change only if the request was successful (returned 200+ codes)
 - View => Model => Server => Model => View
 - click on favorites - gone on update, if there was an error response from server
 - comment doubles if you don't disable the submit button
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [HTTP request methods on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+- [ ] [HTTP Messages on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
+- [ ] [HTTP response status codes on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+- [ ] [HTTP Headers on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+- [ ] [Using XMLHttpRequest on MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
+- [ ] [Fetch API on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [ ] [Using files from web applications on MDN](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications)
 
 </details>
 
@@ -2848,6 +2976,16 @@ Content-Length: 1270
 - user input - user can enter unsafe data for the view and UI has to be ready for it
 - storing and passing data formats could be different to the format needed on the UI, so we need to convert data in our app
   - some ES6 objects (Date, Sets, Maps) could not be converted to JSON, so have to convert into standard data types (primitives, arrays, objects)
+
+</details>
+
+<details>
+<summary>JSON</summary>
+
+- JavaScript Object Notation
+- can't use functions here
+- for keys only `" "`
+- for values `"string"` (double quotes only), `10`, `true`, `{...}`, `[...]`, `null`
 
 </details>
 

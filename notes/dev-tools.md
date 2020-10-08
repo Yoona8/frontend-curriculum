@@ -244,10 +244,17 @@ cat <file>
 
 </details>
 
+## Dev Servers
+
+## Bundlers
+
 ## Linters
 <details>
 <summary>Learn more</summary>
 
-- [ES Lint](https://eslint.org/)
+- [Getting Started with ESLint](https://eslint.org/docs/user-guide/getting-started)
+- [ES Lint configuring](https://eslint.org/docs/user-guide/configuring)
+- [ES Lint rules](https://eslint.org/docs/rules/)
+- [ES Lint preset configs](https://www.npmjs.com/search?q=eslint-config)
 
 </details>

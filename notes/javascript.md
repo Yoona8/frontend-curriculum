@@ -2040,6 +2040,7 @@ import { nameOne, nameTwo } from './module-3.js';
 - [import on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 - [export on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 - [Exploring ES6 - 16. Modules](https://exploringjs.com/es6/ch_modules.html)
+- [ ] [Modules on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 
 </details>
 

@@ -3047,6 +3047,81 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 ## Browser storage
+<details>
+<summary>Local and session storage</summary>
+
+- simple key-value store
+- manage user preferences or basic user data
+- can be cleared by the user and via JS
+- simple, easy to use, but bad for complex data
+- local storage lives till either user or browser (when ran out of space) clears it
+```JavaScript
+// local storage works sync
+const userId = '775';
+const user = {
+  name: 'Harry',
+  age: 33
+};
+
+// JS converts data into a string
+localStorage.setItem('userId', userId);
+localStorage.setItem('user', user); // => [object Object]
+localStorage.setItem('user', JSON.stringify(user));
+
+// to get item
+localStorage.getItem('user');
+```
+- session storage lives in the browser while you don't close the tab
+```JavaScript
+// session storage works sync
+
+// JS converts data into a string
+sessionStorage.setItem('userId', userId);
+sessionStorage.setItem('user', JSON.stringify(user));
+
+// to get item
+sessionStorage.getItem('user');
+```
+
+</details>
+
+<details>
+<summary>Cookies</summary>
+
+- simple key-value store with some config options
+- manage user preferences or basic user data
+- can be cleared by the user and via JS
+- not as easy to use, sent to server, bad for complex data
+- the advantage is that you can set it to expire or send to a server
+- available only if your app is served on a running server
+```JavaScript
+const userId = 'fd3928';
+const user = {
+  name: 'Harry',
+  age: 33
+};
+// data stored as a string
+// under the hood uses a setter
+// so adds new cookie, not overrides
+document.cookie = `userId=${userId}; max-age=360`; // => seconds
+document.cookie = `user=${JSON.stringify(user)}; expires=date`; // => date
+
+// to get info
+// returns all the cookies stored in one string
+document.cookie;
+```
+
+</details>
+
+<details>
+<summary>IndexedDB</summary>
+
+- client-side database
+- manage complex data your app needs
+- can be cleared by the user and via JS
+- not as easy to use, great for complex (non-critical) data, good performance (good for usage like google sheets)
+
+</details>
 
 ## Meta-programming
 

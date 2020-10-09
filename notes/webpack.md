@@ -3,8 +3,6 @@
 <summary>Basic config</summary>
 
 - install npm first
-- for working with styles import css file into js file, where we use the styles, by default webpack's css loader adds `<link rel="stylesheet">`
-
 ```bash
 # for webpack usage
 $ npm i -DE webpack
@@ -13,22 +11,42 @@ $ npm i -DE webpack-cli
 # optional, if dev server needed
 $ npm i -DE webpack-dev-server
 ```
-
+- by default works in a production mode
+- if you need different configs, add more config files (ex `webpack.config.js` and `webpack.config.prod.js`) and use the script
+```JavaScript
+"scripts": {
+  "build:prod": "webpack --config webpack.config.prod.js"
+}
+```
+- if there are dynamic imports `import('file-name');` webpack generates a separate file
 ```JavaScript
 // webpack.config.js
 // for the proper path configs for different OS
 const path = require('path');
+// to clean the unused files
+const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   // build mode
   mode: 'development',
   // application entry point
   entry: './src/main.js',
+  // for multiple entries (creates 1 bundle per entry)
+  entry: {
+    main: './src/main-page/main.js',
+    contacts: './src/contacts-page/main.js'
+  }
   // settings for the output file
   output: {
     filename: 'bundle.js',
+    // for prod mode good to change the filename
+    filename: '[contenthash].js',
     // __dirname is a root directory of our app
-    path: path.join(__dirname, 'public')
+    path: path.join(__dirname, 'public'),
+    // if public/scripts
+    path: path.join(__dirname, 'public', 'scripts'),
+    // to fix the paths inside files upon bundling
+    publicPath: 'public/scripts/'
   },
   devtool: 'source-maps',
   devServer: {
@@ -37,6 +55,9 @@ module.exports = {
     // detects changes in js files and reloads a page
     watchContentBase: true
   },
+  plugins: [
+    new CleanPlugin.CleanWebpackPlugin()
+  ],
   module: {
     rules: [{
       // what files to look for (.scss, .css here)
@@ -49,7 +70,7 @@ module.exports = {
   }
 };
 ```
-
+- for working with styles import css file into js file, where we use the styles, by default webpack's css loader adds `<link rel="stylesheet">`
 ```JavaScript
 // component.js
 import "./src/style.css";
@@ -61,5 +82,8 @@ import "./src/style.css";
 <summary>Learn more</summary>
 
 - [Webpack official](https://webpack.js.org/)
+- [Code Splitting](https://webpack.js.org/guides/code-splitting/)
+- [Entry](https://webpack.js.org/concepts/#entry)
+- [Guides](https://webpack.js.org/guides/)
 
 </details>

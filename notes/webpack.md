@@ -58,6 +58,7 @@ module.exports = {
   plugins: [
     new CleanPlugin.CleanWebpackPlugin()
   ],
+  // for webpack modules ~ files
   module: {
     rules: [{
       // what files to look for (.scss, .css here)

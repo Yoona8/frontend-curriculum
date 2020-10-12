@@ -27,6 +27,13 @@
 </details>
 
 <details>
+<summary>Accessibility</summary>
+
+- [ ] [Emulate vision deficiencies in DevTools](https://addyosmani.com/blog/emulate-vision-deficiencies-devtools/)
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [Learn How To Debug JavaScript with Chrome DevTools](https://codeburst.io/learn-how-to-debug-javascript-with-chrome-devtools-9514c58479db)

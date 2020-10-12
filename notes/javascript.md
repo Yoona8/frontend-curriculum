@@ -3095,6 +3095,7 @@ sessionStorage.getItem('user');
 - the advantage is that you can set it to expire or send to a server
 - available only if your app is served on a running server
 ```JavaScript
+// cookies work sync
 const userId = 'fd3928';
 const user = {
   name: 'Harry',
@@ -3120,6 +3121,76 @@ document.cookie;
 - manage complex data your app needs
 - can be cleared by the user and via JS
 - not as easy to use, great for complex (non-critical) data, good performance (good for usage like google sheets)
+```JavaScript
+// indexedDB works sync
+// pass name and version
+const dbRequest = indexedDB.open('Name', 1);
+let db;
+
+// to be able to change the data from a button too
+dbRequest.onsuccess = function(evt) {
+  db = evt.target.result;
+};
+
+// for better browser support not .addEventListener, but:
+dbRequest.onupgradeneeded = function(evt) {
+  db = evt.target.result;
+  const objStore = db.createObjectStore('products', {keyPath: 'id'});
+
+  // oncomplete triggers when createObjectStore is finished
+  objStore.transaction.oncomplete = function(evt) {
+    // connecting to the data base
+    const productsStore = db.transaction('products', 'readwrite')
+      .objectStore('products');
+    // adding a new item, has to have the property from keyPath
+    productsStore.add({
+      id: 'pr1',
+      name: 'Product 1',
+      price: 1.22,
+      tags: ['Vegetarian', 'No-Sugar']
+    });
+  };
+};
+
+dbRequest.onerror = function() {};
+
+addButton.addEventListener('click', () => {
+  if (!db) {
+    return;
+  }
+
+  const productsStore = db.transaction('products', 'readwrite')
+    .objectStore('products');
+
+  productsStore.add({
+    id: 'pr2',
+    name: 'Product 2',
+    price: 1.42,
+    tags: ['Vegetarian', 'No-Sugar']
+  });
+});
+
+// to retrieve the data
+getButton.addEventListener('click', () => {
+  const productsStore = db.transaction('products', 'readwrite')
+    .objectStore('products');
+
+  const request = productsStore.get('pr1');
+
+  request.onsuccess = function() {
+    console.log(request.result);
+  };
+});
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [localStorage on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [ ] [cookie on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
+- [ ] [Using IndexedDB on MDN](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 
 </details>
 
@@ -3262,6 +3333,54 @@ console.dir(document);
 </details>
 
 ## Browser support
+<details>
+<summary>Feature detection and fallbacks</summary>
+
+```JavaScript
+// if not supported === undefined
+if (navigator.clipboard) {
+  navigator.clipboard.writeText('Some text to copy.')
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+} else {
+  console.log('Feature is not available, try to copy manually.');
+}
+```
+
+</details>
+
+<details>
+<summary>Transpiling the code</summary>
+
+- something like babel could be integrated into webpack config `modules`
+- set browsers list in `package.json`
+
+</details>
+
+<details>
+<summary>Polyfills</summary>
+
+- can add manually
+- and also with babel it's available to add an auto detection
+
+</details>
+
+<details>
+<summary>If JavaScript is off in the browser</summary>
+
+- at least use `<noscript>Please turn on the JavaScript support.</noscript>` 
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [What is Babel?](https://babeljs.io/docs/en/)
+- [ ] [Babel loader](https://github.com/babel/babel-loader)
+- [ ] [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env)
+- [ ] [core-js](https://github.com/zloirock/core-js)
+
+</details>
 
 ## Tools and workflow
 <details>

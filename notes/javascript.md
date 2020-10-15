@@ -140,7 +140,7 @@ Number.MAX_VALUE;
 </details>
 
 <details>
-<summary>BidInt</summary>
+<summary>BigInt</summary>
 
 - to work with > max or < min numbers
 - only integer, decimal => error
@@ -3288,41 +3288,53 @@ while(!friend.done) {
   friend = player.next();
 }
 ```
-
+- using generators to build an iterator object
+- generator is special function which generates an iterator
+- returns an object with `next()` method
 ```JavaScript
 const player = {
-  currentFriend: 0,
   name: 'Harry',
   friends: ['Ron', 'Hermione', 'Luna'],
-  next() {
-    if (this.currentFriend >= this.friends.length) {
-      return {value: this.currentFriend, done: true};
-    }
-
-    const result = {
-      value: this.friends[this.currentFriend],
-      done: false
-    };
-
-    this.currentFriend++;
-    return result;
-  },
   // value should be an iterator
-  [Symbol.iterator]: function* () {}
+  // returns an object with next() method
+  [Symbol.iterator]: function* friendGenerator() {
+    // we can have both, generator and separate next() method
+    let currentFriend = 0;
+
+    while(currentFriend < this.friends.length) {
+      // almost like return
+      // pauses the execution on first call
+      // and continues on second and so on
+      // that's why we get different values
+      yield this.friends[currentFriend];
+      currentFriend++;
+    }
+  }
 };
 
-console.log(player.next());
-console.log(player.next());
-console.log(player.next());
-console.log(player.next());
-
-// still can't use for loop, but while is ok
-let friend = player.next();
-
-while(!friend.done) {
-  console.log(friend.value);
-  friend = player.next();
+// now we can use loops
+// for loop and some other (like spread)
+// look for the [Symbol.iterator] function
+// so all iterables have it by default
+for (let friend of player) {
+  console.log(friend);
 }
+
+console.log([...player]);
+
+// if instead of [Symbol.iterator] different name is used
+// can use it like that
+// in this case value is the same (we generate new generator)
+console.log(player.getFriend().next());
+console.log(player.getFriend().next());
+console.log(player.getFriend().next());
+
+// but if we store it, the value will be different
+const friendsIterator = player.getFriend();
+
+console.log(friendsIterator.next());
+console.log(friendsIterator.next());
+console.log(friendsIterator.next());
 ```
 
 </details>

@@ -55,7 +55,9 @@ const Code = {
   NOT_FOUND: 404,
   SERVER_ERROR: 500
 };
-
+```
+- immutable constant object
+```JavaScript
 const Earth = {
   RADIUS: 6.371,
   GRAVITATION: 6.67408

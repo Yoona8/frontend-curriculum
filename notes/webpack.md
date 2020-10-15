@@ -63,6 +63,7 @@ module.exports = {
     rules: [{
       // what files to look for (.scss, .css here)
       test: /\.s?css/,
+      exclude: /(node_modules)/,
       // style-loader handles the importing of the files (injects css into DOM as link tag by default)
       // css-loader handles the css code (resolves the css file)
       // order matters (from right to left css, style)

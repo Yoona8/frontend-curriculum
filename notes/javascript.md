@@ -2991,6 +2991,19 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 <details>
+<summary>Links, converting to links</summary>
+
+- `encodeURI('some text');`
+- getting the parameters from the link
+```JavaScript
+const url = new Url(location.href);
+const queryParams = url.searchParams;
+const data = queryParams.get('data');
+```
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [ ] [Why Mutation Can Be Scary](https://alistapart.com/article/why-mutation-can-be-scary/)
@@ -3195,6 +3208,132 @@ getButton.addEventListener('click', () => {
 </details>
 
 ## Meta-programming
+<details>
+<summary>General info</summary>
+
+- advanced concepts used mostly when you create libraries
+
+</details>
+
+<details>
+<summary>Symbols</summary>
+
+- primitive values
+- used as keys in objects
+- built-in symbols and creatable symbols
+- uniqueness is guaranteed
+```JavaScript
+const userId = Symbol(); // => Symbol()
+const playerId = Symbol('id'); // => Symbol(id)
+
+const player = {
+  [playerId]: 1, // can't access this property out of library
+  name: 'Harry',
+  level: 11
+};
+
+// can use inside the library
+player[playerId] = 2;
+
+console.log(playerId === Symbol('id')); // => false
+
+// built-in symbol
+const user = {
+  name: 'Ron',
+  level: 9,
+  [Symbol.toStringTag]: 'User'
+};
+
+console.log(user.toString()); // => [object User]
+```
+
+</details>
+
+<details>
+<summary>Iterators & Generators</summary>
+
+- iterator is an object which has `next()` method
+```JavaScript
+const player = {
+  currentFriend: 0,
+  name: 'Harry',
+  friends: ['Ron', 'Hermione', 'Luna'],
+  next() {
+    if (this.currentFriend >= this.friends.length) {
+      return {value: this.currentFriend, done: true};
+    }
+
+    const result = {
+      value: this.friends[this.currentFriend],
+      done: false
+    };
+
+    this.currentFriend++;
+    return result;
+  }
+};
+
+console.log(player.next());
+console.log(player.next());
+console.log(player.next());
+console.log(player.next());
+
+// still can't use for loop, but while is ok
+let friend = player.next();
+
+while(!friend.done) {
+  console.log(friend.value);
+  friend = player.next();
+}
+```
+
+```JavaScript
+const player = {
+  currentFriend: 0,
+  name: 'Harry',
+  friends: ['Ron', 'Hermione', 'Luna'],
+  next() {
+    if (this.currentFriend >= this.friends.length) {
+      return {value: this.currentFriend, done: true};
+    }
+
+    const result = {
+      value: this.friends[this.currentFriend],
+      done: false
+    };
+
+    this.currentFriend++;
+    return result;
+  },
+  // value should be an iterator
+  [Symbol.iterator]: function* () {}
+};
+
+console.log(player.next());
+console.log(player.next());
+console.log(player.next());
+console.log(player.next());
+
+// still can't use for loop, but while is ok
+let friend = player.next();
+
+while(!friend.done) {
+  console.log(friend.value);
+  friend = player.next();
+}
+```
+
+</details>
+
+<details>
+<summary>Reflect API</summary>
+
+</details>
+
+<details>
+<summary>Proxy API</summary>
+
+</details>
 
 ## Performance and optimizations
 <details>
@@ -3420,7 +3559,16 @@ if (navigator.clipboard) {
 
 </details>
 
+<details>
+<summary>Maps</summary>
+
+- [OpenLayers](https://openlayers.org/en/latest/doc/quickstart.html)
+
+</details>
+
 ## Frameworks
+
+- [ ] [Angular vs React vs Vue](https://academind.com/learn/angular/angular-vs-react-vs-vue-my-thoughts/)
 
 ## Resources
 

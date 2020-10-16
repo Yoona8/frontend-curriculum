@@ -3254,6 +3254,8 @@ console.log(user.toString()); // => [object User]
 <details>
 <summary>Iterators & Generators</summary>
 
+- create your own iterable values
+- iterables use it internally
 - iterator is an object which has `next()` method
 ```JavaScript
 const player = {
@@ -3342,10 +3344,77 @@ console.log(friendsIterator.next());
 <details>
 <summary>Reflect API</summary>
 
+- API to control objects
+- standardized and grouped methods
+- control code usage/impact
+- has the same methods and properties as `Object`, but `Reflect` is new and has more methods
+  - better error handling (`Object` sometimes returns undefined or just fails silently)
+  - all the methods are present (`Object` doesn't have delete property method, have to use `delete obj.prop;`)
+- gives a handful of methods to change object on a meta level
+```JavaScript
+const player = {
+  name: 'Harry Potter'
+};
+
+Reflect.setPrototypeOf(player, {
+  toString() {
+    return this.name;
+  }
+});
+```
+
 </details>
 
 <details>
 <summary>Proxy API</summary>
+
+- create traps for object operations
+- step in and execute code
+- control code usage/impact
+```JavaScript
+const player = {
+  name: 'Harry Potter'
+};
+
+const playerHandler = {
+  // executes when somebody tries to read a value
+  // arguments are passed automatically by Proxy API
+  get(obj, propertyName) {
+    console.log(propertyName);
+    return obj[propertyName] || 'NOT FOUND';
+  },
+
+  // executes when we try to set a value
+  set(obj, propertyName, newValue) {
+    if (propertyName === 'age') {
+      return;
+    }
+
+    obj[propertyName] = newValue;
+  }
+};
+
+// new Proxy(object, handlers)
+const proxyPlayer = new Proxy(player, playerHandler);
+
+console.log(proxyPlayer.name);
+// => name
+// => Harry Potter
+console.log(proxyPlayer.age); // => NOT FOUND
+proxyPlayer.age = 10;
+// because of the set trap
+console.log(proxyPlayer.age); // => NOT FOUND
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Symbol on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+- [ ] [Iterators and Generators on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
+- [ ] [Reflect API on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
+- [ ] [Proxy API on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 </details>
 

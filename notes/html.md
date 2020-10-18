@@ -375,3 +375,11 @@
 ## Scripts
 
 ## Web components
+
+## Tools and services
+<details>
+<summary>Validators</summary>
+
+- [w3 validator](https://validator.w3.org/nu/)
+
+</details>

@@ -3480,6 +3480,56 @@ function addListener() {
 </details>
 
 ## Security
+<details>
+<summary>Potential Security Holes</summary>
+
+- security details in the code (like connection strings, keys, user data)
+- keep in mind that JS code could be read by everyone
+- security relevant details can be read
+- ex: database access credentials exposed in code (not the issue with google API Key, can restrict that)
+
+</details>
+
+<details>
+<summary>XSS Attacks</summary>
+
+- attack pattern when malicious JS code gets injected and executed
+- injected code can do anything your code could do as well
+- vary dangerous, gives full control for hackers
+- ex: unchecked user-generated content
+```HTML
+<!-- new versions of browsers don't execute -->
+<script>alert('Hello!');</script>
+<!-- always runs -->
+<img src="" onerror="alert('Hello!');">
+```
+- use `textContent` instead of `innerHTML` if possible
+- use packages like `sanitize-html`, also validate on server side
+- use the third party libraries you trust
+
+</details>
+
+<details>
+<summary>Cross-Site Request Forgery (CSRF)</summary>
+
+- attack pattern that depends on injected content (ex: images)
+- requests to malicious servers are made with user's cookies
+- actions can be executed without the user knowing
+- ex: malicious image URL, XSS
+- mostly backend security issue (CSRF token to deal with the issue)
+<img with="500" src="./images/csrf.png">
+
+</details>
+
+<details>
+<summary>Cross-Origin Resource Sharing (CORS)</summary>
+
+- not an attack pattern but a security concept
+- requests are only allowed from the same origin (domain)
+- controlled via server-side response headers and browser
+- ex: JS modules (that's why we need to run a server - are only allowed if modules are from the same server)
+
+</details>
 
 ## Regular expressions
 <details>

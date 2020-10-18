@@ -102,3 +102,4 @@
 ## Cross-content links
 - [Optimizations](./notes/optimizations.md)
 - [Web Skills map](https://andreasbm.github.io/web-skills/)
+- [FreeCodeCamp](https://www.freecodecamp.org/)

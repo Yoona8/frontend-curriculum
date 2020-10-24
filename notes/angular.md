@@ -1500,7 +1500,7 @@ export class CoreModule {}
   - Errors
   - Completion (not always complete)
 - added from `'rxjs'` package, not a part of TypeScript or Angular
-- no need to import if we use Angulars Observables
+- no need to import if we use Angular Observables
 - need to import only when we use other Observables
 
 </details>

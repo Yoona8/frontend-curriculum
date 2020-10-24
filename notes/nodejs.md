@@ -144,8 +144,117 @@ app.use((req, res, next) => {
     user: useName
   });
 });
+```
 
+</details>
 
+<details>
+<summary>Basic REST routes with Express.js</summary>
+
+```JavaScript
+// app.js
+const express = require('express');
+const bodyParser = require('body-parser');
+const router = require('./routes/location');
+
+const app = express();
+
+app.use(bodyParser.json());
+app.use(router);
+
+app.listen(3000);
+```
+```JavaScript
+// routes/location.js
+const express = require('express');
+// import for using features, not for server creation
+
+const router = express.Router();
+
+const locationStorage = {
+  locations: []
+};
+
+// works like a middleware, but for a specific method and url
+router.post('/add-location', (req, res, next) => {
+  const id = 1;
+
+  locationStorage.locations.push({
+    id,
+    address: req.body.address,
+    coordinates: {
+      lat: req.body.lat,
+      lng: req.body.lng
+    }
+  });
+
+  // the same as with res.send(); but already specified json
+  res.json({
+    message: 'Successfully stored!',
+    locationId: id
+  });
+});
+
+// dynamic segment of the link = :id
+router.get('/location/:id', (req, res, next) => {
+  const locationId = req.params.id;
+  const location = locationStorage.locations.find(location => {
+    return location.id === locationId;
+  });
+
+  if (!location) {
+    return res.status(404).json({message: 'Location not found!'});
+  }
+
+  res.json({
+    address: location.address
+  });
+});
+
+module.exports = router;
+```
+- sending the request
+```JavaScript
+// front-app.js
+fetch('https://localhost:3000/add-location', {
+  method: 'POST',
+  body: JSON.stringify({
+    address: 'Some address',
+    lat: 10,
+    lng: 10
+  }),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+  .then(response => console.log(response));
+
+// getting the current query params from the link address
+const locationId = queryParams.get('location');
+fetch(`https://localhost:3000/location/${locationId}`)
+  .then(response => console.log(response));
+```
+- CORS (Cross-Origin Resource Sharing) - by default browsers block such requests
+- always configured on backend with setting the headers
+```JavaScript
+// app.js
+
+// ...
+
+app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  // '*' any other server
+  // or specific URL
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  // options because before sending POST req
+  // some browsers first send OPTIONS request
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
+// ...
 ```
 
 </details>

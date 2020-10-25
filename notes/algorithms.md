@@ -1,4 +1,20 @@
 # Data structures and Algorithms
+Programming = Algorithms + Data Structures
+
+## Algorithms
+<details>
+<summary>General info</summary>
+
+- finite, ordered, predictable
+- linear - step by step
+- logical - on condition
+- recursive - iterations of the same action till the certain condition is met
+  - every recursive algorithm has a condition
+  - must have a closing condition
+  - iteration - repetition
+  - recursion - self-repetition (everywhere: programming, linguistics, maths, nature)
+
+</details>
 
 ## Data Structures (JS implementation)
 <details>

@@ -1,5 +1,15 @@
 # JavaScript
 
+## Basic definitions
+<details>
+<summary>Definitions</summary>
+
+- API (Application Public Interface)
+  - a set of available properties and methods to solve a particular task
+  - frequent implementation - objects
+
+</details>
+
 ## Good practices
 <details>
 <summary>Notes</summary>

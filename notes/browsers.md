@@ -106,3 +106,35 @@
 - [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)
 
 </details>
+
+## Websites and deployment process
+<details>
+<summary>Types of websites</summary>
+
+- Static (just HTML, CSS, JS)
+- SPA (HTML, CSS, JS with only one HTML page being served, client-side JS is used to re-render the page dynamically)
+- Dynamic (SSR) Web Apps (HTML pages are created dynamically on the server via template engines like EJS)
+
+</details>
+
+<details>
+<summary>Deployment process</summary>
+
+1. write the code
+2. test the code
+3. optimise the code
+4. build for production
+5. deploy depending on the type of website
+  - static host - doesn't execute the server-side code: AWS S3, Firebase Hosting, etc
+  - dynamic host - can execute the server-side code: AWS Elastic, Heroku, etc
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Dynamic vs Static vs SPA](https://academind.com/learn/web-dev/dynamic-vs-static-vs-spa/)
+- [ ] [Firebase hosting docs](https://firebase.google.com/docs/hosting)
+- [ ] [Heroku docs](https://devcenter.heroku.com/categories/reference)
+
+</details>

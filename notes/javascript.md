@@ -3604,6 +3604,10 @@ function addListener() {
 ```JavaScript
 console.dir(document);
 ```
+- for nice table overview
+```JavaScript
+console.table([1, 2, 3]);
+```
 
 </details>
 

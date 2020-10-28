@@ -87,5 +87,7 @@ import "./src/style.css";
 - [Code Splitting](https://webpack.js.org/guides/code-splitting/)
 - [Entry](https://webpack.js.org/concepts/#entry)
 - [Guides](https://webpack.js.org/guides/)
+- [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+- [HtmlWebpackPlugin usage](https://github.com/jantimon/html-webpack-plugin)
 
 </details>

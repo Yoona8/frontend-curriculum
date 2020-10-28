@@ -258,3 +258,11 @@ app.use((req, res, next) => {
 ```
 
 </details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Academind node.js courses](https://academind.com/learn/node-js/)
+- [Node.js documentation](https://nodejs.org/en/docs/)
+
+</details>

@@ -4,6 +4,8 @@
 <details>
 <summary>Notes</summary>
 
+- organize data and logic in objects (properties and methods)
+- organize code in logical entities
 - programming methodology, based mostly on representing a program as a set of objects, which are instances of some class
 - consists of interfaces and relations
 - abstract thinking

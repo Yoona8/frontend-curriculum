@@ -51,6 +51,7 @@
 <details>
 <summary>Testing</summary>
 
+- [Testing](./notes/testing.md)
 
 </details>
 

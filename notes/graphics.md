@@ -122,8 +122,15 @@
 </details>
 
 <details>
-<summary>Vector</summary>
+<summary>Vector illustrations</summary>
 
 - [Free illustrations](https://undraw.co/illustrations)
+
+</details>
+
+<details>
+<summary>Icons</summary>
+
+- [Free icons (credit)](https://icons8.com/)
 
 </details>

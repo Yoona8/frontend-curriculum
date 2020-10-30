@@ -60,7 +60,7 @@
 
 - [OOP](./notes/oop.md)
 - [Functional programming](./notes/functional-programming.md)
-- Procedural programming
+- [Procedural programming](./notes/procedural-programming.md)
 - [Architecture](./notes/architecture.md)
 - [Design patterns](./notes/design-patterns.md)
 

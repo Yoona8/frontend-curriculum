@@ -78,10 +78,18 @@ const arr = [1, 2, 3, 4];
 
   </details>
   
-  - immutable constant array
+  <details>
+  <summary>Immutable constant array</summary>
+
   ```JavaScript
   const DEFAULT_NAMES = ['Michael', 'Anna', 'Chris'];
   ```
+
+  </details>
+
+  <details>
+  <summary>Enumeration</summary>
+
   - enumeration (immutable constant) is a complete list of constants grouped by some sign
   ```JavaScript
   const Code = {
@@ -91,13 +99,20 @@ const arr = [1, 2, 3, 4];
     SERVER_ERROR: 500
   };
   ```
-  - immutable constant object
+
+  </details>
+
+  <details>
+  <summary>Immutable constant object</summary>
+
   ```JavaScript
   const Earth = {
     RADIUS: 6.371,
     GRAVITATION: 6.67408
   };
   ```
+
+  </details>
 
 </details>
 

@@ -20,7 +20,7 @@
 
 ## Code style
 <details>
-<summary>Tips</summary>
+<summary>Where are semi-colons placed?</summary>
 
 - Semi-colons `;` are placed after every expression except blocks of code `{}` (exceptions are objects and everything declared with `var`, `let` or `const`, basically variables)
 
@@ -28,14 +28,33 @@
 
 ## Constants and variables
 <details>
-<summary>General info</summary>
+<summary>What were the issues with var?</summary>
 
-- `name = 'Mary';` works (JS adds `var name = Mary;`) but bad practice (not allowed with `'use strict';`)
-- `var`
-  - hoisting
-  - `var i = 21; var i = 45;` recreating
-  - function and global scope (but no block scope)
-  - `var undefined = 67;` reserved names usage (not allowed with `'use strict;`)
+- bad practice (not allowed with `'use strict';`)
+```JavaScript
+// works without strict mode
+name = 'Mary';
+// converted into
+var name = 'Mary';
+```
+- hoisting
+- recreating
+```JavaScript
+var i = 21;
+// ... some code here
+var i = 45;
+```
+- function and global scope (but no block scope)
+- reserved names usage (not allowed with `'use strict';`)
+```JavaScript
+var undefined = 67;
+```
+
+</details>
+
+<details>
+<summary>What are the differences between vars, lets and consts?</summary>
+
 - `let`, `const` - no hoisting, no recreating, block scope, using reserved names is not allowed
 ```JavaScript
 // not any const = constant

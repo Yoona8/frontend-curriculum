@@ -2,7 +2,7 @@
 
 ## Basic definitions
 <details>
-<summary>Definitions</summary>
+<summary>What is API?</summary>
 
 - API (Application Public Interface)
   - a set of available properties and methods to solve a particular task
@@ -12,7 +12,7 @@
 
 ## Good practices
 <details>
-<summary>Notes</summary>
+<summary>What values is better to pass as arguments and why?</summary>
 
 - don't pass the reference type, pass the id when possible (primitive value)
 

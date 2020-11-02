@@ -76,13 +76,14 @@
 <details>
 <summary>Web components</summary>
 
-- Web components
+- [Web components](./notes/web-components.md)
 
 </details>
 
 <details>
 <summary>Progressive web apps</summary>
 
+- [Rendering performance](./rendering-performance.md)
 
 </details>
 

@@ -118,7 +118,7 @@ const arr = [1, 2, 3, 4];
 
 ## Data types and structures
 <details>
-<summary>Available data types</summary>
+<summary>What data types are available?</summary>
 
 ```JavaScript
 // 1 - undefined
@@ -152,11 +152,23 @@ console.log(typeof BigInt('9')); // => bigint
 
 ## Numbers
 <details>
-<summary>General info</summary>
+<summary>How are the numbers stored?</summary>
 
 - every number is a float
 - numbers are stored as 64 Bit Floating Points (some issues and limits)
+
+</details>
+
+<details>
+<summary>What system JS uses to work with numbers?</summary>
+
 - JS works with binary numbers and converts into decimal
+
+</details>
+
+<details>
+<summary>What are the maximum and infinite numbers?</summary>
+
 ```JavaScript
 // infinite number
 1 / 0; // => Infinity
@@ -173,7 +185,7 @@ Number.MAX_VALUE;
 </details>
 
 <details>
-<summary>Strange cases</summary>
+<summary>What are the strange number cases and why do they occur?</summary>
 
 - because JS works with binary and converts into decimal, there are some strange cases
 ```JavaScript
@@ -190,7 +202,7 @@ Number.MAX_VALUE;
 </details>
 
 <details>
-<summary>BigInt</summary>
+<summary>How does BigInt work and when do we use it?</summary>
 
 - to work with > max or < min numbers
 - only integer, decimal => error

@@ -66,32 +66,38 @@ const arr = [1, 2, 3, 4];
 </details>
 
 <details>
-<summary>Declarations (naming conventions)</summary>
+<summary>How to declare different types of immutable constants?</summary>
 
-- immutable (code agreement: protected, hardcoded) constant primitive value (physical constants, coefficients, etc)
-```JavaScript
-const LIGHT_SPEED = 255792458;
-```
-- immutable constant array
-```JavaScript
-const DEFAULT_NAMES = ['Michael', 'Anna', 'Chris'];
-```
-- enumeration (immutable constant) is a complete list of constants grouped by some sign
-```JavaScript
-const Code = {
-  SUCCESS: 200,
-  CACHED: 302,
-  NOT_FOUND: 404,
-  SERVER_ERROR: 500
-};
-```
-- immutable constant object
-```JavaScript
-const Earth = {
-  RADIUS: 6.371,
-  GRAVITATION: 6.67408
-};
-```
+  <details>
+  <summary>Primitive value</summary>
+
+  - immutable (code agreement: protected, hardcoded) constant primitive value (physical constants, coefficients, etc)
+  ```JavaScript
+  const LIGHT_SPEED = 255792458;
+  ```
+
+  </details>
+  
+  - immutable constant array
+  ```JavaScript
+  const DEFAULT_NAMES = ['Michael', 'Anna', 'Chris'];
+  ```
+  - enumeration (immutable constant) is a complete list of constants grouped by some sign
+  ```JavaScript
+  const Code = {
+    SUCCESS: 200,
+    CACHED: 302,
+    NOT_FOUND: 404,
+    SERVER_ERROR: 500
+  };
+  ```
+  - immutable constant object
+  ```JavaScript
+  const Earth = {
+    RADIUS: 6.371,
+    GRAVITATION: 6.67408
+  };
+  ```
 
 </details>
 

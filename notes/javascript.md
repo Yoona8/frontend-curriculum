@@ -231,7 +231,7 @@ parseInt(10n) - 5; // => 5
 
 ## Strings
 <details>
-<summary>Methods</summary>
+<summary>How to check if a string contains some text?</summary>
 
 ```JavaScript
 const playerName = 'Harry Potter';
@@ -252,16 +252,16 @@ console.log(playerName.includes('h')); // => false
 
 ## Iterables
 <details>
-<summary>General info</summary>
+<summary>What is an iterable (and examples)?</summary>
 
-- objects that implement the 'iterable' protocol and have an `@@iterator` method (ex `Symbol.iterator`)
+- objects that implement the 'iterable' protocol (have an `@@iterator` method (ex: `Symbol.iterator`))
 - basically objects where you can use `for ... of` loop
-- in JS there are many iterables: Array, NodeList, String, Map, Set
+- Array, NodeList, String, Map, Set, etc.
 
 </details>
 
 <details>
-<summary>Array</summary>
+<summary>What are the characteristics of an array?</summary>
 
 - store data of any kind and length
 - has many special methods
@@ -272,7 +272,7 @@ console.log(playerName.includes('h')); // => false
 </details>
 
 <details>
-<summary>Set</summary>
+<summary>What are the characteristics of a set?</summary>
 
 - store data of any kind and length
 - has own special methods
@@ -283,7 +283,7 @@ console.log(playerName.includes('h')); // => false
 </details>
 
 <details>
-<summary>Map</summary>
+<summary>What are the characteristics of a map?</summary>
 
 - store key-value data of any kind and length
 - any key values are allowed

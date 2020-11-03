@@ -76,3 +76,59 @@ parseInt(10n) - 5; // => 5
 ```
 
 </details>
+
+<details>
+<summary>How to check if a string contains some text?</summary>
+
+```JavaScript
+const playerName = 'Harry Potter';
+
+// case sensitive
+console.log(playerName.includes('rr')); // => true
+console.log(playerName.includes('h')); // => false
+```
+
+</details>
+
+<details>
+<summary>What is an iterable (and examples)?</summary>
+
+- objects that implement the 'iterable' protocol (have an `@@iterator` method (ex: `Symbol.iterator`))
+- basically objects where you can use `for ... of` loop
+- Array, NodeList, String, Map, Set, etc.
+
+</details>
+
+<details>
+<summary>What are the characteristics of an array?</summary>
+
+- store data of any kind and length
+- has many special methods
+- order is guaranteed
+- duplicates are allowed
+- index-based access
+
+</details>
+
+<details>
+<summary>What are the characteristics of a set?</summary>
+
+- store data of any kind and length
+- has own special methods
+- order is not guaranteed
+- duplicates are not allowed
+- no index-based access
+
+</details>
+
+<details>
+<summary>What are the characteristics of a map?</summary>
+
+- store key-value data of any kind and length
+- any key values are allowed
+- has own special methods
+- order is guaranteed
+- duplicate keys are not allowed
+- key-based access
+
+</details>

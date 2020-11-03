@@ -9,6 +9,41 @@
 
 ## Selectors
 <details>
+<summary>How does browser parse not valid selectors?</summary>
+
+- the group with not valid selector will be dropped
+```CSS
+h2 { font-weight: 400; }
+h3 { font-weight: 400; }
+/* won't work */
+p..: { font-weight: 400; }
+
+/* won't work */
+p..:, h2, h3 { font-weight: 400; }
+```
+- unknown pseudo elements are parsed as not valid (if they don't start with `-webkit`)
+```CSS
+/* parsed by chrome, ignored by mozilla */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: green;
+}
+
+/* ignored by chrome, parsed by mozilla */
+input[type="range"]::-moz-range-track {
+  background-color: green;
+}
+
+/* ignored by both browsers */
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track {
+  background-color: green;
+}
+```
+
+</details>
+
+
+<details>
 <summary>Pseudo classes</summary>
 
 - pseudo classes are dynamic (if we check the checkbox in the DOM - attribute is not added, `input:checked` will select this input but attribute selector `input[checked]` will not)

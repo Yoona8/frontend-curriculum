@@ -2606,6 +2606,7 @@ const data = getResponse('https://data.com/users');
 - JS is single threaded
 - browser is multi threaded
 - all kind of async tasks (like timers, event listeners, etc) are going to browser (message queue)
+- micro - promises (run first), macro - timeouts (run second)
 - when the call stack is empty, event loop goes through message queue
 - and executes the functions from there
 
@@ -3165,6 +3166,7 @@ sessionStorage.getItem('user');
 <details>
 <summary>Cookies</summary>
 
+- cookie stored to server
 - simple key-value store with some config options
 - manage user preferences or basic user data
 - can be cleared by the user and via JS

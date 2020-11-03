@@ -132,3 +132,31 @@ console.log(playerName.includes('h')); // => false
 - key-based access
 
 </details>
+
+<details>
+<summary>How to create an array?</summary>
+
+```JavaScript
+// before ES6
+// 1
+var numbers = new Array(3, 5); // => [3, 5]
+var emptyArray = new Array(3); // => [] with length === 3
+// 2
+var numbers2 = Array(3, 5);
+var emptyArray2 = Array(3);
+// 3
+var letters = ['a', 'r']; // => ['a', 'r']
+// 4 clones array and adds values from another array
+const newNumbers = numbers.concat([8, 5, 2]);
+
+// ES6+
+// 5 makes an array of any iterable (collection, separate values)
+const elements = Array.from(document.querySelectorAll('li'));
+const letters = Array.from('string');
+// 6 of separate values
+const values = Array.of(1, 2, 3);
+// 7
+const items = [...elements, ...values];
+```
+
+</details>

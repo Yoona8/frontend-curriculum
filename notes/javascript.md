@@ -305,29 +305,81 @@ console.log(playerName.includes('h')); // => false
 
 ## Iterables: Arrays
 <details>
-<summary>Creation</summary>
+<summary>How to create an array?</summary>
 
 ```JavaScript
 // before ES6
+// 1
 var numbers = new Array(3, 5); // => [3, 5]
-var numbers2 = Array(3, 5);
 var emptyArray = new Array(3); // => [] with length === 3
+// 2
+var numbers2 = Array(3, 5);
 var emptyArray2 = Array(3);
+// 3
 var letters = ['a', 'r']; // => ['a', 'r']
+// 4 clones array and adds values from another array
+const newNumbers = numbers.concat([8, 5, 2]);
 
 // ES6+
-// makes an array of any iterable (collection, separate values)
+// 5 makes an array of any iterable (collection, separate values)
 const elements = Array.from(document.querySelectorAll('li'));
 const letters = Array.from('string');
-// of separate values
+// 6 of separate values
 const values = Array.of(1, 2, 3);
+// 7
 const items = [...elements, ...values];
 ```
 
 </details>
 
 <details>
-<summary>Methods</summary>
+<summary>What if we leave some values empty in the middle?</summary>
+
+```JavaScript
+const numbers = [1, 2, 5];
+
+// items in between will be empty of undefined value
+numbers[5] = 23;
+```
+
+</details>
+
+<details>
+<summary>How to delete or add an element from (to) an array at the beginning or the end?</summary>
+
+- change the initial array
+```JavaScript
+const numbers = [1, 2, 5];
+// add/remove to the end/last of the array
+const newNumbersLength = numbers.push(7, 9);
+const newNumbersLength2 = numbers.push(...numbers);
+const removedItem = numbers.pop();
+// add/remove first, slower than push and pop
+const newNumbersLength3 = numbers.unshift(9, 12, 15);
+const newNumbersLength4 = numbers.unshift(...numbers);
+const removedItem2 = numbers.shift();
+```
+
+</details>
+
+<details>
+<summary>How to delete or add an element from (to) an array at any position?</summary>
+
+- change the initial array
+```JavaScript
+const numbers = [1, 2, 5];
+// start index, delete count, value to add (or more 10, 15)
+const removedElements = numbers.splice(1, 0, 10); // => [1, 10, 2, 5]
+// removes from the end
+const removedElements2 = numbers.splice(-1, 1); // => [1, 2]
+// will delete all items starting with the provided index
+const removedElements3 = numbers.splice(0);
+```
+
+</details>
+
+<details>
+<summary>Other methods</summary>
 
 ```JavaScript
 const numbers = [1, 2, 5];
@@ -342,23 +394,6 @@ const newText = words.join();
 const newText2 = words.join(' ');
 
 // change the initial array
-// --- *** ---
-// add/remove to the end/last of the array
-const newNumbersLength = numbers.push(7, 9);
-const removedItem = numbers.pop();
-// add/remove first, slower than push and pop
-const newNumbersLengthValue = numbers.unshift(9, 12, 15);
-const removedItem2 = numbers.shift();
-// items in between will be empty of undefined value
-numbers[5] = 23;
-// --- *** ---
-// start index, delete count, value to add (or more 10, 15)
-numbers.splice(1, 0, 10); // => [1, 10, 2, 5]
-// removes from the end
-numbers.splice(-1, 1); // => [1, 2]
-// will delete all items starting with the provided index
-const removedElements = numbers.splice(0);
-// --- *** ---
 const reversedNumbers = numbers.reverse();
 // --- *** ---
 // by default converts to a string and sorts characters

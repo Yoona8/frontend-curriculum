@@ -21,7 +21,7 @@ p..: { font-weight: 400; }
 /* won't work */
 p..:, h2, h3 { font-weight: 400; }
 ```
-- unknown pseudo elements are parsed as not valid (if they don't start with `-webkit`)
+- unknown pseudo classes are parsed as not valid (if they don't start with `-webkit`)
 ```CSS
 /* parsed by chrome, ignored by mozilla */
 input[type="range"]::-webkit-slider-runnable-track {
@@ -42,11 +42,24 @@ input[type="range"]::-moz-range-track {
 
 </details>
 
-
 <details>
-<summary>Pseudo classes</summary>
+<summary>What is the difference (pseudo classes vs attribute)?</summary>
 
-- pseudo classes are dynamic (if we check the checkbox in the DOM - attribute is not added, `input:checked` will select this input but attribute selector `input[checked]` will not)
+- pseudo classes are dynamic, attributes are not
+```CSS
+/* if checked by user, html doesn't change */
+/* but this selector will react to user changes */
+input:checked {}
+
+/* reacts only when the attribute in HTML is changed (or added/removed) */
+input[checked] {}
+``` 
+
+</details>
+
+</details>
+<summary></summary>
+
 ```CSS
 /* forms */
 input:checked {}

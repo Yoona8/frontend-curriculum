@@ -1,0 +1,78 @@
+# Review progress and questions I have to review
+## 03 Nov 2020
+### JavaScript
+
+<details>
+<summary>What is the type of null?</summary>
+
+```JavaScript
+// 2 - null
+console.log(typeof null); // => object
+```
+
+</details>
+
+<details>
+<summary>How are the numbers stored?</summary>
+
+- every number is a float
+- numbers are stored as 64 Bit Floating Points (some issues and limits)
+
+</details>
+
+<details>
+<summary>What system JS uses to work with numbers?</summary>
+
+- JS works with binary numbers and converts into decimal
+
+</details>
+
+<details>
+<summary>What are the maximum and minimum numbers?</summary>
+
+```JavaScript
+// max numbers
+Number.MAX_SAFE_INTEGER; // 2^53 - 1
+Number.MIN_SAFE_INTEGER; // -(2^53 - 1)
+// floats
+Number.MAX_VALUE;
+// > or < calculations won't work, only display
+// if we do such calculations, no errors
+// but strange results because of binary system
+```
+
+</details>
+
+<details>
+<summary>What are the strange number cases and why do they occur?</summary>
+
+- because JS works with binary and converts into decimal, there are some strange cases
+```JavaScript
+0.2 + 0.4 === 0.6; // => false (0.6000...1)
+// something similar to 1/3 happens (0.33333(3))
+(1).toString(2); // => 1
+(5).toString(2); // => 101
+(1/5).toString(2); // => 0.001100110011...
+(0.2).toString(2); // => 0.001100110011...
+0.2; // => 0.2
+0.2.toFixed(20); // => 0.2000...1110
+```
+
+</details>
+
+<details>
+<summary>How does BigInt work and when do we use it?</summary>
+
+- only integer, decimal => error
+```JavaScript
+// can't mix with numbers
+10n - 5; // => error
+// but can use like this
+10n - 5n; // => 5n
+parseInt(10n) - 5; // => 5
+10n - BigInt(5); // => 5n
+// omits decimal
+5n / 2n; // => 2n (not 2.5n)
+```
+
+</details>

@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03 Nov 2020
+## 03, 04, 05 Nov 2020
 ### JavaScript
 
 <details>
@@ -13,50 +13,9 @@ console.log(typeof null); // => object
 </details>
 
 <details>
-<summary>How are the numbers stored?</summary>
-
-- every number is a float
-- numbers are stored as 64 Bit Floating Points (some issues and limits)
-
-</details>
-
-<details>
 <summary>What system JS uses to work with numbers?</summary>
 
 - JS works with binary numbers and converts into decimal
-
-</details>
-
-<details>
-<summary>What are the maximum and minimum numbers?</summary>
-
-```JavaScript
-// max numbers
-Number.MAX_SAFE_INTEGER; // 2^53 - 1
-Number.MIN_SAFE_INTEGER; // -(2^53 - 1)
-// floats
-Number.MAX_VALUE;
-// > or < calculations won't work, only display
-// if we do such calculations, no errors
-// but strange results because of binary system
-```
-
-</details>
-
-<details>
-<summary>What are the strange number cases and why do they occur?</summary>
-
-- because JS works with binary and converts into decimal, there are some strange cases
-```JavaScript
-0.2 + 0.4 === 0.6; // => false (0.6000...1)
-// something similar to 1/3 happens (0.33333(3))
-(1).toString(2); // => 1
-(5).toString(2); // => 101
-(1/5).toString(2); // => 0.001100110011...
-(0.2).toString(2); // => 0.001100110011...
-0.2; // => 0.2
-0.2.toFixed(20); // => 0.2000...1110
-```
 
 </details>
 
@@ -100,6 +59,77 @@ console.log(playerName.includes('h')); // => false
 </details>
 
 <details>
+<summary>How to create an array?</summary>
+
+```JavaScript
+// before ES6
+// 1
+var numbers = new Array(3, 5); // => [3, 5]
+var emptyArray = new Array(3); // => [] with length === 3
+// 2
+var numbers2 = Array(3, 5);
+var emptyArray2 = Array(3);
+// 3
+var letters = ['a', 'r']; // => ['a', 'r']
+// 4 clones array and adds values from another array
+const newNumbers = numbers.concat([8, 5, 2]);
+
+// ES6+
+// 5 makes an array of any iterable (collection, separate values)
+const elements = Array.from(document.querySelectorAll('li'));
+const letters = Array.from('string');
+// 6 of separate values
+const values = Array.of(1, 2, 3);
+// 7
+const items = [...elements, ...values];
+```
+
+</details>
+
+## 05 Nov 2020
+### JavaScript
+<details>
+<summary>How are the numbers stored?</summary>
+
+- every number is a float
+- numbers are stored as 64 Bit Floating Points (some issues and limits)
+
+</details>
+
+<details>
+<summary>What are the maximum and minimum numbers?</summary>
+
+```JavaScript
+// max numbers
+Number.MAX_SAFE_INTEGER; // 2^53 - 1
+Number.MIN_SAFE_INTEGER; // -(2^53 - 1)
+// floats
+Number.MAX_VALUE;
+// > or < calculations won't work, only display
+// if we do such calculations, no errors
+// but strange results because of binary system
+```
+
+</details>
+
+<details>
+<summary>What are the strange number cases and why do they occur?</summary>
+
+- because JS works with binary and converts into decimal, there are some strange cases
+```JavaScript
+0.2 + 0.4 === 0.6; // => false (0.6000...1)
+// something similar to 1/3 happens (0.33333(3))
+(1).toString(2); // => 1
+(5).toString(2); // => 101
+(1/5).toString(2); // => 0.001100110011...
+(0.2).toString(2); // => 0.001100110011...
+0.2; // => 0.2
+0.2.toFixed(20); // => 0.2000...1110
+```
+
+</details>
+
+<details>
 <summary>What are the characteristics of an array?</summary>
 
 - store data of any kind and length
@@ -130,33 +160,5 @@ console.log(playerName.includes('h')); // => false
 - order is guaranteed
 - duplicate keys are not allowed
 - key-based access
-
-</details>
-
-<details>
-<summary>How to create an array?</summary>
-
-```JavaScript
-// before ES6
-// 1
-var numbers = new Array(3, 5); // => [3, 5]
-var emptyArray = new Array(3); // => [] with length === 3
-// 2
-var numbers2 = Array(3, 5);
-var emptyArray2 = Array(3);
-// 3
-var letters = ['a', 'r']; // => ['a', 'r']
-// 4 clones array and adds values from another array
-const newNumbers = numbers.concat([8, 5, 2]);
-
-// ES6+
-// 5 makes an array of any iterable (collection, separate values)
-const elements = Array.from(document.querySelectorAll('li'));
-const letters = Array.from('string');
-// 6 of separate values
-const values = Array.of(1, 2, 3);
-// 7
-const items = [...elements, ...values];
-```
 
 </details>

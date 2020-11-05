@@ -2,9 +2,15 @@
 
 ## Main root
 <details>
-<summary>HTML basic structure</summary>
+<summary>What tag represents the root element?</summary>
 
 - `<html>` represents the root (top-level element)
+
+</details>
+
+<details>
+<summary>What is the most basic HTML structure?</summary>
+
 ```HTML
 <!doctype html>
 <html>
@@ -27,14 +33,27 @@
 
 ## Metadata content
 <details>
-<summary>Meta tags</summary>
+<summary>How, where and why we set the charset?</summary>
 
 ```HTML
-<!-- add always -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+```
 
-<!-- optional -->
+</details>
+
+<details>
+<summary>How and why do we set the viewport?</summary>
+
+```HTML
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+</details>
+
+<details>
+<summary>What tags do we use to describe the content of the page for searching engines?</summary>
+
+```HTML
 <meta name="keywords" content="...">
 <meta name="description" content="...">
 ```

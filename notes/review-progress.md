@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, 04, 05 Nov 2020
+## 03, 04, 05 Nov 2020 (next 07, 09, 11, 14, 17, 22, 29)
 ### JavaScript
 
 <details>
@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05 Nov 2020
+## 05 Nov 2020 (next 06, 07, 09, 11, 13, 16, 20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>

@@ -62,12 +62,23 @@
 
 ## Flow content
 <details>
-<summary>Lists</summary>
+<summary>How to change the start point of an ordered list?</summary>
 
+- use `start` attribute
 ```HTML
-<!-- start to set the start point -->
-<!-- reversed - bool, changes the order -->
-<ol start="10" reversed>
+<ol start="10">
+  <li></li>
+</ol>
+```
+
+</details>
+
+<details>
+<summary>How to change the items order in an ordered list?</summary>
+
+- add the `reversed` attribute
+```HTML
+<ol reversed>
   <li></li>
 </ol>
 ```

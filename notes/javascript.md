@@ -345,7 +345,53 @@ numbers[5] = 23;
 </details>
 
 <details>
-<summary>How to delete or add an element from (to) an array at the beginning or the end?</summary>
+<summary>How to make an array of a string?</summary>
+
+```JavaScript
+const text = 'One two three';
+const words = text.split(' ');
+const words2 = Array.from(text);
+```
+
+</details>
+
+<details>
+<summary>How to make a string of an array?</summary>
+
+```JavaScript
+const words = ['one', 'two', 'three'];
+// by default separates with ,
+const text = words.join();
+const text2 = words.join(' ');
+```
+
+</details>
+
+<details>
+<summary>How to check is the array includes some item?</summary>
+
+```JavaScript
+const numbers = [1, 2, 5];
+// the same numbers.indexOf(5) !== -1
+const isNumberInNumbers = numbers.includes(5);
+```
+
+</details>
+
+<details>
+<summary>How to get the index of an item in an array?</summary>
+
+```JavaScript
+// if several same values => returns the index of the first
+const index = numbers.indexOf(5);
+// if several same values => returns the index of the last
+const lastIndex = numbers.lastIndexOf(5);
+```
+
+</details>
+
+<details>
+<summary>How to delete or add an element from (to) an array at the start or the end?</summary>
 
 - change the initial array
 ```JavaScript
@@ -379,23 +425,33 @@ const removedElements3 = numbers.splice(0);
 </details>
 
 <details>
-<summary>Other methods</summary>
+<summary>How reverse items in an array?</summary>
 
+- change the initial array
 ```JavaScript
 const numbers = [1, 2, 5];
-const text = 'One two three';
-
-// doesn't change the initial array
-numbers.forEach();
-// arrays and strings
-const words = text.split(' ');
-// by default separates with ,
-const newText = words.join();
-const newText2 = words.join(' ');
-
-// change the initial array
 const reversedNumbers = numbers.reverse();
-// --- *** ---
+```
+
+</details>
+
+<details>
+<summary>What iteration method do we use to iterate over the whole array and don't need to create something of the array?</summary>
+
+- doesn't change the initial array
+```JavaScript
+const numbers = [1, 2, 5];
+numbers.forEach();
+```
+
+</details>
+
+<details>
+<summary>How to sort items in an array?</summary>
+
+- changes the initial array
+```JavaScript
+const numbers = [1, 2, 5];
 // by default converts to a string and sorts characters
 const sortedDefault = numbers.sort();
 const sortedNumbers = numbers.sort((a, b) => {
@@ -412,9 +468,16 @@ const sortedNumbers = numbers.sort((a, b) => {
   // or
   return a - b;
 });
+```
 
-// return new array
-// --- *** ---
+</details>
+
+<details>
+<summary>How to copy an array or a part of it?</summary>
+
+- returns a new array
+```JavaScript
+const numbers = [1, 2, 5];
 // copy an array
 const clonedNumbers = numbers.slice();
 // copy starting from index till the end
@@ -426,26 +489,62 @@ const emptyNumbers = numbers.slice(3, 2);
 const emptyNumbers2 = numbers.slice(-3, -4);
 // from the end
 const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
-// --- *** ---
+```
+
+</details>
+
+<details>
+<summary>How to copy a whole array and add new items?</summary>
+
+- returns a new array
+```JavaScript
+const numbers = [1, 2, 5];
 // clones array and adds values from another array
 const newNumbers = numbers.concat([8, 5, 2]);
-// --- *** ---
-const filteredNumbers = numbers.filter();
-// --- *** ---
-const newTransformedNumbers = numbers.map();
+```
 
-// return new something
-// --- *** ---
-// if several same values => returns the index of the first
-const index = numbers.indexOf(5);
-// if several same values => returns the index of the last
-const lastIndex = numbers.lastIndexOf(5);
-// the same numbers.indexOf(5) !== -1
-const isNumberInNumbers = numbers.includes(5);
-// --- *** ---
-const number = numbers.find();
-const numberIndex = numbers.findIndex();
-// --- *** ---
+</details>
+
+<details>
+<summary>How to filter the items in an array?</summary>
+
+- returns a new array
+```JavaScript
+const numbers = [1, 2, 5];
+const filteredNumbers = numbers.filter();
+```
+
+</details>
+
+<details>
+<summary>How to create a new array based on the given array?</summary>
+
+- returns a new array
+```JavaScript
+const numbers = [1, 2, 5];
+const newTransformedNumbers = numbers.map();
+```
+
+</details>
+
+<details>
+<summary>How to find an item or an index in an array?</summary>
+
+```JavaScript
+const numbers = [1, 2, 5];
+// first element in the array
+const number = numbers.find(number => number > 1); // => 2
+// index of the first element or -1
+const numberIndex = numbers.findIndex(number => number > 1); // => 1
+```
+
+</details>
+
+<details>
+<summary>How to get the single output value of an array?</summary>
+
+```JavaScript
+const numbers = [1, 2, 5];
 const sum = numbers.reduce((prevValue, number, index, numbers) => {
   return prevValue + number;
 }, 0);
@@ -454,11 +553,10 @@ const sum = numbers.reduce((prevValue, number, index, numbers) => {
 </details>
 
 <details>
-<summary>Arrays as a stack LIFO</summary>
+<summary>How and why to create a stack using an array (LIFO)?</summary>
 
 - for tasks, when we have to store previous item (history, browser history, games)
 - also available to 'go forward' the history (have to store the removed action back to the stack)
-
 ```JavaScript
 const questions = [{
   question: 'Which class has a different teacher every year?',
@@ -508,11 +606,10 @@ console.log(questions[0].question);
 </details>
 
 <details>
-<summary>Arrays as a queue FIFO</summary>
+<summary>How and why to create a queue using an array (FIFO)?</summary>
 
 - for tasks to be executed in a row after some async event
 - for unique actions can use `Set` instead of `Array`
-
 ```JavaScript
 const callbacks = [];
 

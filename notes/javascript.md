@@ -1,4 +1,13 @@
 # JavaScript
+- [Basic definitions](#basic-definitions)
+- [Good practices](#good-practices)
+- [Code style](#code-style)
+- [Constants and variables](#constants-and-variables)
+- [Data types and structures](#data-types-and-structures)
+- [Numbers](#numbers)
+- [Strings](#strings)
+- [Iterables](#iterables)
+- [Iterables: Arrays](#iterables-arrays)
 
 ## Basic definitions
 <details>

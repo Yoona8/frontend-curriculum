@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, 06 Nov 2020 (next 07, 09, 11, 13, 16, 20, 25, 02 Dec)
+## 05, 06, 07 Nov 2020 (next 09, 11, 13, 16, 20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -197,7 +197,7 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06 Nov 2020 (next 07, 08, 10, 12, 15, 19, 24, 30, 07 Dec)
+## 06, 07 Nov 2020 (next 08, 10, 12, 15, 19, 24, 30, 07 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
@@ -240,6 +240,105 @@ const numbers = [1, 2, 5];
 const number = numbers.find(number => number > 1); // => 2
 // index of the first element or -1
 const numberIndex = numbers.findIndex(number => number > 1); // => 1
+```
+
+</details>
+
+## 06, 07 Nov 2020 (next 08, 10, 12, 15, 19, 24, 30, 07 Dec)
+### JavaScript
+<details>
+<summary>How and why to create a stack using an array (LIFO)?</summary>
+
+- for tasks, when we have to store previous item (history, browser history, games)
+- also available to 'go forward' the history (have to store the removed action back to the stack)
+```JavaScript
+const questions = [{
+  question: 'Which class has a different teacher every year?',
+  answers: [{
+    answer: 'Defence against the dark arts',
+    isCorrect: true
+  }, {
+    answer: 'Potions',
+    isCorrect: false
+  }]
+}, {
+  question: 'What animal represents Hufflepuff house?',
+  answers: [{
+    answer: 'The Burrow',
+    isCorrect: true
+  }, {
+    answer: 'The Fox',
+    isCorrect: false
+  }]
+}];
+
+const history = [];
+
+const changeQuestion = (newQuestion) => {
+  const oldQuestion = questions[0].question;
+
+  questions[0].question = newQuestion;
+  
+  // store the action (function) and add to the history array
+  // works because of closures
+  history.push(() => questions[0].question = oldQuestion);
+};
+
+console.log(questions[0].question);
+changeQuestion('What was the original question?');
+console.log(questions[0].question);
+changeQuestion('Who is Harry Potter?');
+console.log(questions[0].question);
+
+// to get back the stored value
+history.pop()();
+console.log(questions[0].question);
+history.pop()();
+console.log(questions[0].question);
+```
+
+</details>
+
+<details>
+<summary>How and why to create a queue using an array (FIFO)?</summary>
+
+- for tasks to be executed in a row after some async event
+- for unique actions can use `Set` instead of `Array`
+```JavaScript
+const callbacks = [];
+
+const addAsyncListener = (fn) => {
+  // check if the callback exists (used before set was created)
+  if (!callbacks.find((it) => it === fn)) {
+    callbacks.push(fn);
+  }
+};
+
+const startAsync = () => {
+  setTimeout(() => {
+    for (const cb of callbacks) {
+      callbacks.delete(cb);
+      cb();
+    }
+
+    console.log('Done');
+  }, 500);
+};
+
+const log2 = () => console.log(2);
+
+addAsyncListener(() => console.log(1));
+addAsyncListener(log2);
+addAsyncListener(log2); // won't be added to array
+addAsyncListener(() => console.log(3));
+
+console.log('Start!');
+startAsync();
+
+addAsyncListener(() => console.log(4));
+addAsyncListener(() => console.log(5));
+
+// the log will be: Start! 1 2 3 4 5 Done
 ```
 
 </details>

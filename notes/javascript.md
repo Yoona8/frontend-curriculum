@@ -358,8 +358,8 @@ numbers[5] = 23;
 
 ```JavaScript
 const text = 'One two three';
-const words = text.split(' ');
-const words2 = Array.from(text);
+const words = text.split(' '); // => ['One', 'two', 'three']
+const words2 = Array.from(text); // => ['O', ..., ' ', 't', ...]
 ```
 
 </details>
@@ -377,7 +377,7 @@ const text2 = words.join(' ');
 </details>
 
 <details>
-<summary>How to check is the array includes some item?</summary>
+<summary>How to check if the array includes some item?</summary>
 
 ```JavaScript
 const numbers = [1, 2, 5];
@@ -596,7 +596,7 @@ const changeQuestion = (newQuestion) => {
   
   // store the action (function) and add to the history array
   // works because of closures
-  history.push(() => questions[0].question = oldQuestion;
+  history.push(() => questions[0].question = oldQuestion);
 };
 
 console.log(questions[0].question);

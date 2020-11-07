@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, 04, 05 Nov 2020 (next 07, 09, 11, 14, 17, 22, 29)
+## 03, 04, 05, 06 Nov 2020 (next 08, 10, 12, 15, 18, 23, 30)
 ### JavaScript
 
 <details>
@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05 Nov 2020 (next 06, 07, 09, 11, 13, 16, 20, 25, 02 Dec)
+## 05, 06 Nov 2020 (next 07, 09, 11, 13, 16, 20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -193,6 +193,53 @@ const removedElements = numbers.splice(1, 0, 10); // => [1, 10, 2, 5]
 const removedElements2 = numbers.splice(-1, 1); // => [1, 2]
 // will delete all items starting with the provided index
 const removedElements3 = numbers.splice(0);
+```
+
+</details>
+
+## 06 Nov 2020 (next 07, 08, 10, 12, 15, 19, 24, 30, 07 Dec)
+### JavaScript
+<details>
+<summary>How to make an array of a string?</summary>
+
+```JavaScript
+const text = 'One two three';
+const words = text.split(' ');
+const words2 = Array.from(text);
+```
+
+</details>
+
+<details>
+<summary>How to copy an array or a part of it?</summary>
+
+- returns a new array
+```JavaScript
+const numbers = [1, 2, 5];
+// copy an array
+const clonedNumbers = numbers.slice();
+// copy starting from index till the end
+const clonedNumbers2 = numbers.slice(2);
+// end item not included
+const clonedNumbers3 = numbers.slice(0, 2); // => [1, 2]
+// [] if nothing is in between
+const emptyNumbers = numbers.slice(3, 2);
+const emptyNumbers2 = numbers.slice(-3, -4);
+// from the end
+const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
+```
+
+</details>
+
+<details>
+<summary>How to find an item or an index in an array?</summary>
+
+```JavaScript
+const numbers = [1, 2, 5];
+// first element in the array
+const number = numbers.find(number => number > 1); // => 2
+// index of the first element or -1
+const numberIndex = numbers.findIndex(number => number > 1); // => 1
 ```
 
 </details>

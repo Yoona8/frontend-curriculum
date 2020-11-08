@@ -342,3 +342,86 @@ addAsyncListener(() => console.log(5));
 </details>
 
 ## 08 Nov 2020 (next 09, 10, 12, 14, 17, 21, 26, 02, 09 Dec)
+### JavaScript
+<details>
+<summary>How to create the set and add items?</summary>
+
+```JavaScript
+const data = new Set();
+// add items
+data.add(1);
+
+// based on array or any other iterable
+const data = new Set([1, 4, 8]);
+```
+
+</details>
+
+<details>
+<summary>How to check if the item is in the set?</summary>
+
+```JavaScript
+const isElementInData = data2.has(1); // => true
+```
+
+</details>
+
+<details>
+<summary>How to delete the item and what if there is no such item?</summary>
+
+```JavaScript
+const data = new Set([1, 4, 8]);
+// delete not existed item does nothing
+data.delete(1);
+```
+
+</details>
+
+<details>
+<summary>Is set an iterable and how to iterate?</summary>
+
+```JavaScript
+const data = new Set([1, 4, 8]);
+// iterable
+for (const item of data) {
+  console.log(item);
+}
+```
+
+</details>
+
+<details>
+<summary>What are the entries of the set?</summary>
+
+```JavaScript
+const data = new Set([1, 4, 8]);
+const entries = data.entries();
+
+for (const entry of entries) {
+  console.log(entry); // => [1, 1] => [4, 4] => [8, 8]
+}
+```
+
+</details>
+
+<details>
+<summary>What is a WeakSet and how is it different from a Set?</summary>
+
+- less methods available
+- have to store objects, not primitives
+- that's because JS clears those objects (releases to garbage collection) if you don't work with the certain piece of data anymore
+```JavaScript
+let user = {name: 'Harry'};
+const users = new WeakSet();
+
+users.add(user);
+
+// do some operations with user
+// still need the set, but not the user
+// JS garbage collector will remove the object
+// but if we use the Set(), the object (reference type) will not be removed
+// from the Set
+user = null;
+```
+
+</details>

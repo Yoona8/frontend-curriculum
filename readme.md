@@ -35,7 +35,7 @@
 - [Graphics](./notes/graphics.md)
 - Color Theory
 - [Fonts](./notes/fonts.md)
-- Design
+- [Design](./notes/design.md)
 
 </details>
 

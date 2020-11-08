@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, 04, 05, 06 Nov 2020 (next 08, 10, 12, 15, 18, 23, 30)
+## 03, ..., 08 Nov 2020 (10, 12, 15, 18, 23, 30)
 ### JavaScript
 
 <details>
@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, 06, 07 Nov 2020 (next 09, 11, 13, 16, 20, 25, 02 Dec)
+## 05, ..., 07 Nov 2020 (next 09, 11, 13, 16, 20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -197,15 +197,15 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06, 07 Nov 2020 (next 08, 10, 12, 15, 19, 24, 30, 07 Dec)
+## 06, ..., 08 Nov 2020 (next 10, 12, 15, 19, 24, 30, 07 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
 
 ```JavaScript
 const text = 'One two three';
-const words = text.split(' ');
-const words2 = Array.from(text);
+const words = text.split(' '); // => ['One', 'two', 'three']
+const words2 = Array.from(text); // => ['O', ..., ' ', 't', ...]
 ```
 
 </details>
@@ -244,8 +244,6 @@ const numberIndex = numbers.findIndex(number => number > 1); // => 1
 
 </details>
 
-## 06, 07 Nov 2020 (next 08, 10, 12, 15, 19, 24, 30, 07 Dec)
-### JavaScript
 <details>
 <summary>How and why to create a stack using an array (LIFO)?</summary>
 
@@ -342,3 +340,5 @@ addAsyncListener(() => console.log(5));
 ```
 
 </details>
+
+## 08 Nov 2020 (next 09, 10, 12, 14, 17, 21, 26, 02, 09 Dec)

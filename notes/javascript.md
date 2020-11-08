@@ -666,28 +666,61 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## Iterables: Sets
+## Iterables: Sets and WeakSets
 <details>
-<summary>Working with sets</summary>
+<summary>How to create the set and add items?</summary>
 
 ```JavaScript
 const data = new Set();
+// add items
 data.add(1);
 
 // based on array or any other iterable
-const data2 = new Set([1, 4, 8]);
+const data = new Set([1, 4, 8]);
+```
 
+</details>
+
+<details>
+<summary>How to check if the item is in the set?</summary>
+
+```JavaScript
 const isElementInData = data2.has(1); // => true
+```
 
+</details>
+
+<details>
+<summary>How to delete the item and what if there is no such item?</summary>
+
+```JavaScript
+const data = new Set([1, 4, 8]);
 // delete not existed item does nothing
-data2.delete(1);
+data.delete(1);
+```
 
+</details>
+
+<details>
+<summary>Is set an iterable and how to iterate?</summary>
+
+```JavaScript
+const data = new Set([1, 4, 8]);
 // iterable
-for (const item of data2) {
+for (const item of data) {
   console.log(item);
 }
+```
 
-const entries = data2.entries();
+</details>
+
+<details>
+<summary>What are the entries of the set?</summary>
+
+```JavaScript
+const data = new Set([1, 4, 8]);
+const entries = data.entries();
+
 for (const entry of entries) {
   console.log(entry); // => [1, 1] => [4, 4] => [8, 8]
 }
@@ -696,7 +729,7 @@ for (const entry of entries) {
 </details>
 
 <details>
-<summary>WeakSet</summary>
+<summary>What is a WeakSet and how is it different from a Set?</summary>
 
 - less methods available
 - have to store objects, not primitives

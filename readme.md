@@ -106,3 +106,4 @@
 - [Performance and optimizations](./notes/optimizations.md)
 - [Web Skills map](https://andreasbm.github.io/web-skills/)
 - [FreeCodeCamp](https://www.freecodecamp.org/)
+- [A book apart](https://abookapart.com/products/)

@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, ..., 07 Nov 2020 (next 09, 11, 13, 16, 20, 25, 02 Dec)
+## 05, ..., 09 Nov 2020 (11, 13, 16, 20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -197,7 +197,7 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06, ..., 08 Nov 2020 (next 10, 12, 15, 19, 24, 30, 07 Dec)
+## 06, ..., 08 Nov 2020 (10, 12, 15, 19, 24, 30, 07 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
@@ -341,7 +341,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 08 Nov 2020 (next 09, 10, 12, 14, 17, 21, 26, 02, 09 Dec)
+## 08, ..., 09 Nov 2020 (10, 12, 14, 17, 21, 26, 02, 09 Dec)
 ### JavaScript
 <details>
 <summary>How to create the set and add items?</summary>
@@ -425,3 +425,5 @@ user = null;
 ```
 
 </details>
+
+## 09 Nov 2020 (10, 11, 13, 15, 18, 22, 27, 03, 10 Dec)

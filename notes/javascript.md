@@ -8,6 +8,7 @@
 - [Strings](#strings)
 - [Iterables](#iterables)
 - [Iterables: Arrays](#iterables-arrays)
+- [Iterables: Sets and WeakSets](#iterables-sets-and-weaksets)
 
 ## Basic definitions
 <details>
@@ -314,7 +315,7 @@ console.log(playerName.includes('h')); // => false
 
 ## Iterables: Arrays
 <details>
-<summary>How to create an array?</summary>
+<summary>How to create an Array?</summary>
 
 ```JavaScript
 // before ES6
@@ -354,7 +355,7 @@ numbers[5] = 23;
 </details>
 
 <details>
-<summary>How to make an array of a string?</summary>
+<summary>How to make an Array of a string?</summary>
 
 ```JavaScript
 const text = 'One two three';
@@ -365,7 +366,7 @@ const words2 = Array.from(text); // => ['O', ..., ' ', 't', ...]
 </details>
 
 <details>
-<summary>How to make a string of an array?</summary>
+<summary>How to make a string of an Array?</summary>
 
 ```JavaScript
 const words = ['one', 'two', 'three'];
@@ -377,7 +378,7 @@ const text2 = words.join(' ');
 </details>
 
 <details>
-<summary>How to check if the array includes some item?</summary>
+<summary>How to check if the Array includes some item?</summary>
 
 ```JavaScript
 const numbers = [1, 2, 5];
@@ -388,7 +389,7 @@ const isNumberInNumbers = numbers.includes(5);
 </details>
 
 <details>
-<summary>How to get the index of an item in an array?</summary>
+<summary>How to get the index of an item in an Array?</summary>
 
 ```JavaScript
 // if several same values => returns the index of the first
@@ -400,7 +401,7 @@ const lastIndex = numbers.lastIndexOf(5);
 </details>
 
 <details>
-<summary>How to delete or add an element from (to) an array at the start or the end?</summary>
+<summary>How to delete or add an element from (to) an Array at the start or the end?</summary>
 
 - change the initial array
 ```JavaScript
@@ -418,7 +419,7 @@ const removedItem2 = numbers.shift();
 </details>
 
 <details>
-<summary>How to delete or add an element from (to) an array at any position?</summary>
+<summary>How to delete or add an element from (to) an Array at any position?</summary>
 
 - change the initial array
 ```JavaScript
@@ -434,7 +435,7 @@ const removedElements3 = numbers.splice(0);
 </details>
 
 <details>
-<summary>How reverse items in an array?</summary>
+<summary>How reverse items in an Array?</summary>
 
 - change the initial array
 ```JavaScript
@@ -445,7 +446,7 @@ const reversedNumbers = numbers.reverse();
 </details>
 
 <details>
-<summary>What iteration method do we use to iterate over the whole array and don't need to create something of the array?</summary>
+<summary>What iteration method do we use to iterate over the whole Array and don't need to create something of the Array?</summary>
 
 - doesn't change the initial array
 ```JavaScript
@@ -456,7 +457,7 @@ numbers.forEach();
 </details>
 
 <details>
-<summary>How to sort items in an array?</summary>
+<summary>How to sort items in an Array?</summary>
 
 - changes the initial array
 ```JavaScript
@@ -482,7 +483,7 @@ const sortedNumbers = numbers.sort((a, b) => {
 </details>
 
 <details>
-<summary>How to copy an array or a part of it?</summary>
+<summary>How to copy an Array or a part of it?</summary>
 
 - returns a new array
 ```JavaScript
@@ -503,7 +504,7 @@ const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
 </details>
 
 <details>
-<summary>How to copy a whole array and add new items?</summary>
+<summary>How to copy a whole Array and add new items?</summary>
 
 - returns a new array
 ```JavaScript
@@ -515,7 +516,7 @@ const newNumbers = numbers.concat([8, 5, 2]);
 </details>
 
 <details>
-<summary>How to filter the items in an array?</summary>
+<summary>How to filter the items in an Array?</summary>
 
 - returns a new array
 ```JavaScript
@@ -526,7 +527,7 @@ const filteredNumbers = numbers.filter();
 </details>
 
 <details>
-<summary>How to create a new array based on the given array?</summary>
+<summary>How to create a new Array based on the given Array?</summary>
 
 - returns a new array
 ```JavaScript
@@ -537,7 +538,7 @@ const newTransformedNumbers = numbers.map();
 </details>
 
 <details>
-<summary>How to find an item or an index in an array?</summary>
+<summary>How to find an item or an index in an Array?</summary>
 
 ```JavaScript
 const numbers = [1, 2, 5];
@@ -550,7 +551,7 @@ const numberIndex = numbers.findIndex(number => number > 1); // => 1
 </details>
 
 <details>
-<summary>How to get the single output value of an array?</summary>
+<summary>How to get the single output value of an Array?</summary>
 
 ```JavaScript
 const numbers = [1, 2, 5];
@@ -562,7 +563,7 @@ const sum = numbers.reduce((prevValue, number, index, numbers) => {
 </details>
 
 <details>
-<summary>How and why to create a stack using an array (LIFO)?</summary>
+<summary>How and why to create a stack using an Array (LIFO)?</summary>
 
 - for tasks, when we have to store previous item (history, browser history, games)
 - also available to 'go forward' the history (have to store the removed action back to the stack)
@@ -615,7 +616,7 @@ console.log(questions[0].question);
 </details>
 
 <details>
-<summary>How and why to create a queue using an array (FIFO)?</summary>
+<summary>How and why to create a queue using an Array (FIFO)?</summary>
 
 - for tasks to be executed in a row after some async event
 - for unique actions can use `Set` instead of `Array`
@@ -668,7 +669,7 @@ addAsyncListener(() => console.log(5));
 
 ## Iterables: Sets and WeakSets
 <details>
-<summary>How to create the set and add items?</summary>
+<summary>How to create a Set and add items?</summary>
 
 ```JavaScript
 const data = new Set();
@@ -682,7 +683,7 @@ const data = new Set([1, 4, 8]);
 </details>
 
 <details>
-<summary>How to check if the item is in the set?</summary>
+<summary>How to check if the item is in the Set?</summary>
 
 ```JavaScript
 const isElementInData = data2.has(1); // => true
@@ -691,7 +692,7 @@ const isElementInData = data2.has(1); // => true
 </details>
 
 <details>
-<summary>How to delete the item and what if there is no such item?</summary>
+<summary>How to delete an item and what if there is no such item?</summary>
 
 ```JavaScript
 const data = new Set([1, 4, 8]);
@@ -702,7 +703,7 @@ data.delete(1);
 </details>
 
 <details>
-<summary>Is set an iterable and how to iterate?</summary>
+<summary>Is a Set an iterable and how to iterate?</summary>
 
 ```JavaScript
 const data = new Set([1, 4, 8]);
@@ -715,7 +716,7 @@ for (const item of data) {
 </details>
 
 <details>
-<summary>What are the entries of the set?</summary>
+<summary>What are the entries of a Set?</summary>
 
 ```JavaScript
 const data = new Set([1, 4, 8]);
@@ -760,24 +761,61 @@ user = null;
 
 ## Iterables: Maps
 <details>
-<summary>Dictionaries - Map</summary>
+<summary>Why a Map, not just an Object?</summary>
 
 - any keys possible
 - iterable
 - pairs are objects
 - better performance (than object) for large quantities of data
 - better performance when adding / removing data frequently
-```JavaScript
-let pairs = new Map();
 
+</details>
+
+<details>
+<summary>How to create a Map and add items?</summary>
+
+```JavaScript
+const pairs = new Map();
+// add items
 pairs.set('John', 'May');
 pairs.set('Ichigo', 'Rukiya');
 
 // or with iterable
-let pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+```
+
+</details>
+
+<details>
+<summary>How to get the item from a Map?</summary>
+
+```JavaScript
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
 
 // get the value
 const pair = pairs.get('John');
+```
+
+</details>
+
+<details>
+<summary>Is a Map an iterable and how to iterate?</summary>
+
+```JavaScript
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+
+for (const [first, second] of pairs) {
+  console.log(first.name + second.name);
+}
+```
+
+</details>
+
+<details>
+<summary>What are the entries, keys, values of a Map?</summary>
+
+```JavaScript
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
 
 // entries
 for (const entry of pairs.entries()) {
@@ -796,17 +834,12 @@ for (const key of pairs.keys()) {
 for (const value of pairs.values()) {
   console.log(value);
 }
-
-// iterating
-for (const [first, second] of pairs) {
-  console.log(first.name + second.name);
-}
 ```
 
 </details>
 
 <details>
-<summary>WeakMap</summary>
+<summary>What is a WeakMap and how is it different from a Map?</summary>
 
 - less methods available
 ```JavaScript
@@ -824,7 +857,7 @@ user = null;
 </details>
 
 <details>
-<summary>Convert object into map</summary>
+<summary>How to convert an Object into a Map and back from a Map to an Object?</summary>
 
 ```JavaScript
 const player = {
@@ -833,7 +866,6 @@ const player = {
 };
 
 const playerMap = new Map(Object.entries(player));
-
 const newPlayer = Object.fromEntries(playerMap.entries());
 ```
 

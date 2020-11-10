@@ -990,12 +990,11 @@ console.log(person.hobbies);
 </details>
 
 <details>
-<summary>Getters and setters</summary>
+<summary>How to add and use getters and setters?</summary>
 
 ```JavaScript
 const character = {
-  // not necessary to create a property
-  // can just omit
+  // creation of a property is not required (can be omitted)
   _level: 1,
 
   // can't use getter/setter + property
@@ -1015,7 +1014,7 @@ const character = {
 };
 
 // addressing the getter or setter
-// it there is only setter, can't access the value
+// if there is only setter, can't access the value
 const level = character.level;
 character.level = 100;
 ```
@@ -1023,13 +1022,11 @@ character.level = 100;
 </details>
 
 <details>
-<summary>Iterating</summary>
+<summary>How to iterate (entries, values, keys)?</summary>
 
 ```JavaScript
-// before ES6
-// for ... in
-// deprecated
-// requires additional check, otherwise can go through the whole prototype chain
+// ES5
+// for ... in - deprecated (additional check)
 
 // ES6
 // for ... of works if using Symbol.iterator protocol
@@ -1048,7 +1045,7 @@ const playerKeys = Object.keys(player);
 </details>
 
 <details>
-<summary>Add, modify, delete a property or method</summary>
+<summary>How to add, modify, delete a property or a method of an Object?</summary>
 
 ```JavaScript
 const player = {
@@ -1064,40 +1061,51 @@ delete player.name;
 </details>
 
 <details>
-<summary>Check if property exists</summary>
+<summary>How to check if the property exists?</summary>
 
 ```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
 // but if the property = undefined, also returns false
-player.name !== undefined;
+const hasNameTricky = player.name !== undefined;
 // true even if undefined
-'name' in player;
+const hasName = 'name' in player;
 // true even if undefined
-player.hasOwnProperty('name');
+const hasName2 = player.hasOwnProperty('name');
 ```
 
 </details>
 
 <details>
-<summary>Copy</summary>
+<summary>How to copy an Object?</summary>
 
 - not a deep copy
 ```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
 // {} - where
 // player - what
 const newPlayer = Object.assign({}, player);
 // for several
 const newPlayer = Object.assign({}, player, {options: 'code'});
 
+// ES6
 const newPlayer = {...player};
 ```
 - copying deep - recursive with checking typeof function or object
   - lodash has deep copy
-  - also there is hack with json.parse, json.stringify
+  - also there is a hack with `json.parse`, `json.stringify`
 
 </details>
 
 <details>
-<summary>Object Descriptors</summary>
+<summary>How to work with Object Descriptors?</summary>
 
 ```JavaScript
 const character = {
@@ -1107,7 +1115,7 @@ const character = {
   }
 };
 
-Object.getOwnPropertyDescriptors(character);
+const descriptors = Object.getOwnPropertyDescriptors(character);
 Object.defineProperty(character, 'name', {
   // defaults
   // can delete or define property

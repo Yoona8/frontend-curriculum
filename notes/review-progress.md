@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, ..., 08 Nov 2020 (10, 12, 15, 18, 23, 30)
+## 03, ..., 10 Nov 2020 (12, 15, 18, 23, 30)
 ### JavaScript
 
 <details>
@@ -197,7 +197,7 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06, ..., 08 Nov 2020 (10, 12, 15, 19, 24, 30, 07 Dec)
+## 06, ..., 10 Nov 2020 (12, 15, 19, 24, 30, 07 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
@@ -341,7 +341,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 08, ..., 09 Nov 2020 (10, 12, 14, 17, 21, 26, 02, 09 Dec)
+## 08, ..., 10 Nov 2020 (12, 14, 17, 21, 26, 02, 09 Dec)
 ### JavaScript
 <details>
 <summary>How to create the set and add items?</summary>
@@ -426,4 +426,4 @@ user = null;
 
 </details>
 
-## 09 Nov 2020 (10, 11, 13, 15, 18, 22, 27, 03, 10 Dec)
+## 10 Nov 2020 (11, 12, 14, 16, 19, 23, 28, 04, 11 Dec)

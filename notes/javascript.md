@@ -759,7 +759,7 @@ user = null;
 
 </details>
 
-## Iterables: Maps
+## Iterables: Maps and WeakMaps
 <details>
 <summary>Why a Map, not just an Object?</summary>
 
@@ -804,8 +804,8 @@ const pair = pairs.get('John');
 ```JavaScript
 const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
 
-for (const [first, second] of pairs) {
-  console.log(first.name + second.name);
+for (const pair of pairs) {
+  console.log(pair); // => ['John', 'May'] => ['Ichigo', 'Rukiya']
 }
 ```
 

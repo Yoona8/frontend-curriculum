@@ -10,6 +10,7 @@
 - [Iterables: Arrays](#iterables-arrays)
 - [Iterables: Sets and WeakSets](#iterables-sets-and-weaksets)
 - [Iterables: Maps and WeakMaps](#iterables-maps-and-weakmaps)
+- [Objects](#objects)
 
 ## Basic definitions
 <details>
@@ -1156,14 +1157,14 @@ for (const key in character) {
 
 ## Functions
 <details>
-<summary>General info</summary>
+<summary>What does function without `return` statement returns?</summary>
 
 - function without `return` statement returns `undefined`
 
 </details>
 
 <details>
-<summary>Parameters vs Arguments</summary>
+<summary>What is the difference between parameters and arguments?</summary>
 
 - parameters are variables, which are specified when defining a function
 ```JavaScript
@@ -1177,7 +1178,7 @@ printMsg('Some message');
 </details>
 
 <details>
-<summary>Anonymous function</summary>
+<summary>What will be the function name in the console error if thrown from an anonymous function?</summary>
 
 - when there is an error inside the anonymous function, name of the function will be `<anonymous>`
 ```JavaScript
@@ -1191,17 +1192,17 @@ button.addEventListener('click', function onClick() {});
 </details>
 
 <details>
-<summary>Default parameters</summary>
+<summary>What are the default parameters and how to use them?</summary>
 
 ```JavaScript
-// Earlier
+// ES5
 var doSomething = function (caption, amount, isChecked) {
   if (typeof isChecked === 'undefined') {
     isChecked = false;
   }
 };
 
-// ES2015
+// ES6
 // even if we explicitly pass instead of isChecked undefined,
 // the default value will be assigned
 const doSomething = (caption, amount, isChecked = false) => {
@@ -1215,7 +1216,7 @@ const doSomething = (amount, isChecked = amount > 5 ? true : false) => {};
 </details>
 
 <details>
-<summary>Arrow functions</summary>
+<summary>What are the arrow functions and how do they differ from a normal function?</summary>
 
 - doesn't have it's own scope (only lexical) - when global, `this === window`
 - doesn't have `arguments` object
@@ -1241,7 +1242,7 @@ const getWizard = (name, level) => ({
 </details>
 
 <details>
-<summary>Arguments keyword</summary>
+<summary>What is the arguments keyword?</summary>
 
 - don't have to pass as a parameter (accessible as a keyword inside any function)
 - iterable structure
@@ -1249,7 +1250,7 @@ const getWizard = (name, level) => ({
 </details>
 
 <details>
-<summary>Bind, call, apply</summary>
+<summary>What do bind, call, apply do and how are they different?</summary>
 
 - `call` and `apply` call the function (as `()`)
 - `bind` doesn't call the function
@@ -1271,7 +1272,7 @@ addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
 </details>
 
 <details>
-<summary>Calling a function with template literals (tagged templates)</summary>
+<summary>How to call a function with template literals (tagged templates)?</summary>
 
 - with tagged template literals the value of the first argument is always an array of the string values, the remaining arguments are of the passed expressions
 ```JavaScript
@@ -1290,7 +1291,7 @@ getPlayerInfo`${name} is ${level} for now`;
 </details>
 
 <details>
-<summary>Pure functions and side effects</summary>
+<summary>What are pure functions and the side effects?</summary>
 
 - for the same input always give the same output
 - no side effects
@@ -1324,7 +1325,7 @@ const addBook = (book) => {
 </details>
 
 <details>
-<summary>Factory functions</summary>
+<summary>What are factory functions and why to use them?</summary>
 
 - functions which create a function
 - good for pre-configuring some values
@@ -1346,7 +1347,7 @@ console.log(calculateIncomeTaxAmount(100));
 </details>
 
 <details>
-<summary>Closures</summary>
+<summary>What are closures?</summary>
 
 - all functions in JS are closures
 - function locks in all surrounding variables
@@ -1355,7 +1356,7 @@ console.log(calculateIncomeTaxAmount(100));
 </details>
 
 <details>
-<summary>Recursion</summary>
+<summary>What is a recursion and why to use it?</summary>
 
 - sometimes it's shorter than other ways
 - if too many calls => stack overflow

@@ -427,3 +427,114 @@ user = null;
 </details>
 
 ## 10 Nov 2020 (11, 12, 14, 16, 19, 23, 28, 04, 11 Dec)
+### JavaScript
+<details>
+<summary>Why a Map, not just an Object?</summary>
+
+- any keys possible
+- iterable
+- pairs are objects
+- better performance (than object) for large quantities of data
+- better performance when adding / removing data frequently
+
+</details>
+
+<details>
+<summary>How to create a Map and add items?</summary>
+
+```JavaScript
+const pairs = new Map();
+// add items
+pairs.set('John', 'May');
+pairs.set('Ichigo', 'Rukiya');
+
+// or with iterable
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+```
+
+</details>
+
+<details>
+<summary>How to get the item from a Map?</summary>
+
+```JavaScript
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+
+// get the value
+const pair = pairs.get('John');
+```
+
+</details>
+
+<details>
+<summary>Is a Map an iterable and how to iterate?</summary>
+
+```JavaScript
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+
+for (const pair of pairs) {
+  console.log(pair); // => ['John', 'May'] => ['Ichigo', 'Rukiya']
+}
+```
+
+</details>
+
+<details>
+<summary>What are the entries, keys, values of a Map?</summary>
+
+```JavaScript
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+
+// entries
+for (const entry of pairs.entries()) {
+  console.log(entry); // => ['John', 'May'] => ['Ichigo', 'Rukiya']
+}
+for (const [key, value] of pairs.entries()) {
+  console.log(key, value);
+}
+
+// keys
+for (const key of pairs.keys()) {
+  console.log(key);
+}
+
+// values
+for (const value of pairs.values()) {
+  console.log(value);
+}
+```
+
+</details>
+
+<details>
+<summary>What is a WeakMap and how is it different from a Map?</summary>
+
+- less methods available
+```JavaScript
+let user = {name: 'Harry'};
+const users = new WeakMap();
+
+users.set(user, 'Some info');
+
+// do some operations with user
+// still need the map, but not the user
+// JS garbage collector will remove the object
+user = null;
+```
+
+</details>
+
+<details>
+<summary>How to convert an Object into a Map and back from a Map to an Object?</summary>
+
+```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
+const playerMap = new Map(Object.entries(player));
+const newPlayer = Object.fromEntries(playerMap.entries());
+```
+
+</details>

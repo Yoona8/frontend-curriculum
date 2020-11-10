@@ -9,6 +9,7 @@
 - [Iterables](#iterables)
 - [Iterables: Arrays](#iterables-arrays)
 - [Iterables: Sets and WeakSets](#iterables-sets-and-weaksets)
+- [Iterables: Maps and WeakMaps](#iterables-maps-and-weakmaps)
 
 ## Basic definitions
 <details>

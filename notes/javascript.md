@@ -882,15 +882,23 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 ## Objects
 <details>
-<summary>General info</summary>
+<summary>What data structures could be used as a key in an Object?</summary>
 
-- keys are strings, numbers (positive int or floats) or symbols (other not possible)
-- not iterable (can use `for ... in` old cycle has some issues, not `for ... of`)
+- strings
+- numbers (positive int or floats)
+- symbols
 
 </details>
 
 <details>
-<summary>As dictionaries</summary>
+<summary>Is an Object iterable and how to iterate?</summary>
+
+- not iterable (can use `for ... in` old loop, has some issues, not `for ... of`)
+
+</details>
+
+<details>
+<summary>How to use an Object as a dictionary (naming convention)? </summary>
 
 ```JavaScript
 const filterValueToScale = {
@@ -904,10 +912,45 @@ const filterValueToScale = {
 </details>
 
 <details>
-<summary>Creation and accessing</summary>
+<summary>How to create an Object?</summary>
 
 ```JavaScript
+// ES5
 // simple object
+const person = {
+  'short-name': 'Ron',
+  age: 22,
+  level: 3,
+  3.2: 'some value',
+  walk: function() {}
+};
+
+// ES6+
+// creation with variable
+const name = 'Harry';
+const user = {
+  name,
+  level: 1
+};
+// complex keys (could be useful for dictionaries)
+const potter = 'Harry Potter';
+const voldemort = 'Tom Riddle';
+const antagonist = {
+  [potter]: voldemort,
+  ['Sirius Black']: 'Bellatrix Lestrange'
+};
+// new syntax for methods
+const character = {
+  go() {}
+};
+```
+
+</details>
+
+<details>
+<summary>How the keys are ordered when logging?</summary>
+
+```JavaScript
 const person = {
   'short-name': 'Ron',
   age: 22,
@@ -920,37 +963,28 @@ const person = {
 // if numbers = order ascending
 // when not collapsed = any object is sorted, numbers first
 console.log(person);
+```
+
+</details>
+
+<details>
+<summary>How to access the values in an Object?</summary>
+
+```JavaScript
+const person = {
+  'short-name': 'Ron',
+  age: 22,
+  level: 3,
+  3.2: 'some value',
+  walk: function() {}
+};
 
 console.log(person.age);
 console.log(person['short-name']);
 console.log(person[3.2]);
 console.log(person['3.2']);
-
 // if no property or method => undefined (not an error)
 console.log(person.hobbies);
-
-// creation with variable (ES6+)
-const name = 'Harry';
-const user = {
-  name,
-  level: 1
-};
-
-// complex keys (could be useful for dictionaries) (ES6+)
-const potter = 'Harry Potter';
-const voldemort = 'Tom Riddle';
-const antagonist = {
-  [potter]: voldemort,
-  ['Sirius Black']: 'Bellatrix Lestrange'
-};
-
-// destructuring (ES6+)
-const newAntagonist = {...antagonist};
-
-// new syntax for methods (ES6+)
-const character = {
-  go() {}
-};
 ```
 
 </details>

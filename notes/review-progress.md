@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, ..., 09 Nov 2020 (11, 13, 16, 20, 25, 02 Dec)
+## 05, ..., 11 Nov 2020 (13, 16, 20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -426,7 +426,7 @@ user = null;
 
 </details>
 
-## 10 Nov 2020 (11, 12, 14, 16, 19, 23, 28, 04, 11 Dec)
+## 10, ..., 11 Nov 2020 (12, 14, 16, 19, 23, 28, 04, 11 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>

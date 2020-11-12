@@ -102,8 +102,25 @@
 
 </details>
 
-## Cross-content links
+## Cross-content resources
 - [Performance and optimizations](./notes/optimizations.md)
 - [Web Skills map](https://andreasbm.github.io/web-skills/)
+- [Hackernoon](https://hackernoon.com/)
 - [FreeCodeCamp](https://www.freecodecamp.org/)
+- [Dev](https://dev.to)
+
+## Blogs
+- [Addy Osmani](https://addyosmani.com/)
+- [Tania Rascia](https://www.taniarascia.com/blog/)
+- [Yoksel](http://css.yoksel.ru/)
+- [Dmitri Pavlutin](https://dmitripavlutin.com/all-posts/)
+- [Zell](https://zellwk.com/)
+- [Adam Silver](https://adamsilver.io/articles/)
+- [Lea Verou](http://lea.verou.me/)
+- [Barbara Oakley](https://barbaraoakley.com/)
+
+## Practice
+- [FreeCodeCamp](https://www.freecodecamp.org/)
+
+## Books
 - [A book apart](https://abookapart.com/products/)

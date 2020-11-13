@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, ..., 10 Nov 2020 (12, 15, 18, 23, 30)
+## 03, ..., 12 Nov 2020 (15, 18, 23, 30)
 ### JavaScript
 
 <details>
@@ -197,7 +197,7 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06, ..., 10 Nov 2020 (12, 15, 19, 24, 30, 07 Dec)
+## 06, ..., 12 Nov 2020 (15, 19, 24, 30, 07 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
@@ -341,7 +341,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 08, ..., 10 Nov 2020 (12, 14, 17, 21, 26, 02, 09 Dec)
+## 08, ..., 12 Nov 2020 (14, 17, 21, 26, 02, 09 Dec)
 ### JavaScript
 <details>
 <summary>How to create the set and add items?</summary>
@@ -426,7 +426,7 @@ user = null;
 
 </details>
 
-## 10, ..., 11 Nov 2020 (12, 14, 16, 19, 23, 28, 04, 11 Dec)
+## 10, ..., 12 Nov 2020 (14, 16, 19, 23, 28, 04, 11 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -535,6 +535,127 @@ const player = {
 
 const playerMap = new Map(Object.entries(player));
 const newPlayer = Object.fromEntries(playerMap.entries());
+```
+
+</details>
+
+## 12 Nov 2020 (13, 14, 15, 17, 19, 22, 26, 01, 07, 14 Dec)
+### JavaScript
+<details>
+<summary>What data structures could be used as a key in an Object?</summary>
+
+- strings
+- numbers (positive int or floats)
+- symbols
+
+</details>
+
+<details>
+<summary>How to create an Object?</summary>
+
+```JavaScript
+// ES5
+// simple object
+const person = {
+  'short-name': 'Ron',
+  age: 22,
+  level: 3,
+  3.2: 'some value',
+  walk: function() {}
+};
+
+// ES6+
+// creation with variable
+const name = 'Harry';
+const user = {
+  name,
+  level: 1
+};
+// complex keys (could be useful for dictionaries)
+const potter = 'Harry Potter';
+const voldemort = 'Tom Riddle';
+const antagonist = {
+  [potter]: voldemort,
+  ['Sirius Black']: 'Bellatrix Lestrange'
+};
+// new syntax for methods
+const character = {
+  go() {}
+};
+```
+
+</details>
+
+<details>
+<summary>How the keys are ordered when logging?</summary>
+
+```JavaScript
+const person = {
+  'short-name': 'Ron',
+  age: 22,
+  level: 3,
+  3.2: 'some value',
+  walk: function() {}
+};
+
+// collapsed = the object (if not all the keys are numbers) is not sorted
+// if numbers = order ascending
+// when not collapsed = any object is sorted, numbers first
+console.log(person);
+```
+
+</details>
+
+<details>
+<summary>How to access the values in an Object?</summary>
+
+```JavaScript
+const person = {
+  'short-name': 'Ron',
+  age: 22,
+  level: 3,
+  3.2: 'some value',
+  walk: function() {}
+};
+
+console.log(person.age);
+console.log(person['short-name']);
+console.log(person[3.2]);
+console.log(person['3.2']);
+// if no property or method => undefined (not an error)
+console.log(person.hobbies);
+```
+
+</details>
+
+<details>
+<summary>How to add and use getters and setters?</summary>
+
+```JavaScript
+const character = {
+  // creation of a property is not required (can be omitted)
+  _level: 1,
+
+  // can't use getter/setter + property
+  // can't address itself = infinite cycle
+  get level() {
+    return this._level;
+  },
+  // always strictly 1 parameter
+  set level(value) {
+    if (value < 0) {
+      this._level = this._level;
+      // or set the default value
+      // or throw an error
+    }
+    this._level = value;
+  }
+};
+
+// addressing the getter or setter
+// if there is only setter, can't access the value
+const level = character.level;
+character.level = 100;
 ```
 
 </details>

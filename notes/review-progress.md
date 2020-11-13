@@ -341,7 +341,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 08, ..., 12 Nov 2020 (14, 17, 21, 26, 02, 09 Dec)
+## 08, ..., 14 Nov 2020 (17, 21, 26, 02, 09 Dec)
 ### JavaScript
 <details>
 <summary>How to create the set and add items?</summary>
@@ -426,7 +426,7 @@ user = null;
 
 </details>
 
-## 10, ..., 12 Nov 2020 (14, 16, 19, 23, 28, 04, 11 Dec)
+## 10, ..., 14 Nov 2020 (16, 19, 23, 28, 04, 11 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>

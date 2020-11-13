@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, ..., 11 Nov 2020 (13, 16, 20, 25, 02 Dec)
+## 05, ..., 13 Nov 2020 (16, 20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -539,7 +539,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12 Nov 2020 (13, 14, 15, 17, 19, 22, 26, 01, 07, 14 Dec)
+## 12, ..., 13 Nov 2020 (14, 15, 17, 19, 22, 26, 01, 07, 14 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -656,6 +656,266 @@ const character = {
 // if there is only setter, can't access the value
 const level = character.level;
 character.level = 100;
+```
+
+</details>
+
+## 13 Nov 2020 (14, 15, 16, 18, 20, 23, 27, 02, 08, 15 Dec)
+### JavaScript
+<details>
+<summary>How to iterate (entries, values, keys)?</summary>
+
+```JavaScript
+// ES5
+// for ... in - deprecated (additional check)
+
+// ES6
+// for ... of works if using Symbol.iterator protocol
+const player = {
+  name: 'Harry',
+  level: 10
+};
+// [['name', 'Harry'], ['level', 10]]
+const playerEntries = Object.entries(player);
+// ['Harry', 10]
+const playerValues = Object.values(player);
+// ['name', 'level']
+const playerKeys = Object.keys(player);
+```
+
+</details>
+
+<details>
+<summary>How to add, modify, delete a property or a method of an Object?</summary>
+
+```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
+player.age = 33;
+player.level = 20;
+delete player.name;
+```
+
+</details>
+
+<details>
+<summary>How to check if the property exists?</summary>
+
+```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
+// but if the property = undefined, also returns false
+const hasNameTricky = player.name !== undefined;
+// true even if undefined
+const hasName = 'name' in player;
+// true even if undefined
+const hasName2 = player.hasOwnProperty('name');
+```
+
+</details>
+
+<details>
+<summary>How to copy an Object?</summary>
+
+- not a deep copy
+```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
+// {} - where
+// player - what
+const newPlayer = Object.assign({}, player);
+// for several
+const newPlayer = Object.assign({}, player, {options: 'code'});
+
+// ES6
+const newPlayer = {...player};
+```
+- copying deep - recursive with checking typeof function or object
+  - lodash has deep copy
+  - also there is a hack with `json.parse`, `json.stringify`
+
+</details>
+
+<details>
+<summary>How to work with Object Descriptors?</summary>
+
+```JavaScript
+const character = {
+  name: 'Harry',
+  printName: function() {
+    console.log(this.name);
+  }
+};
+
+const descriptors = Object.getOwnPropertyDescriptors(character);
+Object.defineProperty(character, 'name', {
+  // defaults
+  // can delete or define property
+  configurable: true,
+  // is accessible in for ... in loop
+  enumerable: true,
+  value: character.name,
+  // can rewrite
+  writable: true
+});
+
+// if writable === false
+// no error but won't change, stays the same (Harry)
+character.name = 'Ron';
+
+// if configurable === false
+// no error but won't delete, stays the same (Harry)
+// can't reset configuration also, be careful
+delete character.name;
+
+// if enumerable === false
+for (const key in character) {
+  // will skip the name key, logs only printName
+  console.log(key);
+}
+```
+
+</details>
+
+<details>
+<summary>What does function without `return` statement return?</summary>
+
+- function without `return` statement returns `undefined`
+
+</details>
+
+<details>
+<summary>What is the difference between parameters and arguments?</summary>
+
+- parameters are variables, which are specified when defining a function
+```JavaScript
+function printMsg(msg) {}
+```
+- arguments are the concrete values passed to a function when calling it
+```JavaScript
+printMsg('Some message');
+```
+
+</details>
+
+<details>
+<summary>What will be the function name in the console error if thrown from an anonymous function?</summary>
+
+- when there is an error inside the anonymous function, name of the function will be `<anonymous>`
+```JavaScript
+button.addEventListener('click', function() {});
+```
+- the only case why to add a name to anonymous function is for debugging, in that case the name of the function will be specified
+```JavaScript
+button.addEventListener('click', function onClick() {});
+```
+
+</details>
+
+<details>
+<summary>What are the default parameters and how to use them?</summary>
+
+```JavaScript
+// ES5
+var doSomething = function (caption, amount, isChecked) {
+  if (typeof isChecked === 'undefined') {
+    isChecked = false;
+  }
+};
+
+// ES6
+// even if we explicitly pass instead of isChecked undefined,
+// the default value will be assigned
+const doSomething = (caption, amount, isChecked = false) => {
+  // some code here
+};
+
+// can also use the previous parameter in default value assignment
+const doSomething = (amount, isChecked = amount > 5 ? true : false) => {};
+```
+
+</details>
+
+<details>
+<summary>What are the arrow functions and how do they differ from a normal function?</summary>
+
+- doesn't have it's own scope (only lexical) - when global, `this === window`
+- doesn't have `arguments` object
+- can't rewrite `this` (`bind` and `call` won't work)
+  - can't be used as a constructor, no `new` keyword
+  - can't be method of an object or prototype
+
+```JavaScript
+// only 1 param?
+const doSomething = param => console.log(param);
+
+// only 1 expression?
+// = return left * right;
+const doSomething = (left, right) => left * right;
+
+// return object?
+const getWizard = (name, level) => ({
+  name,
+  level
+});
+```
+
+</details>
+
+<details>
+<summary>What is the arguments keyword?</summary>
+
+- don't have to pass as a parameter (accessible as a keyword inside any function)
+- iterable structure
+
+</details>
+
+<details>
+<summary>What do bind, call, apply do and how are they different?</summary>
+
+- `call` and `apply` call the function (as `()`)
+- `bind` doesn't call the function
+- the arguments passed after context are preset arguments, when the arguments are passed on function call, append to the end
+```JavaScript
+const addNumbers = (cb, ...numbers) => {
+  // sum numbers
+  let result = 100;
+
+  cb(result);
+};
+
+const printResult = (text, result) => console.log(`${text} ${result}`);
+
+addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
+```
+- more info in [scope](#scope) section
+
+</details>
+
+<details>
+<summary>How to call a function with template literals (tagged templates)?</summary>
+
+- with tagged template literals the value of the first argument is always an array of the string values, the remaining arguments are of the passed expressions
+```JavaScript
+const getPlayerInfo = (first, second, third) => {
+  console.log(first); // ['', ' is ', ' for now']
+  console.log(second); // 'Harry'
+  console.log(third); // 10
+};
+
+const name = 'Harry';
+const level = 10;
+
+getPlayerInfo`${name} is ${level} for now`;
 ```
 
 </details>

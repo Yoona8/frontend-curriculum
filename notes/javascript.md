@@ -1157,7 +1157,7 @@ for (const key in character) {
 
 ## Functions
 <details>
-<summary>What does function without `return` statement returns?</summary>
+<summary>What does function without `return` statement return?</summary>
 
 - function without `return` statement returns `undefined`
 

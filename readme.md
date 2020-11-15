@@ -1,5 +1,4 @@
 # Frontend Curriculum
-
 ## Content
 <details>
 <summary>Fundamentals</summary>
@@ -24,7 +23,7 @@
 <summary>Frameworks and libraries</summary>
 
 - [Angular](./notes/angular.md)
-- React
+- [React](./notes/react.md)
 - Vue
 
 </details>

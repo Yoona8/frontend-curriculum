@@ -1461,16 +1461,24 @@ console.log(getTeamMemberNames(player));
 
 ## Scope
 <details>
-<summary>General info</summary>
+<summary>What is a scope and a context?</summary>
 
-- scope where the function runs
-- `this` links to current object in a `class`
-- in an object (method) `this` = link to the object itself
-- `use strict` affects `this` value
-  - no `use strict` = `window`, with = `undefined`
+- scope is where the function runs
+- context depends on how the function is called
 - while the function is not called, it doesn't have any context
 - context is being created upon the function call
-- depends on how the function is called
+
+</details>
+
+<details>
+<summary>What is `this` keyword?</summary>
+
+- `use strict` affects `this` value
+  - no `use strict` = `window`, with = `undefined`
+- `this` links to current object in a `class`
+- in an object (method) `this` is the link to the object itself
+- could be changed, also with `apply`, `call`, `bind`
+- if we use `new` keyword to create an instance, lexical `this` will be the object (binds `this` in the constructor)
 ```JavaScript
 // using outer function
 const walk = function() {
@@ -1521,13 +1529,11 @@ const anotherPlayer = {
 guitarPlayer.play();
 anotherPlayer.play();
 ```
-- could be changed, also with `apply`, `call`, `bind`
-- if we use `new` keyword to create an instance, lexical `this` will be the object (binds `this` in the constructor)
 
 </details>
 
 <details>
-<summary>Using array methods inside the object methods</summary>
+<summary>What is the issue with using array methods inside the object methods and `this`?</summary>
 
 ```JavaScript
 const players = {
@@ -1548,10 +1554,10 @@ const players = {
 </details>
 
 <details>
-<summary>Bind, call and apply</summary>
+<summary>How and why do we use `bind`, `call` and `apply`?</summary>
 
 - `bind` creates a new function, the initial function stays the same
-- `bind` context can't be changed even with `apply`, `call`
+- `bind` context can't be changed even with `apply` and `call`
 ```JavaScript
 // here `this === obj` instead of `a` (respects the first binding)
 obj.getThis4 = obj.getThis2.bind(obj);
@@ -1576,7 +1582,7 @@ console.log(Math.max.apply(null, numbers));
 </details>
 
 <details>
-<summary>Event listeners and scope</summary>
+<summary>What is the context inside the event listener?</summary>
 
 - listener's context is always === the element, to which the listener is applied `document.body` or `evt.currentTarget` (the browser binds `this` (on event listeners) to the DOM element that triggered the event)
 ```JavaScript
@@ -1625,7 +1631,7 @@ const customBind = function(fn, context) {
 </details>
 
 <details>
-<summary>Arrow functions and scope</summary>
+<summary>What are the differences of scope related to arrow functions?</summary>
 
 - arrow functions do not have their own context (even when we use `call`, `apply` or `bind`)
 - arrow functions passed as a callback to event listeners also have no context

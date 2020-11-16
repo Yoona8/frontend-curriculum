@@ -328,7 +328,7 @@ console.log(playerName.includes('h')); // => false
 <summary>How to create an Array?</summary>
 
 ```JavaScript
-// before ES6
+// ES5
 // 1
 var numbers = new Array(3, 5); // => [3, 5]
 var emptyArray = new Array(3); // => [] with length === 3
@@ -965,7 +965,7 @@ const character = {
 </details>
 
 <details>
-<summary>How the keys are ordered when logging?</summary>
+<summary>How the keys of an Object are ordered when logging?</summary>
 
 ```JavaScript
 const person = {
@@ -1039,7 +1039,7 @@ character.level = 100;
 </details>
 
 <details>
-<summary>How to iterate (entries, values, keys)?</summary>
+<summary>How to iterate (entries, values, keys) over an Object?</summary>
 
 ```JavaScript
 // ES5
@@ -1078,7 +1078,7 @@ delete player.name;
 </details>
 
 <details>
-<summary>How to check if the property exists?</summary>
+<summary>How to check if the property exists in an Object?</summary>
 
 ```JavaScript
 const player = {
@@ -1208,7 +1208,7 @@ button.addEventListener('click', function onClick() {});
 </details>
 
 <details>
-<summary>What are the default parameters and how to use them?</summary>
+<summary>What are the default parameters of a function and how to use them?</summary>
 
 ```JavaScript
 // ES5
@@ -1258,7 +1258,7 @@ const getWizard = (name, level) => ({
 </details>
 
 <details>
-<summary>What is the arguments keyword?</summary>
+<summary>What is the arguments keyword in a function?</summary>
 
 - don't have to pass as a parameter (accessible as a keyword inside any function)
 - iterable structure
@@ -1268,7 +1268,7 @@ const getWizard = (name, level) => ({
 <details>
 <summary>What do bind, call, apply do and how are they different?</summary>
 
-- `call` and `apply` call the function (as `()`)
+- `call` (values) and `apply` (array) call the function (as `()`)
 - `bind` doesn't call the function
 - the arguments passed after context are preset arguments, when the arguments are passed on function call, append to the end
 ```JavaScript

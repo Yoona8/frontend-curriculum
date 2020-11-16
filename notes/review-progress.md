@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, ..., 12 Nov 2020 (15, 18, 23, 30)
+## 03, ..., 16 Nov 2020 (19, 24, 01 Dec)
 ### JavaScript
 
 <details>
@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, ..., 13 Nov 2020 (16, 20, 25, 02 Dec)
+## 05, ..., 16 Nov 2020 (20, 25, 02 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -197,7 +197,7 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06, ..., 12 Nov 2020 (15, 19, 24, 30, 07 Dec)
+## 06, ..., 16 Nov 2020 (20, 25, 01, 08 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
@@ -426,7 +426,7 @@ user = null;
 
 </details>
 
-## 10, ..., 14 Nov 2020 (16, 19, 23, 28, 04, 11 Dec)
+## 10, ..., 16 Nov 2020 (19, 23, 28, 04, 11 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -539,7 +539,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 13 Nov 2020 (14, 15, 17, 19, 22, 26, 01, 07, 14 Dec)
+## 12, ..., 16 Nov 2020 (17, 18, 20, 21, 25, 29, 04, 10, 17 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -660,7 +660,7 @@ character.level = 100;
 
 </details>
 
-## 13 Nov 2020 (14, 15, 16, 18, 20, 23, 27, 02, 08, 15 Dec)
+## 13, ..., 16 Nov 2020 (16, 17, 18, 20, 22, 25, 29, 04, 10, 17 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -882,7 +882,7 @@ const getWizard = (name, level) => ({
 <details>
 <summary>What do bind, call, apply do and how are they different?</summary>
 
-- `call` and `apply` call the function (as `()`)
+- `call` (values) and `apply` (array) call the function (as `()`)
 - `bind` doesn't call the function
 - the arguments passed after context are preset arguments, when the arguments are passed on function call, append to the end
 ```JavaScript
@@ -897,7 +897,6 @@ const printResult = (text, result) => console.log(`${text} ${result}`);
 
 addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
 ```
-- more info in [scope](#scope) section
 
 </details>
 

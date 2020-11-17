@@ -24,7 +24,7 @@
 
 - [Angular](./notes/angular.md)
 - [React](./notes/react.md)
-- Vue
+- [Vue](./notes/vue.md)
 
 </details>
 

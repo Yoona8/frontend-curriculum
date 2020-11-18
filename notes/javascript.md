@@ -11,6 +11,8 @@
 - [Iterables: Sets and WeakSets](#iterables-sets-and-weaksets)
 - [Iterables: Maps and WeakMaps](#iterables-maps-and-weakmaps)
 - [Objects](#objects)
+- [Functions](#functions)
+- [Scope](#scope)
 
 ## Basic definitions
 <details>

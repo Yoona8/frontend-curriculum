@@ -341,7 +341,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 08, ..., 14 Nov 2020 (17, 21, 26, 02, 09 Dec)
+## 08, ..., 17 Nov 2020 (21, 26, 02, 09 Dec)
 ### JavaScript
 <details>
 <summary>How to create the set and add items?</summary>
@@ -539,7 +539,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 16 Nov 2020 (17, 18, 20, 21, 25, 29, 04, 10, 17 Dec)
+## 12, ..., 17 Nov 2020 (18, 20, 21, 25, 29, 04, 10, 17 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -660,7 +660,7 @@ character.level = 100;
 
 </details>
 
-## 13, ..., 16 Nov 2020 (17, 18, 20, 22, 25, 29, 04, 10, 17 Dec)
+## 13, ..., 17 Nov 2020 (18, 20, 22, 25, 29, 04, 10, 17 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -919,7 +919,7 @@ getPlayerInfo`${name} is ${level} for now`;
 
 </details>
 
-## 16, ..., 16 Nov 2020 (17, 18, 19, 21, 23, 26, 30, 05, 11, 18 Dec)
+## 16, ..., 17 Nov 2020 (18, 19, 21, 23, 26, 30, 05, 11, 18 Dec)
 ### JavaScript
 <details>
 <summary>What are pure functions and the side effects?</summary>
@@ -1058,5 +1058,17 @@ const getTeamMemberNames = (player) => {
 
 console.log(getTeamMemberNames(player));
 ```
+
+</details>
+
+## 17 Nov 2020 (18, 19, 20, 22, 24, 27, 01, 06, 12, 19 Dec)
+### JavaScript
+<details>
+<summary>What is a scope and a context?</summary>
+
+- scope is where the function runs
+- context depends on how the function is called
+- while the function is not called, it doesn't have any context
+- context is being created upon the function call
 
 </details>

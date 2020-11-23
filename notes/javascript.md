@@ -1473,14 +1473,26 @@ console.log(getTeamMemberNames(player));
 </details>
 
 <details>
-<summary>What is `this` keyword?</summary>
+<summary>What is `this` and how to change it?</summary>
 
-- `use strict` affects `this` value
-  - no `use strict` = `window`, with = `undefined`
-- `this` links to current object in a `class`
-- in an object (method) `this` is the link to the object itself
+- it is a context
+- created upon the function call
+- depends on how the function is called
 - could be changed, also with `apply`, `call`, `bind`
-- if we use `new` keyword to create an instance, lexical `this` will be the object (binds `this` in the constructor)
+
+</details>
+
+<details>
+<summary>How does `use strict` affect `this` keyword?</summary>
+
+- no `use strict`, `this` = `window`, with `this` = `undefined` (for global this inside the function)
+
+</details>
+
+<details>
+<summary>What is `this` inside an Object?</summary>
+
+- in an object (method) `this` is the link to the object itself (but remember, in depends on how the function is called)
 ```JavaScript
 // using outer function
 const walk = function() {
@@ -1531,6 +1543,14 @@ const anotherPlayer = {
 guitarPlayer.play();
 anotherPlayer.play();
 ```
+
+</details>
+
+<details>
+<summary>What is `this` in an instance of a class or when using a constructor function?</summary>
+
+- `this` links to current instance of an object in a `class`
+- binds `this` in the constructor
 
 </details>
 
@@ -3945,6 +3965,7 @@ console.table([1, 2, 3]);
 <summary>Learn more</summary>
 
 - [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+- [Get Started with Debugging JavaScript in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/javascript/)
 
 </details>
 

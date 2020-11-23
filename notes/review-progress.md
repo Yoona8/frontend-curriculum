@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, ..., 16 Nov 2020 (19, 24, 01 Dec)
+## 03, ..., 22 Nov 2020 (27, 04 Dec)
 ### JavaScript
 
 <details>
@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, ..., 16 Nov 2020 (20, 25, 02 Dec)
+## 05, ..., 22 Nov 2020 (27, 04 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -197,7 +197,7 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06, ..., 16 Nov 2020 (20, 25, 01, 08 Dec)
+## 06, ..., 22 Nov 2020 (27, 03, 10 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
@@ -341,7 +341,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 08, ..., 17 Nov 2020 (21, 26, 02, 09 Dec)
+## 08, ..., 22 Nov 2020 (27, 03, 10 Dec)
 ### JavaScript
 <details>
 <summary>How to create the set and add items?</summary>
@@ -426,7 +426,7 @@ user = null;
 
 </details>
 
-## 10, ..., 16 Nov 2020 (19, 23, 28, 04, 11 Dec)
+## 10, ..., 23 Nov 2020 (27, 02, 08, 15 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -539,7 +539,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 17 Nov 2020 (18, 20, 21, 25, 29, 04, 10, 17 Dec)
+## 12, ..., 23 Nov 2020 (24, 28, 02, 07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -660,7 +660,7 @@ character.level = 100;
 
 </details>
 
-## 13, ..., 17 Nov 2020 (18, 20, 22, 25, 29, 04, 10, 17 Dec)
+## 13, ..., 23 Nov 2020 (25, 28, 02, 07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -919,7 +919,7 @@ getPlayerInfo`${name} is ${level} for now`;
 
 </details>
 
-## 16, ..., 17 Nov 2020 (18, 19, 21, 23, 26, 30, 05, 11, 18 Dec)
+## 16, ..., 23 Nov 2020 (25, 27, 30, 04, 09, 15, 22 Dec)
 ### JavaScript
 <details>
 <summary>What are pure functions and the side effects?</summary>
@@ -1061,7 +1061,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17 Nov 2020 (18, 19, 20, 22, 24, 27, 01, 06, 12, 19 Dec)
+## 17, ..., 23 Nov 2020 (24, 26, 28, 01, 05, 10, 16, 23 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -1072,3 +1072,31 @@ console.log(getTeamMemberNames(player));
 - context is being created upon the function call
 
 </details>
+
+## 23 Nov 2020 (24, 25, 26, 28, 30, 03, 05, 12, 18, 25 Dec)
+```JavaScript
+const player = {
+  name: 'Harry',
+  teamMembers: [{
+    name: 'Ron',
+    teamMembers: [{
+      name: 'Ginny'
+    }]
+  }]
+};
+
+const getNames = (user) => {
+  const names = [];
+
+  if (!user.teamMembers) {
+    return [];
+  }
+
+  for (const member of user.members) {
+    names.push(member.name);
+    names.push(...getName(member));
+  }
+
+  return names;
+};
+```

@@ -24,6 +24,11 @@
 <summary>How and when does React update the DOM?</summary>
 
 - only changes in `props` or `state` trigger React to re-render components and update the DOM in the browser
+- `shouldComponentUpdate` is used to prevent the `render()` calls, but not every `render()` call updates the DOM
+  - `render()` is called
+  - React stores 2 versions of Virtual DOM (old and re-rendered) - working with virtual DOM is faster than light DOM
+  - React compares 2 versions of Virtual DOM
+  - if there are any differences - React updates only the affected parts
 
 </details>
 
@@ -65,7 +70,11 @@ app-name
 <summary>What are the ways to create a component?</summary>
 
 - functional components (presentational, dumb, stateless) - best practice
+  - access to state (via hooks)
+  - **NO** lifecycle hooks
 - class-based components (containers, smart, stateful)
+  - access to state
+  - lifecycle hooks
 
 </details>
 
@@ -114,6 +123,85 @@ const app = (
 );
 
 ReactDOM.render(app, document.querySelector('#root'));
+```
+
+</details>
+
+<details>
+<summary>How to return JSX not wrapped in one container? (Rendering adjacent JSX)</summary>
+
+```JavaScript
+// return an array of elements
+return [
+  // add unique keys (like we work with loop to create JSX)
+  <p key="p1">Some test here!</p>,
+  <section key="s2">
+    <h2>Some section title</h2>
+  </section>,
+  <ul key="u3">
+    <li>Some item</li>
+    <li>One more item</li>
+  </ul>
+];
+
+// use a higher order component
+const Aux = props => props.children;
+return (
+  <Aux>
+    <p>Some test here!</p>
+    <section>
+      <h2>Some section title</h2>
+    </section>
+    <ul>
+      <li>Some item</li>
+      <li>One more item</li>
+    </ul>
+  </Aux>
+);
+
+// or use React Fragment (works like Aux component)
+return (
+  <React.Fragment>
+    <p>Some test here!</p>
+    <section>
+      <h2>Some section title</h2>
+    </section>
+    <ul>
+      <li>Some item</li>
+      <li>One more item</li>
+    </ul>
+  <React.Fragment>
+);
+```
+
+</details>
+
+<details>
+<summary>What is a higher order component?</summary>
+
+- wrapper for another component (like Aux component)
+- wrapper with specific class names for another component
+```JavaScript
+import React from 'react';
+
+// creating a component
+const ClassWrapper = props => (
+  <div className={props.classes}>{props.children}</div>
+);
+
+// or using a function to create a component
+const wrapWithClass = (InnerComponent, className) => {
+  return props => (
+    <div class={className}>
+      <InnerComponent />
+    </div>
+  );
+};
+
+// usage with function, here classes are CSS modules classes
+export default wrapWithClass(InnerComponent, classes.InnerComponent);
+
+export default ClassWrapper;
 ```
 
 </details>
@@ -223,6 +311,24 @@ class App extends Component {
     );
   }
 }
+```
+
+</details>
+
+<details>
+<summary>How to pass the unknown props? (Like when using a HOC)</summary>
+
+```JavaScript
+import React from 'react';
+
+const wrapWithClass = (InnerComponent, className) => {
+  // {...props} will convert all the props into attributes
+  return props => (
+    <div class={className}>
+      <InnerComponent {...props} />
+    </div>
+  );
+};
 ```
 
 </details>
@@ -407,6 +513,27 @@ const App = props => {
 </details>
 
 <details>
+<summary>How to update the state correctly based on the previous state?</summary>
+
+- React doesn't update the state immediately, runs in an async way
+- the issue is that the previous state might be different to what we expect
+```JavaScript
+// wrong way
+this.setState({
+  users: users,
+  changeCounter: this.state.changeCounter + 1
+});
+
+// proper way
+this.setState((prevState, props) => ({
+  users: users,
+  changeCounter: prevState.changeCounter + 1
+}));
+```
+
+</details>
+
+<details>
 <summary>How to pass method references between components?</summary>
 
 - methods can be passed as props
@@ -535,13 +662,230 @@ class App extends Component {
 </details>
 
 <details>
+<summary>What is a component lifecycle?</summary>
+
+- only available in class-based component
+- the order
+```JavaScript
+// Creation Lifecycle
+// 0 - set up state
+// don't add any side-effects (poor performance and re-render)
+// can also initiate state here instead of using a field
+constructor(props) {...}
+// 1 - sync state when props change (rare usage)
+// don't add any side-effects (poor performance and re-render)
+static getDerivedStateFromProps(props, state) {
+  return state;
+}
+// 3 - prepare and structure the JSX code
+render() {}
+// 3.5 deprecated - before the componentDidMount
+componentWillMount() {}
+// 4 - runs after all the child components are created
+// here you can cause side effects
+// but don't update the state (triggers re-render)
+componentDidMount() {}
+```
+```JavaScript
+// Update Lifecycle
+// 1
+static getDerivedStateFromProps(props, state) {
+  return state;
+}
+// 1.5 deprecated
+componentWillReceiveProps(props) {}
+// 2
+shouldComponentUpdate(nextProps, nextState) {
+  return true || false;
+}
+// 3
+getSnapshotBeforeUpdate(prevProps, prevState) {
+  return 'some value' || null;
+}
+// 4 - prepare and structure the JSX code
+render() {}
+// 4.5 deprecated
+componentWillUpdate() {}
+// 5 - runs after all the child components are created
+componentDidUpdate(prevProps, prevState, snapshot) {
+  // returned from getSnapshotBeforeUpdate
+  console.log(snapshot);
+}
+```
+```JavaScript
+// Cleanup Lifecycle
+// 1
+componentWillUnmount() {
+  // run the code right before the component is removed
+}
+```
+
+</details>
+
+<details>
+<summary>How to manage lifecycle (partially) with hooks?</summary>
+
+- for functional components (a combination of `componentDidMount` and `componentDidUpdate`)
+- executes for every render cycle (not render to DOM, but to ReactDOM)
+```JavaScript
+// no parameters
+useEffect(() => {
+  // http request...
+});
+
+// to execute only on some property changes
+// can use many useEffect calls for different props
+useEffect(() => {
+  // http request...
+}, [props.users]);
+
+// to execute only when the component renders the first time
+// have to pass [] (like no dependencies = never changes = never triggered)
+useEffect(() => {
+  // http request...
+}, []);
+
+// to do the cleanup every update
+useEffect(() => {
+  // ...
+  return () => {
+    // cleanup here
+    // this function runs before the main useEffect function
+    // but after the first render cycle
+  };
+});
+
+// to do the cleanup when the component is destroyed
+useEffect(() => {
+  // ...
+  return () => {};
+}, []);
+```
+
+</details>
+
+<details>
+<summary>How and when to optimise the component?</summary>
+
+- optimise when you really need it
+  - if the parent updates, but the child doesn't in most cases
+- otherwise you'll be running extra logic
+```JavaScript
+// class-based
+shouldComponentUpdate(nextProps, nextState) {
+  return nextProps.users !== this.props.users;
+}
+// if you want to check all the props, extend from PureComponent
+class App extends PureComponent {}
+
+// function-based
+export default React.memo(User);
+```
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [Supported events](https://reactjs.org/docs/events.html#supported-events)
+- [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
+- [Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
+- [Components and Props](https://reactjs.org/docs/components-and-props.html)
+- [SyntheticEvent](https://reactjs.org/docs/events.html)
+
+</details>
+
+## Lists and Conditions
+<details>
+<summary>How to render the content conditionally?</summary>
+</details>
+
+<details>
+<summary>How to render lists based on some data?</summary>
+</details>
+
+<details>
+<summary>What is `key` property and why should we use it?</summary>
+
+- always should be on the wrapping element
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
+- [Lists and Keys](https://reactjs.org/docs/lists-and-keys.html)
 
 </details>
 
 ## Styling
+<details>
+<summary>How to style components?</summary>
+
+- in the separate file, but styles are going to be global
+- inline styles with style object applied to the component (but can't use media, pseudo- classes and elements)
+```JavaScript
+// ...
+render() {
+  const style = {
+    backgroundColor: 'green'
+  };
+
+  return (
+    <div>
+      <p style={style}>Some text here</p>
+    </div>
+  );
+}
+// ...
+```
+
+</details>
+
+<details>
+<summary>How to change styles dynamically with inline approach?</summary>
+</details>
+
+<details>
+<summary>How to set class names dynamically?</summary>
+</details>
+
+<details>
+<summary>How and why do we use Radium?</summary>
+</details>
+
+<details>
+<summary>How and why do we use Styled Components?</summary>
+</details>
+
+<details>
+<summary>How to enable and work with CSS Modules?</summary>
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [How to Use CSS Modules with Create React App](https://medium.com/nulogy/how-to-use-css-modules-with-create-react-app-9e44bec2b5c2)
+
+</details>
+
+## Error Handling
+<details>
+<summary>What is Error Boundary?</summary>
+
+- a component with method `componentDidCatch`
+- won't work in the development mode
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Error Boundaries](https://reactjs.org/docs/error-boundaries.html)
+
+</details>
 
 ## HTTP Requests
 

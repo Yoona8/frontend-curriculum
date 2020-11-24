@@ -334,6 +334,29 @@ const wrapWithClass = (InnerComponent, className) => {
 </details>
 
 <details>
+<summary>How to use PropTypes</summary>
+
+- first you have to install the prop-types package in dependencies
+```JavaScript
+import PropTypes from 'prop-types';
+
+class User extends Component {
+  render() {
+    // ...
+  }
+}
+
+User.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  level: PropTypes.number
+  // advanced types are also allowed
+};
+```
+
+</details>
+
+<details>
 <summary>What is a component state and how to use it?</summary>
 
 - if the state changes, React updates the DOM
@@ -596,6 +619,14 @@ class App extends Component {
 </details>
 
 <details>
+<summary>What are Refs and how to use them?</summary>
+
+- can be used with class-based components or with React Hooks
+- used to access the element in your component
+
+</details>
+
+<details>
 <summary>How to implement a two-way binding?</summary>
 
 ```JavaScript
@@ -792,6 +823,20 @@ export default React.memo(User);
 - [Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
 - [Components and Props](https://reactjs.org/docs/components-and-props.html)
 - [SyntheticEvent](https://reactjs.org/docs/events.html)
+- [Using the Effect Hook](https://reactjs.org/docs/hooks-effect.html)
+- [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Typechecking With PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html)
+- [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
+
+</details>
+
+## Context API
+<details>
+<summary>How to use the Context API and why?</summary>
+
+- in cases when you need to chain props (pass through one component to its children)
+- stored in a different folder (context)
 
 </details>
 

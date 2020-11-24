@@ -1492,9 +1492,14 @@ console.log(getTeamMemberNames(player));
 <details>
 <summary>What is `this` inside an Object?</summary>
 
-- in an object (method) `this` is the link to the object itself (but remember, in depends on how the function is called)
+- in an object (method) `this` is the reference to the object itself (but remember, in depends on how the function is called)
+
+</details>
+
+<details>
+<summary>What will be `this` in case of outer function (call on object and in global scope)?</summary>
+
 ```JavaScript
-// using outer function
 const walk = function() {
   console.log(this + 'walk!');
 };
@@ -1509,8 +1514,13 @@ player.walk();
 // TypeError: Cannot read property '...' of undefined
 walk();
 ```
+
+</details>
+
+<details>
+<summary>What will be `this` if we use destructuring and call the function in the global scope?</summary>
+
 ```JavaScript
-// with destructuring
 const player = {
   name: 'Harry',
   age: 28,
@@ -1523,6 +1533,12 @@ const { run } = player;
 // TypeError: Cannot read property '...' of undefined
 run();
 ```
+
+</details>
+
+<details>
+<summary>What if we use closures inside the object method?</summary>
+
 - with closure the result is more obvious
 ```JavaScript
 const guitarPlayer = {
@@ -1549,7 +1565,7 @@ anotherPlayer.play();
 <details>
 <summary>What is `this` in an instance of a class or when using a constructor function?</summary>
 
-- `this` links to current instance of an object in a `class`
+- `this` refers to current instance of an object in a `class`
 - binds `this` in the constructor
 
 </details>

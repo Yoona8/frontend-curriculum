@@ -539,7 +539,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 23 Nov 2020 (24, 28, 02, 07, 13, 20 Dec)
+## 12, ..., 24 Nov 2020 (28, 02, 07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -1061,7 +1061,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17, ..., 23 Nov 2020 (24, 26, 28, 01, 05, 10, 16, 23 Dec)
+## 17, ..., 24 Nov 2020 (26, 28, 01, 05, 10, 16, 23 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -1073,30 +1073,125 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 23 Nov 2020 (24, 25, 26, 28, 30, 03, 05, 12, 18, 25 Dec)
+## 24 Nov 2020 (25, 26, 27, 29, 01, 04, 06, 13, 19, 26 Dec)
+### JavaScript
+<details>
+<summary>What is `this` and how to change it?</summary>
+
+- it is a context
+- created upon the function call
+- depends on how the function is called
+- could be changed, also with `apply`, `call`, `bind`
+
+</details>
+
+<details>
+<summary>How does `use strict` affect `this` keyword?</summary>
+
+- no `use strict`, `this` = `window`, with `this` = `undefined` (for global this inside the function)
+
+</details>
+
+<details>
+<summary>What is `this` inside an Object?</summary>
+
+- in an object (method) `this` is the link to the object itself (but remember, in depends on how the function is called)
+
+</details>
+
+<details>
+<summary>What will be `this` in case of outer function (call on object and in global scope)?</summary>
+
+```JavaScript
+const walk = function() {
+  console.log(this + 'walk!');
+};
+
+const player = {
+  name: 'Ron',
+  walk
+};
+
+// this links to player object
+player.walk();
+// TypeError: Cannot read property '...' of undefined
+walk();
+```
+
+</details>
+
+<details>
+<summary>What will be `this` if we use destructuring and call the function in the global scope?</summary>
+
 ```JavaScript
 const player = {
   name: 'Harry',
-  teamMembers: [{
-    name: 'Ron',
-    teamMembers: [{
-      name: 'Ginny'
-    }]
-  }]
+  age: 28,
+  run() {
+    console.log(this + ' runs!');
+  }
 };
 
-const getNames = (user) => {
-  const names = [];
+const { run } = player;
+// TypeError: Cannot read property '...' of undefined
+run();
+```
 
-  if (!user.teamMembers) {
-    return [];
+</details>
+
+<details>
+<summary>What if we use closures inside the object method?</summary>
+
+- with closure the result is more obvious
+```JavaScript
+const guitarPlayer = {
+  firstName: 'Michael',
+  lastName: 'Lantsov',
+  play() {
+    console.log(`${guitarPlayer.firstName} ${guitarPlayer.lastName}`);
   }
+};
 
-  for (const member of user.members) {
-    names.push(member.name);
-    names.push(...getName(member));
+const anotherPlayer = {
+  firstName: 'Anna',
+  lastName: 'Starkov'
+  play: guitarPlayer.play
+};
+
+// output will be the same
+guitarPlayer.play();
+anotherPlayer.play();
+```
+
+</details>
+
+<details>
+<summary>What is `this` in an instance of a class or when using a constructor function?</summary>
+
+- `this` refers to current instance of an object in a `class`
+- binds `this` in the constructor
+
+</details>
+
+<details>
+<summary>What is the issue with using array methods inside the object methods and `this`?</summary>
+
+```JavaScript
+const players = {
+  team: 'Griffindor',
+  members: ['Harry', 'Ron', 'Hermione'],
+  getMembers() {
+    this.members.forEach(function(member) {
+      // here this is created when the forEach calls it
+      // it is called not on players object
+      // so this here === global scope or undefined
+      // could be solved with arrow function
+      console.log(this);
+    });
   }
-
-  return names;
 };
 ```
+
+</details>
+
+## 25 Nov 2020 (26, 27, 28, 30, 02, 05, 07, 14, 20, 27 Dec)

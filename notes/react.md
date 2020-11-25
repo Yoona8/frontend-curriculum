@@ -913,6 +913,7 @@ render() {
 
 - [CSS Modules](https://github.com/css-modules/css-modules)
 - [How to Use CSS Modules with Create React App](https://medium.com/nulogy/how-to-use-css-modules-with-create-react-app-9e44bec2b5c2)
+- [Adding a CSS Modules Stylesheet](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
 
 </details>
 

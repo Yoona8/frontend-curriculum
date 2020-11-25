@@ -660,7 +660,7 @@ character.level = 100;
 
 </details>
 
-## 13, ..., 23 Nov 2020 (25, 28, 02, 07, 13, 20 Dec)
+## 13, ..., 25 Nov 2020 (28, 02, 07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -919,7 +919,7 @@ getPlayerInfo`${name} is ${level} for now`;
 
 </details>
 
-## 16, ..., 23 Nov 2020 (25, 27, 30, 04, 09, 15, 22 Dec)
+## 16, ..., 23 Nov 2020 (27, 30, 04, 09, 15, 22 Dec)
 ### JavaScript
 <details>
 <summary>What are pure functions and the side effects?</summary>
@@ -1073,7 +1073,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 24 Nov 2020 (25, 26, 27, 29, 01, 04, 06, 13, 19, 26 Dec)
+## 24, ..., 25 Nov 2020 (26, 27, 29, 01, 04, 06, 13, 19, 26 Dec)
 ### JavaScript
 <details>
 <summary>What is `this` and how to change it?</summary>

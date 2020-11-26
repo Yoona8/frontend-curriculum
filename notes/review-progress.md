@@ -1061,7 +1061,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17, ..., 24 Nov 2020 (26, 28, 01, 05, 10, 16, 23 Dec)
+## 17, ..., 26 Nov 2020 (28, 01, 05, 10, 16, 23 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -1073,7 +1073,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 24, ..., 25 Nov 2020 (26, 27, 29, 01, 04, 06, 13, 19, 26 Dec)
+## 24, ..., 26 Nov 2020 (27, 29, 01, 04, 06, 13, 19, 26 Dec)
 ### JavaScript
 <details>
 <summary>What is `this` and how to change it?</summary>
@@ -1194,4 +1194,107 @@ const players = {
 
 </details>
 
-## 25 Nov 2020 (26, 27, 28, 30, 02, 05, 07, 14, 20, 27 Dec)
+## 26 Nov 2020 (27, 28, 29, 01, 03, 06, 08, 15, 21, 28 Dec)
+### JavaScript
+<details>
+<summary>How and why do we use `bind`, `call` and `apply`?</summary>
+
+- `bind` creates a new function, the initial function stays the same
+- `bind` context can't be changed even with `apply` and `call`
+```JavaScript
+// here `this === obj` instead of `a` (respects the first binding)
+obj.getThis4 = obj.getThis2.bind(obj);
+obj.getThis4.call(a);
+```
+- calling a function with bound context (1st param in those functions is always context, the 2nd parameter differs)
+```JavaScript
+// arguments separated with ',' will be function params
+// perfect when there are not many params
+play.call(anotherPlayer, '20.02.1967');
+// array, which values will be function params
+// good for many params or undefined number of params
+play.apply(guitarPlayer, ['20.02.1967']);
+```
+```JavaScript
+const numbers = [1, 3, 100, 5];
+
+// we don't need context here, so pass 'null'
+console.log(Math.max.apply(null, numbers));
+```
+
+</details>
+
+<details>
+<summary>What is the context inside the event listener?</summary>
+
+- listener's context is always === the element, to which the listener is applied `document.body` or `evt.currentTarget` (the browser binds `this` (on event listeners) to the DOM element that triggered the event)
+```JavaScript
+// even in this case
+const cart = {
+  item: 'Book',
+  price: 6,
+  print() {
+    console.log(`${this.item} \$${this.price}`)
+  }
+};
+
+item.addEventListener('click', cart.print);
+// browser will store the function
+item.callback = cart.print;
+// and executes the callback
+// so just won't work (because it's not cart.callback(), but callback())
+item.callback();
+```
+- can override if create the event handler and execute the method
+```JavaScript
+item.addEventListener('click', function() {
+  cart.print();
+});
+```
+- with bind (but careful, `bind` returns a new function, store first in a separate variable to unsubscribe if needed)
+```JavaScript
+// can't remove the listener
+item.addEventListener('click', cart.print.bind(cart));
+
+// to remove a listener
+const printCart = cart.print.bind(cart);
+
+item.addEventListener('click', printCart);
+item.removeEventListener('click', printCart);
+```
+```JavaScript
+// custom binder (like the bind works)
+const customBind = function(fn, context) {
+  return function() {
+    return fn.apply(context, arguments);
+  };
+};
+```
+
+</details>
+
+<details>
+<summary>What are the differences of scope related to arrow functions?</summary>
+
+- arrow functions do not have their own context (even when we use `call`, `apply` or `bind`)
+- arrow functions passed as a callback to event listeners also have no context
+- even with strict mode `this` won't be undefined but referred to the global scope (arrow functions do not have `this` property)
+- arrow functions **NEVER** have their own context
+```JavaScript
+const players = {
+  team: 'Griffindor',
+  members: ['Harry', 'Ron', 'Hermione'],
+  getMembers() {
+    this.members.forEach((member) => {
+      // works fine because arrow function
+      // doesn't bind this
+      // so this is the same as in getMembers function
+      console.log(member, this.team);
+    });
+  }
+};
+
+players.getMembers();
+```
+
+</details>

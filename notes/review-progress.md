@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 03, ..., 22 Nov 2020 (27, 04 Dec)
+## 03, ..., 27 Nov 2020 (04 Dec)
 ### JavaScript
 
 <details>
@@ -86,7 +86,7 @@ const items = [...elements, ...values];
 
 </details>
 
-## 05, ..., 22 Nov 2020 (27, 04 Dec)
+## 05, ..., 27 Nov 2020 (04 Dec)
 ### JavaScript
 <details>
 <summary>How are the numbers stored?</summary>
@@ -197,7 +197,7 @@ const removedElements3 = numbers.splice(0);
 
 </details>
 
-## 06, ..., 22 Nov 2020 (27, 03, 10 Dec)
+## 06, ..., 27 Nov 2020 (03, 10 Dec)
 ### JavaScript
 <details>
 <summary>How to make an array of a string?</summary>
@@ -341,7 +341,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 08, ..., 22 Nov 2020 (27, 03, 10 Dec)
+## 08, ..., 27 Nov 2020 (03, 10 Dec)
 ### JavaScript
 <details>
 <summary>How to create the set and add items?</summary>
@@ -426,7 +426,7 @@ user = null;
 
 </details>
 
-## 10, ..., 23 Nov 2020 (27, 02, 08, 15 Dec)
+## 10, ..., 27 Nov 2020 (02, 08, 15 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -919,7 +919,7 @@ getPlayerInfo`${name} is ${level} for now`;
 
 </details>
 
-## 16, ..., 23 Nov 2020 (27, 30, 04, 09, 15, 22 Dec)
+## 16, ..., 27 Nov 2020 (30, 04, 09, 15, 22 Dec)
 ### JavaScript
 <details>
 <summary>What are pure functions and the side effects?</summary>
@@ -1073,7 +1073,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 24, ..., 26 Nov 2020 (27, 29, 01, 04, 06, 13, 19, 26 Dec)
+## 24, ..., 27 Nov 2020 (29, 01, 04, 06, 13, 19, 26 Dec)
 ### JavaScript
 <details>
 <summary>What is `this` and how to change it?</summary>
@@ -1194,7 +1194,7 @@ const players = {
 
 </details>
 
-## 26 Nov 2020 (27, 28, 29, 01, 03, 06, 08, 15, 21, 28 Dec)
+## 26, ..., 27 Nov 2020 (28, 29, 01, 03, 06, 08, 15, 21, 28 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -1298,3 +1298,5 @@ players.getMembers();
 ```
 
 </details>
+
+## 28 Nov 2020 (29, 30, 01, 03, 05, 08, 10, 17, 23, 30 Dec)

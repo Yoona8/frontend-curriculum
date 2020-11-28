@@ -539,7 +539,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 24 Nov 2020 (28, 02, 07, 13, 20 Dec)
+## 12, ..., 28 Nov 2020 (02, 07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -660,7 +660,7 @@ character.level = 100;
 
 </details>
 
-## 13, ..., 25 Nov 2020 (28, 02, 07, 13, 20 Dec)
+## 13, ..., 28 Nov 2020 (02, 07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -1061,7 +1061,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17, ..., 26 Nov 2020 (28, 01, 05, 10, 16, 23 Dec)
+## 17, ..., 28 Nov 2020 (01, 05, 10, 16, 23 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -1194,7 +1194,7 @@ const players = {
 
 </details>
 
-## 26, ..., 27 Nov 2020 (28, 29, 01, 03, 06, 08, 15, 21, 28 Dec)
+## 26, ..., 28 Nov 2020 (29, 01, 03, 06, 08, 15, 21, 28 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -1299,4 +1299,4 @@ players.getMembers();
 
 </details>
 
-## 28 Nov 2020 (29, 30, 01, 03, 05, 08, 10, 17, 23, 30 Dec)
+## 29 Nov 2020 (30, 01, 02, 04, 06, 09, 11, 18, 24, 31 Dec)

@@ -1704,12 +1704,29 @@ players.getMembers();
 
 ## Constructors and prototypes
 <details>
-<summary>Prototypes</summary>
+<summary>What is `__proto__` of an Object constructor?</summary>
 
-- base `Object` doesn't have a prototype (`__proto__`)
-- constructor prototype is assigned to instance upon creation
+- base `Object` doesn't have a `__proto__`
+
+</details>
+
+<details>
+<summary>When the constructor prototype is assigned?</summary>
+
+- constructor prototype is assigned to the instance upon creation
+
+</details>
+
+<details>
+<summary>Where does prototype exist? (On what type of object?)</summary>
+
 - `prototype` property exists only on function object
-- prototype chain under the hood
+
+</details>
+
+<details>
+<summary>How the prototype chain works?</summary>
+
 ```JavaScript
 const Player = function(firstName, lastName) {
   this.firstName = firstName;
@@ -1721,7 +1738,8 @@ Player.prototype.play = function() {};
 
 const harryPotter = new Player('Harry', 'Potter');
 const ronWeasley = new harryPotter.__proto__.constructor('Ron', 'Weasley');
-// first looks inside the Player
+
+// first looks inside the instance
 // than in Player prototype (harryPotter.__proto__.play())
 harryPotter.play();
 console.log(harryPotter.__proto__ === Player.prototype); // => true
@@ -1734,7 +1752,7 @@ harryPotter.toString();
 </details>
 
 <details>
-<summary>Create a constructor function</summary>
+<summary>How to create and use a constructor function?</summary>
 
 - naming `Player`
 - creation of an instance with `new` keyword
@@ -1764,9 +1782,9 @@ const harryPotter = new Player('Harry', 'Potter');
 </details>
 
 <details>
-<summary>New keyword</summary>
+<summary>What the `new` keyword does?</summary>
 
-- what `new` does?
+- `new` keyword doesn't call the function, it creates an object with it's fields (when we use `this.name = name`)
 ```JavaScript
 const Player = function(firstName, lastName) {
   // new 'creates' this as an object
@@ -1781,27 +1799,47 @@ const Player = function(firstName, lastName) {
   return this;
 };
 ```
+
+</details>
+
+<details>
+<summary>What if we try to create an instance without the `new` keyword?</summary>
+
 - without `new` => `undefined` (void = return undefined) will not be created
 ```JavaScript
 const ron = Player('Ron', 'Weasley'); // undefined, not created
 ```
-- ES6 check if `new` is used to create an instance
+
+</details>
+
+<details>
+<summary>How to check if the instance was created with a `new` keyword?</summary>
+
 ```JavaScript
+// ES6+
 const Player = function(firstName, lastName) {
   if (!new.target) { 
     throw new Error('Should be called with new operator.'); 
   }
 };
 ```
-- check the constructor with `instanceof`
+
+</details>
+
+<details>
+<summary>How to check what constructor was used to create an instance?</summary>
+
 ```JavaScript
 console.log(harryPotter instanceof Player); // => true
 ```
-- why `new` if we can return an object?
-  - `instanceof` becomes useless
-  - inheritance (prototype) won't work
-- `new` keyword doesn't call the function, it creates an object with it's fields (when we use `this.name = name`)
-  - JS gives the information to an object created with `new Player` on what constructor was used to create it
+
+</details>
+
+<details>
+<summary>Why `new` if we can just return an object or this?</summary>
+
+- `instanceof` becomes useless
+- inheritance (prototype) won't work
 - if you try to imitate a constructor and `return this;`, `this` would be a global object
 
 </details>

@@ -1073,7 +1073,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 24, ..., 27 Nov 2020 (29, 01, 04, 06, 13, 19, 26 Dec)
+## 24, ..., 29 Nov 2020 (01, 04, 06, 13, 19, 26 Dec)
 ### JavaScript
 <details>
 <summary>What is `this` and how to change it?</summary>
@@ -1194,7 +1194,7 @@ const players = {
 
 </details>
 
-## 26, ..., 28 Nov 2020 (29, 01, 03, 06, 08, 15, 21, 28 Dec)
+## 26, ..., 29 Nov 2020 (01, 03, 06, 08, 15, 21, 28 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>

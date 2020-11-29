@@ -13,6 +13,7 @@
 - [Objects](#objects)
 - [Functions](#functions)
 - [Scope](#scope)
+- [Constructors and prototypes](#constructors-and-prototypes)
 
 ## Basic definitions
 <details>

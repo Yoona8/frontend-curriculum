@@ -14,6 +14,7 @@
 - [Functions](#functions)
 - [Scope](#scope)
 - [Constructors and prototypes](#constructors-and-prototypes)
+- [Classes](#classes)
 
 ## Basic definitions
 <details>
@@ -1855,9 +1856,31 @@ console.log(harryPotter instanceof Player); // => true
 
 ## Classes
 <details>
-<summary>Creation</summary>
+<summary>How to create a class and what method is better?</summary>
 
 - `class` better than `const` when creating a class
+```JavaScript
+class Player {
+  // is optional
+  // helps to create an instance of a class
+  constructor() {}
+
+  // for every instance
+  onClick = () => {}
+
+  // inside prototype
+  play() {}
+}
+
+// don't create classes like this
+const Singer = class {};
+```
+
+</details>
+
+<details>
+<summary>What are properties and fields of a class and are they different?</summary>
+
 - properties and fields are basically the same thing
 ```JavaScript
 class Player {
@@ -1866,12 +1889,58 @@ class Player {
   // and add all the properties inside of constructor
   level = 2;
 
-  // is optional
-  // helps to create an instance of a class
   // all properties are defined here
   constructor(name) {
     // properties
     this.name = name;
+    this.onButtonClickArrowFn = () => {
+      // this === current instance of a class
+      console.log(this);
+    };
+  }
+}
+
+```
+
+</details>
+
+<details>
+<summary>How to create an instance of a class?</summary>
+
+- `new` for creating an instance (or type error due to built-in `new.target` check)
+```JavaScript
+const player = new Player('Harry');
+```
+
+</details>
+
+<details>
+<summary>What if you try to access the field or property which is not defined in the class?</summary>
+
+- `undefined`
+
+</details>
+
+<details>
+<summary>Can we use getters and setters in a class?</summary>
+
+- getters / setters can be used
+
+</details>
+
+<details>
+<summary>How to add private fields?</summary>
+
+- private fields, soon to use `this.#skill = value;`
+
+</details>
+
+<details>
+<summary>How to deal with event listeners if we need `this` reference to an instance of a class?</summary>
+
+```JavaScript
+class Player {
+  constructor() {
     this.onButtonClickArrowFn = () => {
       // this === current instance of a class
       console.log(this);
@@ -1882,36 +1951,29 @@ class Player {
     console.log(this);
   }
 
-  // methods are still inside prototype
   play() {
     // this === button
     button.addEventListener('click', this.onButtonClick);
     // this === current instance of a class
     button.addEventListener('click', this.onButtonClick.bind(this));
     button.addEventListener('click', () => this.onButtonClick());
+    // but is created for every instance
     button.addEventListener('click', this.onButtonClickArrowFn);
   }
 }
 
-// don't create classes like this
-const Singer = class {};
 ```
-- `new` for creating an instance (or type error)
-```JavaScript
-const player = new Player('Harry');
-```
-- `undefined` if try to access the property/field, which is not in the class
-- getters / setters can be used
-- private fields, soon to use `this.#skill = value;`
 
 </details>
 
 <details>
-<summary>Classes under the hood</summary>
+<summary>How do classes actually work (under the hood)?</summary>
 
 ```JavaScript
 class Person {}
 
+// extends works like a __proto__
+// Player.__proto__ === Person.prototype
 class Player extends Person {
   name = 'Harry';
 
@@ -1927,7 +1989,7 @@ class Player extends Person {
     console.log(`Hi! My name is ${this.name}.`);
   }
 
-  // if created like this => part of any instance (like a property)
+  // if created like this => part of any instance (like a field/property)
   play = function() {};
   // if we use an arrow function here, context will stay the same
   // even when added as an event handler (don't have to bind)
@@ -1938,7 +2000,7 @@ class Player extends Person {
 </details>
 
 <details>
-<summary>Static properties, fields and methods</summary>
+<summary>How to create static properties, fields and methods?</summary>
 
 - properties can also be static (but still poor browser support)
 - not inherited, accessible on a class without instantiation
@@ -1960,9 +2022,9 @@ const juniorPlayer = Player.createJuniorPlayer();
 </details>
 
 <details>
-<summary>Difference between class and constructor functions</summary>
+<summary>What are the differences between a class and a constructor function?</summary>
 
-- `class` can't be used without `new` (could be imitated inside the constructor function with `target.new`)
+- `class` can't be used without `new` (could be imitated inside the constructor function with `new.target`)
 - class methods are not iterable
 ```JavaScript
 for (const prop in player) {

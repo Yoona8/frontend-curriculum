@@ -919,7 +919,7 @@ getPlayerInfo`${name} is ${level} for now`;
 
 </details>
 
-## 16, ..., 27 Nov 2020 (30, 04, 09, 15, 22 Dec)
+## 16, ..., 30 Nov 2020 (04, 09, 15, 22 Dec)
 ### JavaScript
 <details>
 <summary>What are pure functions and the side effects?</summary>
@@ -1299,7 +1299,7 @@ players.getMembers();
 
 </details>
 
-## 29 Nov 2020 (30, 01, 02, 04, 06, 09, 11, 18, 24, 31 Dec)
+## 29, ..., 30 Nov 2020 (01, 02, 04, 06, 09, 11, 18, 24, 31 Dec)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1441,3 +1441,5 @@ console.log(harryPotter instanceof Player); // => true
 - if you try to imitate a constructor and `return this;`, `this` would be a global object
 
 </details>
+
+## 30 Nov 2020 (01, 02, 03, 05, 07, 10, 12, 19, 25, 01 Jan)

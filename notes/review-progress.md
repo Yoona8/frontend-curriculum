@@ -1061,7 +1061,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17, ..., 28 Nov 2020 (01, 05, 10, 16, 23 Dec)
+## 17, ..., 01 Dec 2020 (05, 10, 16, 23 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -1073,7 +1073,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 24, ..., 29 Nov 2020 (01, 04, 06, 13, 19, 26 Dec)
+## 24, ..., 01 Dec 2020 (04, 06, 13, 19, 26 Dec)
 ### JavaScript
 <details>
 <summary>What is `this` and how to change it?</summary>
@@ -1194,7 +1194,7 @@ const players = {
 
 </details>
 
-## 26, ..., 29 Nov 2020 (01, 03, 06, 08, 15, 21, 28 Dec)
+## 26, ..., 01 Dec 2020 (03, 06, 08, 15, 21, 28 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -1299,7 +1299,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 30 Nov 2020 (01, 02, 04, 06, 09, 11, 18, 24, 31 Dec)
+## 29, ..., 01 Dec 2020 (02, 04, 06, 09, 11, 18, 24, 31 Dec)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1442,4 +1442,24 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 30 Nov 2020 (01, 02, 03, 05, 07, 10, 12, 19, 25, 01 Jan)
+## 01 Nov 2020 (02, 03, 04, 06, 08, 11, 13, 20, 26, 02 Jan)
+```JavaScript
+const Person = function(name) {
+  this.name = name;
+};
+
+// static
+Person.describe = () => {
+  console.log('Creates a person');
+};
+Person.describe();
+
+Person.prototype.walk = function() {
+  console.log(this.name + 'walks');
+};
+
+const player = new Person('Harry');
+// player.__proto__ === Person.prototype
+// Person.__proto__ === Object.prototype
+player.walk();
+```

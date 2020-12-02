@@ -2045,7 +2045,7 @@ for (const prop in player) {
 
 ## Expressions, Control structures and Operators
 <details>
-<summary>Basic operators</summary>
+<summary>What are the basic math operators?</summary>
 
 - `=`
 - `+` or `+=`
@@ -2058,7 +2058,7 @@ for (const prop in player) {
 </details>
 
 <details>
-<summary>Increment and decrement</summary>
+<summary>What is the difference between postfix and prefix increment and decrement?</summary>
 
 - `return result++;` returns first the result and then increments
 - `return --result;` decrements and then returns the changed value
@@ -2066,12 +2066,16 @@ for (const prop in player) {
 </details>
 
 <details>
-<summary>Conditions and boolean operators</summary>
+<summary>What is the difference between `if ... else` and ternary operator?</summary>
 
-- `if ... else`
-  - returns no value
-- `? :`
-  - always returns a value
+- `if ... else` - returns no value
+- `? :` - always returns a value
+
+</details>
+
+<details>
+<summary>Other conditional operators, booleans, etc.</summary>
+
 - `switch () { case: ... }`
   - always uses `===` to compare
 - falsy values

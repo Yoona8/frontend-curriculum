@@ -426,7 +426,7 @@ user = null;
 
 </details>
 
-## 10, ..., 27 Nov 2020 (02, 08, 15 Dec)
+## 10, ..., 02 Dec 2020 (08, 15 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -539,7 +539,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 28 Nov 2020 (02, 07, 13, 20 Dec)
+## 12, ..., 02 Dec 2020 (07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -660,7 +660,7 @@ character.level = 100;
 
 </details>
 
-## 13, ..., 28 Nov 2020 (02, 07, 13, 20 Dec)
+## 13, ..., 02 Dec 2020 (07, 13, 20 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -1299,7 +1299,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 01 Dec 2020 (02, 04, 06, 09, 11, 18, 24, 31 Dec)
+## 29, ..., 02 Dec 2020 (04, 06, 09, 11, 18, 24, 31 Dec)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1442,24 +1442,185 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 01 Nov 2020 (02, 03, 04, 06, 08, 11, 13, 20, 26, 02 Jan)
+## 02 Dec 2020 (03, 04, 05, 07, 09, 12, 14, 21, 27, 03 Jan)
+### JavaScript
+<details>
+<summary>How to create a class and what method is better?</summary>
+
+- `class` better than `const` when creating a class
 ```JavaScript
-const Person = function(name) {
-  this.name = name;
-};
+class Player {
+  // is optional
+  // helps to create an instance of a class
+  constructor() {}
 
-// static
-Person.describe = () => {
-  console.log('Creates a person');
-};
-Person.describe();
+  // for every instance
+  onClick = () => {}
 
-Person.prototype.walk = function() {
-  console.log(this.name + 'walks');
-};
+  // inside prototype
+  play() {}
+}
 
-const player = new Person('Harry');
-// player.__proto__ === Person.prototype
-// Person.__proto__ === Object.prototype
-player.walk();
+// don't create classes like this
+const Singer = class {};
 ```
+
+</details>
+
+<details>
+<summary>What are properties and fields of a class and are they different?</summary>
+
+- properties and fields are basically the same thing
+```JavaScript
+class Player {
+  // fields (still poor support)
+  // for now use methods only
+  // and add all the properties inside of constructor
+  level = 2;
+
+  // all properties are defined here
+  constructor(name) {
+    // properties
+    this.name = name;
+    this.onButtonClickArrowFn = () => {
+      // this === current instance of a class
+      console.log(this);
+    };
+  }
+}
+
+```
+
+</details>
+
+<details>
+<summary>How to create an instance of a class?</summary>
+
+- `new` for creating an instance (or type error due to built-in `new.target` check)
+```JavaScript
+const player = new Player('Harry');
+```
+
+</details>
+
+<details>
+<summary>What if you try to access the field or property which is not defined in the class?</summary>
+
+- `undefined`
+
+</details>
+
+<details>
+<summary>Can we use getters and setters in a class?</summary>
+
+- getters / setters can be used
+
+</details>
+
+<details>
+<summary>How to add private fields?</summary>
+
+- private fields, soon to use `this.#skill = value;`
+
+</details>
+
+<details>
+<summary>How to deal with event listeners if we need `this` reference to an instance of a class?</summary>
+
+```JavaScript
+class Player {
+  constructor() {
+    this.onButtonClickArrowFn = () => {
+      // this === current instance of a class
+      console.log(this);
+    };
+  }
+
+  onButtonClick() {
+    console.log(this);
+  }
+
+  play() {
+    // this === button
+    button.addEventListener('click', this.onButtonClick);
+    // this === current instance of a class
+    button.addEventListener('click', this.onButtonClick.bind(this));
+    button.addEventListener('click', () => this.onButtonClick());
+    // but is created for every instance
+    button.addEventListener('click', this.onButtonClickArrowFn);
+  }
+}
+
+```
+
+</details>
+
+<details>
+<summary>How do classes actually work (under the hood)?</summary>
+
+```JavaScript
+class Person {}
+
+// extends works like a __proto__
+// Player.__proto__ === Person.prototype
+class Player extends Person {
+  name = 'Harry';
+
+  constructor() {
+    super();
+    this.age = 33;
+    // if created like this => part of any instance (like a property)
+    this.play = function() {};
+  }
+
+  // methods are added to prototype
+  greet() {
+    console.log(`Hi! My name is ${this.name}.`);
+  }
+
+  // if created like this => part of any instance (like a field/property)
+  play = function() {};
+  // if we use an arrow function here, context will stay the same
+  // even when added as an event handler (don't have to bind)
+  play = () => {};
+}
+```
+
+</details>
+
+<details>
+<summary>How to create static properties, fields and methods?</summary>
+
+- properties can also be static (but still poor browser support)
+- not inherited, accessible on a class without instantiation
+```JavaScript
+class Player {
+  constructor(level, weaponsCount) {
+    this.level = level;
+    this.weaponsCount = weapons;
+  }
+
+  static createJuniorPlayer() {
+    return new this(5, 2);
+  }
+}
+
+const juniorPlayer = Player.createJuniorPlayer();
+```
+
+</details>
+
+<details>
+<summary>What are the differences between a class and a constructor function?</summary>
+
+- `class` can't be used without `new` (could be imitated inside the constructor function with `new.target`)
+- class methods are not iterable
+```JavaScript
+for (const prop in player) {
+  console.log(prop);
+}
+```
+
+</details>
+
+## 03 Dec 2020 (04, 05, 06, 08, 10, 13, 15, 22, 28, 04 Jan)

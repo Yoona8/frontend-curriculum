@@ -374,7 +374,8 @@ numbers[5] = 23;
 ```JavaScript
 const text = 'One two three';
 const words = text.split(' '); // => ['One', 'two', 'three']
-const words2 = Array.from(text); // => ['O', ..., ' ', 't', ...]
+const symbols1 = Array.from(text); // => ['O', ..., ' ', 't', ...]
+const symbols2 = [...text]; // => ['O', ..., ' ', 't', ...]
 ```
 
 </details>

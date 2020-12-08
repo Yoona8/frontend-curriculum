@@ -228,7 +228,7 @@ user = null;
 
 </details>
 
-## 10, ..., 02 Dec 2020 (08, 15 Dec)
+## 10, ..., 08 Dec 2020 (15 Dec)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -996,7 +996,7 @@ const players = {
 
 </details>
 
-## 26, ..., 03 Dec 2020 (08, 10, 17, 23, 30 Dec)
+## 26, ..., 08 Dec 2020 (10, 17, 23, 30 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -1101,7 +1101,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 04 Dec 2020 (08, 11, 13, 20, 26, 02 Jan)
+## 29, ..., 08 Dec 2020 (11, 13, 20, 26, 02 Jan)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1244,7 +1244,7 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 02, ..., 04 Dec 2020 (08, 10, 12, 15, 17, 24, 30, 06 Jan)
+## 02, ..., 08 Dec 2020 (10, 12, 15, 17, 24, 30, 06 Jan)
 ### JavaScript
 <details>
 <summary>How to create a class and what method is better?</summary>

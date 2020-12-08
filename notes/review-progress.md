@@ -341,7 +341,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 02 Dec 2020 (07, 13, 20 Dec)
+## 12, ..., 07 Dec 2020 (13, 20 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -462,7 +462,7 @@ character.level = 100;
 
 </details>
 
-## 13, ..., 02 Dec 2020 (07, 13, 20 Dec)
+## 13, ..., 07 Dec 2020 (13, 20 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -863,7 +863,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17, ..., 01 Dec 2020 (05, 10, 16, 23 Dec)
+## 17, ..., 07 Dec 2020 (11, 17, 24 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -875,7 +875,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 24, ..., 04 Dec 2020 (06, 13, 19, 26 Dec)
+## 24, ..., 07 Dec 2020 (14, 20, 27 Dec)
 ### JavaScript
 <details>
 <summary>What is `this` and how to change it?</summary>
@@ -996,7 +996,7 @@ const players = {
 
 </details>
 
-## 26, ..., 03 Dec 2020 (06, 08, 15, 21, 28 Dec)
+## 26, ..., 03 Dec 2020 (08, 10, 17, 23, 30 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -1101,7 +1101,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 04 Dec 2020 (06, 09, 11, 18, 24, 31 Dec)
+## 29, ..., 04 Dec 2020 (08, 11, 13, 20, 26, 02 Jan)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1244,7 +1244,7 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 02, ..., 04 Dec 2020 (05, 07, 09, 12, 14, 21, 27, 03 Jan)
+## 02, ..., 04 Dec 2020 (08, 10, 12, 15, 17, 24, 30, 06 Jan)
 ### JavaScript
 <details>
 <summary>How to create a class and what method is better?</summary>
@@ -1425,4 +1425,4 @@ for (const prop in player) {
 
 </details>
 
-## 03 Dec 2020 (04, 05, 06, 08, 10, 13, 15, 22, 28, 04 Jan)
+## 08 Dec 2020 (09, 10, 11, 13, 15, 18, 20, 27, 02, 09 Jan)

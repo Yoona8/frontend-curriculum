@@ -2075,26 +2075,54 @@ for (const prop in player) {
 </details>
 
 <details>
-<summary>Other conditional operators, booleans, etc.</summary>
+<summary>How to use `switch` operator and how does it compare?</summary>
 
-- `switch () { case: ... }`
-  - always uses `===` to compare
-- falsy values
-  - `0`
-  - `''`
-  - `NaN`
-  - `null`
-  - `undefined`
-- truthy values
-  - numbers `!== 0`
-  - not empty strings
-  - `[]`, `{}` and all other objects and arrays
+- always uses `===` to compare
+```JavaScript
+switch (expression) {
+  case value: 
+    console.log(value);
+    break;
+  default:
+    console.log('default');
+}
+```
 
-<hr>
+</details>
+
+<details>
+<summary>What are the 'falsy' values?</summary>
+
+- `0`
+- `''`
+- `NaN`
+- `null`
+- `undefined`
+
+</details>
+
+<details>
+<summary>What are the 'truthy' values?</summary>
+
+- numbers `!== 0`
+- not empty strings
+- `[]`, `{}` and all other objects and arrays
+
+</details>
+
+<details>
+<summary>What are the comparison operators?</summary>
 
 - `==` and `===`
 - `!=` and `!==`
 - `>` and `<`
+- `>=` and `<=`
+
+</details>
+
+<details>
+<summary>How does JS compare strings?</summary>
+
 ```JavaScript
 // JS compares strings based on standard lexicographical ordering (Unicode)
 console.log('b' > 'a'); // => true
@@ -2106,55 +2134,60 @@ console.log('ab' > 'aa'); // => true
 // uppercase chars are smaller than lowercase
 console.log('a' > 'B'); // => true
 ```
-- `>=` and `<=`
-- `!`
-  - `!!userName` converts into a boolean
 
-<hr>
+</details>
+
+<details>
+<summary>What is `not` operator and how to convert into boolean?</summary>
+
+- `!`
+- `!!userName` converts into a boolean
+
+</details>
+
+<details>
+<summary>What are boolean operators and which one is higher?</summary>
 
 - `a && b` if both are true `=== true`
 ```JavaScript
-
 // use value if the condition is true
 const isLoggedIn = true; // if false => false
-const userName = isLoggedIn && 'Mary'; // => 'Mary'
+const userName0 = isLoggedIn && 'Mary'; // => 'Mary'
 
 // returns the 1st falsy value
-const useName = null && 'Mary'; // => null
+const userName1 = null && 'Mary'; // => null
 
 // if both truthy, the second is returned
-const userName = 'Max' && 'Mary'; // => 'Mary'
-
+const userName2 = 'Max' && 'Mary'; // => 'Mary'
 ```
 - `a || b` if at least one is true `=== true`
 ```JavaScript
 // default value assignment
 // doesn't convert into a boolean
 // returns 1st truthy value
-const userName = '' || 'Mary'; // => 'Mary'
-const userName = 'Max' || 'Mary'; // => 'Max'
+const userName1 = '' || 'Mary'; // => 'Mary'
+const userName2 = 'Max' || 'Mary'; // => 'Max'
 
 // if both falsy, the second value is returned
-const userName = null || ''; // => ''
+const userName3 = null || ''; // => ''
 ```
 - `&&` precedence is higher than `||`
 
-<hr>
+</details>
+
+<details>
+<summary>How to check if the value is `NaN`?</summary>
 
 - `isNaN()` to check if NaN or not
-
-<hr>
-
 - `isNaN(value) || value <= 0` if the first part is `true`, JS doesn't go further
 
 </details>
 
 <details>
-<summary>Destructuring: Arrays and alike</summary>
+<summary>How to use destructuring with iterables?</summary>
 
 - for iterable structures only (doesn't work on strings!)
 - all the elements go in an order, can't address the last one
-
 ```JavaScript
 const numbers = [1, 2, 3, 4, 5];
 // before 
@@ -2185,7 +2218,7 @@ printValues(); // error: undefined is not iterable
 </details>
 
 <details>
-<summary>Destructuring: Objects</summary>
+<summary>How to use destructuring with Object?</summary>
 
 ```JavaScript
 const cat = {
@@ -2220,10 +2253,16 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 </details>
 
 <details>
-<summary>Loops</summary>
+<summary>What is better: loop or recursion?</summary>
 
 - in most cases loop is more efficient than a recursion (call stack overflow)
 - any recursion could be rewritten into a loop
+
+</details>
+
+<details>
+<summary>What are the general loops?</summary>
+
 - `for (let i = 0; i < 5; i++) {}`
 - `for (const item of items) {}`
   - almost the same as `for` loop
@@ -2234,13 +2273,19 @@ const [, {textContent: text}] = document.querySelectorAll('li');
 - `while (isEdit) {}` as long as the condition is true
 - `do { ... } while (isEdit);` runs at least once
 
-<hr>
+</details>
+
+<details>
+<summary>What do `break` and `continue` do?</summary>
 
 - `break;` stops the loop execution
   - if inside the nested loop - stops only the nested one, outer continues
 - `continue;` skips only the current iteration and moves to the next
 
-<hr>
+</details>
+
+<details>
+<summary>How and why to use a labeled statement?</summary>
 
 - labeled statements could be used with any expression but mostly used with loops
 - to break or continue the outer loop from inner
@@ -2272,7 +2317,7 @@ button.addEventListener('click', () => {
 </details>
 
 <details>
-<summary>Rest and spread operators</summary>
+<summary>How to use rest and spread operators?</summary>
 
 - rest collects several values into one iterable structure
 - rest must be last parameter in the function (or error)
@@ -2310,17 +2355,45 @@ const filteredValues = [...values].filter();
 </details>
 
 <details>
-<summary>Try catch finally</summary>
+<summary>What can be used with the `throw` operator?</summary>
 
 - `throw { message: 'some message' };` can throw anything as an error, not only `new Error()`
+
+</details>
+
+<details>
+<summary>When is it good to use `try catch finally`?</summary>
+
 - use `try {} catch (error) {}` only for the code you can't control (ex: server errors, user input)
+
+</details>
+
+<details>
+<summary>In what variations can we use `try catch finally`?</summary>
+
 - `try ... catch` or `try ... finally` but never `catch ... finally`
+
+</details>
+
+<details>
+<summary>When does `catch` get executed?</summary>
+
 - if `try` doesn't throw an error, `catch` won't be executed
-- why `finally`?
-  - when we want to throw the error from inside the `catch` block to send to some statistics etc
-  - some cleanup work (release data, clear the variables, etc)
+
+</details>
+
+<details>
+<summary>Why to use and when does `finally` run?</summary>
+
+- when we want to throw the error from inside the `catch` block to send to some statistics etc
+- some cleanup work (release data, clear the variables, etc)
 - if the error is thrown from `catch`, only finally executes, code after `try ... catch ... finally` block won't be executed
 - `finally` always runs
+
+</details>
+
+<details>
+<summary>How does `try catch finally` work in details?</summary>
 
 ```JavaScript
 function doSomething() {

@@ -1,5 +1,66 @@
 # React
-## Overall
+## Core features
+- SPA
+- Declarative
+- Immutability
+- Purity
+- Composition
+- Virtual DOM
+- Unidirectional Data Flow
+## Tools
+- Babel
+- Webpack
+## Concepts
+- JSX
+- Components
+- Functional vs Class components, PureComponent
+- HOC
+- Proxy component
+- Component profiling
+- Props
+- PropTypes
+- Render Props
+- Provider
+- Conditional Rendering
+- Lists Rendering
+- State
+- Events
+- Lifecycle Events
+- Forms
+- Reference a DOM element
+- React Fragment
+- SSR
+- Context API
+- Render Props
+- Code splitting
+## Hooks
+## Concurrent Mode
+## Styling
+- CSS in React
+- SASS in React
+- Styled Components
+## Testing
+- Jest
+- Enzyme
+- Testing React Components
+## Ecosystem
+### React Router
+- Routing
+- History API
+- Route, Link
+- Private routes
+- Redirects
+### Redux
+- Flux-architecture
+- Actions
+- Dispatcher
+- Views
+- Stores
+- Middleware (async redux)
+### Other
+- Next.js
+- Gatsby
+
 <details>
 <summary>Why should you choose React?</summary>
 

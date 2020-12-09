@@ -721,7 +721,7 @@ getPlayerInfo`${name} is ${level} for now`;
 
 </details>
 
-## 16, ..., 04 Dec 2020 (09, 15, 22 Dec)
+## 16, ..., 09 Dec 2020 (15, 22 Dec)
 ### JavaScript
 <details>
 <summary>What are pure functions and the side effects?</summary>
@@ -1425,4 +1425,4 @@ for (const prop in player) {
 
 </details>
 
-## 08 Dec 2020 (09, 10, 11, 13, 15, 18, 20, 27, 02, 09 Jan)
+## 09 Dec 2020 (10, 11, 12, 14, 16, 19, 21, 28, 03, 10 Jan)

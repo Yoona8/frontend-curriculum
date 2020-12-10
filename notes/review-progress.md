@@ -1,233 +1,4 @@
 # Review progress and questions I have to review
-## 06, ..., 03 Dec 2020 (10 Dec)
-### JavaScript
-<details>
-<summary>How to make an array of a string?</summary>
-
-```JavaScript
-const text = 'One two three';
-const words = text.split(' '); // => ['One', 'two', 'three']
-const words2 = Array.from(text); // => ['O', ..., ' ', 't', ...]
-```
-
-</details>
-
-<details>
-<summary>How to copy an array or a part of it?</summary>
-
-- returns a new array
-```JavaScript
-const numbers = [1, 2, 5];
-// copy an array
-const clonedNumbers = numbers.slice();
-// copy starting from index till the end
-const clonedNumbers2 = numbers.slice(2);
-// end item not included
-const clonedNumbers3 = numbers.slice(0, 2); // => [1, 2]
-// [] if nothing is in between
-const emptyNumbers = numbers.slice(3, 2);
-const emptyNumbers2 = numbers.slice(-3, -4);
-// from the end
-const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
-```
-
-</details>
-
-<details>
-<summary>How to find an item or an index in an array?</summary>
-
-```JavaScript
-const numbers = [1, 2, 5];
-// first element in the array
-const number = numbers.find(number => number > 1); // => 2
-// index of the first element or -1
-const numberIndex = numbers.findIndex(number => number > 1); // => 1
-```
-
-</details>
-
-<details>
-<summary>How and why to create a stack using an array (LIFO)?</summary>
-
-- for tasks, when we have to store previous item (history, browser history, games)
-- also available to 'go forward' the history (have to store the removed action back to the stack)
-```JavaScript
-const questions = [{
-  question: 'Which class has a different teacher every year?',
-  answers: [{
-    answer: 'Defence against the dark arts',
-    isCorrect: true
-  }, {
-    answer: 'Potions',
-    isCorrect: false
-  }]
-}, {
-  question: 'What animal represents Hufflepuff house?',
-  answers: [{
-    answer: 'The Burrow',
-    isCorrect: true
-  }, {
-    answer: 'The Fox',
-    isCorrect: false
-  }]
-}];
-
-const history = [];
-
-const changeQuestion = (newQuestion) => {
-  const oldQuestion = questions[0].question;
-
-  questions[0].question = newQuestion;
-  
-  // store the action (function) and add to the history array
-  // works because of closures
-  history.push(() => questions[0].question = oldQuestion);
-};
-
-console.log(questions[0].question);
-changeQuestion('What was the original question?');
-console.log(questions[0].question);
-changeQuestion('Who is Harry Potter?');
-console.log(questions[0].question);
-
-// to get back the stored value
-history.pop()();
-console.log(questions[0].question);
-history.pop()();
-console.log(questions[0].question);
-```
-
-</details>
-
-<details>
-<summary>How and why to create a queue using an array (FIFO)?</summary>
-
-- for tasks to be executed in a row after some async event
-- for unique actions can use `Set` instead of `Array`
-```JavaScript
-const callbacks = [];
-
-const addAsyncListener = (fn) => {
-  // check if the callback exists (used before set was created)
-  if (!callbacks.find((it) => it === fn)) {
-    callbacks.push(fn);
-  }
-};
-
-const startAsync = () => {
-  setTimeout(() => {
-    for (const cb of callbacks) {
-      callbacks.delete(cb);
-      cb();
-    }
-
-    console.log('Done');
-  }, 500);
-};
-
-const log2 = () => console.log(2);
-
-addAsyncListener(() => console.log(1));
-addAsyncListener(log2);
-addAsyncListener(log2); // won't be added to array
-addAsyncListener(() => console.log(3));
-
-console.log('Start!');
-startAsync();
-
-addAsyncListener(() => console.log(4));
-addAsyncListener(() => console.log(5));
-
-// the log will be: Start! 1 2 3 4 5 Done
-```
-
-</details>
-
-## 08, ..., 03 Dec 2020 (10 Dec)
-### JavaScript
-<details>
-<summary>How to create the set and add items?</summary>
-
-```JavaScript
-const data = new Set();
-// add items
-data.add(1);
-
-// based on array or any other iterable
-const data = new Set([1, 4, 8]);
-```
-
-</details>
-
-<details>
-<summary>How to check if the item is in the set?</summary>
-
-```JavaScript
-const isElementInData = data2.has(1); // => true
-```
-
-</details>
-
-<details>
-<summary>How to delete the item and what if there is no such item?</summary>
-
-```JavaScript
-const data = new Set([1, 4, 8]);
-// delete not existed item does nothing
-data.delete(1);
-```
-
-</details>
-
-<details>
-<summary>Is set an iterable and how to iterate?</summary>
-
-```JavaScript
-const data = new Set([1, 4, 8]);
-// iterable
-for (const item of data) {
-  console.log(item);
-}
-```
-
-</details>
-
-<details>
-<summary>What are the entries of the set?</summary>
-
-```JavaScript
-const data = new Set([1, 4, 8]);
-const entries = data.entries();
-
-for (const entry of entries) {
-  console.log(entry); // => [1, 1] => [4, 4] => [8, 8]
-}
-```
-
-</details>
-
-<details>
-<summary>What is a WeakSet and how is it different from a Set?</summary>
-
-- less methods available
-- have to store objects, not primitives
-- that's because JS clears those objects (releases to garbage collection) if you don't work with the certain piece of data anymore
-```JavaScript
-let user = {name: 'Harry'};
-const users = new WeakSet();
-
-users.add(user);
-
-// do some operations with user
-// still need the set, but not the user
-// JS garbage collector will remove the object
-// but if we use the Set(), the object (reference type) will not be removed
-// from the Set
-user = null;
-```
-
-</details>
-
 ## 10, ..., 08 Dec 2020 (15 Dec)
 ### JavaScript
 <details>
@@ -996,7 +767,7 @@ const players = {
 
 </details>
 
-## 26, ..., 08 Dec 2020 (10, 17, 23, 30 Dec)
+## 26, ..., 10 Dec 2020 (17, 23, 30 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -1244,7 +1015,7 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 02, ..., 08 Dec 2020 (10, 12, 15, 17, 24, 30, 06 Jan)
+## 02, ..., 10 Dec 2020 (12, 15, 17, 24, 30, 06 Jan)
 ### JavaScript
 <details>
 <summary>How to create a class and what method is better?</summary>
@@ -1425,4 +1196,144 @@ for (const prop in player) {
 
 </details>
 
-## 09 Dec 2020 (10, 11, 12, 14, 16, 19, 21, 28, 03, 10 Jan)
+## 10 Dec 2020 (11, 12, 13, 15, 17, 20, 22, 29, 04, 11 Jan)
+### JavaScript
+<details>
+<summary>What are the basic math operators?</summary>
+
+- `=`
+- `+` or `+=`
+- `-` or `-=`
+- `*` or `*=`
+- `/` or `/=`
+- `%`
+- `**` exponentiation operator (not supported in IE)
+
+</details>
+
+<details>
+<summary>What is the difference between postfix and prefix increment and decrement?</summary>
+
+- `return result++;` returns first the result and then increments
+- `return --result;` decrements and then returns the changed value
+
+</details>
+
+<details>
+<summary>What is the difference between `if ... else` and ternary operator?</summary>
+
+- `if ... else` - returns no value
+- `? :` - always returns a value
+
+</details>
+
+<details>
+<summary>How to use `switch` operator and how does it compare?</summary>
+
+- always uses `===` to compare
+```JavaScript
+switch (expression) {
+  case value: 
+    console.log(value);
+    break;
+  default:
+    console.log('default');
+}
+```
+
+</details>
+
+<details>
+<summary>What are the 'falsy' values?</summary>
+
+- `0`
+- `''`
+- `NaN`
+- `null`
+- `undefined`
+
+</details>
+
+<details>
+<summary>What are the 'truthy' values?</summary>
+
+- numbers `!== 0`
+- not empty strings
+- `[]`, `{}` and all other objects and arrays
+
+</details>
+
+<details>
+<summary>What are the comparison operators?</summary>
+
+- `==` and `===`
+- `!=` and `!==`
+- `>` and `<`
+- `>=` and `<=`
+
+</details>
+
+<details>
+<summary>How does JS compare strings?</summary>
+
+```JavaScript
+// JS compares strings based on standard lexicographical ordering (Unicode)
+console.log('b' > 'a'); // => true
+
+// JS always looks at the first char and only considers other chars if the 1st
+// chars are the same
+console.log('ab' > 'aa'); // => true
+
+// uppercase chars are smaller than lowercase
+console.log('a' > 'B'); // => true
+```
+
+</details>
+
+<details>
+<summary>What is `not` operator and how to convert into boolean?</summary>
+
+- `!`
+- `!!userName` converts into a boolean
+
+</details>
+
+<details>
+<summary>What are boolean operators and which one is higher?</summary>
+
+- `a && b` if both are true `=== true`
+```JavaScript
+// use value if the condition is true
+const isLoggedIn = true; // if false => false
+const userName0 = isLoggedIn && 'Mary'; // => 'Mary'
+
+// returns the 1st falsy value
+const userName1 = null && 'Mary'; // => null
+
+// if both truthy, the second is returned
+const userName2 = 'Max' && 'Mary'; // => 'Mary'
+```
+- `a || b` if at least one is true `=== true`
+```JavaScript
+// default value assignment
+// doesn't convert into a boolean
+// returns 1st truthy value
+const userName1 = '' || 'Mary'; // => 'Mary'
+const userName2 = 'Max' || 'Mary'; // => 'Max'
+
+// if both falsy, the second value is returned
+const userName3 = null || ''; // => ''
+```
+- `&&` precedence is higher than `||`
+
+</details>
+
+<details>
+<summary>How to check if the value is `NaN`?</summary>
+
+- `isNaN()` to check if NaN or not
+- `isNaN(value) || value <= 0` if the first part is `true`, JS doesn't go further
+
+</details>
+
+## 11 Dec 2020 (12, 13, 14, 16, 18, 21, 23, 30, 05, 12 Jan)

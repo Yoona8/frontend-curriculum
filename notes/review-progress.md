@@ -634,7 +634,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17, ..., 07 Dec 2020 (11, 17, 24 Dec)
+## 17, ..., 11 Dec 2020 (17, 24 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -872,7 +872,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 08 Dec 2020 (11, 13, 20, 26, 02 Jan)
+## 29, ..., 11 Dec 2020 (13, 20, 26, 02 Jan)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1196,7 +1196,7 @@ for (const prop in player) {
 
 </details>
 
-## 10 Dec 2020 (11, 12, 13, 15, 17, 20, 22, 29, 04, 11 Jan)
+## 10, ..., 11 Dec 2020 (12, 13, 15, 17, 20, 22, 29, 04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -1336,4 +1336,4 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 11 Dec 2020 (12, 13, 14, 16, 18, 21, 23, 30, 05, 12 Jan)
+## 12 Dec 2020 (13, 14, 15, 17, 19, 22, 24, 31, 06, 13 Jan)

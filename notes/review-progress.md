@@ -1015,7 +1015,7 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 02, ..., 10 Dec 2020 (12, 15, 17, 24, 30, 06 Jan)
+## 02, ..., 12 Dec 2020 (15, 17, 24, 30, 06 Jan)
 ### JavaScript
 <details>
 <summary>How to create a class and what method is better?</summary>
@@ -1196,7 +1196,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 11 Dec 2020 (12, 13, 15, 17, 20, 22, 29, 04, 11 Jan)
+## 10, ..., 12 Dec 2020 (13, 15, 17, 20, 22, 29, 04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -1336,4 +1336,4 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 12 Dec 2020 (13, 14, 15, 17, 19, 22, 24, 31, 06, 13 Jan)
+## 13 Dec 2020 (14, 15, 16, 18, 20, 21, 25, 01, 07, 14 Jan)

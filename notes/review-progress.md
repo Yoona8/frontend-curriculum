@@ -112,7 +112,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 07 Dec 2020 (13, 20 Dec)
+## 12, ..., 13 Dec 2020 (20 Dec)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -233,7 +233,7 @@ character.level = 100;
 
 </details>
 
-## 13, ..., 07 Dec 2020 (13, 20 Dec)
+## 13, ..., 13 Dec 2020 (20 Dec)
 ### JavaScript
 <details>
 <summary>How to iterate (entries, values, keys)?</summary>
@@ -872,7 +872,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 11 Dec 2020 (13, 20, 26, 02 Jan)
+## 29, ..., 13 Dec 2020 (20, 26, 02 Jan)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1196,7 +1196,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 12 Dec 2020 (13, 15, 17, 20, 22, 29, 04, 11 Jan)
+## 10, ..., 13 Dec 2020 (15, 17, 20, 22, 29, 04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -1336,4 +1336,4 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 13 Dec 2020 (14, 15, 16, 18, 20, 21, 25, 01, 07, 14 Jan)
+## 14 Dec 2020 (15, 16, 17, 19, 22, 26, 01, 08, 15 Jan)

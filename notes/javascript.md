@@ -981,9 +981,9 @@ const person = {
   walk: function() {}
 };
 
-// collapsed = the object (if not all the keys are numbers) is not sorted
-// if numbers = order ascending
-// when not collapsed = any object is sorted, numbers first
+// collapsed = not all keys are numbers - not sorted
+// collapsed = if all numbers - ascending
+// expanded = always sorted, numbers first
 console.log(person);
 ```
 

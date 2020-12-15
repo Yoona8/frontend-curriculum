@@ -1,117 +1,4 @@
 # Review progress and questions I have to review
-## 10, ..., 08 Dec 2020 (15 Dec)
-### JavaScript
-<details>
-<summary>Why a Map, not just an Object?</summary>
-
-- any keys possible
-- iterable
-- pairs are objects
-- better performance (than object) for large quantities of data
-- better performance when adding / removing data frequently
-
-</details>
-
-<details>
-<summary>How to create a Map and add items?</summary>
-
-```JavaScript
-const pairs = new Map();
-// add items
-pairs.set('John', 'May');
-pairs.set('Ichigo', 'Rukiya');
-
-// or with iterable
-const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
-```
-
-</details>
-
-<details>
-<summary>How to get the item from a Map?</summary>
-
-```JavaScript
-const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
-
-// get the value
-const pair = pairs.get('John');
-```
-
-</details>
-
-<details>
-<summary>Is a Map an iterable and how to iterate?</summary>
-
-```JavaScript
-const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
-
-for (const pair of pairs) {
-  console.log(pair); // => ['John', 'May'] => ['Ichigo', 'Rukiya']
-}
-```
-
-</details>
-
-<details>
-<summary>What are the entries, keys, values of a Map?</summary>
-
-```JavaScript
-const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
-
-// entries
-for (const entry of pairs.entries()) {
-  console.log(entry); // => ['John', 'May'] => ['Ichigo', 'Rukiya']
-}
-for (const [key, value] of pairs.entries()) {
-  console.log(key, value);
-}
-
-// keys
-for (const key of pairs.keys()) {
-  console.log(key);
-}
-
-// values
-for (const value of pairs.values()) {
-  console.log(value);
-}
-```
-
-</details>
-
-<details>
-<summary>What is a WeakMap and how is it different from a Map?</summary>
-
-- less methods available
-```JavaScript
-let user = {name: 'Harry'};
-const users = new WeakMap();
-
-users.set(user, 'Some info');
-
-// do some operations with user
-// still need the map, but not the user
-// JS garbage collector will remove the object
-user = null;
-```
-
-</details>
-
-<details>
-<summary>How to convert an Object into a Map and back from a Map to an Object?</summary>
-
-```JavaScript
-const player = {
-  name: 'Harry',
-  level: 10
-};
-
-const playerMap = new Map(Object.entries(player));
-const newPlayer = Object.fromEntries(playerMap.entries());
-```
-
-</details>
-
 ## 12, ..., 13 Dec 2020 (20 Dec)
 ### JavaScript
 <details>
@@ -492,7 +379,7 @@ getPlayerInfo`${name} is ${level} for now`;
 
 </details>
 
-## 16, ..., 09 Dec 2020 (15, 22 Dec)
+## 16, ..., 15 Dec 2020 (22 Dec)
 ### JavaScript
 <details>
 <summary>What are pure functions and the side effects?</summary>
@@ -1015,7 +902,7 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 02, ..., 12 Dec 2020 (15, 17, 24, 30, 06 Jan)
+## 02, ..., 15 Dec 2020 (17, 24, 30, 06 Jan)
 ### JavaScript
 <details>
 <summary>How to create a class and what method is better?</summary>
@@ -1196,7 +1083,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 13 Dec 2020 (15, 17, 20, 22, 29, 04, 11 Jan)
+## 10, ..., 15 Dec 2020 (17, 20, 22, 29, 04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -1336,7 +1223,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14 Dec 2020 (15, 16, 17, 19, 22, 26, 01, 08, 15 Jan)
+## 14, ..., 15 Dec 2020 (16, 17, 19, 22, 26, 01, 08, 15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -1516,4 +1403,4 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 15 Dec 2020 (16, 17, 18, 20, 23, 27, 02, 09, 16 Jan)
+## 16 Dec 2020 (17, 18, 19, 21, 24, 28, 03, 10, 17 Jan)

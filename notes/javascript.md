@@ -2441,20 +2441,20 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 ## Modules
 <details>
-<summary>Tasks to solve</summary>
+<summary>What problems do modules solve?</summary>
 
-- Namespace
+- namespace
   - no global scope
   - encapsulation
-- Dependencies
-  - easy to follow on what modules depends on
-- Interface
+- dependencies
+  - easy to follow on what module depends on
+- interface
   - methods and props export, easy to navigate
 
 </details>
 
 <details>
-<summary>Before ES6</summary>
+<summary>What methods to write modules were used in ES5 (and what are the downsides)?</summary>
 
 - manual configuration
 - have to remember dependencies order

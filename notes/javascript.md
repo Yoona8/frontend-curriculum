@@ -15,6 +15,7 @@
 - [Scope](#scope)
 - [Constructors and prototypes](#constructors-and-prototypes)
 - [Classes](#classes)
+- [Expressions, Control structures and Operators](#expressions-control-structures-and-operators)
 
 ## Basic definitions
 <details>

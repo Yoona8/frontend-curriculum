@@ -1223,7 +1223,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14, ..., 15 Dec 2020 (16, 17, 19, 22, 26, 01, 08, 15 Jan)
+## 14, ..., 16 Dec 2020 (17, 19, 22, 26, 01, 08, 15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -1404,3 +1404,67 @@ const filteredValues = [...values].filter();
 </details>
 
 ## 16 Dec 2020 (17, 18, 19, 21, 24, 28, 03, 10, 17 Jan)
+### JavaScript
+<details>
+<summary>When is it good to use `try catch finally`?</summary>
+
+- use `try {} catch (error) {}` only for the code you can't control (ex: server errors, user input)
+
+</details>
+
+<details>
+<summary>In what variations can we use `try catch finally`?</summary>
+
+- `try ... catch` or `try ... finally` but never `catch ... finally`
+
+</details>
+
+<details>
+<summary>When does `catch` get executed?</summary>
+
+- if `try` doesn't throw an error, `catch` won't be executed
+
+</details>
+
+<details>
+<summary>Why to use and when does `finally` run?</summary>
+
+- when we want to throw the error from inside the `catch` block to send to some statistics etc
+- some cleanup work (release data, clear the variables, etc)
+- if the error is thrown from `catch`, only finally executes, code after `try ... catch ... finally` block won't be executed
+- `finally` always runs
+
+</details>
+
+<details>
+<summary>How does `try catch finally` work in details?</summary>
+
+```JavaScript
+function doSomething() {
+  try {
+    console.log(0); // => 0
+    throw 'error ocurred';
+  } catch(error) {
+    // error => 'error ocurred' (what was used with 'throw')
+    console.log(1); // => 1
+    // this return statement is suspended till finally block completes
+    return true;
+    // not reachable
+    console.log(2);
+  } finally {
+    console.log(3); // => 3
+    // overwrites the return from catch block
+    // function returns this value
+    return false;
+    // not reachable
+    console.log(4);
+  }
+  // the function returns false from finally block
+  // not reachable 
+  console.log(5);
+}
+
+console.log(doSomething()); // => 0, 1, 3, false
+```
+
+</details>

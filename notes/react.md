@@ -1,66 +1,5 @@
 # React
 ## Core features
-- SPA
-- Declarative
-- Immutability
-- Purity
-- Composition
-- Virtual DOM
-- Unidirectional Data Flow
-## Tools
-- Babel
-- Webpack
-## Concepts
-- JSX
-- Components
-- Functional vs Class components, PureComponent
-- HOC
-- Proxy component
-- Component profiling
-- Props
-- PropTypes
-- Render Props
-- Provider
-- Conditional Rendering
-- Lists Rendering
-- State
-- Events
-- Lifecycle Events
-- Forms
-- Reference a DOM element
-- React Fragment
-- SSR
-- Context API
-- Render Props
-- Code splitting
-## Hooks
-## Concurrent Mode
-## Styling
-- CSS in React
-- SASS in React
-- Styled Components
-## Testing
-- Jest
-- Enzyme
-- Testing React Components
-## Ecosystem
-### React Router
-- Routing
-- History API
-- Route, Link
-- Private routes
-- Redirects
-### Redux
-- Flux-architecture
-- Actions
-- Dispatcher
-- Views
-- Stores
-- Middleware (async redux)
-### Other
-- Next.js
-- Gatsby
-
 <details>
 <summary>Why should you choose React?</summary>
 
@@ -93,11 +32,18 @@
 
 </details>
 
+- SPA
+- Declarative
+- Immutability
+- Purity
+- Composition
+- Virtual DOM
+- Unidirectional Data Flow
+
 <details>
 <summary>Learn more</summary>
 
 - [React official](https://reactjs.org/)
-- [Create React App official](https://create-react-app.dev/)
 - [ ] [Learn React](https://academind.com/learn/react/)
 
 </details>
@@ -126,22 +72,21 @@ app-name
 
 </details>
 
-## Components
 <details>
-<summary>What are the ways to create a component?</summary>
+<summary>Learn more</summary>
 
-- functional components (presentational, dumb, stateless) - best practice
-  - access to state (via hooks)
-  - **NO** lifecycle hooks
-- class-based components (containers, smart, stateful)
-  - access to state
-  - lifecycle hooks
+- [Create React App official](https://create-react-app.dev/)
 
 </details>
 
+## JSX
 <details>
 <summary>What is JSX?</summary>
 
+- XML-like syntax extension to JavaScript
+- represents objects
+- used to describe what the UI should look like
+- JSX may remind you of a template language, but it comes with the full power of JavaScript
 - React uses JSX to create elements (compiled to normal JS code)
 - JSX is not HTML, even the tags are converted into HTML by React
 - basic component is a function, which returns some JSX
@@ -150,41 +95,11 @@ app-name
 </details>
 
 <details>
-<summary>How to create a simple component and render it?</summary>
+<summary>How to work with user input to prevent XSS?</summary>
 
-```JavaScript
-// have to import to convert JSX into React.createElement
-import React from 'react';
-
-// props contain all the attributes given in render
-function User(props) {
-  // should return the html to render
-  return (
-    <div className="user">
-      <h2>{props.name}</h2>
-    </div>
-  );
-
-  // when rendered, JSX actually looks like this
-  return React.createElement('div', {
-    className: 'user'
-  }, React.createElement('h2', null, 'Some text'));
-}
-
-// allows to render JS function as a component into a DOM
-ReactDOM.render(<User name="Emma" />, document.querySelector('#user-1'));
-ReactDOM.render(<User name="Hannah" />, document.querySelector('#user-2'));
-
-// better to render only once
-const app = (
-  <div>
-    <User name="Emma" />
-    <User name="Hannah" />
-  </div>
-);
-
-ReactDOM.render(app, document.querySelector('#root'));
-```
+- JSX prevents Injection Attacks (by default, React DOM escapes any values embedded in JSX before rendering them)
+- everything is converted to a string before being rendered
+- this helps to prevent XSS (cross-site-scripting) attacks
 
 </details>
 
@@ -237,32 +152,74 @@ return (
 
 </details>
 
+## Components
 <details>
-<summary>What is a higher order component?</summary>
+<summary>What are the ways to create a component?</summary>
 
-- wrapper for another component (like Aux component)
-- wrapper with specific class names for another component
+- functional components (presentational, dumb, stateless) - best practice
+  - access to state (via hooks)
+  - **NO** lifecycle hooks
+- class-based components (containers, smart, stateful)
+  - access to state
+  - lifecycle hooks
+
+</details>
+
+<details>
+<summary>How to create components in React?</summary>
+
+- Function Components
 ```JavaScript
+function Recipe(props) {
+  return <p>Recipe component!</p>;
+}
+```
+- Class Components
+```JavaScript
+class Recipe extends React.Component {
+  render() {
+    return <p>Recipe component!</p>;
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>How to create a simple component and render it?</summary>
+
+```JavaScript
+// have to import to convert JSX into React.createElement
 import React from 'react';
 
-// creating a component
-const ClassWrapper = props => (
-  <div className={props.classes}>{props.children}</div>
-);
-
-// or using a function to create a component
-const wrapWithClass = (InnerComponent, className) => {
-  return props => (
-    <div class={className}>
-      <InnerComponent />
+// props contain all the attributes given in render
+function User(props) {
+  // should return the html to render
+  return (
+    <div className="user">
+      <h2>{props.name}</h2>
     </div>
   );
-};
 
-// usage with function, here classes are CSS modules classes
-export default wrapWithClass(InnerComponent, classes.InnerComponent);
+  // when rendered, JSX actually looks like this
+  return React.createElement('div', {
+    className: 'user'
+  }, React.createElement('h2', null, 'Some text'));
+}
 
-export default ClassWrapper;
+// allows to render JS function as a component into a DOM
+ReactDOM.render(<User name="Emma" />, document.querySelector('#user-1'));
+ReactDOM.render(<User name="Hannah" />, document.querySelector('#user-2'));
+
+// better to render only once
+const app = (
+  <div>
+    <User name="Emma" />
+    <User name="Hannah" />
+  </div>
+);
+
+ReactDOM.render(app, document.querySelector('#root'));
 ```
 
 </details>
@@ -323,6 +280,41 @@ export default player;
 
 </details>
 
+<details>
+<summary>What is a higher order component (HOC)?</summary>
+
+- wrapper for another component (like Aux component)
+- wrapper with specific class names for another component
+```JavaScript
+import React from 'react';
+
+// creating a component
+const ClassWrapper = props => (
+  <div className={props.classes}>{props.children}</div>
+);
+
+// or using a function to create a component
+const wrapWithClass = (InnerComponent, className) => {
+  return props => (
+    <div class={className}>
+      <InnerComponent />
+    </div>
+  );
+};
+
+// usage with function, here classes are CSS modules classes
+export default wrapWithClass(InnerComponent, classes.InnerComponent);
+
+export default ClassWrapper;
+```
+
+</details>
+
+- PureComponent
+- Proxy component
+- Component profiling
+
+## Props
 <details>
 <summary>How to work with props and children?</summary>
 
@@ -395,6 +387,69 @@ const wrapWithClass = (InnerComponent, className) => {
 </details>
 
 <details>
+<summary>How to pass method references between components?</summary>
+
+- methods can be passed as props
+```JavaScript
+// ./Player/Player.js
+import React from 'react';
+
+const Player = (props) => {
+  return (
+    <h2 onClick={props.click}>
+      I'm {props.name}! My level is {props.level}
+    </h2>
+    <p>{props.children}</p>
+  );
+};
+
+export default Player;
+```
+```JavaScript
+// App.js
+import React, { Component } from 'react';
+import Player from './Player/Player';
+
+class App extends Component {
+  state = {
+    players: [
+      { name: 'Harry', level: 10 },
+      { name: 'Ron', level: 10 }
+    ]
+  }
+
+  onButtonClick = () => {
+    console.log(this);
+  };
+
+  // bind is more efficient if args needed
+  render() {
+    return (
+      <div className="container">
+        <button onClick={this.onButtonClick} type="button">
+          Change player
+        </button>
+        <Player 
+          name={this.state.players[0].name}
+          level={this.state.players[0].level}
+          click={this.onButtonClick}
+          click={this.onButtonClick.bind(this, 'Harry')}
+          click={() => this.onButtonClick('Harry')}
+        />
+        <Player
+          name={this.state.players[1].name}
+          level={this.state.players[1].level}
+        >My house is Griffindor!</Player>
+      </div>
+    );
+  }
+}
+```
+
+</details>
+
+## PropTypes
+<details>
 <summary>How to use PropTypes</summary>
 
 - first you have to install the prop-types package in dependencies
@@ -417,6 +472,12 @@ User.propTypes = {
 
 </details>
 
+- Render Props
+- Provider
+- Conditional Rendering
+- Lists Rendering
+
+## State
 <details>
 <summary>What is a component state and how to use it?</summary>
 
@@ -442,47 +503,6 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Player 
-          name={this.state.players[0].name}
-          level={this.state.players[0].level} />
-        <Player
-          name={this.state.players[1].name}
-          level={this.state.players[1].level}
-        >My house is Griffindor!</Player>
-      </div>
-    );
-  }
-}
-```
-
-</details>
-
-<details>
-<summary>How to handle events in a component?</summary>
-
-```JavaScript
-// App.js
-import React, { Component } from 'react';
-import Player from './Player/Player';
-
-class App extends Component {
-  state = {
-    players: [
-      { name: 'Harry', level: 10 },
-      { name: 'Ron', level: 10 }
-    ]
-  }
-
-  onButtonClick = () => {
-    console.log(this);
-  };
-
-  render() {
-    return (
-      <div className="container">
-        <button onClick={this.onButtonClick} type="button">
-          Change player
-        </button>
         <Player 
           name={this.state.players[0].name}
           level={this.state.players[0].level} />
@@ -617,25 +637,10 @@ this.setState((prevState, props) => ({
 
 </details>
 
+## Events
 <details>
-<summary>How to pass method references between components?</summary>
+<summary>How to handle events in a component?</summary>
 
-- methods can be passed as props
-```JavaScript
-// ./Player/Player.js
-import React from 'react';
-
-const Player = (props) => {
-  return (
-    <h2 onClick={props.click}>
-      I'm {props.name}! My level is {props.level}
-    </h2>
-    <p>{props.children}</p>
-  );
-};
-
-export default Player;
-```
 ```JavaScript
 // App.js
 import React, { Component } from 'react';
@@ -653,7 +658,6 @@ class App extends Component {
     console.log(this);
   };
 
-  // bind is more efficient if args needed
   render() {
     return (
       <div className="container">
@@ -662,11 +666,7 @@ class App extends Component {
         </button>
         <Player 
           name={this.state.players[0].name}
-          level={this.state.players[0].level}
-          click={this.onButtonClick}
-          click={this.onButtonClick.bind(this, 'Harry')}
-          click={() => this.onButtonClick('Harry')}
-        />
+          level={this.state.players[0].level} />
         <Player
           name={this.state.players[1].name}
           level={this.state.players[1].level}
@@ -679,6 +679,10 @@ class App extends Component {
 
 </details>
 
+- Lifecycle Events
+- Forms
+
+## Reference a DOM element
 <details>
 <summary>What are Refs and how to use them?</summary>
 
@@ -687,6 +691,43 @@ class App extends Component {
 
 </details>
 
+- React Fragment
+- SSR
+- Context API
+- Render Props
+- Code splitting
+## Hooks
+## Concurrent Mode
+## Styling
+- CSS in React
+- SASS in React
+- Styled Components
+## Testing
+- Jest
+- Enzyme
+- Testing React Components
+## React Router
+- Routing
+- History API
+- Route, Link
+- Private routes
+- Redirects
+## Redux
+- Flux-architecture
+- Actions
+- Dispatcher
+- Views
+- Stores
+- Middleware (async redux)
+## Internationalization
+## Tools
+- Babel
+- Webpack
+## Other
+- Next.js
+- Gatsby
+
+## Components
 <details>
 <summary>How to implement a two-way binding?</summary>
 

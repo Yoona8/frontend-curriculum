@@ -2476,18 +2476,18 @@ console.log(doSomething()); // => 0, 1, 3, false
 </details>
 
 <details>
-<summary>ES6 exports and imports</summary>
+<summary>What about `use strict` inside the module?</summary>
 
 - `'use strict;'` by default
-- syntax looks like destructuring, but not the same
-- imported variable is not created (exported and imported the created inside the module variable), the same as in export
+
+</details>
+
+<details>
+<summary>How to create a module?</summary>
+
+- syntax looks like destructuring but not the same
 - better export const or class (if you export let, can't reassign in the other module anyway)
-- import without variable when just need to execute the code
 - do not fold `export` and `import` into code blocks `{}`
-- no hoisting, so that's why `import` is always on top
-- `import` of inexistent variable = error, module won't get loaded
-- there are dynamic imports, but browser support is still pretty poor
-- even when you import the same module several times, browser loads only once
 ```JavaScript
 // module-name.js
 // named - names should be the same (or error, module won't get loaded)
@@ -2506,7 +2506,23 @@ export { name as userName };
 export default name;
 export default { name };
 export { name as default };
+```
 
+</details>
+
+<details>
+<summary>How to import a module?</summary>
+
+- syntax looks like destructuring but not the same
+- imported variable is not created (exported and imported the created inside the module variable), the same as in export
+- import without variable when just need to execute the code
+- do not fold `export` and `import` into code blocks `{}`
+- no hoisting, so that's why `import` is always on top
+- `import` of inexistent variable = error, module won't get loaded
+- there are dynamic imports, but browser support is still pretty poor
+- even when you import the same module several times, browser loads only once
+- if there is an error while downloading the module or its children => all connected modules won't get loaded
+```JavaScript
 // other-module.js
 // import using the same variable name
 import { name } from './module-name.js';
@@ -2524,7 +2540,7 @@ import './log.js';
 </details>
 
 <details>
-<summary>Import paths</summary>
+<summary>What paths can be used in imports?</summary>
 
 - both `''` and `""` available
 - path is an immutable constant, can't generate the path
@@ -2535,12 +2551,11 @@ import './log.js';
   - `./helpers.js` rel
   - `../helpers.js` rel
 - `helpers.js` or `utils/helpers.js` is not supported (reserved for libs from package managers)
-- if there is an error while downloading the module or its children => all connected modules won't get loaded
 
 </details>
 
 <details>
-<summary>Module loaders</summary>
+<summary>What are the module loaders?</summary>
 
 - browsers: ES modules in browsers
 ```HTML
@@ -2554,6 +2569,12 @@ import './log.js';
 <script src="module-1.js" nomodule></script>
 ```
 - static: webpack, rollupJS, parcel, ...
+
+</details>
+
+<details>
+<summary>What does the module loader do?</summary>
+
 - orders files
 - downloads, stores files
 - builds, minifies, packs
@@ -2563,7 +2584,7 @@ import './log.js';
 </details>
 
 <details>
-<summary>Proxy</summary>
+<summary>What is a proxy module?</summary>
 
 ```JavaScript
 // module-1.js

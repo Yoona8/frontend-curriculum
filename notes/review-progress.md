@@ -521,7 +521,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 17, ..., 11 Dec 2020 (17, 24 Dec)
+## 17, ..., 17 Dec 2020 (24 Dec)
 ### JavaScript
 <details>
 <summary>What is a scope and a context?</summary>
@@ -654,7 +654,7 @@ const players = {
 
 </details>
 
-## 26, ..., 10 Dec 2020 (17, 23, 30 Dec)
+## 26, ..., 17 Dec 2020 (23, 30 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -902,7 +902,7 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 02, ..., 15 Dec 2020 (17, 24, 30, 06 Jan)
+## 02, ..., 17 Dec 2020 (24, 30, 06 Jan)
 ### JavaScript
 <details>
 <summary>How to create a class and what method is better?</summary>
@@ -1083,7 +1083,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 15 Dec 2020 (17, 20, 22, 29, 04, 11 Jan)
+## 10, ..., 17 Dec 2020 (20, 22, 29, 04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -1223,7 +1223,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14, ..., 16 Dec 2020 (17, 19, 22, 26, 01, 08, 15 Jan)
+## 14, ..., 17 Dec 2020 (19, 22, 26, 01, 08, 15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -1468,3 +1468,5 @@ console.log(doSomething()); // => 0, 1, 3, false
 ```
 
 </details>
+
+## 17 Dec 2020 (18, 19, 20, 22, 25, 29, 04, 11, 18 Jan)

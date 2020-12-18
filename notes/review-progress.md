@@ -1403,7 +1403,7 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 16 Dec 2020 (17, 18, 19, 21, 24, 28, 03, 10, 17 Jan)
+## 16, ..., 18 Dec 2020 (19, 21, 24, 28, 03, 10, 17 Jan)
 ### JavaScript
 <details>
 <summary>When is it good to use `try catch finally`?</summary>
@@ -1469,4 +1469,27 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 17 Dec 2020 (18, 19, 20, 22, 25, 29, 04, 11, 18 Jan)
+## 18 Dec 2020 (19, 20, 21, 23, 26, 30, 05, 12, 19 Jan)
+```JavaScript
+try {
+  console.log(1); // => 1 always
+  throw 'Error!';
+  console.log(1.1); // unreachable
+}
+catch (err) {
+  console.log(2); // => 2
+  console.log(err); // => 'Error'
+  // suspended till finally runs
+  return 'from catch';
+  console.log(2.1); // unreachable
+}
+finally {
+  console.log(3); // => 3
+  return 'from finally'; // => from finally
+  console.log(3.1); // unreachable
+}
+
+console.log(4);
+
+// 1 2 'Error' 3 'from finally'
+```

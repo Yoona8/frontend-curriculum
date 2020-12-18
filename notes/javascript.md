@@ -16,6 +16,7 @@
 - [Constructors and prototypes](#constructors-and-prototypes)
 - [Classes](#classes)
 - [Expressions, Control structures and Operators](#expressions-control-structures-and-operators)
+- [Modules](#modules)
 
 ## Basic definitions
 <details>
@@ -2514,14 +2515,9 @@ export { name as default };
 <summary>How to import a module?</summary>
 
 - syntax looks like destructuring but not the same
-- imported variable is not created (exported and imported the created inside the module variable), the same as in export
-- import without variable when just need to execute the code
+- imported variable is not created (the same link to the exported variable)
 - do not fold `export` and `import` into code blocks `{}`
 - no hoisting, so that's why `import` is always on top
-- `import` of inexistent variable = error, module won't get loaded
-- there are dynamic imports, but browser support is still pretty poor
-- even when you import the same module several times, browser loads only once
-- if there is an error while downloading the module or its children => all connected modules won't get loaded
 ```JavaScript
 // other-module.js
 // import using the same variable name
@@ -2536,6 +2532,28 @@ import { default as name } from './module-name.js';
 // import without a variable if we only need to execute the code from module
 import './log.js';
 ```
+
+</details>
+
+<details>
+<summary>What if we import an inexistent variable or some error occurs while importing a module or children?</summary>
+
+- `import` of inexistent variable = error, module won't get loaded
+- if there is an error while downloading the module or its children => all connected modules won't get loaded
+
+</details>
+
+<details>
+<summary>What are the dynamic imports?</summary>
+
+- there are dynamic imports, but browser support is still pretty poor
+
+</details>
+
+<details>
+<summary>What if you import the same module for several times?</summary>
+
+- even when you import the same module several times, browser loads only once
 
 </details>
 

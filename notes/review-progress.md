@@ -1470,26 +1470,71 @@ console.log(doSomething()); // => 0, 1, 3, false
 </details>
 
 ## 18 Dec 2020 (19, 20, 21, 23, 26, 30, 05, 12, 19 Jan)
+### JavaScript
+<details>
+<summary>What problems do modules solve?</summary>
+
+- namespace
+  - no global scope
+  - encapsulation
+- dependencies
+  - easy to follow on what module depends on
+- interface
+  - methods and props export, easy to navigate
+
+</details>
+
+<details>
+<summary>What methods to write modules were used in ES5 (and what are the downsides)?</summary>
+
+- manual configuration
+- have to remember dependencies order
+- is not clear, what dependencies are used
+
 ```JavaScript
-try {
-  console.log(1); // => 1 always
-  throw 'Error!';
-  console.log(1.1); // unreachable
-}
-catch (err) {
-  console.log(2); // => 2
-  console.log(err); // => 'Error'
-  // suspended till finally runs
-  return 'from catch';
-  console.log(2.1); // unreachable
-}
-finally {
-  console.log(3); // => 3
-  return 'from finally'; // => from finally
-  console.log(3.1); // unreachable
-}
-
-console.log(4);
-
-// 1 2 'Error' 3 'from finally'
+// IIFE
+'use strict';
+// slider.js
+(function() {
+  window.slider = {
+    name: 'Eve'
+  };
+})();
 ```
+
+- better module approaches were found (AMD, CommonJS, UMD)
+
+</details>
+
+<details>
+<summary>What about `use strict` inside the module?</summary>
+
+- `'use strict;'` by default
+
+</details>
+
+<details>
+<summary>How to import a module?</summary>
+
+- syntax looks like destructuring but not the same
+- imported variable is not created (the same link to the exported variable)
+- do not fold `export` and `import` into code blocks `{}`
+- no hoisting, so that's why `import` is always on top
+```JavaScript
+// other-module.js
+// import using the same variable name
+import { name } from './module-name.js';
+// import all as child (ignores default, insecure, have no control on import)
+import * as child from './module-name.js';
+// renamed
+import { name as userName } from './module-name.js';
+// default
+import name from './module-name.js';
+import { default as name } from './module-name.js';
+// import without a variable if we only need to execute the code from module
+import './log.js';
+```
+
+</details>
+
+## 19 Dec 2020 (20, 21, 22, 24, 27, 31, 06, 13, 20 Jan)

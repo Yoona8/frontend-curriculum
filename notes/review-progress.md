@@ -1223,7 +1223,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14, ..., 17 Dec 2020 (19, 22, 26, 01, 08, 15 Jan)
+## 14, ..., 19 Dec 2020 (22, 26, 01, 08, 15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -1513,6 +1513,35 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
+## 19 Dec 2020 (20, 21, 22, 24, 27, 31, 06, 13, 20 Jan)
+<details>
+<summary>How to create a module?</summary>
+
+- syntax looks like destructuring but not the same
+- better export const or class (if you export let, can't reassign in the other module anyway)
+- do not fold `export` and `import` into code blocks `{}`
+```JavaScript
+// module-name.js
+// named - names should be the same (or error, module won't get loaded)
+// could import not all the export
+// can't export the same variable 2x
+// better not to combine inline and group exports
+export { name, age };
+// or
+export const name = 'Max';
+export const age = 40;
+// renamed
+export { name as userName };
+// default
+// better for classes
+// could be hard to debug (imported by any name)
+export default name;
+export default { name };
+export { name as default };
+```
+
+</details>
+
 <details>
 <summary>How to import a module?</summary>
 
@@ -1537,4 +1566,90 @@ import './log.js';
 
 </details>
 
-## 19 Dec 2020 (20, 21, 22, 24, 27, 31, 06, 13, 20 Jan)
+<details>
+<summary>What if we import an inexistent variable or some error occurs while importing a module or children?</summary>
+
+- `import` of inexistent variable = error, module won't get loaded
+- if there is an error while downloading the module or its children => all connected modules won't get loaded
+
+</details>
+
+<details>
+<summary>What are the dynamic imports?</summary>
+
+- there are dynamic imports, but browser support is still pretty poor
+
+</details>
+
+<details>
+<summary>What if you import the same module for several times?</summary>
+
+- even when you import the same module several times, browser loads only once
+
+</details>
+
+<details>
+<summary>What paths can be used in imports?</summary>
+
+- both `''` and `""` available
+- path is an immutable constant, can't generate the path
+- if 2 same imports => browser downloads only one
+- paths abs or rel
+  - `https://google.com` url
+  - `/utils/helpers.js` abs domain-name
+  - `./helpers.js` rel
+  - `../helpers.js` rel
+- `helpers.js` or `utils/helpers.js` is not supported (reserved for libs from package managers)
+
+</details>
+
+<details>
+<summary>What are the module loaders?</summary>
+
+- browsers: ES modules in browsers
+```HTML
+<!-- adding modules to the page -->
+<!-- by default works like defer -->
+<script type="module">
+  // some code here
+</script>
+<script src="module-1.js" type="module"></script>
+<!-- fallbacks (ignored by browsers, which support modules) -->
+<script src="module-1.js" nomodule></script>
+```
+- static: webpack, rollupJS, parcel, ...
+
+</details>
+
+<details>
+<summary>What does the module loader do?</summary>
+
+- orders files
+- downloads, stores files
+- builds, minifies, packs
+- all dependencies are loaded relatively to the 1st loaded module
+- browser cashes not only a file, but also the result of executing the module + returned values
+
+</details>
+
+<details>
+<summary>What is a proxy module?</summary>
+
+```JavaScript
+// module-1.js
+export { name as nameOne };
+
+// module-2.js
+export { name as nameTwo };
+
+// module-3.js
+export * from './module-1.js';
+export * from './module-2.js';
+
+// module-target.js
+import { nameOne, nameTwo } from './module-3.js';
+```
+
+</details>
+
+## 20 Dec 2020 (21, 22, 23, 25, 28, 01, 07, 14, 21 Jan)

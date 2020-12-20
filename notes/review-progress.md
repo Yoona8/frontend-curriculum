@@ -1403,7 +1403,7 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 16, ..., 18 Dec 2020 (19, 21, 24, 28, 03, 10, 17 Jan)
+## 16, ..., 19 Dec 2020 (21, 24, 28, 03, 10, 17 Jan)
 ### JavaScript
 <details>
 <summary>When is it good to use `try catch finally`?</summary>
@@ -1469,7 +1469,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 18 Dec 2020 (19, 20, 21, 23, 26, 30, 05, 12, 19 Jan)
+## 18, ..., 19 Dec 2020 (20, 21, 23, 26, 30, 05, 12, 19 Jan)
 ### JavaScript
 <details>
 <summary>What problems do modules solve?</summary>

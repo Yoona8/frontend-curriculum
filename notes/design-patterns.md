@@ -1,6 +1,6 @@
 # Design Patterns
 
-## Patterns
+## General info
 <details>
 <summary>Learn more</summary>
 
@@ -15,6 +15,30 @@
 - [ ] [JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#designpatternsjavascript)
 
 </details>
+
+## Creational patterns
+- Factory method - create the same
+- Abstract factory
+- Singleton - unique
+
+## Structural patterns
+- Decorator - decorate
+- Adapter - adaptation
+- Facade - adaptation
+- Composite - collections
+- Proxy - access
+
+## Behavioral patterns
+- Observer - observe
+- Command - call encapsulation
+- Template method - algorithm encapsulation
+- Iterator - collections
+- State
+- Strategy
+
+## Concurrency patterns
+
+## Complex patterns
 
 ## Anti-patterns
 <details>

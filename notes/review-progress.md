@@ -1,384 +1,4 @@
 # Review progress and questions I have to review
-## 12, ..., 13 Dec 2020 (20 Dec)
-### JavaScript
-<details>
-<summary>What data structures could be used as a key in an Object?</summary>
-
-- strings
-- numbers (positive int or floats)
-- symbols
-
-</details>
-
-<details>
-<summary>How to create an Object?</summary>
-
-```JavaScript
-// ES5
-// simple object
-const person = {
-  'short-name': 'Ron',
-  age: 22,
-  level: 3,
-  3.2: 'some value',
-  walk: function() {}
-};
-
-// ES6+
-// creation with variable
-const name = 'Harry';
-const user = {
-  name,
-  level: 1
-};
-// complex keys (could be useful for dictionaries)
-const potter = 'Harry Potter';
-const voldemort = 'Tom Riddle';
-const antagonist = {
-  [potter]: voldemort,
-  ['Sirius Black']: 'Bellatrix Lestrange'
-};
-// new syntax for methods
-const character = {
-  go() {}
-};
-```
-
-</details>
-
-<details>
-<summary>How the keys are ordered when logging?</summary>
-
-```JavaScript
-const person = {
-  'short-name': 'Ron',
-  age: 22,
-  level: 3,
-  3.2: 'some value',
-  walk: function() {}
-};
-
-// collapsed = the object (if not all the keys are numbers) is not sorted
-// if numbers = order ascending
-// when not collapsed = any object is sorted, numbers first
-console.log(person);
-```
-
-</details>
-
-<details>
-<summary>How to access the values in an Object?</summary>
-
-```JavaScript
-const person = {
-  'short-name': 'Ron',
-  age: 22,
-  level: 3,
-  3.2: 'some value',
-  walk: function() {}
-};
-
-console.log(person.age);
-console.log(person['short-name']);
-console.log(person[3.2]);
-console.log(person['3.2']);
-// if no property or method => undefined (not an error)
-console.log(person.hobbies);
-```
-
-</details>
-
-<details>
-<summary>How to add and use getters and setters?</summary>
-
-```JavaScript
-const character = {
-  // creation of a property is not required (can be omitted)
-  _level: 1,
-
-  // can't use getter/setter + property
-  // can't address itself = infinite cycle
-  get level() {
-    return this._level;
-  },
-  // always strictly 1 parameter
-  set level(value) {
-    if (value < 0) {
-      this._level = this._level;
-      // or set the default value
-      // or throw an error
-    }
-    this._level = value;
-  }
-};
-
-// addressing the getter or setter
-// if there is only setter, can't access the value
-const level = character.level;
-character.level = 100;
-```
-
-</details>
-
-## 13, ..., 13 Dec 2020 (20 Dec)
-### JavaScript
-<details>
-<summary>How to iterate (entries, values, keys)?</summary>
-
-```JavaScript
-// ES5
-// for ... in - deprecated (additional check)
-
-// ES6
-// for ... of works if using Symbol.iterator protocol
-const player = {
-  name: 'Harry',
-  level: 10
-};
-// [['name', 'Harry'], ['level', 10]]
-const playerEntries = Object.entries(player);
-// ['Harry', 10]
-const playerValues = Object.values(player);
-// ['name', 'level']
-const playerKeys = Object.keys(player);
-```
-
-</details>
-
-<details>
-<summary>How to add, modify, delete a property or a method of an Object?</summary>
-
-```JavaScript
-const player = {
-  name: 'Harry',
-  level: 10
-};
-
-player.age = 33;
-player.level = 20;
-delete player.name;
-```
-
-</details>
-
-<details>
-<summary>How to check if the property exists?</summary>
-
-```JavaScript
-const player = {
-  name: 'Harry',
-  level: 10
-};
-
-// but if the property = undefined, also returns false
-const hasNameTricky = player.name !== undefined;
-// true even if undefined
-const hasName = 'name' in player;
-// true even if undefined
-const hasName2 = player.hasOwnProperty('name');
-```
-
-</details>
-
-<details>
-<summary>How to copy an Object?</summary>
-
-- not a deep copy
-```JavaScript
-const player = {
-  name: 'Harry',
-  level: 10
-};
-
-// {} - where
-// player - what
-const newPlayer = Object.assign({}, player);
-// for several
-const newPlayer = Object.assign({}, player, {options: 'code'});
-
-// ES6
-const newPlayer = {...player};
-```
-- copying deep - recursive with checking typeof function or object
-  - lodash has deep copy
-  - also there is a hack with `json.parse`, `json.stringify`
-
-</details>
-
-<details>
-<summary>How to work with Object Descriptors?</summary>
-
-```JavaScript
-const character = {
-  name: 'Harry',
-  printName: function() {
-    console.log(this.name);
-  }
-};
-
-const descriptors = Object.getOwnPropertyDescriptors(character);
-Object.defineProperty(character, 'name', {
-  // defaults
-  // can delete or define property
-  configurable: true,
-  // is accessible in for ... in loop
-  enumerable: true,
-  value: character.name,
-  // can rewrite
-  writable: true
-});
-
-// if writable === false
-// no error but won't change, stays the same (Harry)
-character.name = 'Ron';
-
-// if configurable === false
-// no error but won't delete, stays the same (Harry)
-// can't reset configuration also, be careful
-delete character.name;
-
-// if enumerable === false
-for (const key in character) {
-  // will skip the name key, logs only printName
-  console.log(key);
-}
-```
-
-</details>
-
-<details>
-<summary>What does function without `return` statement return?</summary>
-
-- function without `return` statement returns `undefined`
-
-</details>
-
-<details>
-<summary>What is the difference between parameters and arguments?</summary>
-
-- parameters are variables, which are specified when defining a function
-```JavaScript
-function printMsg(msg) {}
-```
-- arguments are the concrete values passed to a function when calling it
-```JavaScript
-printMsg('Some message');
-```
-
-</details>
-
-<details>
-<summary>What will be the function name in the console error if thrown from an anonymous function?</summary>
-
-- when there is an error inside the anonymous function, name of the function will be `<anonymous>`
-```JavaScript
-button.addEventListener('click', function() {});
-```
-- the only case why to add a name to anonymous function is for debugging, in that case the name of the function will be specified
-```JavaScript
-button.addEventListener('click', function onClick() {});
-```
-
-</details>
-
-<details>
-<summary>What are the default parameters and how to use them?</summary>
-
-```JavaScript
-// ES5
-var doSomething = function (caption, amount, isChecked) {
-  if (typeof isChecked === 'undefined') {
-    isChecked = false;
-  }
-};
-
-// ES6
-// even if we explicitly pass instead of isChecked undefined,
-// the default value will be assigned
-const doSomething = (caption, amount, isChecked = false) => {
-  // some code here
-};
-
-// can also use the previous parameter in default value assignment
-const doSomething = (amount, isChecked = amount > 5 ? true : false) => {};
-```
-
-</details>
-
-<details>
-<summary>What are the arrow functions and how do they differ from a normal function?</summary>
-
-- doesn't have it's own scope (only lexical) - when global, `this === window`
-- doesn't have `arguments` object
-- can't rewrite `this` (`bind` and `call` won't work)
-  - can't be used as a constructor, no `new` keyword
-  - can't be method of an object or prototype
-
-```JavaScript
-// only 1 param?
-const doSomething = param => console.log(param);
-
-// only 1 expression?
-// = return left * right;
-const doSomething = (left, right) => left * right;
-
-// return object?
-const getWizard = (name, level) => ({
-  name,
-  level
-});
-```
-
-</details>
-
-<details>
-<summary>What is the arguments keyword?</summary>
-
-- don't have to pass as a parameter (accessible as a keyword inside any function)
-- iterable structure
-
-</details>
-
-<details>
-<summary>What do bind, call, apply do and how are they different?</summary>
-
-- `call` (values) and `apply` (array) call the function (as `()`)
-- `bind` doesn't call the function
-- the arguments passed after context are preset arguments, when the arguments are passed on function call, append to the end
-```JavaScript
-const addNumbers = (cb, ...numbers) => {
-  // sum numbers
-  let result = 100;
-
-  cb(result);
-};
-
-const printResult = (text, result) => console.log(`${text} ${result}`);
-
-addNumbers(printResult.bind(this, 'The sum is:'), 10, 90);
-```
-
-</details>
-
-<details>
-<summary>How to call a function with template literals (tagged templates)?</summary>
-
-- with tagged template literals the value of the first argument is always an array of the string values, the remaining arguments are of the passed expressions
-```JavaScript
-const getPlayerInfo = (first, second, third) => {
-  console.log(first); // ['', ' is ', ' for now']
-  console.log(second); // 'Harry'
-  console.log(third); // 10
-};
-
-const name = 'Harry';
-const level = 10;
-
-getPlayerInfo`${name} is ${level} for now`;
-```
-
-</details>
-
 ## 16, ..., 15 Dec 2020 (22 Dec)
 ### JavaScript
 <details>
@@ -533,7 +153,7 @@ console.log(getTeamMemberNames(player));
 
 </details>
 
-## 24, ..., 14 Dec 2020 (20, 27 Dec)
+## 24, ..., 20 Dec 2020 (27 Dec)
 ### JavaScript
 <details>
 <summary>What is `this` and how to change it?</summary>
@@ -759,7 +379,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 13 Dec 2020 (20, 26, 02 Jan)
+## 29, ..., 20 Dec 2020 (26, 02 Jan)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -1083,7 +703,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 17 Dec 2020 (20, 22, 29, 04, 11 Jan)
+## 10, ..., 20 Dec 2020 (22, 29, 04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -1469,7 +1089,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 18, ..., 19 Dec 2020 (20, 21, 23, 26, 30, 05, 12, 19 Jan)
+## 18, ..., 20 Dec 2020 (21, 23, 26, 30, 05, 12, 19 Jan)
 ### JavaScript
 <details>
 <summary>What problems do modules solve?</summary>
@@ -1513,7 +1133,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19 Dec 2020 (20, 21, 22, 24, 27, 31, 06, 13, 20 Jan)
+## 19, ..., 20 Dec 2020 (21, 22, 24, 27, 31, 06, 13, 20 Jan)
 <details>
 <summary>How to create a module?</summary>
 
@@ -1652,4 +1272,4 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 20 Dec 2020 (21, 22, 23, 25, 28, 01, 07, 14, 21 Jan)
+## 21 Dec 2020 (22, 23, 24, 26, 29, 02, 08, 15, 22 Jan)

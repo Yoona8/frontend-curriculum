@@ -1023,7 +1023,7 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 16, ..., 19 Dec 2020 (21, 24, 28, 03, 10, 17 Jan)
+## 16, ..., 21 Dec 2020 (24, 28, 03, 10, 17 Jan)
 ### JavaScript
 <details>
 <summary>When is it good to use `try catch finally`?</summary>
@@ -1089,7 +1089,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 18, ..., 20 Dec 2020 (21, 23, 26, 30, 05, 12, 19 Jan)
+## 18, ..., 21 Dec 2020 (23, 26, 30, 05, 12, 19 Jan)
 ### JavaScript
 <details>
 <summary>What problems do modules solve?</summary>
@@ -1133,7 +1133,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19, ..., 20 Dec 2020 (21, 22, 24, 27, 31, 06, 13, 20 Jan)
+## 19, ..., 21 Dec 2020 (22, 24, 27, 31, 06, 13, 20 Jan)
 <details>
 <summary>How to create a module?</summary>
 
@@ -1272,4 +1272,4 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 21 Dec 2020 (22, 23, 24, 26, 29, 02, 08, 15, 22 Jan)
+## 22 Dec 2020 (23, 24, 25, 27, 30, 03, 09, 16, 23 Jan)

@@ -1,146 +1,4 @@
 # Review progress and questions I have to review
-## 16, ..., 15 Dec 2020 (22 Dec)
-### JavaScript
-<details>
-<summary>What are pure functions and the side effects?</summary>
-
-- for the same input always give the same output
-- no side effects
-```JavaScript
-// pure function
-const addNumbers = (num1, num2) => {
-  return num1 + num2;
-};
-
-// impure - output changes
-const addRandomNumber = (num) => {
-  return num + Math.random();
-};
-
-// impure - side effect
-let result = 0;
-
-const addNumber = (num) => {
-  result += num;
-  return result;
-};
-
-// impure - side effect
-const books = ['If I Never Met You', 'Atomic Habits'];
-
-const addBook = (book) => {
-  books.push(book);
-};
-```
-
-</details>
-
-<details>
-<summary>What are factory functions and why to use them?</summary>
-
-- functions which create a function
-- good for pre-configuring some values
-```JavaScript
-// for not to pass the tax rate all the time
-const createCalculateTax = (tax) => {
-  return (amount) => {
-    return amount * tax;
-  };
-};
-
-const calculateVatAmount = createCalculateTax(0.19);
-const calculateIncomeTaxAmount = createCalculateTax(0.25);
-
-console.log(calculateVatAmount(100));
-console.log(calculateIncomeTaxAmount(100));
-```
-
-</details>
-
-<details>
-<summary>What are closures?</summary>
-
-- all functions in JS are closures
-- function locks in all surrounding variables
-- mostly used for factory functions
-
-</details>
-
-<details>
-<summary>What is a recursion and why to use it?</summary>
-
-- sometimes it's shorter than other ways
-- if too many calls => stack overflow
-```JavaScript
-const getPower = (a, n) => {
-  let result = 1;
-
-  for (let i = 0; i < n; i++) {
-    result *= a;
-  }
-
-  return result;
-};
-
-const getPowerRec = (a, n) => {
-  // don't forget to add an exit condition
-  if (n === 1) {
-    return a;
-  }
-
-  return a * getPowerRec(a, n - 1);
-};
-
-// even shorter
-const getPowerRec = (a, n) => {
-  return n === 1 ? a : a * getPowerRec(a, n - 1);
-};
-```
-- where do we need the recursion?
-- when there are some nested objects but we don't know exactly how many
-```JavaScript
-const player = {
-  name: 'Harry',
-  teamMembers: [{
-    name: 'Ron',
-    teamMembers: [{
-      name: 'Ginny'
-    }]
-  }, {
-    name: 'Hermione',
-    teamMembers: [{
-      name: 'Luna',
-      teamMembers: [{
-        name: 'Mary'
-      }]
-    }]
-  }, {
-    name: 'Sirius'
-  }, {
-    name: 'Ellie'
-  }]
-};
-
-const getTeamMemberNames = (player) => {
-  const names = [];
-
-  if (!player.teamMembers) {
-    return [];
-  }
-
-  for (const teamMember of player.teamMembers) {
-    names.push(teamMember.name);
-    names.push(...getTeamMemberNames(teamMember));
-  }
-
-  return names;
-};
-
-console.log(getTeamMemberNames(player));
-```
-
-</details>
-
 ## 17, ..., 17 Dec 2020 (24 Dec)
 ### JavaScript
 <details>
@@ -703,7 +561,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 20 Dec 2020 (22, 29, 04, 11 Jan)
+## 10, ..., 22 Dec 2020 (29, 04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -843,7 +701,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14, ..., 19 Dec 2020 (22, 26, 01, 08, 15 Jan)
+## 14, ..., 22 Dec 2020 (26, 01, 08, 15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -1133,7 +991,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19, ..., 21 Dec 2020 (22, 24, 27, 31, 06, 13, 20 Jan)
+## 19, ..., 22 Dec 2020 (24, 27, 31, 06, 13, 20 Jan)
 <details>
 <summary>How to create a module?</summary>
 

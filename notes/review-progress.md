@@ -132,7 +132,7 @@ const players = {
 
 </details>
 
-## 26, ..., 17 Dec 2020 (23, 30 Dec)
+## 26, ..., 23 Dec 2020 (30 Dec)
 ### JavaScript
 <details>
 <summary>How and why do we use `bind`, `call` and `apply`?</summary>
@@ -1130,4 +1130,4 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 22 Dec 2020 (23, 24, 25, 27, 30, 03, 09, 16, 23 Jan)
+## 23 Dec 2020 (24, 25, 26, 28, 31, 04, 10, 17, 24 Jan)

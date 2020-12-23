@@ -17,6 +17,7 @@
 - [Classes](#classes)
 - [Expressions, Control structures and Operators](#expressions-control-structures-and-operators)
 - [Modules](#modules)
+- [Window Object](#window-object)
 
 ## Basic definitions
 <details>
@@ -2641,7 +2642,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 ## Window Object
 <details>
-<summary>General info</summary>
+<summary>What is the `window` object and how do we use it?</summary>
 
 - browser API, contains all the global properties and methods
 ```JavaScript
@@ -2661,17 +2662,22 @@ window.alert('Say something');
 
 ## DOM
 <details>
-<summary>General info</summary>
+<summary>What is DOM?</summary>
 
 - a part of `window` object
+
+</details>
+
+<details>
+<summary>How does the browser searches through the DOM?</summary>
+
 - browser searches DOM in depths, so that the first tag is being found (otherwise not obvious)
 
 </details>
 
 <details>
-<summary>Selecting Elements</summary>
+<summary>How to select the elements with query methods?</summary>
 
-- query methods
 - if no matching => `null` for single or empty collection
 ```JavaScript
 // any css selector
@@ -2689,12 +2695,17 @@ document.getElementById('title');
 document.getElementsByClassName('class');
 document.getElementsByTagName('li');
 ```
-- parents, children, descendants, ancestors
+
+</details>
+
+<details>
+<summary>How to select parents, children, descendants, ancestors?</summary>
+
 ```JavaScript
 const element = document.querySelector('ul');
 
 // parent node (any parent node: element, text etc)
-// but in many cases work the same
+// but in many cases works the same
 element.parentNode;
 // selects document
 document.documentElement.parentNode;
@@ -2709,8 +2720,7 @@ element.closest('selector');
 element.childNodes;
 // returns HTMLCollection - live collection (only DOM elements)
 element.children;
-// descendant, and other select methods
-element.querySelector('selector');
+
 // first or last child node
 element.firstChild;
 element.lastChild;
@@ -2724,7 +2734,12 @@ element.previousElementSibling;
 element.nextSibling;
 element.nextElementSibling;
 ```
-- special properties
+
+</details>
+
+<details>
+<summary>How to select some html elements with special properties?</summary>
+
 ```JavaScript
 // to select the <html>
 document.documentElement;
@@ -2737,7 +2752,7 @@ document.head;
 </details>
 
 <details>
-<summary>Attributes and properties</summary>
+<summary>How do some attribute changes work (changes UI/value)?</summary>
 
 ```JavaScript
 const input = document.querySelector('input');
@@ -2748,7 +2763,12 @@ input.value = 'Some new text';
 // UI stays the same but value attribute changes
 input.setAttribute('value', 'Other text');
 ```
-- data attributes
+
+</details>
+
+<details>
+<summary>How to work with data attributes?</summary>
+
 ```JavaScript
 // html attribute data-cat-name="Cat" can be accessed
 const catName = element.dataset.catName;
@@ -2757,22 +2777,74 @@ const catName = element.dataset.catName;
 </details>
 
 <details>
-<summary>Insert DOM elements and nodes</summary>
+<summary>How to insert some text to HTML?</summary>
 
-- HTML string or text
 ```JavaScript
 const element = document.querySelector('section');
-// replace all the content inside the element
-element.innerHTML = '<p>Description</p>';
-// add html to a specific position
-element.insertAdjacentHTML('beforeend', '<p>Description</p>');
-
-// text
+// replaces all the content inside the element
+element.textContent = 'Some text';
+// increments the content
 element.textContent++;
 // is the same
 element.textContent = element.textContent++;
 ```
-- Create an element
+
+</details>
+
+<details>
+<summary>How to insert an element to HTML using an HTML string?</summary>
+
+```JavaScript
+const element = document.querySelector('section');
+// replaces all the content inside the element
+element.innerHTML = '<p>Description</p>';
+// add html to a specific position
+element.insertAdjacentHTML('beforeend', '<p>Description</p>');
+```
+
+</details>
+
+<details>
+<summary>How to create an element?</summary>
+
+```JavaScript
+const element = document.querySelector('section');
+const newElement = document.createElement('p');
+
+newElement.textContent = 'Description';
+
+// all these methods remove the element (if existed)
+// and move to the new position
+// (need to clone not to be removed)
+// append new DOM element or node
+// any node, several nodes (IE not supported)
+element.append('Some text', newElement);
+// first inside the element
+element.prepend(newElement);
+// before the element (as sibling) (problems with Safari)
+element.before(newElement);
+// after the element (as sibling) (problems with Safari)
+element.after(newElement);
+// replace existing DOM element or node with a new one
+element.replaceWith(newElement);
+
+// only one element (older methods, have IE support)
+// = append();
+element.appendChild(newElement);
+// = before();
+insertBefore();
+// = replaceWith();
+replaceChild();
+
+// alternative method (supports IE, Safari)
+element.insertAdjacentElement('beforeend', newElement);
+```
+
+</details>
+
+<details>
+<summary>How to create an element?</summary>
+
 ```JavaScript
 const element = document.querySelector('section');
 const newElement = document.createElement('p');

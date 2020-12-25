@@ -980,6 +980,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 </details>
 
 ## 19, ..., 24 Dec 2020 (27, 31, 06, 13, 20 Jan)
+### JavaScript
 <details>
 <summary>How to create a module?</summary>
 
@@ -1119,3 +1120,160 @@ import { nameOne, nameTwo } from './module-3.js';
 </details>
 
 ## 25 Dec 2020 (26, 27, 28, 30, 02, 06, 12, 19, 26 Jan)
+### JavaScript
+<details>
+<summary>What is the `window` object and how do we use it?</summary>
+
+- browser API, contains all the global properties and methods
+```JavaScript
+// can call both ways
+alert('Say something');
+window.alert('Say something');
+```
+
+</details>
+
+<details>
+<summary>What is DOM?</summary>
+
+- a part of `window` object
+
+</details>
+
+<details>
+<summary>How does the browser searches through the DOM?</summary>
+
+- browser searches DOM in depths, so that the first tag is being found (otherwise not obvious)
+
+</details>
+
+<details>
+<summary>How to select the elements with query methods?</summary>
+
+- if no matching => `null` for single or empty collection
+```JavaScript
+// any css selector
+// returns first matching element in the DOM
+document.querySelector('ul li:last-child');
+// any css selector
+// returns NodeList - static collection (snapshot)
+// DOM changes doesn't affect 
+// (nodes, not only DOM elements, also text, spaces, etc)
+document.querySelectorAll('li');
+
+// all those methods could be called only on document, not on element
+document.getElementById('title');
+// return HTMLCollection - live collection
+document.getElementsByClassName('class');
+document.getElementsByTagName('li');
+```
+
+</details>
+
+<details>
+<summary>How to select parents, children, descendants, ancestors?</summary>
+
+```JavaScript
+const element = document.querySelector('ul');
+
+// parent node (any parent node: element, text etc)
+// but in many cases works the same
+element.parentNode;
+// selects document
+document.documentElement.parentNode;
+// parent html element
+element.parentElement;
+// returns null
+element.documentElement.parentElement;
+// ancestor
+element.closest('selector');
+
+// child nodes (any: element, text etc)
+element.childNodes;
+// returns HTMLCollection - live collection (only DOM elements)
+element.children;
+
+// first or last child node
+element.firstChild;
+element.lastChild;
+// first or last child html element
+element.firstElementChild;
+element.lastElementChild;
+
+// siblings
+element.previousSibling;
+element.previousElementSibling;
+element.nextSibling;
+element.nextElementSibling;
+```
+
+</details>
+
+<details>
+<summary>How to select some html elements with special properties?</summary>
+
+```JavaScript
+// to select the <html>
+document.documentElement;
+// to select the <body>
+document.body;
+// to select the <head>
+document.head;
+```
+
+</details>
+
+<details>
+<summary>How do some attribute changes work (changes UI/value)?</summary>
+
+```JavaScript
+const input = document.querySelector('input');
+
+// UI changes but value html attribute stays the same
+// classes, ids etc do change the html attribute
+input.value = 'Some new text';
+// UI stays the same but value attribute changes
+input.setAttribute('value', 'Other text');
+```
+
+</details>
+
+<details>
+<summary>How to work with data attributes?</summary>
+
+```JavaScript
+// html attribute data-cat-name="Cat" can be accessed
+const catName = element.dataset.catName;
+```
+
+</details>
+
+<details>
+<summary>How to insert some text to HTML?</summary>
+
+```JavaScript
+const element = document.querySelector('section');
+// replaces all the content inside the element
+element.textContent = 'Some text';
+// increments the content
+element.textContent++;
+// is the same
+element.textContent = element.textContent++;
+```
+
+</details>
+
+<details>
+<summary>How to insert an element to HTML using an HTML string?</summary>
+
+```JavaScript
+const element = document.querySelector('section');
+// replaces all the content inside the element
+element.innerHTML = '<p>Description</p>';
+// add html to a specific position
+element.insertAdjacentHTML('beforeend', '<p>Description</p>');
+```
+
+</details>
+
+## 26 Dec 2020 (27, 28, 29, 31, 03, 07, 13, 20, 27 Jan)

@@ -1,16 +1,4 @@
 # Review progress and questions I have to review
-## 17, ..., 17 Dec 2020 (24 Dec)
-### JavaScript
-<details>
-<summary>What is a scope and a context?</summary>
-
-- scope is where the function runs
-- context depends on how the function is called
-- while the function is not called, it doesn't have any context
-- context is being created upon the function call
-
-</details>
-
 ## 24, ..., 20 Dec 2020 (27 Dec)
 ### JavaScript
 <details>
@@ -380,7 +368,7 @@ console.log(harryPotter instanceof Player); // => true
 
 </details>
 
-## 02, ..., 17 Dec 2020 (24, 30, 06 Jan)
+## 02, ..., 24 Dec 2020 (30, 06 Jan)
 ### JavaScript
 <details>
 <summary>How to create a class and what method is better?</summary>
@@ -881,7 +869,7 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 16, ..., 21 Dec 2020 (24, 28, 03, 10, 17 Jan)
+## 16, ..., 24 Dec 2020 (28, 03, 10, 17 Jan)
 ### JavaScript
 <details>
 <summary>When is it good to use `try catch finally`?</summary>
@@ -947,7 +935,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 18, ..., 21 Dec 2020 (23, 26, 30, 05, 12, 19 Jan)
+## 18, ..., 23 Dec 2020 (26, 30, 05, 12, 19 Jan)
 ### JavaScript
 <details>
 <summary>What problems do modules solve?</summary>
@@ -991,7 +979,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19, ..., 22 Dec 2020 (24, 27, 31, 06, 13, 20 Jan)
+## 19, ..., 24 Dec 2020 (27, 31, 06, 13, 20 Jan)
 <details>
 <summary>How to create a module?</summary>
 
@@ -1130,4 +1118,4 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 23 Dec 2020 (24, 25, 26, 28, 31, 04, 10, 17, 24 Jan)
+## 25 Dec 2020 (26, 27, 28, 30, 02, 06, 12, 19, 26 Jan)

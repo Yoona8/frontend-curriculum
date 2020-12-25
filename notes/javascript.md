@@ -2777,6 +2777,13 @@ const catName = element.dataset.catName;
 </details>
 
 <details>
+<summary>What are data attributes good for?</summary>
+
+- works great for tooltips
+
+</details>
+
+<details>
 <summary>How to insert some text to HTML?</summary>
 
 ```JavaScript
@@ -2808,54 +2815,22 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 <summary>How to create an element?</summary>
 
 ```JavaScript
-const element = document.querySelector('section');
 const newElement = document.createElement('p');
-
 newElement.textContent = 'Description';
-
-// all these methods remove the element (if existed)
-// and move to the new position
-// (need to clone not to be removed)
-// append new DOM element or node
-// any node, several nodes (IE not supported)
-element.append('Some text', newElement);
-// first inside the element
-element.prepend(newElement);
-// before the element (as sibling) (problems with Safari)
-element.before(newElement);
-// after the element (as sibling) (problems with Safari)
-element.after(newElement);
-// replace existing DOM element or node with a new one
-element.replaceWith(newElement);
-
-// only one element (older methods, have IE support)
-// = append();
-element.appendChild(newElement);
-// = before();
-insertBefore();
-// = replaceWith();
-replaceChild();
-
-// alternative method (supports IE, Safari)
-element.insertAdjacentElement('beforeend', newElement);
 ```
 
 </details>
 
 <details>
-<summary>How to create an element?</summary>
+<summary>How to add / move the element to the DOM?</summary>
 
 ```JavaScript
-const element = document.querySelector('section');
-const newElement = document.createElement('p');
-
-newElement.textContent = 'Description';
-
 // all these methods remove the element (if existed)
 // and move to the new position
 // (need to clone not to be removed)
 // append new DOM element or node
 // any node, several nodes (IE not supported)
+// last inside the element
 element.append('Some text', newElement);
 // first inside the element
 element.prepend(newElement);
@@ -2881,20 +2856,20 @@ element.insertAdjacentElement('beforeend', newElement);
 </details>
 
 <details>
-</summary>Cloning DOM Nodes</summary>
+</summary>How to clone the DOM Node?</summary>
 
-- better to pass an argument (default could be different for some browsers)
 ```JavaScript
 // deep? boolean
+// better to pass an argument
+// (default could be different for some browsers)
 const newElement = element.cloneNode(true);
 ```
 
 </details>
 
 <details>
-<summary>Removing elements</summary>
+<summary>How to remove the elements from the DOM?</summary>
 
-- when the element is deleted (no reference left), all the listeners are also cleaned up - no memory leaks
 ```JavaScript
 const element = document.querySelector('p');
 
@@ -2908,14 +2883,14 @@ element.parentElement.removeChild(element);
 </details>
 
 <details>
-<summary>Dataset attributes</summary>
+<summary>What happens to the event listeners when the element is removed from the DOM?</summary>
 
-- works great for tooltips
+- when the element is deleted (no reference left), all the listeners are also cleaned up - no memory leaks
 
 </details>
 
 <details>
-<summary>Working with styles in JS</summary>
+<summary>How to work with styles in JS?</summary>
 
 - `style` to get styles but only the inline styles
 ```JavaScript
@@ -2931,7 +2906,7 @@ element.style['background-color'] = 'green';
 </details>
 
 <details>
-<summary>Element coordinates and measurements</summary>
+<summary>How to work with the element coordinates and measurements?</summary>
 
 - always relative to the start of the document, not the viewport (doesn't change upon scrolling)
 ```JavaScript
@@ -2963,7 +2938,7 @@ const viewportHeight = document.documentElement.clientHeight;
 </details>
 
 <details>
-<summary>Scrolling</summary>
+<summary>How to scroll the content into the viewport?</summary>
 
 ```JavaScript
 element.scrollIntoView();
@@ -2972,7 +2947,7 @@ element.scrollIntoView();
 </details>
 
 <details>
-<summary>Templates</summary>
+<summary>How to work with templates?</summary>
 
 - `importNode` (learn more)
 

@@ -225,7 +225,7 @@ players.getMembers();
 
 </details>
 
-## 29, ..., 20 Dec 2020 (26, 02 Jan)
+## 29, ..., 26 Dec 2020 (02 Jan)
 ### JavaScript
 <details>
 <summary>What is `__proto__` of an Object constructor?</summary>
@@ -689,7 +689,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14, ..., 22 Dec 2020 (26, 01, 08, 15 Jan)
+## 14, ..., 26 Dec 2020 (01, 08, 15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -935,7 +935,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 18, ..., 23 Dec 2020 (26, 30, 05, 12, 19 Jan)
+## 18, ..., 26 Dec 2020 (30, 05, 12, 19 Jan)
 ### JavaScript
 <details>
 <summary>What problems do modules solve?</summary>
@@ -1119,7 +1119,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 25 Dec 2020 (26, 27, 28, 30, 02, 06, 12, 19, 26 Jan)
+## 25, ..., 26 Dec 2020 (27, 28, 30, 02, 06, 12, 19, 26 Jan)
 ### JavaScript
 <details>
 <summary>What is the `window` object and how do we use it?</summary>

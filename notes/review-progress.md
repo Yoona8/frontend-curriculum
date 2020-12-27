@@ -1,125 +1,4 @@
 # Review progress and questions I have to review
-## 24, ..., 20 Dec 2020 (27 Dec)
-### JavaScript
-<details>
-<summary>What is `this` and how to change it?</summary>
-
-- it is a context
-- created upon the function call
-- depends on how the function is called
-- could be changed, also with `apply`, `call`, `bind`
-
-</details>
-
-<details>
-<summary>How does `use strict` affect `this` keyword?</summary>
-
-- no `use strict`, `this` = `window`, with `this` = `undefined` (for global this inside the function)
-
-</details>
-
-<details>
-<summary>What is `this` inside an Object?</summary>
-
-- in an object (method) `this` is the link to the object itself (but remember, in depends on how the function is called)
-
-</details>
-
-<details>
-<summary>What will be `this` in case of outer function (call on object and in global scope)?</summary>
-
-```JavaScript
-const walk = function() {
-  console.log(this + 'walk!');
-};
-
-const player = {
-  name: 'Ron',
-  walk
-};
-
-// this links to player object
-player.walk();
-// TypeError: Cannot read property '...' of undefined
-walk();
-```
-
-</details>
-
-<details>
-<summary>What will be `this` if we use destructuring and call the function in the global scope?</summary>
-
-```JavaScript
-const player = {
-  name: 'Harry',
-  age: 28,
-  run() {
-    console.log(this + ' runs!');
-  }
-};
-
-const { run } = player;
-// TypeError: Cannot read property '...' of undefined
-run();
-```
-
-</details>
-
-<details>
-<summary>What if we use closures inside the object method?</summary>
-
-- with closure the result is more obvious
-```JavaScript
-const guitarPlayer = {
-  firstName: 'Michael',
-  lastName: 'Lantsov',
-  play() {
-    console.log(`${guitarPlayer.firstName} ${guitarPlayer.lastName}`);
-  }
-};
-
-const anotherPlayer = {
-  firstName: 'Anna',
-  lastName: 'Starkov'
-  play: guitarPlayer.play
-};
-
-// output will be the same
-guitarPlayer.play();
-anotherPlayer.play();
-```
-
-</details>
-
-<details>
-<summary>What is `this` in an instance of a class or when using a constructor function?</summary>
-
-- `this` refers to current instance of an object in a `class`
-- binds `this` in the constructor
-
-</details>
-
-<details>
-<summary>What is the issue with using array methods inside the object methods and `this`?</summary>
-
-```JavaScript
-const players = {
-  team: 'Griffindor',
-  members: ['Harry', 'Ron', 'Hermione'],
-  getMembers() {
-    this.members.forEach(function(member) {
-      // here this is created when the forEach calls it
-      // it is called not on players object
-      // so this here === global scope or undefined
-      // could be solved with arrow function
-      console.log(this);
-    });
-  }
-};
-```
-
-</details>
-
 ## 26, ..., 23 Dec 2020 (30 Dec)
 ### JavaScript
 <details>
@@ -979,7 +858,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19, ..., 24 Dec 2020 (27, 31, 06, 13, 20 Jan)
+## 19, ..., 27 Dec 2020 (31, 06, 13, 20 Jan)
 ### JavaScript
 <details>
 <summary>How to create a module?</summary>
@@ -1119,7 +998,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 25, ..., 26 Dec 2020 (27, 28, 30, 02, 06, 12, 19, 26 Jan)
+## 25, ..., 27 Dec 2020 (28, 30, 02, 06, 12, 19, 26 Jan)
 ### JavaScript
 <details>
 <summary>What is the `window` object and how do we use it?</summary>
@@ -1276,4 +1155,4 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 26 Dec 2020 (27, 28, 29, 31, 03, 07, 13, 20, 27 Jan)
+## 28 Dec 2020 (29, 30, 31, 02, 05, 09, 15, 22, 29 Jan)

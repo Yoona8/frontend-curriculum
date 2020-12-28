@@ -748,7 +748,7 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 16, ..., 24 Dec 2020 (28, 03, 10, 17 Jan)
+## 16, ..., 28 Dec 2020 (03, 10, 17 Jan)
 ### JavaScript
 <details>
 <summary>When is it good to use `try catch finally`?</summary>
@@ -998,7 +998,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 25, ..., 27 Dec 2020 (28, 30, 02, 06, 12, 19, 26 Jan)
+## 25, ..., 28 Dec 2020 (30, 02, 06, 12, 19, 26 Jan)
 ### JavaScript
 <details>
 <summary>What is the `window` object and how do we use it?</summary>
@@ -1155,4 +1155,4 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 28 Dec 2020 (29, 30, 31, 02, 05, 09, 15, 22, 29 Jan)
+## 29 Dec 2020 (30, 31, 01, 03, 06, 10, 16, 23, 30 Jan)

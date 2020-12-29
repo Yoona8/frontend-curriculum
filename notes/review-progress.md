@@ -428,7 +428,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 22 Dec 2020 (29, 04, 11 Jan)
+## 10, ..., 29 Dec 2020 (04, 11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -1156,3 +1156,52 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 </details>
 
 ## 29 Dec 2020 (30, 31, 01, 03, 06, 10, 16, 23, 30 Jan)
+### JavaScript
+<details>
+<summary>How to create an element?</summary>
+
+```JavaScript
+const newElement = document.createElement('p');
+newElement.textContent = 'Description';
+```
+
+</details>
+
+<details>
+<summary>How to add / move the element to the DOM?</summary>
+
+```JavaScript
+// all these methods remove the element (if existed)
+// and move to the new position
+// (need to clone not to be removed)
+// append new DOM element or node
+// any node, several nodes (IE not supported)
+// last inside the element
+element.append('Some text', newElement);
+// first inside the element
+element.prepend(newElement);
+// before the element (as sibling) (problems with Safari)
+element.before(newElement);
+// after the element (as sibling) (problems with Safari)
+element.after(newElement);
+// replace existing DOM element or node with a new one
+element.replaceWith(newElement);
+
+// only one element (older methods, have IE support)
+// = append();
+element.appendChild(newElement);
+// = before();
+// if referenceNode === null, newElement is inserted
+// at the end of the element's child nodes
+const newNode = element.insertBefore(newElement, referenceNode);
+const newNode1 = element.insertBefore(newElement, null);
+// = replaceWith();
+const oldNode = element.replaceChild(newElement, oldElement);
+
+// alternative method (supports IE, Safari)
+element.insertAdjacentElement('beforeend', newElement);
+```
+
+</details>
+
+## 30 Dec 2020 (31, 01, 02, 04, 07, 11, 17, 24, 31 Jan)

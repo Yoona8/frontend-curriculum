@@ -18,6 +18,7 @@
 - [Expressions, Control structures and Operators](#expressions-control-structures-and-operators)
 - [Modules](#modules)
 - [Window Object](#window-object)
+- [DOM](#dom)
 
 ## Basic definitions
 <details>
@@ -2845,9 +2846,12 @@ element.replaceWith(newElement);
 // = append();
 element.appendChild(newElement);
 // = before();
-insertBefore();
+// if referenceNode === null, newElement is inserted
+// at the end of the element's child nodes
+const newNode = element.insertBefore(newElement, referenceNode);
+const newNode1 = element.insertBefore(newElement, null);
 // = replaceWith();
-replaceChild();
+const oldNode = element.replaceChild(newElement, oldElement);
 
 // alternative method (supports IE, Safari)
 element.insertAdjacentElement('beforeend', newElement);

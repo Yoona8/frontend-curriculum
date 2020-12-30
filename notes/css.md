@@ -175,6 +175,14 @@ p::after {}
 
 ## Positioning
 <details>
+<summary>Why position sticky might not work?</summary>
+
+- if there is `overflow: hidden;` or other on parents
+- if it is not wrapped in a full-size container
+
+</details>
+
+<details>
 <summary>Table</summary>
 
 |Property|Usage and notes|Level|

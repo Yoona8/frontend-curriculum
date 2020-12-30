@@ -1100,3 +1100,39 @@ element.insertAdjacentElement('beforeend', newElement);
 </details>
 
 ## 30 Dec 2020 (31, 01, 02, 04, 07, 11, 17, 24, 31 Jan)
+### JavaScript
+<details>
+<summary>How to clone the DOM Node?</summary>
+
+```JavaScript
+// deep? boolean
+// better to pass an argument
+// (default could be different for some browsers)
+const newElement = element.cloneNode(true);
+```
+
+</details>
+
+<details>
+<summary>How to remove the elements from the DOM?</summary>
+
+```JavaScript
+const element = document.querySelector('p');
+
+element.innerHTML = '';
+// IE is not supported
+element.remove();
+// works with IE
+element.parentElement.removeChild(element);
+```
+
+</details>
+
+<details>
+<summary>What happens to the event listeners when the element is removed from the DOM?</summary>
+
+- when the element is deleted (no reference left), all the listeners are also cleaned up - no memory leaks
+
+</details>
+
+## 31 Dec 2020 (01, 02, 03, 05, 08, 12, 18, 25, 01 Feb)

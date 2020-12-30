@@ -2860,7 +2860,7 @@ element.insertAdjacentElement('beforeend', newElement);
 </details>
 
 <details>
-</summary>How to clone the DOM Node?</summary>
+<summary>How to clone the DOM Node?</summary>
 
 ```JavaScript
 // deep? boolean

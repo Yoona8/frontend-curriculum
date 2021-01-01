@@ -753,7 +753,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19, ..., 27 Dec 2020 (31, 06, 13, 20 Jan)
+## 19, ..., 31 Dec 2020 (06, 13, 20 Jan)
 ### JavaScript
 <details>
 <summary>How to create a module?</summary>
@@ -1099,7 +1099,7 @@ element.insertAdjacentElement('beforeend', newElement);
 
 </details>
 
-## 30 Dec 2020 (31, 01, 02, 04, 07, 11, 17, 24, 31 Jan)
+## 30, ..., 31 Dec 2020 (01, 02, 04, 07, 11, 17, 24, 31 Jan)
 ### JavaScript
 <details>
 <summary>How to clone the DOM Node?</summary>

@@ -1,147 +1,4 @@
 # Review progress and questions I have to review
-## 29, ..., 26 Dec 2020 (02 Jan)
-### JavaScript
-<details>
-<summary>What is `__proto__` of an Object constructor?</summary>
-
-- base `Object` doesn't have a `__proto__`
-
-</details>
-
-<details>
-<summary>When the constructor prototype is assigned?</summary>
-
-- constructor prototype is assigned to the instance upon creation
-
-</details>
-
-<details>
-<summary>Where does prototype exist? (On what type of object?)</summary>
-
-- `prototype` property exists only on function object
-
-</details>
-
-<details>
-<summary>How the prototype chain works?</summary>
-
-```JavaScript
-const Player = function(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-};
-
-// == extends in classes
-Player.prototype.play = function() {};
-
-const harryPotter = new Player('Harry', 'Potter');
-const ronWeasley = new harryPotter.__proto__.constructor('Ron', 'Weasley');
-
-// first looks inside the instance
-// than in Player prototype (harryPotter.__proto__.play())
-harryPotter.play();
-console.log(harryPotter.__proto__ === Player.prototype); // => true
-// than in the Player's prototype's prototype
-// till it reaches the Object.prototype
-// harryPotter.__proto__.__proto__.toString();
-harryPotter.toString();
-```
-
-</details>
-
-<details>
-<summary>How to create and use a constructor function?</summary>
-
-- naming `Player`
-- creation of an instance with `new` keyword
-- add a method to the prototype
-```JavaScript
-const Player = function(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-};
-
-// to add a static method
-Player.describe = function() {
-  console.log('Creating players.');
-};
-
-// __proto__: { play: function() {} }
-Player.prototype.play = function() {};
-
-// will add method to object Player
-// available Player.play() only
-// if called on instance = TypeError
-Player.play = function() {};
-
-const harryPotter = new Player('Harry', 'Potter');
-```
-
-</details>
-
-<details>
-<summary>What the `new` keyword does?</summary>
-
-- `new` keyword doesn't call the function, it creates an object with it's fields (when we use `this.name = name`)
-```JavaScript
-const Player = function(firstName, lastName) {
-  // new 'creates' this as an object
-  this = {};
-  // adds properties and methods
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.greet = function() {
-    console.log(`Hello! I'm ${this.firstName} ${this.lastName}`);
-  };
-  // returns the object
-  return this;
-};
-```
-
-</details>
-
-<details>
-<summary>What if we try to create an instance without the `new` keyword?</summary>
-
-- without `new` => `undefined` (void = return undefined) will not be created
-```JavaScript
-const ron = Player('Ron', 'Weasley'); // undefined, not created
-```
-
-</details>
-
-<details>
-<summary>How to check if the instance was created with a `new` keyword?</summary>
-
-```JavaScript
-// ES6+
-const Player = function(firstName, lastName) {
-  if (!new.target) { 
-    throw new Error('Should be called with new operator.'); 
-  }
-};
-```
-
-</details>
-
-<details>
-<summary>How to check what constructor was used to create an instance?</summary>
-
-```JavaScript
-console.log(harryPotter instanceof Player); // => true
-```
-
-</details>
-
-<details>
-<summary>Why `new` if we can just return an object or this?</summary>
-
-- `instanceof` becomes useless
-- inheritance (prototype) won't work
-- if you try to imitate a constructor and `return this;`, `this` would be a global object
-
-</details>
-
 ## 02, ..., 30 Dec 2020 (06 Jan)
 ### JavaScript
 <details>
@@ -463,7 +320,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14, ..., 26 Dec 2020 (01, 08, 15 Jan)
+## 14, ..., 01 Jan 2020 (08, 15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -893,7 +750,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 25, ..., 30 Dec 2020 (02, 06, 12, 19, 26 Jan)
+## 25, ..., 02 Jan 2020 (06, 12, 19, 26 Jan)
 ### JavaScript
 <details>
 <summary>What is the `window` object and how do we use it?</summary>
@@ -1050,7 +907,7 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 29, ..., 30 Dec 2020 (31, 01, 03, 06, 10, 16, 23, 30 Jan)
+## 29, ..., 01 Jan 2020 (03, 06, 10, 16, 23, 30 Jan)
 ### JavaScript
 <details>
 <summary>How to create an element?</summary>
@@ -1099,7 +956,7 @@ element.insertAdjacentElement('beforeend', newElement);
 
 </details>
 
-## 30, ..., 31 Dec 2020 (01, 02, 04, 07, 11, 17, 24, 31 Jan)
+## 30, ..., 02 Jan 2020 (04, 07, 11, 17, 24, 31 Jan)
 ### JavaScript
 <details>
 <summary>How to clone the DOM Node?</summary>
@@ -1135,4 +992,4 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 31 Dec 2020 (01, 02, 03, 05, 08, 12, 18, 25, 01 Feb)
+## 03 Jan 2020 (04, 05, 06, 08, 11, 15, 21, 28, 04 Feb)

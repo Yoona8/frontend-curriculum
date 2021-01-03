@@ -500,7 +500,7 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 16, ..., 28 Dec 2020 (03, 10, 17 Jan)
+## 16, ..., 03 Jan 2020 (10, 17 Jan)
 ### JavaScript
 <details>
 <summary>When is it good to use `try catch finally`?</summary>
@@ -907,7 +907,7 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 29, ..., 01 Jan 2020 (03, 06, 10, 16, 23, 30 Jan)
+## 29, ..., 03 Jan 2020 (06, 10, 16, 23, 30 Jan)
 ### JavaScript
 <details>
 <summary>How to create an element?</summary>

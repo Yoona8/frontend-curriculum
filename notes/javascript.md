@@ -2918,6 +2918,7 @@ element.style['background-color'] = 'green';
 const topPosition = element.offsetTop;
 ```
 - inner coordinates of the element not including the border, rounds the value to an integer
+- the distance from where the margin area ends and the padding and content begins
 ```JavaScript
 // readonly integer property
 const innerTop = element.clientTop;

@@ -180,7 +180,7 @@ for (const prop in player) {
 
 </details>
 
-## 10, ..., 29 Dec 2020 (04, 11 Jan)
+## 10, ..., 04 Jan 2020 (11 Jan)
 ### JavaScript
 <details>
 <summary>What are the basic math operators?</summary>
@@ -956,7 +956,7 @@ element.insertAdjacentElement('beforeend', newElement);
 
 </details>
 
-## 30, ..., 02 Jan 2020 (04, 07, 11, 17, 24, 31 Jan)
+## 30, ..., 04 Jan 2020 (07, 11, 17, 24, 31 Jan)
 ### JavaScript
 <details>
 <summary>How to clone the DOM Node?</summary>
@@ -992,4 +992,4 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 03 Jan 2020 (04, 05, 06, 08, 11, 15, 21, 28, 04 Feb)
+## 04 Jan 2020 (05, 06, 07, 09, 12, 16, 22, 29, 05 Feb)

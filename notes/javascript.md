@@ -19,6 +19,8 @@
 - [Modules](#modules)
 - [Window Object](#window-object)
 - [DOM](#dom)
+- [Events](#events)
+- [Timers and intervals](#timers-and-intervals)
 
 ## Basic definitions
 <details>
@@ -3005,17 +3007,35 @@ element.scrollIntoView();
 
 ## Events
 <details>
-<summary>General info</summary>
+<summary>What is the general constructor for the event?</summary>
 
 - made with `Event` constructor
-- has specific constructors inherited from `Event` (ex `MouseEvent`, `DragEvent`)
+
+</details>
+
+<details>
+<summary>What are the specific event constructors?</summary>
+
+- specific constructors inherited from `Event` (ex `MouseEvent`, `DragEvent`)
+
+</details>
+
+<details>
+<summary>To what element can you add the event?</summary>
+
 - can be added to any element (even div)
+
+</details>
+
+<details>
+<summary>When are the event listeners removed?</summary>
+
 - event listeners are removed when there is no reference to the element left (either in code or DOM)
 
 </details>
 
 <details>
-<summary>Usage</summary>
+<summary>How to add the listener (2 ways)?</summary>
 
 - `onclick` attribute or adding via JS `element.onclick = console.log();` overrides previous handler (can't add 2 handlers)
 - the best way to add events is `element.addEventListener();`
@@ -3023,7 +3043,7 @@ element.scrollIntoView();
 </details>
 
 <details>
-<summary>Difference between `change` and `input`</summary>
+<summary>What is the difference between `change` and `input`?</summary>
 
 - `change` works when `field.value` changed and the user finished to enter the value (moved the handle and released)
 - `input` works with every value change
@@ -3031,7 +3051,7 @@ element.scrollIntoView();
 </details>
 
 <details>
-<summary>Scroll event</summary>
+<summary>How to implement the scroll event?</summary>
 
 - useful for infinite loading
 ```JavaScript
@@ -3061,11 +3081,23 @@ window.addEventListener('scroll', onScroll);
 </details>
 
 <details>
-<summary>Bubbling and capturing</summary>
+<summary>What are the event phases?</summary>
 
 - (1) capturing (out - in) => (2) bubbling (in - out)
+
+</details>
+
+<details>
+<summary>In what phase does `addEventListener` register the event by default and how to switch the behavior?</summary>
+
 - `addEventListener` by default registers event in a bubbling phase (when we have a listener on button and it's wrapper, first fires button, second wrapper)
 - third parameter of `addEventListener(, , true);` switches to the capturing phase (can add to only one listener in a chain)
+
+</details>
+
+<details>
+<summary>How to stop the event phases?</summary>
+
 - to prevent propagation
 ```JavaScript
 evt.stopPropagation();
@@ -3075,7 +3107,7 @@ evt.stopImmediatePropagation();
 </details>
 
 <details>
-<summary>Event delegation</summary>
+<summary>What is the event delegation and what are `target` and `currentTarget`?</summary>
 
 - `event.target` is referred to the actual item triggered the event
 - `event.currentTarget` always referred to the element, where the listener is added
@@ -3084,7 +3116,7 @@ evt.stopImmediatePropagation();
 </details>
 
 <details>
-<summary>Triggering DOM events programmatically</summary>
+<summary>How to trigger DOM events programmatically?</summary>
 
 ```JavaScript
 // if triggered like that, the event listener added
@@ -3098,7 +3130,7 @@ button.click();
 </details>
 
 <details>
-<summary>This keyword inside the handler</summary>
+<summary>What is `this` inside the event handler?</summary>
 
 - with arrow functions as handlers `this === window`
 - with regular function as handler `this === evt.currentTarget`
@@ -3106,7 +3138,7 @@ button.click();
 </details>
 
 <details>
-<summary>Drag & Drop</summary>
+<summary>How to implement Drag & Drop?</summary>
 
 1. set attribute to `draggable="true"`
 2. listen to `dragstart` event (describe the operation and append some data here)
@@ -3186,7 +3218,7 @@ elementToDrag.addEventListener('dragend', evt => {
 
 ## Async JavaScript (promises and callbacks, async/await), http requests
 <details>
-<summary>Sync data loading</summary>
+<summary>What is sync data loading?</summary>
 
 ```JavaScript
 const getResponse = (url) => {
@@ -3203,14 +3235,13 @@ const data = getResponse('https://data.com/users');
 </details>
 
 <details>
-<summary>Event loop</summary>
+<summary>What is the event loop and how it works?</summary>
 
 - JS is single threaded
 - browser is multi threaded
 - all kind of async tasks (like timers, event listeners, etc) are going to browser (message queue)
 - micro - promises (run first), macro - timeouts (run second)
-- when the call stack is empty, event loop goes through message queue
-- and executes the functions from there
+- when the call stack is empty, event loop goes through message queue and executes the functions from there
 
 </details>
   

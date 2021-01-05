@@ -566,7 +566,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 18, ..., 30 Dec 2020 (05, 12, 19 Jan)
+## 18, ..., 05 Jan 2020 (12, 19 Jan)
 ### JavaScript
 <details>
 <summary>What problems do modules solve?</summary>
@@ -1011,26 +1011,45 @@ element.style['background-color'] = 'green';
 </details>
 
 <details>
-<summary>How to work with the element coordinates and measurements?</summary>
+<summary>How to work with the element coordinates relative to the document?</summary>
 
 - always relative to the start of the document, not the viewport (doesn't change upon scrolling)
 ```JavaScript
 // readonly property
 const topPosition = element.offsetTop;
 ```
-- inner coordinates of the element not including the border, rounds the value to an integer
+
+</details>
+
+<details>
+<summary>How to work with the element inner coordinates?</summary>
+
+- inner coordinates of the element do not include the border
+- rounds the value to an integer
 - the distance from where the margin area ends and the padding and content begins
 ```JavaScript
 // readonly integer property
 const innerTop = element.clientTop;
 const innerLeft = element.clientLeft;
 ```
+
+</details>
+
+<details>
+<summary>How to work with the element measurements?</summary>
+
 - height of an element's content (including the content not visible on the screen due to overflow)
 ```JavaScript
 // readonly property
 const elementFullHeight = element.scrollHeight;
 ```
-- window width and height in pixels
+
+</details>
+
+<details>
+<summary>How to get the window width and height with and without scroll?</summary>
+
+- in pixels
 ```JavaScript
 // readonly properties
 const viewportWidthWithScroll = window.innerWidth;
@@ -1061,5 +1080,12 @@ element.scrollIntoView();
 
 ## 05 Jan 2020 (06, 07, 08, 10, 13, 17, 23, 30, 06 Feb)
 ```JavaScript
-importNode;
+// position in the document
+// readonly
+const topPosition = element.offsetTop;
+
+const innerTop = element.clientTop;
+const innerLeft = element.clientLeft;
+
+window.height;
 ```

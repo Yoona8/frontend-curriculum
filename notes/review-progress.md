@@ -992,7 +992,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04 Jan 2020 (05, 06, 07, 09, 12, 16, 22, 29, 05 Feb)
+## 04, ..., 05 Jan 2020 (06, 07, 09, 12, 16, 22, 29, 05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -1079,13 +1079,3 @@ element.scrollIntoView();
 </details>
 
 ## 05 Jan 2020 (06, 07, 08, 10, 13, 17, 23, 30, 06 Feb)
-```JavaScript
-// position in the document
-// readonly
-const topPosition = element.offsetTop;
-
-const innerTop = element.clientTop;
-const innerLeft = element.clientLeft;
-
-window.height;
-```

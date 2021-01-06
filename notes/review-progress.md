@@ -811,7 +811,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04, ..., 05 Jan 2020 (06, 07, 09, 12, 16, 22, 29, 05 Feb)
+## 04, ..., 06 Jan 2020 (07, 09, 12, 16, 22, 29, 05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>

@@ -1,185 +1,4 @@
 # Review progress and questions I have to review
-## 02, ..., 30 Dec 2020 (06 Jan)
-### JavaScript
-<details>
-<summary>How to create a class and what method is better?</summary>
-
-- `class` better than `const` when creating a class
-```JavaScript
-class Player {
-  // is optional
-  // helps to create an instance of a class
-  constructor() {}
-
-  // for every instance
-  onClick = () => {}
-
-  // inside prototype
-  play() {}
-}
-
-// don't create classes like this
-const Singer = class {};
-```
-
-</details>
-
-<details>
-<summary>What are properties and fields of a class and are they different?</summary>
-
-- properties and fields are basically the same thing
-```JavaScript
-class Player {
-  // fields (still poor support)
-  // for now use methods only
-  // and add all the properties inside of constructor
-  level = 2;
-
-  // all properties are defined here
-  constructor(name) {
-    // properties
-    this.name = name;
-    this.onButtonClickArrowFn = () => {
-      // this === current instance of a class
-      console.log(this);
-    };
-  }
-}
-
-```
-
-</details>
-
-<details>
-<summary>How to create an instance of a class?</summary>
-
-- `new` for creating an instance (or type error due to built-in `new.target` check)
-```JavaScript
-const player = new Player('Harry');
-```
-
-</details>
-
-<details>
-<summary>What if you try to access the field or property which is not defined in the class?</summary>
-
-- `undefined`
-
-</details>
-
-<details>
-<summary>Can we use getters and setters in a class?</summary>
-
-- getters / setters can be used
-
-</details>
-
-<details>
-<summary>How to add private fields?</summary>
-
-- private fields, soon to use `this.#skill = value;`
-
-</details>
-
-<details>
-<summary>How to deal with event listeners if we need `this` reference to an instance of a class?</summary>
-
-```JavaScript
-class Player {
-  constructor() {
-    this.onButtonClickArrowFn = () => {
-      // this === current instance of a class
-      console.log(this);
-    };
-  }
-
-  onButtonClick() {
-    console.log(this);
-  }
-
-  play() {
-    // this === button
-    button.addEventListener('click', this.onButtonClick);
-    // this === current instance of a class
-    button.addEventListener('click', this.onButtonClick.bind(this));
-    button.addEventListener('click', () => this.onButtonClick());
-    // but is created for every instance
-    button.addEventListener('click', this.onButtonClickArrowFn);
-  }
-}
-
-```
-
-</details>
-
-<details>
-<summary>How do classes actually work (under the hood)?</summary>
-
-```JavaScript
-class Person {}
-
-// extends works like a __proto__
-// Player.__proto__ === Person.prototype
-class Player extends Person {
-  name = 'Harry';
-
-  constructor() {
-    super();
-    this.age = 33;
-    // if created like this => part of any instance (like a property)
-    this.play = function() {};
-  }
-
-  // methods are added to prototype
-  greet() {
-    console.log(`Hi! My name is ${this.name}.`);
-  }
-
-  // if created like this => part of any instance (like a field/property)
-  play = function() {};
-  // if we use an arrow function here, context will stay the same
-  // even when added as an event handler (don't have to bind)
-  play = () => {};
-}
-```
-
-</details>
-
-<details>
-<summary>How to create static properties, fields and methods?</summary>
-
-- properties can also be static (but still poor browser support)
-- not inherited, accessible on a class without instantiation
-```JavaScript
-class Player {
-  constructor(level, weaponsCount) {
-    this.level = level;
-    this.weaponsCount = weapons;
-  }
-
-  static createJuniorPlayer() {
-    return new this(5, 2);
-  }
-}
-
-const juniorPlayer = Player.createJuniorPlayer();
-```
-
-</details>
-
-<details>
-<summary>What are the differences between a class and a constructor function?</summary>
-
-- `class` can't be used without `new` (could be imitated inside the constructor function with `new.target`)
-- class methods are not iterable
-```JavaScript
-for (const prop in player) {
-  console.log(prop);
-}
-```
-
-</details>
-
 ## 10, ..., 04 Jan 2020 (11 Jan)
 ### JavaScript
 <details>
@@ -610,7 +429,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19, ..., 31 Dec 2020 (06, 13, 20 Jan)
+## 19, ..., 06 Jan 2020 (13, 20 Jan)
 ### JavaScript
 <details>
 <summary>How to create a module?</summary>
@@ -750,7 +569,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 25, ..., 02 Jan 2020 (06, 12, 19, 26 Jan)
+## 25, ..., 06 Jan 2020 (12, 19, 26 Jan)
 ### JavaScript
 <details>
 <summary>What is the `window` object and how do we use it?</summary>
@@ -907,7 +726,7 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 29, ..., 03 Jan 2020 (06, 10, 16, 23, 30 Jan)
+## 29, ..., 06 Jan 2020 (10, 16, 23, 30 Jan)
 ### JavaScript
 <details>
 <summary>How to create an element?</summary>
@@ -1078,4 +897,4 @@ element.scrollIntoView();
 
 </details>
 
-## 05 Jan 2020 (06, 07, 08, 10, 13, 17, 23, 30, 06 Feb)
+## 07 Jan 2020 (08, 09, 10, 12, 15, 19, 25, 01, 08 Feb)

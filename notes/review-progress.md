@@ -139,7 +139,7 @@ const userName3 = null || ''; // => ''
 
 </details>
 
-## 14, ..., 01 Jan 2020 (08, 15 Jan)
+## 14, ..., 08 Jan 2020 (15 Jan)
 ### JavaScript
 <details>
 <summary>How to use destructuring with iterables?</summary>
@@ -775,7 +775,7 @@ element.insertAdjacentElement('beforeend', newElement);
 
 </details>
 
-## 30, ..., 04 Jan 2020 (07, 11, 17, 24, 31 Jan)
+## 30, ..., 07 Jan 2020 (11, 17, 24, 31 Jan)
 ### JavaScript
 <details>
 <summary>How to clone the DOM Node?</summary>
@@ -811,7 +811,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04, ..., 06 Jan 2020 (07, 09, 12, 16, 22, 29, 05 Feb)
+## 04, ..., 07 Jan 2020 (09, 12, 16, 22, 29, 05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -897,4 +897,80 @@ element.scrollIntoView();
 
 </details>
 
-## 07 Jan 2020 (08, 09, 10, 12, 15, 19, 25, 01, 08 Feb)
+## 08 Jan 2020 (09, 10, 11, 13, 16, 20, 26, 02, 09 Feb)
+### JavaScript
+<details>
+<summary>What is the general constructor for the event?</summary>
+
+- made with `Event` constructor
+
+</details>
+
+<details>
+<summary>What are the specific event constructors?</summary>
+
+- specific constructors inherited from `Event` (ex `MouseEvent`, `DragEvent`)
+
+</details>
+
+<details>
+<summary>To what element can you add the event?</summary>
+
+- can be added to any element (even div)
+
+</details>
+
+<details>
+<summary>When are the event listeners removed?</summary>
+
+- event listeners are removed when there is no reference to the element left (either in code or DOM)
+
+</details>
+
+<details>
+<summary>How to add the listener (2 ways)?</summary>
+
+- `onclick` attribute or adding via JS `element.onclick = console.log();` overrides previous handler (can't add 2 handlers)
+- the best way to add events is `element.addEventListener();`
+
+</details>
+
+<details>
+<summary>What is the difference between `change` and `input`?</summary>
+
+- `change` works when `field.value` changed and the user finished to enter the value (moved the handle and released)
+- `input` works with every value change
+
+</details>
+
+<details>
+<summary>How to implement the scroll event?</summary>
+
+- useful for infinite loading
+```JavaScript
+let currentElementNumber = 0;
+
+const onScroll = () => {
+  // measure the distance between our viewport (top left corner)
+  // and the end of the page (not viewport)
+  const distanceToBottom = document.body.getBoundingClientRect().bottom;
+  const viewportHeight = document.documentElement.clientHeight;
+
+  // compare to the window height + threshold
+  // if we have < 100px to the end of the content,
+  // append new data
+  if (distanceToBottom < viewportHeight + 100) {
+    const newElement = document.createElement('div');
+
+    currentElementNumber++;
+    newElement.innerHTML = `<p>Add element ${currentElementNumber}</p>`;
+    document.body.append(newElement);
+  }
+};
+
+window.addEventListener('scroll', onScroll);
+```
+
+</details>
+
+## 09 Jan 2020 (10, 11, 12, 14, 17, 21, 27, 03, 10 Feb)

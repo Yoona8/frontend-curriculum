@@ -319,7 +319,7 @@ const filteredValues = [...values].filter();
 
 </details>
 
-## 16, ..., 03 Jan 2020 (10, 17 Jan)
+## 16, ..., 10 Jan 2020 (17 Jan)
 ### JavaScript
 <details>
 <summary>When is it good to use `try catch finally`?</summary>
@@ -811,7 +811,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04, ..., 07 Jan 2020 (09, 12, 16, 22, 29, 05 Feb)
+## 04, ..., 09 Jan 2020 (12, 16, 22, 29, 05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -897,7 +897,7 @@ element.scrollIntoView();
 
 </details>
 
-## 08 Jan 2020 (09, 10, 11, 13, 16, 20, 26, 02, 09 Feb)
+## 08, ..., 09 Jan 2020 (10, 11, 13, 16, 20, 26, 02, 09 Feb)
 ### JavaScript
 <details>
 <summary>What is the general constructor for the event?</summary>
@@ -973,4 +973,130 @@ window.addEventListener('scroll', onScroll);
 
 </details>
 
-## 09 Jan 2020 (10, 11, 12, 14, 17, 21, 27, 03, 10 Feb)
+## 09 Jan 2020 (10, 11, 12, 14, 17, 21, 27, 03, 10 Feb
+### JavaScript
+<details>
+<summary>What are the event phases?</summary>
+
+- (1) capturing (out - in) => (2) bubbling (in - out)
+
+</details>
+
+<details>
+<summary>In what phase does `addEventListener` register the event by default and how to switch the behavior?</summary>
+
+- `addEventListener` by default registers event in a bubbling phase (when we have a listener on button and it's wrapper, first fires button, second wrapper)
+- third parameter of `addEventListener(, , true);` switches to the capturing phase (can add to only one listener in a chain)
+
+</details>
+
+<details>
+<summary>How to stop the event phases?</summary>
+
+- to prevent propagation
+```JavaScript
+evt.stopPropagation();
+evt.stopImmediatePropagation();
+```
+
+</details>
+
+<details>
+<summary>What is the event delegation and what are `target` and `currentTarget`?</summary>
+
+- `event.target` is referred to the actual item triggered the event
+- `event.currentTarget` always referred to the element, where the listener is added
+- `event.target.closest('li');` can also get the item itself
+
+</details>
+
+<details>
+<summary>How to trigger DOM events programmatically?</summary>
+
+```JavaScript
+// if triggered like that, the event listener added
+// is skipped (won't get executed)
+// but triggering click event on submit button will work
+form.submit();
+// works with added listeners
+button.click();
+```
+
+</details>
+
+<details>
+<summary>What is `this` inside the event handler?</summary>
+
+- with arrow functions as handlers `this === window`
+- with regular function as handler `this === evt.currentTarget`
+
+</details>
+
+<details>
+<summary>How to implement Drag & Drop?</summary>
+
+1. set attribute to `draggable="true"`
+2. listen to `dragstart` event (describe the operation and append some data here)
+```JavaScript
+elementToDrag.addEventListener('dragstart', evt => {
+  evt.dataTransfer.setData('text/plain', id);
+  evt.dataTransfer.effectAllowed = 'move';
+});
+```
+3. allow to drop into the droppable area (add `preventDefault()` to `dragenter` and `dragover` events)
+```JavaScript
+// if in drop area we won't prevent default,
+// drop event won't be triggered
+containerDroppable.addEventListener('dragenter', evt => {
+  // can get the data type
+  // but not the actual data
+  if (evt.dataTransfer.types[0] === 'text/plain') {
+    evt.preventDefault();
+    // add some visual effect to indicate
+    // it's droppable (on dragenter)
+    containerDroppable.parentElement.classList.add('droppable');
+  }
+});
+
+containerDroppable.addEventListener('dragover', evt => {
+  if (evt.dataTransfer.types[0] === 'text/plain') {
+    evt.preventDefault();
+  }
+});
+```
+4. (optional) listen to `dragleave` event (ex. to update some styles)
+```JavaScript
+containerDroppable.addEventListener('dragleave', evt => {
+  // check if only left the element, not just moved
+  // to it's children 
+  // (w/o this will be triggered when move over the children elements)
+  if (evt.relatedTarget.closest('ul') !== containerDroppable) {
+    containerDroppable.parentElement.classList.remove('droppable');
+  }
+});
+```
+5. listen to `drop` event and update data and UI
+```JavaScript
+// to react to the drop event need to add a listener
+// to the droppable container
+containerDroppable.addEventListener('drop', evt => {
+  // can get any data we set in dragstart event
+  // (now it's available)
+  const id = evt.dataTransfer.getData('text/plain');
+
+  // check if the item is in the list and do nothing
+  // if not - add item to the list and remove where it was
+});
+```
+6. (optional) listen to `dragend` event and update data and UI (triggered event when the drag was canceled)
+```JavaScript
+// is added to a draggable element
+elementToDrag.addEventListener('dragend', evt => {
+  // check if the drag wasn't done
+  evt.dataTransfer.dropEffect === 'none';
+});
+```
+
+</details>
+
+## 10 Jan 2020 (11, 12, 13, 15, 18, 22, 28, 04, 11 Feb

@@ -1,144 +1,4 @@
 # Review progress and questions I have to review
-## 10, ..., 04 Jan 2020 (11 Jan)
-### JavaScript
-<details>
-<summary>What are the basic math operators?</summary>
-
-- `=`
-- `+` or `+=`
-- `-` or `-=`
-- `*` or `*=`
-- `/` or `/=`
-- `%`
-- `**` exponentiation operator (not supported in IE)
-
-</details>
-
-<details>
-<summary>What is the difference between postfix and prefix increment and decrement?</summary>
-
-- `return result++;` returns first the result and then increments
-- `return --result;` decrements and then returns the changed value
-
-</details>
-
-<details>
-<summary>What is the difference between `if ... else` and ternary operator?</summary>
-
-- `if ... else` - returns no value
-- `? :` - always returns a value
-
-</details>
-
-<details>
-<summary>How to use `switch` operator and how does it compare?</summary>
-
-- always uses `===` to compare
-```JavaScript
-switch (expression) {
-  case value: 
-    console.log(value);
-    break;
-  default:
-    console.log('default');
-}
-```
-
-</details>
-
-<details>
-<summary>What are the 'falsy' values?</summary>
-
-- `0`
-- `''`
-- `NaN`
-- `null`
-- `undefined`
-
-</details>
-
-<details>
-<summary>What are the 'truthy' values?</summary>
-
-- numbers `!== 0`
-- not empty strings
-- `[]`, `{}` and all other objects and arrays
-
-</details>
-
-<details>
-<summary>What are the comparison operators?</summary>
-
-- `==` and `===`
-- `!=` and `!==`
-- `>` and `<`
-- `>=` and `<=`
-
-</details>
-
-<details>
-<summary>How does JS compare strings?</summary>
-
-```JavaScript
-// JS compares strings based on standard lexicographical ordering (Unicode)
-console.log('b' > 'a'); // => true
-
-// JS always looks at the first char and only considers other chars if the 1st
-// chars are the same
-console.log('ab' > 'aa'); // => true
-
-// uppercase chars are smaller than lowercase
-console.log('a' > 'B'); // => true
-```
-
-</details>
-
-<details>
-<summary>What is `not` operator and how to convert into boolean?</summary>
-
-- `!`
-- `!!userName` converts into a boolean
-
-</details>
-
-<details>
-<summary>What are boolean operators and which one is higher?</summary>
-
-- `a && b` if both are true `=== true`
-```JavaScript
-// use value if the condition is true
-const isLoggedIn = true; // if false => false
-const userName0 = isLoggedIn && 'Mary'; // => 'Mary'
-
-// returns the 1st falsy value
-const userName1 = null && 'Mary'; // => null
-
-// if both truthy, the second is returned
-const userName2 = 'Max' && 'Mary'; // => 'Mary'
-```
-- `a || b` if at least one is true `=== true`
-```JavaScript
-// default value assignment
-// doesn't convert into a boolean
-// returns 1st truthy value
-const userName1 = '' || 'Mary'; // => 'Mary'
-const userName2 = 'Max' || 'Mary'; // => 'Max'
-
-// if both falsy, the second value is returned
-const userName3 = null || ''; // => ''
-```
-- `&&` precedence is higher than `||`
-
-</details>
-
-<details>
-<summary>How to check if the value is `NaN`?</summary>
-
-- `isNaN()` to check if NaN or not
-- `isNaN(value) || value <= 0` if the first part is `true`, JS doesn't go further
-
-</details>
-
 ## 14, ..., 08 Jan 2020 (15 Jan)
 ### JavaScript
 <details>
@@ -726,7 +586,7 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 29, ..., 06 Jan 2020 (10, 16, 23, 30 Jan)
+## 29, ..., 10 Jan 2020 (16, 23, 30 Jan)
 ### JavaScript
 <details>
 <summary>How to create an element?</summary>
@@ -775,7 +635,7 @@ element.insertAdjacentElement('beforeend', newElement);
 
 </details>
 
-## 30, ..., 07 Jan 2020 (11, 17, 24, 31 Jan)
+## 30, ..., 11 Jan 2020 (17, 24, 31 Jan)
 ### JavaScript
 <details>
 <summary>How to clone the DOM Node?</summary>
@@ -897,7 +757,7 @@ element.scrollIntoView();
 
 </details>
 
-## 08, ..., 09 Jan 2020 (10, 11, 13, 16, 20, 26, 02, 09 Feb)
+## 08, ..., 11 Jan 2020 (13, 16, 20, 26, 02, 09 Feb)
 ### JavaScript
 <details>
 <summary>What is the general constructor for the event?</summary>
@@ -973,7 +833,7 @@ window.addEventListener('scroll', onScroll);
 
 </details>
 
-## 09 Jan 2020 (10, 11, 12, 14, 17, 21, 27, 03, 10 Feb
+## 09, ..., 11 Jan 2020 (12, 14, 17, 21, 27, 03, 10 Feb
 ### JavaScript
 <details>
 <summary>What are the event phases?</summary>
@@ -1099,4 +959,4 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 10 Jan 2020 (11, 12, 13, 15, 18, 22, 28, 04, 11 Feb
+## 11 Jan 2020 (12, 13, 14, 16, 19, 23, 29, 05, 12 Feb

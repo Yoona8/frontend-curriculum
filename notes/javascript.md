@@ -3244,11 +3244,17 @@ const data = getResponse('https://data.com/users');
 - when the call stack is empty, event loop goes through message queue and executes the functions from there
 
 </details>
-  
+
 <details>
-<summary>Async ES5 (callbacks)</summary>
+<summary>What is async?</summary>
 
 - async - run the operation without blocking the main script process
+
+</details>
+  
+<details>
+<summary>How was async implemented in ES5 and what are the issues?</summary>
+
 - complex interface, have to add all possible callbacks, difficult to make optional manipulation for some cases
 - difficult to read the code, recreate the methods sequence is quite hard
 - callback hell - several chained async methods turn into nested sequences of callbacks, too hard to support https://callbackhell.ru/
@@ -3270,7 +3276,7 @@ getResponse('data.json',
 </details>
 
 <details>
-<summary>Async ES6 (promises)</summary>
+<summary>How is async implemented in ES6?</summary>
 
 - promise is a way to work with an async function as if it's sync 
 - different states of a promise object
@@ -3333,7 +3339,7 @@ Promise.resolve('a') // 'a'
 </details>
 
 <details>
-<summary>Async Promise.race</summary>
+<summary>What is Promise.race?</summary>
 
 ```JavaScript
 Promise.race([getPromise1(), getPromise2()])
@@ -3345,7 +3351,7 @@ Promise.race([getPromise1(), getPromise2()])
 </details>
 
 <details>
-<summary>Async Promise.all and Promise.allSettled</summary>
+<summary>What is the difference between Promise.all and Promise.allSettled?</summary>
 
 - when you need an array of requests at the same time 
   - `Promise.all(<Array.Promise>)`
@@ -3364,7 +3370,7 @@ Promise.race([getPromise1(), getPromise2()])
 </details>
 
 <details>
-<summary>Async await</summary>
+<summary>What is async await?</summary>
 
 - uses promises under the hood
 - can be used only with functions
@@ -3376,7 +3382,7 @@ await setTimer(1000);
   await setTimer(1000);
 })();
 ```
-- when `async` is added, function automatically return a promise
+- when `async` is added, function automatically returns a promise
 - wraps everything inside into a promise
 ```JavaScript
 const setTimer = async () => {
@@ -3418,7 +3424,7 @@ function setTimer() {
 </details>
 
 <details>
-<summary>Http</summary>
+<summary>What is Http?</summary>
 
 - Data transfer protocol - the way computer uses to exchange the information (there are many different protocols, in the web we use http)
 - HTTP - hypertext transfer protocol - client exchanges data with the server
@@ -3454,7 +3460,7 @@ Content-Length: 1270
 </details>
 
 <details>
-<summary>XMLHttpRequest</summary>
+<summary>How to send the http request with XMLHttpRequest?</summary>
 
 ```JavaScript
 // can be used on its own
@@ -3544,7 +3550,7 @@ const addPosts = async () => {
 </details>
 
 <details>
-<summary>Async fetch</summary>
+<summary>How to use fetch API?</summary>
 
 - `fetch` is a wrapper around promise
 - function for sending/fetching data (`XMLHttpRequest` under hood)
@@ -3600,7 +3606,7 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 <details>
-<summary>Feedback in the UI</summary>
+<summary>What are the good parts for feedback in the UI?</summary>
 
 - When you sync data with a server, don't change control state, change only if the request was successful (returned 200+ codes)
 - View => Model => Server => Model => View

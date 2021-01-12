@@ -29,6 +29,9 @@
 </details>
 
 ## Setup
+```JavaScript
+```
+
 ## Vue CLI
 ## Templates
 ## Directives

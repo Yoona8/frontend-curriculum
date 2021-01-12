@@ -245,7 +245,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 18, ..., 05 Jan 2020 (12, 19 Jan)
+## 18, ..., 12 Jan 2020 (19 Jan)
 ### JavaScript
 <details>
 <summary>What problems do modules solve?</summary>
@@ -429,7 +429,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 25, ..., 06 Jan 2020 (12, 19, 26 Jan)
+## 25, ..., 12 Jan 2020 (19, 26 Jan)
 ### JavaScript
 <details>
 <summary>What is the `window` object and how do we use it?</summary>
@@ -671,7 +671,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04, ..., 09 Jan 2020 (12, 16, 22, 29, 05 Feb)
+## 04, ..., 12 Jan 2020 (16, 22, 29, 05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -833,7 +833,7 @@ window.addEventListener('scroll', onScroll);
 
 </details>
 
-## 09, ..., 11 Jan 2020 (12, 14, 17, 21, 27, 03, 10 Feb
+## 09, ..., 12 Jan 2020 (14, 17, 21, 27, 03, 10 Feb
 ### JavaScript
 <details>
 <summary>What are the event phases?</summary>
@@ -959,4 +959,4 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 11 Jan 2020 (12, 13, 14, 16, 19, 23, 29, 05, 12 Feb
+## 12 Jan 2020 (13, 14, 15, 17, 20, 24, 30, 06, 13 Feb

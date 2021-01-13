@@ -289,7 +289,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 
 </details>
 
-## 19, ..., 06 Jan 2020 (13, 20 Jan)
+## 19, ..., 13 Jan 2020 (20 Jan)
 ### JavaScript
 <details>
 <summary>How to create a module?</summary>
@@ -757,7 +757,7 @@ element.scrollIntoView();
 
 </details>
 
-## 08, ..., 11 Jan 2020 (13, 16, 20, 26, 02, 09 Feb)
+## 08, ..., 13 Jan 2020 (16, 20, 26, 02, 09 Feb)
 ### JavaScript
 <details>
 <summary>What is the general constructor for the event?</summary>
@@ -959,4 +959,4 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 12 Jan 2020 (13, 14, 15, 17, 20, 24, 30, 06, 13 Feb
+## 13 Jan 2020 (14, 15, 16, 18, 21, 25, 31, 07, 14 Feb

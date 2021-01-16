@@ -406,7 +406,7 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 29, ..., 10 Jan 2020 (16, 23, 30 Jan)
+## 29, ..., 16 Jan 2020 (23, 30 Jan)
 ### JavaScript
 <details>
 <summary>How to create an element?</summary>
@@ -491,7 +491,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04, ..., 12 Jan 2020 (16, 22, 29, 05 Feb)
+## 04, ..., 16 Jan 2020 (22, 29, 05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -577,7 +577,7 @@ element.scrollIntoView();
 
 </details>
 
-## 08, ..., 13 Jan 2020 (16, 20, 26, 02, 09 Feb)
+## 08, ..., 16 Jan 2020 (20, 26, 02, 09 Feb)
 ### JavaScript
 <details>
 <summary>What is the general constructor for the event?</summary>
@@ -779,7 +779,7 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 14, ..., 15 Jan 2020 (16, 17, 19, 22, 26, 01, 08, 15 Feb)
+## 14, ..., 16 Jan 2020 (17, 19, 22, 26, 01, 08, 15 Feb)
 ### JavaScript
 <details>
 <summary>What is sync data loading?</summary>
@@ -902,4 +902,4 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 15 Jan 2020 (16, 17, 18, 20, 23, 27, 02, 09, 16 Feb)
+## 16 Jan 2020 (17, 18, 19, 21, 24, 28, 03, 10, 17 Feb)

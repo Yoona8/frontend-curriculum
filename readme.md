@@ -123,3 +123,6 @@
 
 ## Books
 - [A book apart](https://abookapart.com/products/)
+
+## Not Dev related but useful
+- [Top 17 Google Chrome Tips & Tricks](https://youtu.be/7DHjtQgOnSs)

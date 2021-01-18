@@ -1,70 +1,4 @@
 # Review progress and questions I have to review
-## 16, ..., 10 Jan 2020 (17 Jan)
-### JavaScript
-<details>
-<summary>When is it good to use `try catch finally`?</summary>
-
-- use `try {} catch (error) {}` only for the code you can't control (ex: server errors, user input)
-
-</details>
-
-<details>
-<summary>In what variations can we use `try catch finally`?</summary>
-
-- `try ... catch` or `try ... finally` but never `catch ... finally`
-
-</details>
-
-<details>
-<summary>When does `catch` get executed?</summary>
-
-- if `try` doesn't throw an error, `catch` won't be executed
-
-</details>
-
-<details>
-<summary>Why to use and when does `finally` run?</summary>
-
-- when we want to throw the error from inside the `catch` block to send to some statistics etc
-- some cleanup work (release data, clear the variables, etc)
-- if the error is thrown from `catch`, only finally executes, code after `try ... catch ... finally` block won't be executed
-- `finally` always runs
-
-</details>
-
-<details>
-<summary>How does `try catch finally` work in details?</summary>
-
-```JavaScript
-function doSomething() {
-  try {
-    console.log(0); // => 0
-    throw 'error ocurred';
-  } catch(error) {
-    // error => 'error ocurred' (what was used with 'throw')
-    console.log(1); // => 1
-    // this return statement is suspended till finally block completes
-    return true;
-    // not reachable
-    console.log(2);
-  } finally {
-    console.log(3); // => 3
-    // overwrites the return from catch block
-    // function returns this value
-    return false;
-    // not reachable
-    console.log(4);
-  }
-  // the function returns false from finally block
-  // not reachable 
-  console.log(5);
-}
-
-console.log(doSomething()); // => 0, 1, 3, false
-```
-
-</details>
-
 ## 18, ..., 12 Jan 2020 (19 Jan)
 ### JavaScript
 <details>
@@ -455,7 +389,7 @@ element.insertAdjacentElement('beforeend', newElement);
 
 </details>
 
-## 30, ..., 11 Jan 2020 (17, 24, 31 Jan)
+## 30, ..., 17 Jan 2020 (24, 31 Jan)
 ### JavaScript
 <details>
 <summary>How to clone the DOM Node?</summary>
@@ -653,7 +587,7 @@ window.addEventListener('scroll', onScroll);
 
 </details>
 
-## 09, ..., 14 Jan 2020 (17, 21, 27, 03, 10 Feb)
+## 09, ..., 17 Jan 2020 (21, 27, 03, 10 Feb)
 ### JavaScript
 <details>
 <summary>What are the event phases?</summary>
@@ -779,7 +713,7 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 14, ..., 16 Jan 2020 (17, 19, 22, 26, 01, 08, 15 Feb)
+## 14, ..., 18 Jan 2020 (20, 23, 27, 02, 09, 16 Feb)
 ### JavaScript
 <details>
 <summary>What is sync data loading?</summary>
@@ -902,4 +836,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 16 Jan 2020 (17, 18, 19, 21, 24, 28, 03, 10, 17 Feb)
+## 18 Jan 2020 (19, 20, 21, 23, 26, 30, 05, 12, 19 Feb)
+```JavaScript
+
+```

@@ -1,48 +1,4 @@
 # Review progress and questions I have to review
-## 18, ..., 12 Jan 2020 (19 Jan)
-### JavaScript
-<details>
-<summary>What problems do modules solve?</summary>
-
-- namespace
-  - no global scope
-  - encapsulation
-- dependencies
-  - easy to follow on what module depends on
-- interface
-  - methods and props export, easy to navigate
-
-</details>
-
-<details>
-<summary>What methods to write modules were used in ES5 (and what are the downsides)?</summary>
-
-- manual configuration
-- have to remember dependencies order
-- is not clear, what dependencies are used
-
-```JavaScript
-// IIFE
-'use strict';
-// slider.js
-(function() {
-  window.slider = {
-    name: 'Eve'
-  };
-})();
-```
-
-- better module approaches were found (AMD, CommonJS, UMD)
-
-</details>
-
-<details>
-<summary>What about `use strict` inside the module?</summary>
-
-- `'use strict;'` by default
-
-</details>
-
 ## 19, ..., 13 Jan 2020 (20 Jan)
 ### JavaScript
 <details>
@@ -183,7 +139,7 @@ import { nameOne, nameTwo } from './module-3.js';
 
 </details>
 
-## 25, ..., 12 Jan 2020 (19, 26 Jan)
+## 25, ..., 19 Jan 2020 (26 Jan)
 ### JavaScript
 <details>
 <summary>What is the `window` object and how do we use it?</summary>
@@ -836,7 +792,91 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 18 Jan 2020 (19, 20, 21, 23, 26, 30, 05, 12, 19 Feb)
-```JavaScript
+## 19 Jan 2020 (20, 21, 22, 24, 27, 31, 06, 13, 20 Feb)
+### JavaScript
+<details>
+<summary>What is Promise.race?</summary>
 
+```JavaScript
+Promise.race([getPromise1(), getPromise2()])
+  .then(dataFromTheFastest => {});
+// the other promise is not canceled!
+// just ignored (the http request will still be sent)
 ```
+
+</details>
+
+<details>
+<summary>What is the difference between Promise.all and Promise.allSettled?</summary>
+
+- when you need an array of requests at the same time 
+  - `Promise.all(<Array.Promise>)`
+    - executed when all the promises are resolved
+    - if one with error, drops, can't access the data
+    - returns an array
+  - `Promise.allSettled(<Array.Promise>)`
+    - waits till all the promises are completed (success/error)
+    - can access the data even when some promises complete with an error
+    - poor browser support
+- `Promise.then` could return
+  - just value/array - goes to the next promise
+  - object Promise
+  - array of values / promises - can turn into something else
+
+</details>
+
+<details>
+<summary>What is async await?</summary>
+
+- uses promises under the hood
+- can be used only with functions
+```JavaScript
+// can't use like that
+await setTimer(1000);
+// but can wrap into IIFE
+(async function() {
+  await setTimer(1000);
+})();
+```
+- when `async` is added, function automatically returns a promise
+- wraps everything inside into a promise
+```JavaScript
+const setTimer = async () => {
+  // waits till the promise is resolved and goes to the next line
+  const data = await getData();
+  const otherData = await getOtherData();
+  // won't get executed till the await block resolved
+  // as if wrapping into then() block
+  console.log('Done!');
+  // returns promise
+};
+
+async function setTimer() {
+  // to handle errors can use try ... catch
+  try {
+    // if anything here yields an error,
+    // the block fails into the catch
+    // if error is in the 1st line, 2nd won't be executed
+    const data = await getData();
+    const otherData = await getOtherData();
+  } catch (error) {
+    console.log(error);
+  }
+  // this code will be executed anyways
+  console.log('Done!');
+  // returns promise
+}
+
+// creates a wrapping promise
+function setTimer() {
+  return new Promise((resolve, reject) => {
+    // all the code here
+  });
+}
+```
+- `await` wraps everything into a `then()` block
+- not good for cases when we need to run some code and not wait for promise to resolve or reject
+
+</details>
+
+## 20 Jan 2020 (21, 22, 23, 25, 28, 01, 07, 14, 21 Feb)

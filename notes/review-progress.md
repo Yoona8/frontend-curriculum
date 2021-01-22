@@ -241,7 +241,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04, ..., 16 Jan 2020 (22, 29, 05 Feb)
+## 04, ..., 22 Jan 2020 (29, 05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -652,7 +652,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 19, ..., 21 Jan 2020 (22, 24, 27, 31, 06, 13, 20 Feb)
+## 19, ..., 22 Jan 2020 (24, 27, 31, 06, 13, 20 Feb)
 ### JavaScript
 <details>
 <summary>What is Promise.race?</summary>
@@ -739,7 +739,7 @@ function setTimer() {
 
 </details>
 
-## 21 Jan 2020 (22, 23, 24, 26, 29, 01, 08, 15, 22 Feb)
+## 21, ..., 22 Jan 2020 (23, 24, 26, 29, 01, 08, 15, 22 Feb)
 ### JavaScript
 <details>
 <summary>What is Http?</summary>
@@ -778,3 +778,95 @@ Content-Length: 1270
 </details>
 
 ## 22 Jan 2020 (23, 24, 25, 27, 30, 02, 09, 16, 23 Feb)
+### JavaScript
+<details>
+<summary>How to send the http request with XMLHttpRequest?</summary>
+
+```JavaScript
+// can be used on its own
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://google.com');
+xhr.send();
+
+// or inside a function
+const sendRequest = (method, url) => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open(method, url);
+  xhr.responseType = 'json';
+  // to add more headers use the method multiple times
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  
+  // to get and use the data have to listen to onload event
+  // for XHR .addEventListener is not supported in some browsers
+  xhr.onload = function() {
+    // check if the status is success
+    if (xhr.status >= 200 && xhr.status < 300) {
+      // JSON data (mostly, depends on server)
+      console.log(xhr.response);
+      // either parse JSON.parse(...)
+      // or configure responseType (will be parsed automatically)
+    } else {
+      console.log(xhr.response);
+      console.log('Something went wrong.');
+    }
+  };
+  
+  // not for sent requests (when we get a response)
+  // only for the errors of sending the request
+  // like timeout or wasn't sent
+  xhr.onerror = function() {
+    console.log(xhr.response);
+    console.log(xhr.status);
+  };
+  
+  xhr.send();
+};
+
+// with using a promise
+const sendHttpRequest = (method, url, data) => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.open(method, url);
+    xhr.responseType = 'json';
+
+    xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject(new Error('Something went wrong!'));
+      }
+    };
+
+    xhr.onerror = function() {
+      reject(new Error('Error while sending a request!'));
+    };
+
+    xhr.send(JSON.stringify(data));
+  });
+};
+
+const fetchPosts = () => {
+  sendHttpRequest('GET', 'https://...')
+    .then(responseData => console.log(responseData))
+    .catch(error => console.log(error));
+};
+
+const addPosts = async () => {
+  try {
+    const responseData = await sendHttpRequest(
+      'POST',
+      'https://...',
+      post
+    );
+  } catch (error) {
+    console.log(error);
+  } 
+};
+```
+
+</details>
+
+## 23 Jan 2020 (24, 25, 26, 28, 31, 03, 10, 17, 24 Feb)

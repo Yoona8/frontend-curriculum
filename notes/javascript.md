@@ -3618,6 +3618,8 @@ const sendHttpRequest = (method, url, data) => {
 <details>
 <summary>Learn more</summary>
 
+- [ ] [JavaScript Promises: An introduction](https://web.dev/promises/)
+- [ ] [async function on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [ ] [HTTP request methods on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 - [ ] [HTTP Messages on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
 - [ ] [HTTP response status codes on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
@@ -3640,8 +3642,6 @@ const sendHttpRequest = (method, url, data) => {
 <summary>Learn more</summary>
 
 - [How to Build and Validate Beautiful Forms with Vanilla HTML, CSS, & JS](https://www.freecodecamp.org/news/build-and-validate-beautiful-forms-with-vanilla-html-css-js/)
-- [ ] [JavaScript Promises: An introduction](https://web.dev/promises/)
-- [ ] [async function on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
 </details>
 

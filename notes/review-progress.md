@@ -156,7 +156,7 @@ element.insertAdjacentHTML('beforeend', '<p>Description</p>');
 
 </details>
 
-## 29, ..., 16 Jan 2020 (23, 30 Jan)
+## 29, ..., 23 Jan 2020 (30 Jan)
 ### JavaScript
 <details>
 <summary>How to create an element?</summary>
@@ -529,7 +529,7 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 14, ..., 20 Jan 2020 (23, 27, 02, 09, 16 Feb)
+## 14, ..., 23 Jan 2020 (27, 02, 09, 16 Feb)
 ### JavaScript
 <details>
 <summary>What is sync data loading?</summary>
@@ -739,7 +739,7 @@ function setTimer() {
 
 </details>
 
-## 21, ..., 22 Jan 2020 (23, 24, 26, 29, 01, 08, 15, 22 Feb)
+## 21, ..., 23 Jan 2020 (24, 26, 29, 01, 08, 15, 22 Feb)
 ### JavaScript
 <details>
 <summary>What is Http?</summary>
@@ -777,7 +777,7 @@ Content-Length: 1270
 
 </details>
 
-## 22 Jan 2020 (23, 24, 25, 27, 30, 02, 09, 16, 23 Feb)
+## 22, ..., 23 Jan 2020 (24, 25, 27, 30, 02, 09, 16, 23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -869,4 +869,4 @@ const addPosts = async () => {
 
 </details>
 
-## 23 Jan 2020 (24, 25, 26, 28, 31, 03, 10, 17, 24 Feb)
+## 24 Jan 2020 (25, 26, 27, 29, 01, 04, 11, 18, 25 Feb)

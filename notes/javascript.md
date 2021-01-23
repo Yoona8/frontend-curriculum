@@ -21,6 +21,7 @@
 - [DOM](#dom)
 - [Events](#events)
 - [Timers and intervals](#timers-and-intervals)
+- [Async JavaScript](#async-javascript-promises-and-callbacks-asyncawait-http-requests)
 
 ## Basic definitions
 <details>

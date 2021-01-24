@@ -3633,7 +3633,7 @@ const sendHttpRequest = (method, url, data) => {
 
 ## Forms
 <details>
-<summary>Show password case</summary>
+<summary>What is the basic implementation of show password case?</summary>
 
 - change type of input from `password` to `text`
 
@@ -3648,14 +3648,14 @@ const sendHttpRequest = (method, url, data) => {
 
 ## Authorization
 <details>
-<summary>General info</summary>
+<summary>What is the purpose of the authorization?</summary>
 
 - restricts the access for different users
 
 </details>
 
 <details>
-<summary>Ways to identify a user</summary>
+<summary>What are the ways to identify the user?</summary>
 
 - Identification - tell the site who you are
 - Authentication - (authentic - true, genuine) the confirmation that you are who you state you are
@@ -3664,7 +3664,7 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 <details>
-<summary>Authorization order</summary>
+<summary>What is the authorization order?</summary>
 
 1. Identification - user enters login and password
 2. Authentication - server checks if the login and password are correct and gives a token (access to the web app, often holds the rules and never stores open)

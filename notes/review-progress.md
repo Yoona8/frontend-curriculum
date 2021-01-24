@@ -205,7 +205,7 @@ element.insertAdjacentElement('beforeend', newElement);
 
 </details>
 
-## 30, ..., 17 Jan 2020 (24, 31 Jan)
+## 30, ..., 24 Jan 2020 (31 Jan)
 ### JavaScript
 <details>
 <summary>How to clone the DOM Node?</summary>
@@ -652,7 +652,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 19, ..., 22 Jan 2020 (24, 27, 31, 06, 13, 20 Feb)
+## 19, ..., 24 Jan 2020 (27, 31, 06, 13, 20 Feb)
 ### JavaScript
 <details>
 <summary>What is Promise.race?</summary>
@@ -739,7 +739,7 @@ function setTimer() {
 
 </details>
 
-## 21, ..., 23 Jan 2020 (24, 26, 29, 01, 08, 15, 22 Feb)
+## 21, ..., 24 Jan 2020 (26, 29, 01, 08, 15, 22 Feb)
 ### JavaScript
 <details>
 <summary>What is Http?</summary>
@@ -777,7 +777,7 @@ Content-Length: 1270
 
 </details>
 
-## 22, ..., 23 Jan 2020 (24, 25, 27, 30, 02, 09, 16, 23 Feb)
+## 22, ..., 24 Jan 2020 (25, 27, 30, 02, 09, 16, 23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -869,7 +869,7 @@ const addPosts = async () => {
 
 </details>
 
-## 23 Jan 2020 (24, 25, 26, 28, 31, 03, 10, 17, 24 Feb)
+## 23, ..., 24 Jan 2020 (25, 26, 28, 31, 03, 10, 17, 24 Feb)
 ### JavaScript
 <details>
 <summary>How to use fetch API?</summary>
@@ -938,3 +938,40 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 ## 24 Jan 2020 (25, 26, 27, 29, 01, 04, 11, 18, 25 Feb)
+### JavaScript
+<details>
+<summary>What is the basic implementation of show password case?</summary>
+
+- change type of input from `password` to `text`
+
+</details>
+
+<details>
+<summary>What is the purpose of the authorization?</summary>
+
+- restricts the access for different users
+
+</details>
+
+<details>
+<summary>What are the ways to identify the user?</summary>
+
+- Identification - tell the site who you are
+- Authentication - (authentic - true, genuine) the confirmation that you are who you state you are
+- Authorization - check if you are allowed to get access to some parts of the website or webapp
+
+</details>
+
+<details>
+<summary>What is the authorization order?</summary>
+
+1. Identification - user enters login and password
+2. Authentication - server checks if the login and password are correct and gives a token (access to the web app, often holds the rules and never stores open)
+3. Authorization - you give the token to the server and the server decides whether to give you an access or not
+  - 200 - success, allowed
+  - 401 - unauthorized
+  - 403 - not enough rights
+
+</details>
+
+## 25 Jan 2020 (26, 27, 28, 30, 02, 05, 12, 19, 26 Feb)

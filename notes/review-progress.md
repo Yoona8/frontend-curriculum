@@ -777,7 +777,7 @@ Content-Length: 1270
 
 </details>
 
-## 22, ..., 24 Jan 2020 (25, 27, 30, 02, 09, 16, 23 Feb)
+## 22, ..., 25 Jan 2020 (27, 30, 02, 09, 16, 23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -869,7 +869,7 @@ const addPosts = async () => {
 
 </details>
 
-## 23, ..., 24 Jan 2020 (25, 26, 28, 31, 03, 10, 17, 24 Feb)
+## 23, ..., 25 Jan 2020 (26, 28, 31, 03, 10, 17, 24 Feb)
 ### JavaScript
 <details>
 <summary>How to use fetch API?</summary>
@@ -937,7 +937,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 24 Jan 2020 (25, 26, 27, 29, 01, 04, 11, 18, 25 Feb)
+## 24, ..., 25 Jan 2020 (26, 27, 29, 01, 04, 11, 18, 25 Feb)
 ### JavaScript
 <details>
 <summary>What is the basic implementation of show password case?</summary>
@@ -975,3 +975,25 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 ## 25 Jan 2020 (26, 27, 28, 30, 02, 05, 12, 19, 26 Feb)
+### JavaScript
+<details>
+<summary>What are the main problems when working with data?</summary>
+
+- user input - user can enter unsafe data for the view and UI has to be ready for it
+- storing and passing data formats could be different to the format needed on the UI, so we need to convert data in our app
+  - some ES6 objects (Date, Sets, Maps) could not be converted to JSON, so have to convert into standard data types (primitives, arrays, objects)
+
+</details>
+
+<details>
+<summary>What is JSON (and the restrictions)?</summary>
+
+- JavaScript Object Notation
+- can't use functions here
+- for keys only `" "`
+- for values `"string"` (double quotes only), `10`, `true`, `{...}`, `[...]`, `null`
+
+</details>
+
+## 26 Jan 2020 (27, 28, 29, 31, 03, 06, 13, 20, 27 Feb)
+

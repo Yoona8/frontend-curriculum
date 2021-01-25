@@ -22,6 +22,9 @@
 - [Events](#events)
 - [Timers and intervals](#timers-and-intervals)
 - [Async JavaScript](#async-javascript-promises-and-callbacks-asyncawait-http-requests)
+- [Forms](#forms)
+- [Authorization](#authorization)
+- [Working with data](#working-with-data)
 
 ## Basic definitions
 <details>
@@ -3677,7 +3680,7 @@ const sendHttpRequest = (method, url, data) => {
 
 ## Working with data
 <details>
-<summary>Issues</summary>
+<summary>What are the main problems when working with data?</summary>
 
 - user input - user can enter unsafe data for the view and UI has to be ready for it
 - storing and passing data formats could be different to the format needed on the UI, so we need to convert data in our app
@@ -3686,7 +3689,7 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 <details>
-<summary>JSON</summary>
+<summary>What is JSON (and the restrictions)?</summary>
 
 - JavaScript Object Notation
 - can't use functions here
@@ -3696,15 +3699,20 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 <details>
-<summary>Links, converting to links</summary>
+<summary>How to get the parameters from the link?</summary>
 
-- `encodeURI('some text');`
-- getting the parameters from the link
 ```JavaScript
 const url = new Url(location.href);
 const queryParams = url.searchParams;
 const data = queryParams.get('data');
 ```
+
+</details>
+
+<details>
+<summary>How to convert into a link?</summary>
+
+- `encodeURI('some text');`
 
 </details>
 

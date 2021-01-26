@@ -151,6 +151,7 @@
 
 - [Datetime attribute valid values](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
 - [HTML characters UNICODE](https://dev.w3.org/html5/html-author/charref)
+- 21 Jan 2021 [Как ставить пустые ссылки](https://htmlacademy.ru/blog/education/all/empty-links)
 
 </details>
 

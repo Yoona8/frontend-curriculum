@@ -246,7 +246,7 @@ window.addEventListener('scroll', onScroll);
 
 </details>
 
-## 09, ..., 21 Jan 2020 (27, 03, 10 Feb)
+## 09, ..., 27 Jan 2020 (03, 10 Feb)
 ### JavaScript
 <details>
 <summary>What are the event phases?</summary>
@@ -372,7 +372,7 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 14, ..., 23 Jan 2020 (27, 02, 09, 16 Feb)
+## 14, ..., 27 Jan 2020 (02, 09, 16 Feb)
 ### JavaScript
 <details>
 <summary>What is sync data loading?</summary>
@@ -620,7 +620,7 @@ Content-Length: 1270
 
 </details>
 
-## 22, ..., 25 Jan 2020 (27, 30, 02, 09, 16, 23 Feb)
+## 22, ..., 27 Jan 2020 (30, 02, 09, 16, 23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -780,7 +780,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 24, ..., 26 Jan 2020 (27, 29, 01, 04, 11, 18, 25 Feb)
+## 24, ..., 27 Jan 2020 (29, 01, 04, 11, 18, 25 Feb)
 ### JavaScript
 <details>
 <summary>What is the basic implementation of show password case?</summary>
@@ -817,7 +817,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 25, ..., 26 Jan 2020 (27, 28, 30, 02, 05, 12, 19, 26 Feb)
+## 25, ..., 27 Jan 2020 (28, 30, 02, 05, 12, 19, 26 Feb)
 ### JavaScript
 <details>
 <summary>What are the main problems when working with data?</summary>
@@ -838,5 +838,4 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 27 Jan 2020 (28, 29, 31, 03, 06, 13, 20, 27 Feb)
-
+## 28 Jan 2020 (29, 30, 01, 04, 07, 14, 21, 28 Feb)

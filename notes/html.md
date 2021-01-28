@@ -115,7 +115,7 @@
 </details>
 
 <details>
-<summary>What is `<dialog>` used for?</summary>
+<summary>What is dialog tag used for?</summary>
 
 - [`<dialog>`](https://www.w3.org/TR/html52/interactive-elements.html#elementdef-dialog) represents a part of an application that a user interacts with to perform a task, for example a dialog box, inspector, or window
 - not supported in Safari [28 Jan 2021](https://caniuse.com/?search=dialog)

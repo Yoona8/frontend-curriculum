@@ -495,7 +495,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 19, ..., 24 Jan 2020 (27, 31, 06, 13, 20 Feb)
+## 19, ..., 27 Jan 2020 (31, 06, 13, 20 Feb)
 ### JavaScript
 <details>
 <summary>What is Promise.race?</summary>
@@ -712,7 +712,7 @@ const addPosts = async () => {
 
 </details>
 
-## 23, ..., 26 Jan 2020 (28, 31, 03, 10, 17, 24 Feb)
+## 23, ..., 28 Jan 2020 (31, 03, 10, 17, 24 Feb)
 ### JavaScript
 <details>
 <summary>How to use fetch API?</summary>
@@ -817,7 +817,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 25, ..., 27 Jan 2020 (28, 30, 02, 05, 12, 19, 26 Feb)
+## 25, ..., 28 Jan 2020 (30, 02, 05, 12, 19, 26 Feb)
 ### JavaScript
 <details>
 <summary>What are the main problems when working with data?</summary>
@@ -839,3 +839,24 @@ const sendHttpRequest = (method, url, data) => {
 </details>
 
 ## 28 Jan 2020 (29, 30, 01, 04, 07, 14, 21, 28 Feb)
+### JavaScript
+<details>
+<summary>How to get the parameters from the link?</summary>
+
+```JavaScript
+const url = new Url(location.href);
+const queryParams = url.searchParams;
+const data = queryParams.get('data');
+```
+
+</details>
+
+<details>
+<summary>How to convert into a link?</summary>
+
+- `encodeURI('some text');`
+
+</details>
+
+## 29 Jan 2020 (30, 31, 02, 05, 08, 15, 22, 29 Feb)
+

@@ -3725,7 +3725,7 @@ const data = queryParams.get('data');
 
 ## Loading scripts to the page
 <details>
-<summary>Loading script files from JS dynamically</summary>
+<summary>How to load script files from JS dynamically?</summary>
 
 - basically generate html and add it to the page
 
@@ -3733,7 +3733,7 @@ const data = queryParams.get('data');
 
 ## Location API
 <details>
-<summary>Usage</summary>
+<summary>What is the location API used for?</summary>
 
 - for the app url and navigation
 
@@ -3748,7 +3748,7 @@ const data = queryParams.get('data');
 
 ## History API
 <details>
-<summary>Usage</summary>
+<summary>What is history API used for?</summary>
 
 - works with location
 - can use `history.back()` to navigate back (ex different cases with questions like age)
@@ -3757,7 +3757,7 @@ const data = queryParams.get('data');
 
 ## Navigator API
 <details>
-<summary>Why to use?</summary>
+<summary>Why do we use the navigator API?</summary>
 
 - don't use for defining browser version
 - could be useful when we need

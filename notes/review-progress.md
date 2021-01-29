@@ -84,7 +84,7 @@ element.parentElement.removeChild(element);
 
 </details>
 
-## 04, ..., 22 Jan 2020 (29, 05 Feb)
+## 04, ..., 29 Jan 2020 (05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -582,7 +582,7 @@ function setTimer() {
 
 </details>
 
-## 21, ..., 26 Jan 2020 (29, 01, 08, 15, 22 Feb)
+## 21, ..., 29 Jan 2020 (01, 08, 15, 22 Feb)
 ### JavaScript
 <details>
 <summary>What is Http?</summary>
@@ -780,7 +780,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 24, ..., 27 Jan 2020 (29, 01, 04, 11, 18, 25 Feb)
+## 24, ..., 29 Jan 2020 (01, 04, 11, 18, 25 Feb)
 ### JavaScript
 <details>
 <summary>What is the basic implementation of show password case?</summary>
@@ -838,7 +838,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 28 Jan 2020 (29, 30, 01, 04, 07, 14, 21, 28 Feb)
+## 28, ..., 29 Jan 2020 (30, 01, 04, 07, 14, 21, 28 Feb)
 ### JavaScript
 <details>
 <summary>How to get the parameters from the link?</summary>
@@ -858,5 +858,39 @@ const data = queryParams.get('data');
 
 </details>
 
-## 29 Jan 2020 (30, 31, 02, 05, 08, 15, 22, 29 Feb)
+## 29 Jan 2020 (30, 31, 02, 05, 08, 15, 22, 01 Mar)
+### JavaScript
+<details>
+<summary>How to load script files from JS dynamically?</summary>
+
+- basically generate html and add it to the page
+
+</details>
+
+<details>
+<summary>What is the location API used for?</summary>
+
+- for the app url and navigation
+
+</details>
+
+<details>
+<summary>What is history API used for?</summary>
+
+- works with location
+- can use `history.back()` to navigate back (ex different cases with questions like age)
+
+</details>
+
+<details>
+<summary>Why do we use the navigator API?</summary>
+
+- don't use for defining browser version
+- could be useful when we need
+  - geolocation
+
+</details>
+
+## 30 Jan 2020 (31, 01, 03, 06, 09, 16, 23, 02 Mar)
+
 

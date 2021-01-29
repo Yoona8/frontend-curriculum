@@ -86,7 +86,7 @@
 </details>
 
 <details>
-<summary>Presentation</summary>
+<summary>What tags do we use for the presentation content?</summary>
 
 ```HTML
 <figure>
@@ -97,7 +97,7 @@
 </details>
 
 <details>
-<summary>Tables</summary>
+<summary>How does the simple table look?</summary>
 
 ```HTML
 <!-- by default shrinks to content -->

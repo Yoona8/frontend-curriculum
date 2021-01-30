@@ -1,53 +1,4 @@
 # Review progress and questions I have to review
-## 29, ..., 23 Jan 2020 (30 Jan)
-### JavaScript
-<details>
-<summary>How to create an element?</summary>
-
-```JavaScript
-const newElement = document.createElement('p');
-newElement.textContent = 'Description';
-```
-
-</details>
-
-<details>
-<summary>How to add / move the element to the DOM?</summary>
-
-```JavaScript
-// all these methods remove the element (if existed)
-// and move to the new position
-// (need to clone not to be removed)
-// append new DOM element or node
-// any node, several nodes (IE not supported)
-// last inside the element
-element.append('Some text', newElement);
-// first inside the element
-element.prepend(newElement);
-// before the element (as sibling) (problems with Safari)
-element.before(newElement);
-// after the element (as sibling) (problems with Safari)
-element.after(newElement);
-// replace existing DOM element or node with a new one
-element.replaceWith(newElement);
-
-// only one element (older methods, have IE support)
-// = append();
-element.appendChild(newElement);
-// = before();
-// if referenceNode === null, newElement is inserted
-// at the end of the element's child nodes
-const newNode = element.insertBefore(newElement, referenceNode);
-const newNode1 = element.insertBefore(newElement, null);
-// = replaceWith();
-const oldNode = element.replaceChild(newElement, oldElement);
-
-// alternative method (supports IE, Safari)
-element.insertAdjacentElement('beforeend', newElement);
-```
-
-</details>
-
 ## 30, ..., 24 Jan 2020 (31 Jan)
 ### JavaScript
 <details>
@@ -620,7 +571,7 @@ Content-Length: 1270
 
 </details>
 
-## 22, ..., 27 Jan 2020 (30, 02, 09, 16, 23 Feb)
+## 22, ..., 30 Jan 2020 (02, 09, 16, 23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -891,6 +842,4 @@ const data = queryParams.get('data');
 
 </details>
 
-## 30 Jan 2020 (31, 01, 03, 06, 09, 16, 23, 02 Mar)
-
-
+## 31 Jan 2020 (01, 02, 04, 07, 10, 17, 24, 03 Mar)

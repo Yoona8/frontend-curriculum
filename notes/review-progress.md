@@ -1,40 +1,4 @@
 # Review progress and questions I have to review
-## 30, ..., 24 Jan 2020 (31 Jan)
-### JavaScript
-<details>
-<summary>How to clone the DOM Node?</summary>
-
-```JavaScript
-// deep? boolean
-// better to pass an argument
-// (default could be different for some browsers)
-const newElement = element.cloneNode(true);
-```
-
-</details>
-
-<details>
-<summary>How to remove the elements from the DOM?</summary>
-
-```JavaScript
-const element = document.querySelector('p');
-
-element.innerHTML = '';
-// IE is not supported
-element.remove();
-// works with IE
-element.parentElement.removeChild(element);
-```
-
-</details>
-
-<details>
-<summary>What happens to the event listeners when the element is removed from the DOM?</summary>
-
-- when the element is deleted (no reference left), all the listeners are also cleaned up - no memory leaks
-
-</details>
-
 ## 04, ..., 29 Jan 2020 (05 Feb)
 ### JavaScript
 <details>
@@ -446,7 +410,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 19, ..., 27 Jan 2020 (31, 06, 13, 20 Feb)
+## 19, ..., 31 Jan 2020 (06, 13, 20 Feb)
 ### JavaScript
 <details>
 <summary>What is Promise.race?</summary>
@@ -663,7 +627,7 @@ const addPosts = async () => {
 
 </details>
 
-## 23, ..., 28 Jan 2020 (31, 03, 10, 17, 24 Feb)
+## 23, ..., 31 Jan 2020 (03, 10, 17, 24 Feb)
 ### JavaScript
 <details>
 <summary>How to use fetch API?</summary>
@@ -768,7 +732,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 25, ..., 28 Jan 2020 (30, 02, 05, 12, 19, 26 Feb)
+## 25, ..., 30 Jan 2020 (02, 05, 12, 19, 26 Feb)
 ### JavaScript
 <details>
 <summary>What are the main problems when working with data?</summary>
@@ -789,7 +753,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 28, ..., 29 Jan 2020 (30, 01, 04, 07, 14, 21, 28 Feb)
+## 28, ..., 30 Jan 2020 (01, 04, 07, 14, 21, 28 Feb)
 ### JavaScript
 <details>
 <summary>How to get the parameters from the link?</summary>
@@ -809,7 +773,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 29 Jan 2020 (30, 31, 02, 05, 08, 15, 22, 01 Mar)
+## 29, ..., 31 Jan 2020 (02, 05, 08, 15, 22, 01 Mar)
 ### JavaScript
 <details>
 <summary>How to load script files from JS dynamically?</summary>
@@ -842,4 +806,4 @@ const data = queryParams.get('data');
 
 </details>
 
-## 31 Jan 2020 (01, 02, 04, 07, 10, 17, 24, 03 Mar)
+## 01 Feb 2020 (02, 03, 05, 08, 11, 18, 25, 04 Mar)

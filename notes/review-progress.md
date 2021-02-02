@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 04, ..., 29 Jan 2020 (05 Feb)
+## 04, ..., 29 Jan 2021 (05 Feb)
 ### JavaScript
 <details>
 <summary>How to work with styles in JS?</summary>
@@ -85,7 +85,7 @@ element.scrollIntoView();
 
 </details>
 
-## 08, ..., 26 Jan 2020 (02, 09 Feb)
+## 08, ..., 02 Feb 2021 (09 Feb)
 ### JavaScript
 <details>
 <summary>What is the general constructor for the event?</summary>
@@ -161,7 +161,7 @@ window.addEventListener('scroll', onScroll);
 
 </details>
 
-## 09, ..., 27 Jan 2020 (03, 10 Feb)
+## 09, ..., 27 Jan 2021 (03, 10 Feb)
 ### JavaScript
 <details>
 <summary>What are the event phases?</summary>
@@ -287,7 +287,7 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 14, ..., 27 Jan 2020 (02, 09, 16 Feb)
+## 14, ..., 02 Feb 2021 (09, 16 Feb)
 ### JavaScript
 <details>
 <summary>What is sync data loading?</summary>
@@ -410,7 +410,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 19, ..., 31 Jan 2020 (06, 13, 20 Feb)
+## 19, ..., 31 Jan 2021 (06, 13, 20 Feb)
 ### JavaScript
 <details>
 <summary>What is Promise.race?</summary>
@@ -497,7 +497,7 @@ function setTimer() {
 
 </details>
 
-## 21, ..., 29 Jan 2020 (01, 08, 15, 22 Feb)
+## 21, ..., 01 Feb 2021 (08, 15, 22 Feb)
 ### JavaScript
 <details>
 <summary>What is Http?</summary>
@@ -535,7 +535,7 @@ Content-Length: 1270
 
 </details>
 
-## 22, ..., 30 Jan 2020 (02, 09, 16, 23 Feb)
+## 22, ..., 02 Feb 2021 (09, 16, 23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -627,7 +627,7 @@ const addPosts = async () => {
 
 </details>
 
-## 23, ..., 31 Jan 2020 (03, 10, 17, 24 Feb)
+## 23, ..., 31 Jan 2021 (03, 10, 17, 24 Feb)
 ### JavaScript
 <details>
 <summary>How to use fetch API?</summary>
@@ -695,7 +695,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 24, ..., 29 Jan 2020 (01, 04, 11, 18, 25 Feb)
+## 24, ..., 01 Feb 2021 (04, 11, 18, 25 Feb)
 ### JavaScript
 <details>
 <summary>What is the basic implementation of show password case?</summary>
@@ -732,7 +732,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 25, ..., 30 Jan 2020 (02, 05, 12, 19, 26 Feb)
+## 25, ..., 02 Feb 2021 (05, 12, 19, 26 Feb)
 ### JavaScript
 <details>
 <summary>What are the main problems when working with data?</summary>
@@ -753,7 +753,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 28, ..., 30 Jan 2020 (01, 04, 07, 14, 21, 28 Feb)
+## 28, ..., 01 Feb 2021 (04, 07, 14, 21, 28 Feb)
 ### JavaScript
 <details>
 <summary>How to get the parameters from the link?</summary>
@@ -773,7 +773,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 29, ..., 31 Jan 2020 (02, 05, 08, 15, 22, 01 Mar)
+## 29, ..., 02 Feb 2021 (05, 08, 15, 22, 01 Mar)
 ### JavaScript
 <details>
 <summary>How to load script files from JS dynamically?</summary>
@@ -806,4 +806,4 @@ const data = queryParams.get('data');
 
 </details>
 
-## 01 Feb 2020 (02, 03, 05, 08, 11, 18, 25, 04 Mar)
+## 02 Feb 2021 (03, 04, 06, 08, 12, 19, 26, 05 Mar)

@@ -1,90 +1,4 @@
 # Review progress and questions I have to review
-## 04, ..., 29 Jan 2021 (05 Feb)
-### JavaScript
-<details>
-<summary>How to work with styles in JS?</summary>
-
-- `style` to get styles but only the inline styles
-```JavaScript
-const element = document.querySelector('p');
-
-// for CSS properties in several words camelCase is used in JS
-element.style.backgroundColor = 'green';
-element.style['backgroundColor'] = 'green';
-element.style['background-color'] = 'green';
-```
-- `window.getComputedStyle` to get all styles applied to the element
-
-</details>
-
-<details>
-<summary>How to work with the element coordinates relative to the document?</summary>
-
-- always relative to the start of the document, not the viewport (doesn't change upon scrolling)
-```JavaScript
-// readonly property
-const topPosition = element.offsetTop;
-```
-
-</details>
-
-<details>
-<summary>How to work with the element inner coordinates?</summary>
-
-- inner coordinates of the element do not include the border
-- rounds the value to an integer
-- the distance from where the margin area ends and the padding and content begins
-```JavaScript
-// readonly integer property
-const innerTop = element.clientTop;
-const innerLeft = element.clientLeft;
-```
-
-</details>
-
-<details>
-<summary>How to work with the element measurements?</summary>
-
-- height of an element's content (including the content not visible on the screen due to overflow)
-```JavaScript
-// readonly property
-const elementFullHeight = element.scrollHeight;
-```
-
-</details>
-
-<details>
-<summary>How to get the window width and height with and without scroll?</summary>
-
-- in pixels
-```JavaScript
-// readonly properties
-const viewportWidthWithScroll = window.innerWidth;
-const viewportHeightWithScroll = window.innerHeight;
-
-// real available window sizes not including the scroll
-const viewportWidth = document.documentElement.clientWidth;
-const viewportHeight = document.documentElement.clientHeight;
-```
-
-</details>
-
-<details>
-<summary>How to scroll the content into the viewport?</summary>
-
-```JavaScript
-element.scrollIntoView();
-```
-
-</details>
-
-<details>
-<summary>How to work with templates?</summary>
-
-- `importNode` (learn more)
-
-</details>
-
 ## 08, ..., 02 Feb 2021 (09 Feb)
 ### JavaScript
 <details>
@@ -161,7 +75,7 @@ window.addEventListener('scroll', onScroll);
 
 </details>
 
-## 09, ..., 27 Jan 2021 (03, 10 Feb)
+## 09, ..., 03 Feb 2021 (10 Feb)
 ### JavaScript
 <details>
 <summary>What are the event phases?</summary>
@@ -627,7 +541,7 @@ const addPosts = async () => {
 
 </details>
 
-## 23, ..., 31 Jan 2021 (03, 10, 17, 24 Feb)
+## 23, ..., 03 Feb 2021 (10, 17, 24 Feb)
 ### JavaScript
 <details>
 <summary>How to use fetch API?</summary>
@@ -695,7 +609,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 24, ..., 01 Feb 2021 (04, 11, 18, 25 Feb)
+## 24, ..., 04 Feb 2021 (11, 18, 25 Feb)
 ### JavaScript
 <details>
 <summary>What is the basic implementation of show password case?</summary>
@@ -732,7 +646,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 25, ..., 02 Feb 2021 (05, 12, 19, 26 Feb)
+## 25, ..., 05 Feb 2021 (12, 19, 26 Feb)
 ### JavaScript
 <details>
 <summary>What are the main problems when working with data?</summary>
@@ -753,7 +667,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 28, ..., 01 Feb 2021 (04, 07, 14, 21, 28 Feb)
+## 28, ..., 04 Feb 2021 (07, 14, 21, 28 Feb)
 ### JavaScript
 <details>
 <summary>How to get the parameters from the link?</summary>
@@ -773,7 +687,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 29, ..., 02 Feb 2021 (05, 08, 15, 22, 01 Mar)
+## 29, ..., 05 Feb 2021 (08, 15, 22, 01 Mar)
 ### JavaScript
 <details>
 <summary>How to load script files from JS dynamically?</summary>
@@ -806,4 +720,4 @@ const data = queryParams.get('data');
 
 </details>
 
-## 02 Feb 2021 (03, 04, 06, 08, 12, 19, 26, 05 Mar)
+## 05 Feb 2021 (06, 07, 09, 11, 15, 22, 01, 08 Mar)

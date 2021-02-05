@@ -107,6 +107,8 @@
 - [Hackernoon](https://hackernoon.com/)
 - [FreeCodeCamp](https://www.freecodecamp.org/)
 - [Dev](https://dev.to)
+- [In Depth Dev](https://indepth.dev/)
+- [Smashing Magazine](https://www.smashingmagazine.com/)
 
 ## Blogs
 - [Addy Osmani](https://addyosmani.com/)

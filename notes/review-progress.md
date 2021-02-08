@@ -324,7 +324,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 19, ..., 31 Jan 2021 (06, 13, 20 Feb)
+## 19, ..., 06 Feb 2021 (13, 20 Feb)
 ### JavaScript
 <details>
 <summary>What is Promise.race?</summary>

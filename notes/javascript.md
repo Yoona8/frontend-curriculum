@@ -25,6 +25,11 @@
 - [Forms](#forms)
 - [Authorization](#authorization)
 - [Working with data](#working-with-data)
+- [Loading scripts to the page]
+- [Location API]
+- [History API]
+- [Navigator API]
+- [Browser storage]
 
 ## Basic definitions
 <details>

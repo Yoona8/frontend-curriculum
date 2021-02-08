@@ -25,11 +25,11 @@
 - [Forms](#forms)
 - [Authorization](#authorization)
 - [Working with data](#working-with-data)
-- [Loading scripts to the page]
-- [Location API]
-- [History API]
-- [Navigator API]
-- [Browser storage]
+- [Loading scripts to the page](#loading-scripts-to-the-page)
+- [Location API](#location-api)
+- [History API](#history-api)
+- [Navigator API](#navigator-api)
+- [Browser storage](#browser-storage)
 
 ## Basic definitions
 <details>
@@ -3779,13 +3779,32 @@ const data = queryParams.get('data');
 
 ## Browser storage
 <details>
-<summary>Local and session storage</summary>
+<summary>What are local and session storages and what is the difference?</summary>
 
 - simple key-value store
-- manage user preferences or basic user data
-- can be cleared by the user and via JS
-- simple, easy to use, but bad for complex data
 - local storage lives till either user or browser (when ran out of space) clears it
+- session storage lives in the browser while you don't close the tab
+
+</details>
+
+<details>
+<summary>What are local and session storages good for?</summary>
+
+- manage user preferences or basic user data
+- simple, easy to use, but bad for complex data
+
+</details>
+
+<details>
+<summary>How are local and session storages being cleared?</summary>
+
+- can be cleared by the user and via JS
+
+</details>
+
+<details>
+<summary>How to work with the local storage?</summary>
+
 ```JavaScript
 // local storage works sync
 const userId = '775';
@@ -3802,7 +3821,12 @@ localStorage.setItem('user', JSON.stringify(user));
 // to get item
 localStorage.getItem('user');
 ```
-- session storage lives in the browser while you don't close the tab
+
+</details>
+
+<details>
+<summary>How to work with the session storage?</summary>
+
 ```JavaScript
 // session storage works sync
 

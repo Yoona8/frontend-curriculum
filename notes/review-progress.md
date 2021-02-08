@@ -411,7 +411,7 @@ function setTimer() {
 
 </details>
 
-## 21, ..., 01 Feb 2021 (08, 15, 22 Feb)
+## 21, ..., 08 Feb 2021 (15, 22 Feb)
 ### JavaScript
 <details>
 <summary>What is Http?</summary>
@@ -720,4 +720,4 @@ const data = queryParams.get('data');
 
 </details>
 
-## 05 Feb 2021 (06, 07, 09, 11, 15, 22, 01, 08 Mar)
+## 08 Feb 2021 (09, 10, 12, 14, 18, 25, 04, 11 Mar)

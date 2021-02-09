@@ -1,80 +1,4 @@
 # Review progress and questions I have to review
-## 08, ..., 02 Feb 2021 (09 Feb)
-### JavaScript
-<details>
-<summary>What is the general constructor for the event?</summary>
-
-- made with `Event` constructor
-
-</details>
-
-<details>
-<summary>What are the specific event constructors?</summary>
-
-- specific constructors inherited from `Event` (ex `MouseEvent`, `DragEvent`)
-
-</details>
-
-<details>
-<summary>To what element can you add the event?</summary>
-
-- can be added to any element (even div)
-
-</details>
-
-<details>
-<summary>When are the event listeners removed?</summary>
-
-- event listeners are removed when there is no reference to the element left (either in code or DOM)
-
-</details>
-
-<details>
-<summary>How to add the listener (2 ways)?</summary>
-
-- `onclick` attribute or adding via JS `element.onclick = console.log();` overrides previous handler (can't add 2 handlers)
-- the best way to add events is `element.addEventListener();`
-
-</details>
-
-<details>
-<summary>What is the difference between `change` and `input`?</summary>
-
-- `change` works when `field.value` changed and the user finished to enter the value (moved the handle and released)
-- `input` works with every value change
-
-</details>
-
-<details>
-<summary>How to implement the scroll event?</summary>
-
-- useful for infinite loading
-```JavaScript
-let currentElementNumber = 0;
-
-const onScroll = () => {
-  // measure the distance between our viewport (top left corner)
-  // and the end of the page (not viewport)
-  const distanceToBottom = document.body.getBoundingClientRect().bottom;
-  const viewportHeight = document.documentElement.clientHeight;
-
-  // compare to the window height + threshold
-  // if we have < 100px to the end of the content,
-  // append new data
-  if (distanceToBottom < viewportHeight + 100) {
-    const newElement = document.createElement('div');
-
-    currentElementNumber++;
-    newElement.innerHTML = `<p>Add element ${currentElementNumber}</p>`;
-    document.body.append(newElement);
-  }
-};
-
-window.addEventListener('scroll', onScroll);
-```
-
-</details>
-
 ## 09, ..., 03 Feb 2021 (10 Feb)
 ### JavaScript
 <details>
@@ -201,7 +125,7 @@ elementToDrag.addEventListener('dragend', evt => {
 
 </details>
 
-## 14, ..., 02 Feb 2021 (09, 16 Feb)
+## 14, ..., 09 Feb 2021 (16 Feb)
 ### JavaScript
 <details>
 <summary>What is sync data loading?</summary>
@@ -449,7 +373,7 @@ Content-Length: 1270
 
 </details>
 
-## 22, ..., 02 Feb 2021 (09, 16, 23 Feb)
+## 22, ..., 09 Feb 2021 (16, 23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -667,7 +591,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 28, ..., 04 Feb 2021 (07, 14, 21, 28 Feb)
+## 28, ..., 07 Feb 2021 (14, 21, 28 Feb)
 ### JavaScript
 <details>
 <summary>How to get the parameters from the link?</summary>
@@ -687,7 +611,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 29, ..., 05 Feb 2021 (08, 15, 22, 01 Mar)
+## 29, ..., 08 Feb 2021 (15, 22, 01 Mar)
 ### JavaScript
 <details>
 <summary>How to load script files from JS dynamically?</summary>
@@ -720,4 +644,4 @@ const data = queryParams.get('data');
 
 </details>
 
-## 08 Feb 2021 (09, 10, 12, 14, 18, 25, 04, 11 Mar)
+## 09 Feb 2021 (10, 11, 13, 15, 19, 26, 05, 12 Mar)

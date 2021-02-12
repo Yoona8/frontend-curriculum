@@ -30,6 +30,18 @@
 - [History API](#history-api)
 - [Navigator API](#navigator-api)
 - [Browser storage](#browser-storage)
+- [Meta-programming](#meta-programming)
+- [Performance and optimizations](#performance-and-optimizations)
+- [Security](#security)
+- [Regular expressions](#regular-expressions) - refactor the questions
+- [Deploying](#deploying)
+- [Testing](#testing)
+- [Debugging](#debugging)
+- [Browser support](#browser-support) - refactor the questions
+- [Tools and workflow](#tools-and-workflow) - refactor the questions
+- [Libraries](#libraries) - refactor
+- [Frameworks](#frameworks) - refactor
+- [Resources](#resources) - refactor
 
 ## Basic definitions
 <details>
@@ -3989,14 +4001,14 @@ getButton.addEventListener('click', () => {
 
 ## Meta-programming
 <details>
-<summary>General info</summary>
+<summary>When do you need to use meta-programming?</summary>
 
 - advanced concepts used mostly when you create libraries
 
 </details>
 
 <details>
-<summary>Symbols</summary>
+<summary>What are Symbols and how to use them?</summary>
 
 - primitive values
 - used as keys in objects
@@ -4030,7 +4042,7 @@ console.log(user.toString()); // => [object User]
 </details>
 
 <details>
-<summary>Iterators & Generators</summary>
+<summary>What are Iterators and how to use them?</summary>
 
 - create your own iterable values
 - iterables use it internally
@@ -4068,6 +4080,12 @@ while(!friend.done) {
   friend = player.next();
 }
 ```
+
+</details>
+
+<details>
+<summary>What are Generators and how to use them?</summary>
+
 - using generators to build an iterator object
 - generator is special function which generates an iterator
 - returns an object with `next()` method
@@ -4120,7 +4138,7 @@ console.log(friendsIterator.next());
 </details>
 
 <details>
-<summary>Reflect API</summary>
+<summary>What is Reflect API and how to use it?</summary>
 
 - API to control objects
 - standardized and grouped methods
@@ -4144,7 +4162,7 @@ Reflect.setPrototypeOf(player, {
 </details>
 
 <details>
-<summary>Proxy API</summary>
+<summary>What is Proxy API and how to use it?</summary>
 
 - create traps for object operations
 - step in and execute code
@@ -4198,7 +4216,7 @@ console.log(proxyPlayer.age); // => NOT FOUND
 
 ## Performance and optimizations
 <details>
-<summary>Code parsing, compilation and execution</summary>
+<summary>How does the code parse, compiles, executes?</summary>
 
 <img src="../images/code-parsing.png" alt="Code parsing">
 
@@ -4210,7 +4228,7 @@ console.log(proxyPlayer.age); // => NOT FOUND
 </details>
 
 <details>
-<summary>Primitive and Reference values</summary>
+<summary>What are Primitive and Reference values?</summary>
 
 - primitive - strings, numbers, booleans, `null`, `undefined`, symbol
   - stored in a memory (normally on stack)
@@ -4224,7 +4242,7 @@ console.log(proxyPlayer.age); // => NOT FOUND
 </details>
 
 <details>
-<summary>Garbage collection and Memory management</summary>
+<summary>How do the Garbage collection and Memory management work?</summary>
 
 - the stack is cleared automatically (mostly ok)
 - the heap may overflow more frequently
@@ -4259,7 +4277,7 @@ function addListener() {
 
 ## Security
 <details>
-<summary>Potential Security Holes</summary>
+<summary>What are the Potential Security Holes?</summary>
 
 - security details in the code (like connection strings, keys, user data)
 - keep in mind that JS code could be read by everyone
@@ -4269,7 +4287,7 @@ function addListener() {
 </details>
 
 <details>
-<summary>XSS Attacks</summary>
+<summary>What are the XSS Attacks?</summary>
 
 - attack pattern when malicious JS code gets injected and executed
 - injected code can do anything your code could do as well
@@ -4288,7 +4306,7 @@ function addListener() {
 </details>
 
 <details>
-<summary>Cross-Site Request Forgery (CSRF)</summary>
+<summary>What is the Cross-Site Request Forgery (CSRF)?</summary>
 
 - attack pattern that depends on injected content (ex: images)
 - requests to malicious servers are made with user's cookies
@@ -4300,7 +4318,7 @@ function addListener() {
 </details>
 
 <details>
-<summary>Cross-Origin Resource Sharing (CORS)</summary>
+<summary>What is the Cross-Origin Resource Sharing (CORS)?</summary>
 
 - not an attack pattern but a security concept
 - requests are only allowed from the same origin (domain)
@@ -4366,12 +4384,18 @@ function addListener() {
 
 ## Debugging
 <details>
-<summary>Console</summary>
+<summary>How to console log as an object instead of the html tree?</summary>
 
 - if by default logs the html tree, use to log as an object
 ```JavaScript
 console.dir(document);
 ```
+
+</details>
+
+<details>
+<summary>How to console log as a table?</summary>
+
 - for nice table overview
 ```JavaScript
 console.table([1, 2, 3]);

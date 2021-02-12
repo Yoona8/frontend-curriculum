@@ -444,7 +444,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 25, ..., 05 Feb 2021 (12, 19, 26 Feb)
+## 25, ..., 12 Feb 2021 (19, 26 Feb)
 ### JavaScript
 <details>
 <summary>What are the main problems when working with data?</summary>
@@ -518,4 +518,68 @@ const data = queryParams.get('data');
 
 </details>
 
-## 11 Feb 2021 (12, 13, 15, 17, 21, 28, 07, 14 Mar)
+## 12 Feb 2021 (13, 14, 16, 18, 22, 01, 08, 15 Mar)
+### JavaScript
+<details>
+<summary>What are local and session storages and what is the difference?</summary>
+
+- simple key-value store
+- local storage lives till either user or browser (when ran out of space) clears it
+- session storage lives in the browser while you don't close the tab
+
+</details>
+
+<details>
+<summary>What are local and session storages good for?</summary>
+
+- manage user preferences or basic user data
+- simple, easy to use, but bad for complex data
+
+</details>
+
+<details>
+<summary>How are local and session storages being cleared?</summary>
+
+- can be cleared by the user and via JS
+
+</details>
+
+<details>
+<summary>How to work with the local storage?</summary>
+
+```JavaScript
+// local storage works sync
+const userId = '775';
+const user = {
+  name: 'Harry',
+  age: 33
+};
+
+// JS converts data into a string
+localStorage.setItem('userId', userId);
+localStorage.setItem('user', user); // => [object Object]
+localStorage.setItem('user', JSON.stringify(user));
+
+// to get item
+localStorage.getItem('user');
+```
+
+</details>
+
+<details>
+<summary>How to work with the session storage?</summary>
+
+```JavaScript
+// session storage works sync
+
+// JS converts data into a string
+sessionStorage.setItem('userId', userId);
+sessionStorage.setItem('user', JSON.stringify(user));
+
+// to get item
+sessionStorage.getItem('user');
+```
+
+</details>
+
+## 13 Feb 2021 (14, 15, 17, 19, 23, 02, 09, 16 Mar)

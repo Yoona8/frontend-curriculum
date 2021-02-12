@@ -3841,15 +3841,34 @@ sessionStorage.getItem('user');
 </details>
 
 <details>
-<summary>Cookies</summary>
+<summary>What are cookies and the difference from local/session storage?</summary>
 
 - cookie stored to server
 - simple key-value store with some config options
-- manage user preferences or basic user data
-- can be cleared by the user and via JS
-- not as easy to use, sent to server, bad for complex data
+- not as easy to use
 - the advantage is that you can set it to expire or send to a server
 - available only if your app is served on a running server
+
+</details>
+
+<details>
+<summary>What are cookies good for?</summary>
+
+- manage user preferences or basic user data
+- bad for complex data
+
+</details>
+
+<details>
+<summary>How to clear the cookies?</summary>
+
+- can be cleared by the user and via JS
+
+</details>
+
+<details>
+<summary>How to use cookies?</summary>
+
 ```JavaScript
 // cookies work sync
 const userId = 'fd3928';
@@ -3871,12 +3890,30 @@ document.cookie;
 </details>
 
 <details>
-<summary>IndexedDB</summary>
+<summary>What is IndexedDB?</summary>
 
 - client-side database
+
+</details>
+
+<details>
+<summary>What is IndexedDB good for?</summary>
+
 - manage complex data your app needs
-- can be cleared by the user and via JS
 - not as easy to use, great for complex (non-critical) data, good performance (good for usage like google sheets)
+
+</details>
+
+<details>
+<summary>How to clean the IndexedDB?</summary>
+
+- can be cleared by the user and via JS
+
+</details>
+
+<details>
+<summary>How to use IndexedDB?</summary>
+
 ```JavaScript
 // indexedDB works sync
 // pass name and version

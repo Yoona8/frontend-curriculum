@@ -122,7 +122,7 @@ Promise.resolve('a') // 'a'
 
 </details>
 
-## 19, ..., 06 Feb 2021 (13, 20 Feb)
+## 19, ..., 13 Feb 2021 (20 Feb)
 ### JavaScript
 <details>
 <summary>What is Promise.race?</summary>
@@ -518,7 +518,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 12 Feb 2021 (13, 14, 16, 18, 22, 01, 08, 15 Mar)
+## 12, ..., 13 Feb 2021 (14, 16, 18, 22, 01, 08, 15 Mar)
 ### JavaScript
 <details>
 <summary>What are local and session storages and what is the difference?</summary>
@@ -583,3 +583,54 @@ sessionStorage.getItem('user');
 </details>
 
 ## 13 Feb 2021 (14, 15, 17, 19, 23, 02, 09, 16 Mar)
+### JavaScript
+<details>
+<summary>What are cookies and the difference from local/session storage?</summary>
+
+- cookie stored to server
+- simple key-value store with some config options
+- not as easy to use
+- the advantage is that you can set it to expire or send to a server
+- available only if your app is served on a running server
+
+</details>
+
+<details>
+<summary>What are cookies good for?</summary>
+
+- manage user preferences or basic user data
+- bad for complex data
+
+</details>
+
+<details>
+<summary>How to clear the cookies?</summary>
+
+- can be cleared by the user and via JS
+
+</details>
+
+<details>
+<summary>How to use cookies?</summary>
+
+```JavaScript
+// cookies work sync
+const userId = 'fd3928';
+const user = {
+  name: 'Harry',
+  age: 33
+};
+// data stored as a string
+// under the hood uses a setter
+// so adds new cookie, not overrides
+document.cookie = `userId=${userId}; max-age=360`; // => seconds
+document.cookie = `user=${JSON.stringify(user)}; expires=date`; // => date
+
+// to get info
+// returns all the cookies stored in one string
+document.cookie;
+```
+
+</details>
+
+## 14 Feb 2021 (15, 16, 18, 20, 24, 03, 10, 17 Mar)

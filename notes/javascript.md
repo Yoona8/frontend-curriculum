@@ -3929,15 +3929,18 @@ document.cookie;
 ```JavaScript
 // indexedDB works sync
 // pass name and version
+// creates or opens an existed DB
 const dbRequest = indexedDB.open('Name', 1);
 let db;
 
 // to be able to change the data from a button too
 dbRequest.onsuccess = function(evt) {
+  // access to the created database
   db = evt.target.result;
 };
 
 // for better browser support not .addEventListener, but:
+// this event runs when the db is created or the version is upgraded
 dbRequest.onupgradeneeded = function(evt) {
   db = evt.target.result;
   const objStore = db.createObjectStore('products', {keyPath: 'id'});
@@ -3945,6 +3948,7 @@ dbRequest.onupgradeneeded = function(evt) {
   // oncomplete triggers when createObjectStore is finished
   objStore.transaction.oncomplete = function(evt) {
     // connecting to the data base
+    // name of the store + mode (readonly, readwrite, etc)
     const productsStore = db.transaction('products', 'readwrite')
       .objectStore('products');
     // adding a new item, has to have the property from keyPath

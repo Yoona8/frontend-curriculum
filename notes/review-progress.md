@@ -465,7 +465,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 28, ..., 07 Feb 2021 (14, 21, 28 Feb)
+## 28, ..., 14 Feb 2021 (21, 28 Feb)
 ### JavaScript
 <details>
 <summary>How to get the parameters from the link?</summary>
@@ -518,7 +518,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 12, ..., 13 Feb 2021 (14, 16, 18, 22, 01, 08, 15 Mar)
+## 12, ..., 14 Feb 2021 (16, 18, 22, 01, 08, 15 Mar)
 ### JavaScript
 <details>
 <summary>What are local and session storages and what is the difference?</summary>
@@ -582,7 +582,7 @@ sessionStorage.getItem('user');
 
 </details>
 
-## 13 Feb 2021 (14, 15, 17, 19, 23, 02, 09, 16 Mar)
+## 13, ..., Feb 2021 (15, 17, 19, 23, 02, 09, 16 Mar)
 ### JavaScript
 <details>
 <summary>What are cookies and the difference from local/session storage?</summary>
@@ -629,6 +629,101 @@ document.cookie = `user=${JSON.stringify(user)}; expires=date`; // => date
 // to get info
 // returns all the cookies stored in one string
 document.cookie;
+```
+
+</details>
+
+## 14 Feb 2021 (15, 16, 18, 20, 24, 03, 10, 17 Mar)
+### JavaScript
+<details>
+<summary>What is IndexedDB?</summary>
+
+- client-side database
+
+</details>
+
+<details>
+<summary>What is IndexedDB good for?</summary>
+
+- manage complex data your app needs
+- not as easy to use, great for complex (non-critical) data, good performance (good for usage like google sheets)
+
+</details>
+
+<details>
+<summary>How to clean the IndexedDB?</summary>
+
+- can be cleared by the user and via JS
+
+</details>
+
+<details>
+<summary>How to use IndexedDB?</summary>
+
+```JavaScript
+// indexedDB works sync
+// pass name and version
+// creates or opens an existed DB
+const dbRequest = indexedDB.open('Name', 1);
+let db;
+
+// to be able to change the data from a button too
+dbRequest.onsuccess = function(evt) {
+  // access to the created database
+  db = evt.target.result;
+};
+
+// for better browser support not .addEventListener, but:
+// this event runs when the db is created or the version is upgraded
+dbRequest.onupgradeneeded = function(evt) {
+  db = evt.target.result;
+  const objStore = db.createObjectStore('products', {keyPath: 'id'});
+
+  // oncomplete triggers when createObjectStore is finished
+  objStore.transaction.oncomplete = function(evt) {
+    // connecting to the data base
+    // name of the store + mode (readonly, readwrite, etc)
+    const productsStore = db.transaction('products', 'readwrite')
+      .objectStore('products');
+    // adding a new item, has to have the property from keyPath
+    productsStore.add({
+      id: 'pr1',
+      name: 'Product 1',
+      price: 1.22,
+      tags: ['Vegetarian', 'No-Sugar']
+    });
+  };
+};
+
+dbRequest.onerror = function() {};
+
+addButton.addEventListener('click', () => {
+  if (!db) {
+    return;
+  }
+
+  const productsStore = db.transaction('products', 'readwrite')
+    .objectStore('products');
+
+  productsStore.add({
+    id: 'pr2',
+    name: 'Product 2',
+    price: 1.42,
+    tags: ['Vegetarian', 'No-Sugar']
+  });
+});
+
+// to retrieve the data
+getButton.addEventListener('click', () => {
+  const productsStore = db.transaction('products', 'readwrite')
+    .objectStore('products');
+
+  const request = productsStore.get('pr1');
+
+  request.onsuccess = function() {
+    console.log(request.result);
+  };
+});
 ```
 
 </details>

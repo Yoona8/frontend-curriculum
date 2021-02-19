@@ -216,7 +216,7 @@ const addPosts = async () => {
 
 </details>
 
-## 23, ..., 10 Feb 2021 (17, 24 Feb)
+## 23, ..., 17 Feb 2021 (24 Feb)
 ### JavaScript
 <details>
 <summary>How to use fetch API?</summary>
@@ -607,4 +607,5 @@ getButton.addEventListener('click', () => {
 
 ## 19 Feb 2021 (20, 21, 23, 25, 01, 08, 15, 22 Mar)
 ```JavaScript
+
 ```

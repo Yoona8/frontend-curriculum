@@ -209,7 +209,7 @@ function setTimer() {
 
 </details>
 
-## 21, ..., 08 Feb 2021 (15, 22 Feb)
+## 21, ..., 15 Feb 2021 (22 Feb)
 ### JavaScript
 <details>
 <summary>What is Http?</summary>

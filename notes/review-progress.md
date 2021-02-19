@@ -485,7 +485,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 29, ..., 08 Feb 2021 (15, 22, 01 Mar)
+## 29, ..., 15 Feb 2021 (22, 01 Mar)
 ### JavaScript
 <details>
 <summary>How to load script files from JS dynamically?</summary>
@@ -582,7 +582,7 @@ sessionStorage.getItem('user');
 
 </details>
 
-## 13, ..., Feb 2021 (15, 17, 19, 23, 02, 09, 16 Mar)
+## 13, ..., 19 Feb 2021 (21, 23, 27, 06, 13, 20 Mar)
 ### JavaScript
 <details>
 <summary>What are cookies and the difference from local/session storage?</summary>
@@ -633,7 +633,7 @@ document.cookie;
 
 </details>
 
-## 14 Feb 2021 (15, 16, 18, 20, 24, 03, 10, 17 Mar)
+## 14, ..., 19 Feb 2021 (20, 22, 24, 28, 07, 14, 21 Mar)
 ### JavaScript
 <details>
 <summary>What is IndexedDB?</summary>
@@ -729,3 +729,5 @@ getButton.addEventListener('click', () => {
 </details>
 
 ## 14 Feb 2021 (15, 16, 18, 20, 24, 03, 10, 17 Mar)
+```JavaScript
+```

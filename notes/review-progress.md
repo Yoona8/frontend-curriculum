@@ -1,127 +1,4 @@
 # Review progress and questions I have to review
-## 14, ..., 09 Feb 2021 (16 Feb)
-### JavaScript
-<details>
-<summary>What is sync data loading?</summary>
-
-```JavaScript
-const getResponse = (url) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, false);
-    xhr.send();
-    // we can do it like that, because it's a sync request
-    // return will happen after we get the response
-    return xhr.response;
-};
-const data = getResponse('https://data.com/users');
-```
-
-</details>
-
-<details>
-<summary>What is the event loop and how it works?</summary>
-
-- JS is single threaded
-- browser is multi threaded
-- all kind of async tasks (like timers, event listeners, etc) are going to browser (message queue)
-- micro - promises (run first), macro - timeouts (run second)
-- when the call stack is empty, event loop goes through message queue and executes the functions from there
-
-</details>
-
-<details>
-<summary>What is async?</summary>
-
-- async - run the operation without blocking the main script process
-
-</details>
-  
-<details>
-<summary>How was async implemented in ES5 and what are the issues?</summary>
-
-- complex interface, have to add all possible callbacks, difficult to make optional manipulation for some cases
-- difficult to read the code, recreate the methods sequence is quite hard
-- callback hell - several chained async methods turn into nested sequences of callbacks, too hard to support https://callbackhell.ru/
-```JavaScript
-const getResponse = (url, onload, onerror) => {
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-  xhr.onload = () => onload(xhr.response);
-  xhr.onerror = () => onerror(xhr.status);
-  xhr.send();
-};
-
-getResponse('data.json',
-  (response) => console.log(response),
-  (errorStatus) => console.log(errorStatus)
-);
-```
-
-</details>
-
-<details>
-<summary>How is async implemented in ES6?</summary>
-
-- promise is a way to work with an async function as if it's sync 
-- different states of a promise object
-<img src="../images/promise.jpg" alt="promises" width="400">
-
-```JavaScript
-const getResponse = (url) => new Promise(
-  (resolve, reject) => {
-    // Object => Pending...
-    // neither then() or catch() executes at this moment
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
-    // Object => Fulfilled
-    // then() executes
-    xhr.onload = () => resolve(xhr.response);
-    // Object => Rejected
-    // catch() executes
-    xhr.onerror = () => reject(xhr.status);
-    xhr.send();
-  }
-);
-
-getResponse('data.json')
-  // callback on success
-  // could work with several promises
-  // returns new Promise()
-  .then(
-    (data) => console.log(data),
-    // but better to use catch
-    (error) => console.warning(error)
-  );
-
-getResponse('data.json')
-  // if there is anywhere in then chain throw new Error
-  // it's going to be caught in catch
-  .then((data) => console.log(data))
-  // catches all the errors before
-  // the blocks before are skipped but
-  // doesn't stop the chain (if there are some then after)
-  .catch((error) => console.warning(error))
-  // if there are no more then() blocks left
-  // promise enters the final mode: settled
-  // once settled, you can use the special block finally()
-  // to do some cleanup work
-  // this block is reached anyways (resolve or reject before)
-  // optional, executes always
-  // will not return a promise in the end (like then() and catch())
-  .finally(cb);
-
-// you can work with promises chaining then
-// every then returns a promise, where we can also call then
-Promise.resolve('a') // 'a'
-  .then((val) => val.concat('b')) // 'ab'
-  // when we have another then() or catch()
-  // the promise re-enters pending mode
-  .then((val) => val.concat('c')) // 'abc'
-  .then((val) => val.concat('d')); // 'abcd'
-```
-
-</details>
-
 ## 19, ..., 13 Feb 2021 (20 Feb)
 ### JavaScript
 <details>
@@ -247,7 +124,7 @@ Content-Length: 1270
 
 </details>
 
-## 22, ..., 09 Feb 2021 (16, 23 Feb)
+## 22, ..., 16 Feb 2021 (23 Feb)
 ### JavaScript
 <details>
 <summary>How to send the http request with XMLHttpRequest?</summary>
@@ -518,7 +395,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 12, ..., 14 Feb 2021 (16, 18, 22, 01, 08, 15 Mar)
+## 12, ..., 19 Feb 2021 (21, 25, 04, 11, 18 Mar)
 ### JavaScript
 <details>
 <summary>What are local and session storages and what is the difference?</summary>
@@ -728,6 +605,6 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 14 Feb 2021 (15, 16, 18, 20, 24, 03, 10, 17 Mar)
+## 19 Feb 2021 (20, 21, 23, 25, 01, 08, 15, 22 Mar)
 ```JavaScript
 ```

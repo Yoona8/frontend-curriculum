@@ -284,7 +284,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 24, ..., 11 Feb 2021 (18, 25 Feb)
+## 24, ..., 18 Feb 2021 (25 Feb)
 ### JavaScript
 <details>
 <summary>What is the basic implementation of show password case?</summary>
@@ -321,7 +321,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 25, ..., 12 Feb 2021 (19, 26 Feb)
+## 25, ..., 19 Feb 2021 (26 Feb)
 ### JavaScript
 <details>
 <summary>What are the main problems when working with data?</summary>

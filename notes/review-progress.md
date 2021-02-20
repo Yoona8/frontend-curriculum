@@ -1,91 +1,4 @@
 # Review progress and questions I have to review
-## 19, ..., 13 Feb 2021 (20 Feb)
-### JavaScript
-<details>
-<summary>What is Promise.race?</summary>
-
-```JavaScript
-Promise.race([getPromise1(), getPromise2()])
-  .then(dataFromTheFastest => {});
-// the other promise is not canceled!
-// just ignored (the http request will still be sent)
-```
-
-</details>
-
-<details>
-<summary>What is the difference between Promise.all and Promise.allSettled?</summary>
-
-- when you need an array of requests at the same time 
-  - `Promise.all(<Array.Promise>)`
-    - executed when all the promises are resolved
-    - if one with error, drops, can't access the data
-    - returns an array
-  - `Promise.allSettled(<Array.Promise>)`
-    - waits till all the promises are completed (success/error)
-    - can access the data even when some promises complete with an error
-    - poor browser support
-- `Promise.then` could return
-  - just value/array - goes to the next promise
-  - object Promise
-  - array of values / promises - can turn into something else
-
-</details>
-
-<details>
-<summary>What is async await?</summary>
-
-- uses promises under the hood
-- can be used only with functions
-```JavaScript
-// can't use like that
-await setTimer(1000);
-// but can wrap into IIFE
-(async function() {
-  await setTimer(1000);
-})();
-```
-- when `async` is added, function automatically returns a promise
-- wraps everything inside into a promise
-```JavaScript
-const setTimer = async () => {
-  // waits till the promise is resolved and goes to the next line
-  const data = await getData();
-  const otherData = await getOtherData();
-  // won't get executed till the await block resolved
-  // as if wrapping into then() block
-  console.log('Done!');
-  // returns promise
-};
-
-async function setTimer() {
-  // to handle errors can use try ... catch
-  try {
-    // if anything here yields an error,
-    // the block fails into the catch
-    // if error is in the 1st line, 2nd won't be executed
-    const data = await getData();
-    const otherData = await getOtherData();
-  } catch (error) {
-    console.log(error);
-  }
-  // this code will be executed anyways
-  console.log('Done!');
-  // returns promise
-}
-
-// creates a wrapping promise
-function setTimer() {
-  return new Promise((resolve, reject) => {
-    // all the code here
-  });
-}
-```
-- `await` wraps everything into a `then()` block
-- not good for cases when we need to run some code and not wait for promise to resolve or reject
-
-</details>
-
 ## 21, ..., 15 Feb 2021 (22 Feb)
 ### JavaScript
 <details>
@@ -510,7 +423,7 @@ document.cookie;
 
 </details>
 
-## 14, ..., 19 Feb 2021 (20, 22, 24, 28, 07, 14, 21 Mar)
+## 14, ..., 20 Feb 2021 (22, 24, 28, 07, 14, 21 Mar)
 ### JavaScript
 <details>
 <summary>What is IndexedDB?</summary>
@@ -607,5 +520,49 @@ getButton.addEventListener('click', () => {
 
 ## 19 Feb 2021 (20, 21, 23, 25, 01, 08, 15, 22 Mar)
 ```JavaScript
+// open or create new
+const dbRequest = indexedDB.open('Name', 1);
+let db;
 
+dbRequest.onsuccess = (evt) => {
+  db = evt.target.result;
+};
+
+dbRequest.onupgradeneeded = (evt) => {
+  db = evt.target.result;
+  
+  const objStore = db.createObjectStore('products', {keyPath: 'id'});
+
+  objStore.transaction.oncomplete = () => {
+    const productsStore = db.transaction.('products', 'readwrite')
+      .objectStore('products');
+
+    productsStore.add({
+      id: '1',
+      name: 'Apple'
+    });
+  };
+};
+
+dbRequest.onerror = () => {};
+
+addButton.addEventListener('click', () => {
+  if (!db) {
+    return;
+  }
+
+  const productsStore = db.transaction('products', 'readwrite')
+    .objectStore('products');
+
+  productsStore.add({});
+});
+
+getButton.addEventListener('click', () => {
+  const productsStore = db.transaction('products', 'readonly')
+    .objectStore('products');
+
+  const request = productsStore.get('1');
+
+  request.onsuccess = () => {console.log(request.result)};
+});
 ```

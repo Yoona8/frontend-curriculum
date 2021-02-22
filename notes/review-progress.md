@@ -1,42 +1,4 @@
 # Review progress and questions I have to review
-## 21, ..., 15 Feb 2021 (22 Feb)
-### JavaScript
-<details>
-<summary>What is Http?</summary>
-
-- Data transfer protocol - the way computer uses to exchange the information (there are many different protocols, in the web we use http)
-- HTTP - hypertext transfer protocol - client exchanges data with the server
-- HTTP request is always text
-- request to the server = text
-```
-GET /index.html HTTP/1.1
-Host: example.com
-User-Agent: Mozilla/5.0
-Accept: text/html
-```
-- server response = text
-```
-HTTP/1.1 200 OK
-Cache-Control: max-age=604800
-Content-Type: text/html
-Date: Tue, 24 Oct 2017 11:08:24 GMT
-Etag: "359670651+ident"
-Expires: Tue, 30 Oct 2017 11:08:24 GMT
-Last-Modified: Fri, 09 Aug 2016 23:23:35 GMT
-Server: ECS (dcs/53DB)
-Vary: Accept-Encoding
-X-Cache: HIT
-Content-Length: 1270
-
-<!doctype html>
-<html>
-  <head></head>
-  <body></body>
-</html>
-```
-
-</details>
-
 ## 22, ..., 16 Feb 2021 (23 Feb)
 ### JavaScript
 <details>
@@ -275,7 +237,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 29, ..., 15 Feb 2021 (22, 01 Mar)
+## 29, ..., 22 Feb 2021 (01 Mar)
 ### JavaScript
 <details>
 <summary>How to load script files from JS dynamically?</summary>
@@ -423,7 +385,7 @@ document.cookie;
 
 </details>
 
-## 14, ..., 20 Feb 2021 (22, 24, 28, 07, 14, 21 Mar)
+## 14, ..., 22 Feb 2021 (24, 28, 07, 14, 21 Mar)
 ### JavaScript
 <details>
 <summary>What is IndexedDB?</summary>

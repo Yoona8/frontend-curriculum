@@ -255,7 +255,7 @@ const sendHttpRequest = (method, url, data) => {
 
 </details>
 
-## 28, ..., 14 Feb 2021 (21, 28 Feb)
+## 28, ..., 21 Feb 2021 (28 Feb)
 ### JavaScript
 <details>
 <summary>How to get the parameters from the link?</summary>
@@ -308,7 +308,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 12, ..., 19 Feb 2021 (21, 25, 04, 11, 18 Mar)
+## 12, ..., 21 Feb 2021 (25, 04, 11, 18 Mar)
 ### JavaScript
 <details>
 <summary>What are local and session storages and what is the difference?</summary>
@@ -372,7 +372,7 @@ sessionStorage.getItem('user');
 
 </details>
 
-## 13, ..., 19 Feb 2021 (21, 23, 27, 06, 13, 20 Mar)
+## 13, ..., 21 Feb 2021 (23, 27, 06, 13, 20 Mar)
 ### JavaScript
 <details>
 <summary>What are cookies and the difference from local/session storage?</summary>
@@ -518,51 +518,4 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 19 Feb 2021 (20, 21, 23, 25, 01, 08, 15, 22 Mar)
-```JavaScript
-// open or create new
-const dbRequest = indexedDB.open('Name', 1);
-let db;
-
-dbRequest.onsuccess = (evt) => {
-  db = evt.target.result;
-};
-
-dbRequest.onupgradeneeded = (evt) => {
-  db = evt.target.result;
-  
-  const objStore = db.createObjectStore('products', {keyPath: 'id'});
-
-  objStore.transaction.oncomplete = () => {
-    const productsStore = db.transaction.('products', 'readwrite')
-      .objectStore('products');
-
-    productsStore.add({
-      id: '1',
-      name: 'Apple'
-    });
-  };
-};
-
-dbRequest.onerror = () => {};
-
-addButton.addEventListener('click', () => {
-  if (!db) {
-    return;
-  }
-
-  const productsStore = db.transaction('products', 'readwrite')
-    .objectStore('products');
-
-  productsStore.add({});
-});
-
-getButton.addEventListener('click', () => {
-  const productsStore = db.transaction('products', 'readonly')
-    .objectStore('products');
-
-  const request = productsStore.get('1');
-
-  request.onsuccess = () => {console.log(request.result)};
-});
-```
+## 22 Feb 2021 (23, 24, 26, 28, 04, 11, 18, 25 Mar)

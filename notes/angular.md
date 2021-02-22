@@ -1,4 +1,16 @@
 # Angular
+- [Essentials](#essentials)
+- [Components](#components)
+
+## Essentials
+<details>
+<summary>What are the core ideas behind Angular?</summary>
+
+- components - building blocks to compose the application
+- templates - cleanly separate the application's logic from its presentation
+- dependency injection - allows to declare the dependencies without caring about their instantiation, write more testable and flexible code
+
+</details>
 
 ## 1 - Angular CLI
 <details>
@@ -143,20 +155,24 @@ export class AppComponent {}
 
 </details>
 
-## 3 - Components
+## Components
 <details>
-<summary>Component creation and data binding</summary>
+<summary>What is a component?</summary>
+
+- a TypeScript class with `@Component()` decorator, HTML template and styles
+
+</details>
+
+<details>
+<summary>How to create a basic component?</summary>
 
 ```TypeScript
 // app/app.module.ts
 import { NgModule } from '@angular/core';
-// needed to use two-way binding
-import { FormsModule } from '@angular/forms';
 import { NameComponent } from './components/name/name.component';
 
 @NgModule({
-  declarations: [NameComponent],
-  imports: [FormsModule]
+  declarations: [NameComponent]
 })
 export class AppModule {}
 ```
@@ -176,6 +192,29 @@ import { Component } from '@angular/core';
   styles: '',
   styleUrls: ['./name.component.css'] // scss / less also possible
 })
+export class NameComponent {}
+```
+```HTML
+<!-- app/components/name/name.component.html -->
+<app-name></app-name>
+<p appDir></p>
+<p class="class"></p>
+```
+
+</details>
+
+<details>
+<summary>How is data binding implemented in Angular?</summary>
+
+```TypeScript
+// app/components/name/name.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-name',
+  templateUrl: './name.component.html',
+  styleUrls: ['./name.component.css']
+})
 export class NameComponent {
   title: string = 'Hello from name component!';
   name: string = 'Max';
@@ -187,9 +226,6 @@ export class NameComponent {
 ```
 ```HTML
 <!-- app/components/name/name.component.html -->
-<app-name></app-name>
-<p appDir></p>
-<p class="class"></p>
 <!-- data-binding - communication between business logic and view -->
 <!-- no multiline expressions -->
 <!-- resolved to a string -->
@@ -208,6 +244,7 @@ export class NameComponent {
 <!-- two-way binding -->
 <!-- triggers input data and updates BL -->
 <!-- when BL is updated programmatically, updates the input -->
+<!-- but have to import FormsModule on module level -->
 <input type="text" [(ngModel)]="name">
 <p>{{ name }}</p>
 ```
@@ -463,6 +500,38 @@ ngOnDestroy() {
 </details>
 
 <details>
+<summary>How to use an *ngIf directive?</summary>
+
+```TypeScript
+// app/components/example/example.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html'
+})
+export class ExampleComponent {
+  canEdit = false;
+
+  onEditClick() {
+    this.canEdit = !this.canEdit;
+  }
+}
+```
+```HTML
+<button type="button" (click)="onEditClick()">Edit</button>
+<div *ngIf="canEdit; else noEdit">
+  <p>You can edit the text!</p>
+</div>
+<ng-template #noEdit>
+  <p>Click Edit to enable edit!</p>
+</ng-template>
+<p [contentEditable]="canEdit">Text to edit is here.</p>
+```
+
+</details>
+
+<details>
 <summary>Attribute custom</summary>
 
 ```TypeScript
@@ -584,6 +653,13 @@ export class UnlessDirective {
     public name: string;
     constructor(name: string) { this.name = name }
     ```
+
+</details>
+
+## Dependency Injection
+<details>
+<summary>How does dependency injection work?</summary>
+
 
 </details>
 

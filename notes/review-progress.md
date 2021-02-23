@@ -1,96 +1,4 @@
 # Review progress and questions I have to review
-## 22, ..., 16 Feb 2021 (23 Feb)
-### JavaScript
-<details>
-<summary>How to send the http request with XMLHttpRequest?</summary>
-
-```JavaScript
-// can be used on its own
-const xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://google.com');
-xhr.send();
-
-// or inside a function
-const sendRequest = (method, url) => {
-  const xhr = new XMLHttpRequest();
-
-  xhr.open(method, url);
-  xhr.responseType = 'json';
-  // to add more headers use the method multiple times
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  
-  // to get and use the data have to listen to onload event
-  // for XHR .addEventListener is not supported in some browsers
-  xhr.onload = function() {
-    // check if the status is success
-    if (xhr.status >= 200 && xhr.status < 300) {
-      // JSON data (mostly, depends on server)
-      console.log(xhr.response);
-      // either parse JSON.parse(...)
-      // or configure responseType (will be parsed automatically)
-    } else {
-      console.log(xhr.response);
-      console.log('Something went wrong.');
-    }
-  };
-  
-  // not for sent requests (when we get a response)
-  // only for the errors of sending the request
-  // like timeout or wasn't sent
-  xhr.onerror = function() {
-    console.log(xhr.response);
-    console.log(xhr.status);
-  };
-  
-  xhr.send();
-};
-
-// with using a promise
-const sendHttpRequest = (method, url, data) => {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.open(method, url);
-    xhr.responseType = 'json';
-
-    xhr.onload = function() {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        resolve(xhr.response);
-      } else {
-        reject(new Error('Something went wrong!'));
-      }
-    };
-
-    xhr.onerror = function() {
-      reject(new Error('Error while sending a request!'));
-    };
-
-    xhr.send(JSON.stringify(data));
-  });
-};
-
-const fetchPosts = () => {
-  sendHttpRequest('GET', 'https://...')
-    .then(responseData => console.log(responseData))
-    .catch(error => console.log(error));
-};
-
-const addPosts = async () => {
-  try {
-    const responseData = await sendHttpRequest(
-      'POST',
-      'https://...',
-      post
-    );
-  } catch (error) {
-    console.log(error);
-  } 
-};
-```
-
-</details>
-
 ## 23, ..., 17 Feb 2021 (24 Feb)
 ### JavaScript
 <details>
@@ -334,7 +242,7 @@ sessionStorage.getItem('user');
 
 </details>
 
-## 13, ..., 21 Feb 2021 (23, 27, 06, 13, 20 Mar)
+## 13, ..., 23 Feb 2021 (27, 06, 13, 20 Mar)
 ### JavaScript
 <details>
 <summary>What are cookies and the difference from local/session storage?</summary>
@@ -480,4 +388,4 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 22 Feb 2021 (23, 24, 26, 28, 04, 11, 18, 25 Mar)
+## 24 Feb 2021 (25, 26, 28, 02, 06, 13, 20, 27 Mar)

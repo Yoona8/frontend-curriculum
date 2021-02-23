@@ -109,6 +109,7 @@
 - [Dev](https://dev.to)
 - [In Depth Dev](https://indepth.dev/)
 - [Smashing Magazine](https://www.smashingmagazine.com/)
+- [18 In-Demand Technology Skills to Learn in 2021](https://learntocodewith.me/posts/tech-skills-in-demand/)
 
 ## Blogs
 - [Addy Osmani](https://addyosmani.com/)

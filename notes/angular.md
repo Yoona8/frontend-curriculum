@@ -1,6 +1,17 @@
 # Angular
 - [Essentials](#essentials)
+- [Angular CLI](#angular-cli)
 - [Components](#components)
+- [Templates](#templates)
+- [Directives](#directives)
+- [Dependency Injection](#dependency-injection)
+- [Router](#router)
+- [Forms: TD](#forms-template-driven)
+- [Forms: Reactive](#forms-reactive)
+- [Http Client](#http-client)
+- [Animations](#animations)
+- [PWA](#pwa)
+- [Schematics](#schematics)
 
 ## Essentials
 <details>
@@ -12,7 +23,7 @@
 
 </details>
 
-## 1 - Angular CLI
+## Angular CLI
 <details>
 <summary>Installation</summary>
 
@@ -29,6 +40,63 @@
 </details>
 
 <details>
+<summary>How to build the application?</summary>
+
+```bash
+# build for production
+ng build --prod
+```
+
+</details>
+
+<details>
+<summary>How to build and serve the application?</summary>
+
+```bash
+# run the app in dev mode
+ng serve
+```
+
+</details>
+
+<details>
+<summary>How to generate or modify files?</summary>
+
+```bash
+# create a component
+ng g c <component-name or path + name>
+
+# create a directive
+ng g d <directive-name>
+
+# generate one more application
+ng generate application <application-name>
+
+# generate a library
+ng generate library <library-name>
+```
+
+</details>
+
+<details>
+<summary>How to run unit tests?</summary>
+
+```bash
+ng test
+```
+
+</details>
+
+<details>
+<summary>How to build, serve and run e2e tests?</summary>
+
+```bash
+ng e2e
+```
+
+</details>
+
+<details>
 <summary>Common commands</summary>
 
 ```bash
@@ -36,27 +104,8 @@
 ng new <project-name>
 # for multiple projects in one folder
 ng new <project-name> --create-application=false
-
-# run the app in dev mode
-ng serve
-
-# build for production
-ng build --prod
-
-# create a component
-ng g c <component-name or path + name>
-
-# create a directive
-ng g d <directive-name>
-
 # check linting errors
 ng lint
-
-# generate one more application
-ng generate application <application-name>
-
-# generate a library
-ng generate library <library-name>
 ```
 
 </details>
@@ -252,9 +301,8 @@ export class NameComponent {
 </details>
 
 <details>
-<summary>Binding to custom properties</summary>
+<summary>How to bind to a custom property (component interaction parent to child)?</summary>
 
-- to pass value from parent to child component
 ```TypeScript
 // app/components/child/child.component.ts
 import { Component, Input } from '@angular/core';
@@ -349,6 +397,24 @@ export class ChildComponent {
 6. `ngAfterViewInit()` once, after view and child views initiated
 7. `ngAfterViewChecked()` multi, change detection
 8. `ngOnDestroy()` once, when about to be destroyed (ex `*ngIf`), clean-up here
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Components](https://angular.io/guide/component-overview)
+- [Docs: Introduction to components and templates](https://angular.io/guide/architecture-components)
+- [Docs: Component interaction](https://angular.io/guide/component-interaction)
+
+</details>
+
+## Templates
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Templates](https://angular.io/guide/template-syntax)
+- [Docs: Introduction to components and templates](https://angular.io/guide/architecture-components)
 
 </details>
 
@@ -470,7 +536,7 @@ ngOnDestroy() {
 
 </details>
 
-## 5 - Directives
+## Directives
 <details>
 <summary>Attribute built-in</summary>
 
@@ -640,6 +706,14 @@ export class UnlessDirective {
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Built-in directives](https://angular.io/guide/built-in-directives)
+- [Docs: Structural directives](https://angular.io/guide/structural-directives)
+
+</details>
+
 ## 6 - Models
 <details>
 <summary>Usage</summary>
@@ -660,6 +734,39 @@ export class UnlessDirective {
 <details>
 <summary>How does dependency injection work?</summary>
 
+```JavaScript
+// app/logger.service.ts
+import { Injectable } from '@angular/core';
+
+@Injectable({providedIn: 'root'})
+export class Logger {
+  doSomething() {}
+}
+```
+```JavaScript
+// app/components/hello/hello.component.ts
+import { Component } from '@angular/core';
+import { Logger } from '../../../logger.service';
+
+@Component({
+  selector: 'app-hello',
+  template: '<p>Hello!</p>'
+})
+export class HelloComponent {
+  constructor(private logger: Logger) {}
+
+  onLog() {
+    this.logger.doSomething();
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Dependency injection in Angular](https://angular.io/guide/dependency-injection)
 
 </details>
 
@@ -717,7 +824,7 @@ export class UnlessDirective {
 
 </details>
 
-## 8 - Routing
+## Router
 <details>
 <summary>Setting up</summary>
 
@@ -954,6 +1061,13 @@ Complex data (dynamic)
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [Docs: In-app navigation: routing to views](https://angular.io/guide/router)
+
+</details>
+
 ## 9 - Pipes
 <details>
 <summary>Usage</summary>
@@ -1070,7 +1184,7 @@ export class FilterPipe implements PipeTransform {
 
 </details>
 
-## 10 - Forms (Template Driven)
+## Forms (Template Driven)
 <details>
 <summary>Basic idea</summary>
 
@@ -1216,7 +1330,14 @@ this.form.reset();
 
 </details>
 
-## 11 - Forms (Reactive)
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Introduction to forms in Angular](https://angular.io/guide/forms-overview)
+
+</details>
+
+## Forms (Reactive)
 <details>
 <summary>R Creation</summary>
 
@@ -1409,6 +1530,13 @@ this.form.patchValue({...});
 // to reset the form use
 this.form.reset(); // can also pass {} with values to reset to
 ```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Introduction to forms in Angular](https://angular.io/guide/forms-overview)
 
 </details>
 
@@ -1685,7 +1813,7 @@ ngOnDestroy() {
 
 </details>
 
-## 14 - Http
+## Http Client
 <details>
 <summary>Http and backend interaction</summary>
 
@@ -1947,6 +2075,13 @@ if (event.type === HttpEventType.response) {...}
   ...
 }
 ```
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Communicating with backend services using HTTP](https://angular.io/guide/http)
 
 </details>
 
@@ -3092,7 +3227,7 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 </details>
 
-## 24 - Animation
+## Animations
 
 <details>
 <summary>General info</summary>
@@ -3107,7 +3242,23 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 <details>
 <summary>Learn more</summary>
 
-- [Animations Official](https://angular.io/guide/animations)
+- [Docs: Introduction to Angular animations](https://angular.io/guide/animations)
+
+</details>
+
+## PWA
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Angular service worker introduction](https://angular.io/guide/service-worker-intro)
+
+</details>
+
+## Schematics
+<details>
+<summary>Learn more</summary>
+
+- [Generating code using schematics](https://angular.io/guide/schematics)
 
 </details>
 

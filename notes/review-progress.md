@@ -388,4 +388,194 @@ getButton.addEventListener('click', () => {
 
 </details>
 
+## 23 Feb 2021 (24, 25, 27, 01, 05, 12, 19, 26 Mar)
+### Angular
+<details>
+<summary>What are the core ideas behind Angular?</summary>
+
+- components - building blocks to compose the application
+- templates - cleanly separate the application's logic from its presentation
+- dependency injection - allows to declare the dependencies without caring about their instantiation, write more testable and flexible code
+
+</details>
+
+<details>
+<summary>How to build the application?</summary>
+
+```bash
+# build for production
+ng build --prod
+```
+
+</details>
+
+<details>
+<summary>How to build and serve the application?</summary>
+
+```bash
+# run the app in dev mode
+ng serve
+```
+
+</details>
+
+<details>
+<summary>How to generate or modify files?</summary>
+
+```bash
+# create a component
+ng g c <component-name or path + name>
+
+# create a directive
+ng g d <directive-name>
+
+# generate one more application
+ng generate application <application-name>
+
+# generate a library
+ng generate library <library-name>
+```
+
+</details>
+
+<details>
+<summary>How to run unit tests?</summary>
+
+```bash
+ng test
+```
+
+</details>
+
+<details>
+<summary>How to build, serve and run e2e tests?</summary>
+
+```bash
+ng e2e
+```
+
+</details>
+
+<details>
+<summary>What is a component?</summary>
+
+- a TypeScript class with `@Component()` decorator, HTML template and styles
+
+</details>
+
+<details>
+<summary>How to create a basic component?</summary>
+
+```TypeScript
+// app/app.module.ts
+import { NgModule } from '@angular/core';
+import { NameComponent } from './components/name/name.component';
+
+@NgModule({
+  declarations: [NameComponent]
+})
+export class AppModule {}
+```
+```TypeScript
+// app/components/name/name.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  // required, must be a unique string
+  selector: 'app-name', // tag, mostly for components
+  selector: '[appDir]', // attribute, mostly for directives
+  selector: '.class', // can also use a class as a selector
+  // required, only one of
+  template: '<p>Some text</p>',
+  templateUrl: './name.component.html',
+  // optional, only one of
+  styles: '',
+  styleUrls: ['./name.component.css'] // scss / less also possible
+})
+export class NameComponent {}
+```
+```HTML
+<!-- app/components/name/name.component.html -->
+<app-name></app-name>
+<p appDir></p>
+<p class="class"></p>
+```
+
+</details>
+
+<details>
+<summary>How is data binding implemented in Angular?</summary>
+
+```TypeScript
+// app/components/name/name.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-name',
+  templateUrl: './name.component.html',
+  styleUrls: ['./name.component.css']
+})
+export class NameComponent {
+  title: string = 'Hello from name component!';
+  name: string = 'Max';
+
+  onButtonClick(evt: Event) {
+    console.log(evt.target);
+  }
+}
+```
+```HTML
+<!-- app/components/name/name.component.html -->
+<!-- data-binding - communication between business logic and view -->
+<!-- no multiline expressions -->
+<!-- resolved to a string -->
+<!-- updated dynamically at runtime -->
+<!-- string interpolation -->
+<p>{{ title }}</p> <!-- Hello from name component! -->
+<!-- property binding -->
+<p [innerText]="title"></p>
+<!-- DON'T! improper usage -->
+<p [innerText]="{{ title }}"></p>
+
+<!-- event-binding - reaction to events -->
+<!-- $event - browser event of type Event -->
+<button type="button" (click)="onButtonClick($event)">Click</button>
+
+<!-- two-way binding -->
+<!-- triggers input data and updates BL -->
+<!-- when BL is updated programmatically, updates the input -->
+<!-- but have to import FormsModule on module level -->
+<input type="text" [(ngModel)]="name">
+<p>{{ name }}</p>
+```
+
+</details>
+
+<details>
+<summary>How to bind to a custom property (component interaction parent to child)?</summary>
+
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p></p>'
+})
+export class ChildComponent {
+  // to allow access from the outside
+  // (by default props are accessible
+  // only from the inside of the component)
+  // if object = same object (reference type)
+  @Input() user: object;
+  @Input('fieldLabel') label: string;
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<app-child [user]="{ name: 'Lala' }" fieldLabel="E-mail"></app-child>
+```
+
+</details>
+
 ## 24 Feb 2021 (25, 26, 28, 02, 06, 13, 20, 27 Mar)

@@ -5,7 +5,9 @@
 - [Templates](#templates)
 - [Directives](#directives)
 - [Dependency Injection](#dependency-injection)
+- [Services](#services)
 - [Router](#router)
+- [Pipes](#pipes)
 - [Forms: TD](#forms-template-driven)
 - [Forms: Reactive](#forms-reactive)
 - [Http Client](#http-client)
@@ -770,21 +772,98 @@ export class HelloComponent {
 
 </details>
 
-## 7 - Services
+## Services
+<details>
+<summary>What is a service in Angular?</summary>
+
+- an instance of a class that you can make available to any part of your application using Angular's dependency injection system
+
+</details>
+
+<details>
+<summary>How to create a service?</summary>
+
+```TypeScript
+// simple.service.ts
+import {Injectable} from '@angular/core';
+
+// with 'root' provided on the app level
+@Injectable({providedIn: 'root'})
+export class SimpleService {}
+
+// app.module.ts
+// to provide on the app level in module
+import {NgModule} from '@angular/core';
+import {SimpleService} from './simple.service';
+
+@NgModule({})
+export class AppModule {
+  providers: [SimpleService]
+}
+```
+
+</details>
+
+<details>
+<summary>What are the common use cases for the service?</summary>
+
+- for less connection between app parts
+- working with data
+- DRY
+- centralize functionality
+```TypeScript
+// simple.service.ts
+import {Injectable} from '@angular/core';
+
+@Injectable({providedIn: 'root'})
+export class SimpleService {
+  items = [];
+
+  addItem(item) {
+    this.items.push(item);
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  clearItems() {
+    this.items = [];
+    return this.items;
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>How to use a service?</summary>
+
+```TypeScript
+// components/basic.component.ts
+import {Component} from '@angular/core';
+// import the service
+import {SimpleService} from '../simple.service.ts';
+
+@Component({})
+export class BasicComponent {
+  // inject the service
+  constructor(private simpleService: SimpleService) {}
+
+  addNewItem(item) {
+    this.simpleService.addItem(item);
+  }
+}
+```
+
+</details>
+
 <details>
 <summary>Usage, hierarchical injector</summary>
 
-- `logging.service.ts` naming `LoggingService`
-- common cases to use
-  - for less connection between app parts
-  - working with data
-  - DRY
-  - centralize functionality
-- has no decorators
 - NOT! `const loggingService = new LoggingService();` Angular has better way (hierarchical dependency injector)
   - injects dependency into our component automatically
   - `constructor(private logService: LoggingService) {}` to inform Angular that we require such an instance, type is required
-  - `providers: [LoggingService]` to let Angular know, how to give us a dependency
 - hierarchical dependency injector levels
   - module level - the highest: services, components
   - root component level - components
@@ -824,6 +903,13 @@ export class HelloComponent {
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Introduction to services and dependency injection](https://angular.io/guide/architecture-services)
+
+</details>
+
 ## Router
 <details>
 <summary>Setting up</summary>
@@ -859,7 +945,7 @@ export class AppRoutingModule {}
 </details>
 
 <details>
-<summary>Adding routes</summary>
+<summary>How to add a route?</summary>
 
 ```TypeScript
 const appRoutes: Routes = [{
@@ -883,12 +969,23 @@ const appRoutes: Routes = [{
 </details>
 
 <details>
-<summary>Links and navigation</summary>
+<summary>How to add a link for the navigation to the UI?</summary>
 
-Navigating via links
-- `href="/recipes"` === type manually, works, but reloads the app
-- `routerLink="/recipes"` or `[routerLink]="['/users', 'user']"` second (and more) path without `/`, angular catches the event and prevents default
-- routes can be absolute and relative (from current component)
+```HTML
+<!-- routes can be absolute and relative (from current component) -->
+<a href="/recipes">=== type manually, works, but reloads the app</a>
+<!-- angular catches the event and prevents default -->
+<a routerLink="/recipes">With no reload</a>
+<!-- or -->
+<!-- second (and more) path without `/` -->
+<a [routerLink]="['/users', 'user']">With no reload</a>
+```
+
+</details>
+
+<details>
+<summary>Set to active, nav programmatically</summary>
+
 - `routerLinkActive="class-name"` could be added to a link or it's wrapper
 - `[routerLinkActiveOptions]="{ exact: true }"` for exact path match (full)
 
@@ -904,11 +1001,44 @@ Navigating programmatically
 </details>
 
 <details>
-<summary>Dynamic paths parameters</summary>
+<summary>How to get the parameters from the dynamic paths and render specific details?</summary>
 
-- get parameters from paths like `:id`
-- `constructor(private route: ActivatedRoute) {}` inject from `@ang/router`
-- `this.route.snapshot.params['id']` to access the parameter in the initialization, not dynamic
+```TypeScript
+// app.module.ts
+@NgModule({
+  imports: [
+    RouterModule.forRoot([
+      { path: 'products/:id', component: ProductComponent }
+    ])
+  ]
+})
+
+// components/product/product.component.ts
+import {Component, OnInit} from '@angular/core';
+// specific to each component that the Angular Router loads
+// contains information about the route and the route's parameters
+import {ActivatedRoute} from '@angular/router';
+import {products} from '../mocks/products';
+
+@Component({/*...*/})
+export class ProductComponent implements OnInit {
+  product: Product;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    // static method, no re-instantiation of the component
+    // to access the parameter in the initialization, not dynamic
+    const routeParams = this.route.snapshot.paramMap;
+    const productId = Number(routeParams.get('id'));
+    // or
+    const productId = Number(this.route.snapshot.params['id']);
+
+    this.product = products.find(product => product.id === productId);
+  }
+}
+```
+
 - but by default Angular doesn't re-instantiate the component we currently in
 - `this.route.params.subscribe((params: Params) => this.id = params['id])` for dynamical use the params observable
 - don't need to unsubscribe, for this case Angular does it automatically on component is destroyed
@@ -1068,7 +1198,7 @@ Complex data (dynamic)
 
 </details>
 
-## 9 - Pipes
+## Pipes
 <details>
 <summary>Usage</summary>
 
@@ -1175,12 +1305,27 @@ export class FilterPipe implements PipeTransform {
 </details>
 
 <details>
+<summary>What does async pipe do and how to stop it?</summary>
+
+- returns the latest value from a stream of data and continues to do so for the life of a given component
+- when Angular destroys that component, the async pipe automatically stops
+
+</details>
+
+<details>
 <summary>Async pipes</summary>
 
 - `appStatus = new Promise((resolve, reject) => setTimeout(() => resolve('stable'), 2000));`
 - if we output `{{ appStatus }}` => `[object Object]` (ang doesn't watch the Promise, good for performance, we have to tell ang to watch)
 - add async pipe `{{ appStatus | async}}` => `''` => 2000 after => `stable`
 - `async` pipe recognizes Promise or Observable (automatically subscribes)
+
+</details>
+
+<details>
+<summary>Learn more</summary>
+
+- [Docs: AsyncPipe](https://angular.io/api/common/AsyncPipe)
 
 </details>
 
@@ -1827,6 +1972,66 @@ ngOnDestroy() {
 </details>
 
 <details>
+<summary>How to use HttpClient in a service?</summary>
+
+- it's better to use service for http requests handling 
+- let the component be simple, divide data management from view
+- works with a stream of data from the server
+```TypeScript
+// app.module.ts
+import {NgModule} from '@angular/core';
+// registers the providers to use the HttpClient service
+import {HttpClientModule} from '@angular/common/http';
+
+@NgModule({
+  imports: [HttpClientModule]
+})
+export class AppModule {}
+
+// simple.service.ts
+import {Injectable} from '@angular/core';
+// import HttpClient service
+import {HttpClient} from '@angular/common/http';
+
+@Injectable({providedIn: 'root'})
+export class SimpleService {
+  items = [];
+
+  constructor(private http: HttpClient) {}
+
+  getItems() {
+    return this.http.get('./mocks/data/items.json');
+  }
+}
+
+// components/basic.component.ts
+import {Component} from '@angular/core';
+import {SimpleService} from '../simple.service.ts';
+
+@Component({})
+export class BasicComponent {
+  items = this.simpleService.getItems();
+
+  constructor(private simpleService: SimpleService) {}
+} 
+```
+```HTML
+<!-- use async pipe to get the data -->
+<ul>
+  <li *ngFor="let item of items | async">
+    {{ item.name }}
+  </li>
+</ul>
+```
+- if the components are not interested in receiving data, can subscribe in service
+- if data needed in the component, `return get/post` and don't subscribe
+- or use `Subject` and `.next` method
+- where using loader and fetching, don't forget to reset `isLoading` to `true` first!
+
+
+</details>
+
+<details>
 <summary>Sending a POST request</summary>
 
 - `import { HttpClientModule } from '@angular/common/http';` to `imports: [..., HttpClientModule]` on module level
@@ -1907,27 +2112,6 @@ public fetchPosts() {
   this.http.get(...).subscribe(() => this.isFetching = false);
 }
 ```
-
-</details>
-
-<details>
-<summary>Using a service for http requests</summary>
-
-- it's better to use service for http handling and let the component be simple, only handling the template work
-- move functions
-```TypeScript
-storePost(title: string, content: string) {
-  // http.post() here
-}
-
-fetchPosts() {
-  // http.get() here
-}
-```
-- if the components are not interested in receiving data, can subscribe in service
-- if data needed in the component, `return get/post` and don't subscribe
-- or use `Subject` and `.next` method
-- where using loader and fetching, don't forget to reset `isLoading` to `true` first!
 
 </details>
 

@@ -1,72 +1,4 @@
 # Review progress and questions I have to review
-## 23, ..., 17 Feb 2021 (24 Feb)
-### JavaScript
-<details>
-<summary>How to use fetch API?</summary>
-
-- `fetch` is a wrapper around promise
-- function for sending/fetching data (`XMLHttpRequest` under hood)
-```JavaScript
-// response.json(); returns promise
-// resolves when the string will parse json into an object
-// if no 2nd param, get request, returns Promise
-// resolves into response object
-// if fetch => error, but the response is received,
-// fetch doesn't count it as a throw new Error (for catching inside catch)
-// and returns that response into then
-// because the request is fulfilled and response received from server
-// 404 / redirect / etc - for fetch those are normal server responses
-// so have to add our own status handling
-fetch('https://data.com', {
-  method: 'POST',
-  body: JSON.stringify({
-    'date': Date.now(),
-    'time': 402,
-    'lives': 3
-  }),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
-
-const sendHttpRequest = (method, url, data) => {
-  // returns a JSON (unparsed), have to parse
-  // with .json() available in fetch API
-  return fetch(url, {
-    method: method,
-    body: JSON.stringify(data)
-  })
-    .then(response => {
-      if (response.status >= 200 && response.status < 300) {
-        return response.json();
-      } else {
-        // if we need the response, error handling could be tricky
-        return response.json()
-          .then(errorData => {
-            console.log(errorData);
-            throw new Error('Something went wrong on the server side!');
-          });
-      }
-    })
-    .catch(error => {
-      console.log(error);
-      throw new Error('Something went wrong with the request!');
-    });
-};
-```
-
-</details>
-
-<details>
-<summary>What are the good parts for feedback in the UI?</summary>
-
-- When you sync data with a server, don't change control state, change only if the request was successful (returned 200+ codes)
-- View => Model => Server => Model => View
-- click on favorites - gone on update, if there was an error response from server
-- comment doubles if you don't disable the submit button
-
-</details>
-
 ## 24, ..., 18 Feb 2021 (25 Feb)
 ### JavaScript
 <details>
@@ -293,7 +225,7 @@ document.cookie;
 
 </details>
 
-## 14, ..., 22 Feb 2021 (24, 28, 07, 14, 21 Mar)
+## 14, ..., 24 Feb 2021 (28, 07, 14, 21 Mar)
 ### JavaScript
 <details>
 <summary>What is IndexedDB?</summary>
@@ -579,3 +511,5 @@ export class ChildComponent {
 </details>
 
 ## 24 Feb 2021 (25, 26, 28, 02, 06, 13, 20, 27 Mar)
+
+## 25 Feb 2021 (26, 27, 01, 03, 07, 14, 21, 28 Mar)

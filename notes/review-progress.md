@@ -320,7 +320,7 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 23 Feb 2021 (24, 25, 27, 01, 05, 12, 19, 26 Mar)
+## 23, ..., 24 Feb 2021 (25, 27, 01, 05, 12, 19, 26 Mar)
 ### Angular
 <details>
 <summary>What are the core ideas behind Angular?</summary>

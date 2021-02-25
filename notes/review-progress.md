@@ -1,41 +1,4 @@
 # Review progress and questions I have to review
-## 24, ..., 18 Feb 2021 (25 Feb)
-### JavaScript
-<details>
-<summary>What is the basic implementation of show password case?</summary>
-
-- change type of input from `password` to `text`
-
-</details>
-
-<details>
-<summary>What is the purpose of the authorization?</summary>
-
-- restricts the access for different users
-
-</details>
-
-<details>
-<summary>What are the ways to identify the user?</summary>
-
-- Identification - tell the site who you are
-- Authentication - (authentic - true, genuine) the confirmation that you are who you state you are
-- Authorization - check if you are allowed to get access to some parts of the website or webapp
-
-</details>
-
-<details>
-<summary>What is the authorization order?</summary>
-
-1. Identification - user enters login and password
-2. Authentication - server checks if the login and password are correct and gives a token (access to the web app, often holds the rules and never stores open)
-3. Authorization - you give the token to the server and the server decides whether to give you an access or not
-  - 200 - success, allowed
-  - 401 - unauthorized
-  - 403 - not enough rights
-
-</details>
-
 ## 25, ..., 19 Feb 2021 (26 Feb)
 ### JavaScript
 <details>
@@ -110,7 +73,7 @@ const data = queryParams.get('data');
 
 </details>
 
-## 12, ..., 21 Feb 2021 (25, 04, 11, 18 Mar)
+## 12, ..., 25 Feb 2021 (04, 11, 18 Mar)
 ### JavaScript
 <details>
 <summary>What are local and session storages and what is the difference?</summary>
@@ -510,6 +473,6 @@ export class ChildComponent {
 
 </details>
 
-## 24 Feb 2021 (25, 26, 28, 02, 06, 13, 20, 27 Mar)
-
 ## 25 Feb 2021 (26, 27, 01, 03, 07, 14, 21, 28 Mar)
+
+## 26 Feb 2021 (27, 28, 02, 04, 08, 15, 22, 29 Mar)

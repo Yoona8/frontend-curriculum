@@ -1484,6 +1484,55 @@ this.form.reset();
 
 ## Forms (Reactive)
 <details>
+<summary>How to create a form using FormBuilder?</summary>
+
+```TypeScript
+// app/components/simple/simple.component.ts
+import {Component} from '@angular/core';
+// import the service
+import {FormBuilder} from '@angular/forms';
+
+@Component({
+  selector: 'app-simple',
+  templateUrl: './simple.component.html',
+  styleUrls: ['./simple.component.css']
+})
+export class NameComponent {
+  // create the form
+  loginForm = this.formBuilder.group({
+    login: '',
+    password: ''
+  });
+  // inject the service
+  constructor(private formBuilder: FormBuilder) {}
+
+  onSubmit(): void {
+    console.log(this.loginForm.value);
+    this.loginForm.reset();
+  }
+}
+```
+```HTML
+<!-- bind the form group and submit event -->
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <!-- bind fields to from controls using names -->
+  <ul>
+    <li>
+      <label for="login">Login</label>
+      <input formControlName="login" id="login" type="text">
+    </li>
+    <li>
+      <label for="password">Password</label>
+      <input formControlName="password" id="password" type="password">
+    </li>
+  </ul>
+  <button type="submit">Login</button>
+</form>
+```
+
+</details>
+
+<details>
 <summary>R Creation</summary>
 
 - `ReactiveFormsModule` from `@angular/forms` add on module level

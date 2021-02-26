@@ -1,25 +1,4 @@
 # Review progress and questions I have to review
-## 25, ..., 19 Feb 2021 (26 Feb)
-### JavaScript
-<details>
-<summary>What are the main problems when working with data?</summary>
-
-- user input - user can enter unsafe data for the view and UI has to be ready for it
-- storing and passing data formats could be different to the format needed on the UI, so we need to convert data in our app
-  - some ES6 objects (Date, Sets, Maps) could not be converted to JSON, so have to convert into standard data types (primitives, arrays, objects)
-
-</details>
-
-<details>
-<summary>What is JSON (and the restrictions)?</summary>
-
-- JavaScript Object Notation
-- can't use functions here
-- for keys only `" "`
-- for values `"string"` (double quotes only), `10`, `true`, `{...}`, `[...]`, `null`
-
-</details>
-
 ## 28, ..., 21 Feb 2021 (28 Feb)
 ### JavaScript
 <details>
@@ -283,7 +262,7 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 23, ..., 24 Feb 2021 (25, 27, 01, 05, 12, 19, 26 Mar)
+## 23, ..., 25 Feb 2021 (27, 01, 05, 12, 19, 26 Mar)
 ### Angular
 <details>
 <summary>What are the core ideas behind Angular?</summary>
@@ -473,6 +452,6 @@ export class ChildComponent {
 
 </details>
 
-## 25 Feb 2021 (26, 27, 01, 03, 07, 14, 21, 28 Mar)
-
 ## 26 Feb 2021 (27, 28, 02, 04, 08, 15, 22, 29 Mar)
+
+## 27 Feb 2021 (28, 01, 03, 05, 09, 16, 23, 30 Mar)

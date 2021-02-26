@@ -453,5 +453,46 @@ export class ChildComponent {
 </details>
 
 ## 26 Feb 2021 (27, 28, 02, 04, 08, 15, 22, 29 Mar)
+### JavaScript
+<details>
+<summary>When do you need to use meta-programming?</summary>
+
+- advanced concepts used mostly when you create libraries
+
+</details>
+
+<details>
+<summary>What are Symbols and how to use them?</summary>
+
+- primitive values
+- used as keys in objects
+- built-in symbols and creatable symbols
+- uniqueness is guaranteed
+```JavaScript
+const userId = Symbol(); // => Symbol()
+const playerId = Symbol('id'); // => Symbol(id)
+
+const player = {
+  [playerId]: 1, // can't access this property out of library
+  name: 'Harry',
+  level: 11
+};
+
+// can use inside the library
+player[playerId] = 2;
+
+console.log(playerId === Symbol('id')); // => false
+
+// built-in symbol
+const user = {
+  name: 'Ron',
+  level: 9,
+  [Symbol.toStringTag]: 'User'
+};
+
+console.log(user.toString()); // => [object User]
+```
+
+</details>
 
 ## 27 Feb 2021 (28, 01, 03, 05, 09, 16, 23, 30 Mar)

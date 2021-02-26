@@ -11,6 +11,7 @@
 - [Forms: TD](#forms-template-driven)
 - [Forms: Reactive](#forms-reactive)
 - [Http Client](#http-client)
+- [Deploy](#deploy)
 - [Animations](#animations)
 - [PWA](#pwa)
 - [Schematics](#schematics)
@@ -27,17 +28,14 @@
 
 ## Angular CLI
 <details>
-<summary>Installation</summary>
+<summary>How to create a new workspace?</summary>
 
-- install node + npm
-- install angular CLI
-
-</details>
-
-<details>
-<summary>Global styles</summary>
-
-- global style files could be added to `angular.json`
+```bash
+# create a project
+ng new <project-name>
+# for multiple projects in one folder
+ng new <project-name> --create-application=false
+```
 
 </details>
 
@@ -57,6 +55,11 @@ ng build --prod
 ```bash
 # run the app in dev mode
 ng serve
+# or to specify the port
+ng serve --port 3000
+# to open
+ng serve --open
+ng serve -o
 ```
 
 </details>
@@ -99,13 +102,9 @@ ng e2e
 </details>
 
 <details>
-<summary>Common commands</summary>
+<summary>How to run linter?</summary>
 
 ```bash
-# create a project
-ng new <project-name>
-# for multiple projects in one folder
-ng new <project-name> --create-application=false
 # check linting errors
 ng lint
 ```
@@ -113,7 +112,7 @@ ng lint
 </details>
 
 <details>
-<summary>Creating and using libraries</summary>
+<summary>Why do you want to create a library?</summary>
 
 - not an app to use on it's own but to use across the applications (ex Angular Material)
 
@@ -3409,7 +3408,14 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 </details>
 
-## 23 - Deploy
+## Deploy
+
+<details>
+<summary>What files do you deploy?</summary>
+
+- after building the app for production the contents of `dist/my-project-name` is meant to be uploaded to the serve
+
+</details>
 
 <details>
 <summary>Order</summary>

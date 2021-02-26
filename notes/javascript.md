@@ -53,6 +53,18 @@
 
 </details>
 
+<details>
+<summary>What are statements?</summary>
+
+- syntax constructs and commands that perform actions
+- can be separated with `;`
+- usually written on separate lines
+```JavaScript
+console.log('Hello!');
+```
+
+</details>
+
 ## Good practices
 <details>
 <summary>What values is better to pass as arguments and why?</summary>

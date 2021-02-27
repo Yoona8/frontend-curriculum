@@ -239,7 +239,7 @@ import { Component } from '@angular/core';
   template: '<p>Some text</p>',
   templateUrl: './name.component.html',
   // optional, only one of
-  styles: '',
+  styles: ['p { color: orange; }'],
   styleUrls: ['./name.component.css'] // scss / less also possible
 })
 export class NameComponent {}
@@ -383,6 +383,37 @@ export class ChildComponent {
   - `Emulated` angular emulates shadow DOM (creates unique attributes)
   - `Native` uses shadow DOM (not supported by all browsers)
   - `None` no attributes added
+
+</details>
+
+<details>
+<summary>When does component lifecycle start?</summary>
+
+ - when Angular instantiates the component class and renders the component view along with its child views
+
+</details>
+
+<details>
+<summary>How does lifecycle continue?</summary>
+
+- with change detection, as Angular checks to see when data-bound properties change, and updates both the view and the component instance as needed
+
+</details>
+
+<details>
+<summary>When does component lifecycle end?</summary>
+
+- when Angular destroys the component instance and removes its rendered template from the DOM
+
+</details>
+
+<details>
+<summary>Why do you want to use lifecycle hooks?</summary>
+
+- to initialize new instances
+- initiate change detection when needed
+- respond to updates during change detection
+- clean up before deletion of instances
 
 </details>
 

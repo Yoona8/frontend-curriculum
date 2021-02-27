@@ -116,7 +116,7 @@ sessionStorage.getItem('user');
 
 </details>
 
-## 13, ..., 23 Feb 2021 (27, 06, 13, 20 Mar)
+## 13, ..., 27 Feb 2021 (06, 13, 20 Mar)
 ### JavaScript
 <details>
 <summary>What are cookies and the difference from local/session storage?</summary>

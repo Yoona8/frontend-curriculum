@@ -262,7 +262,7 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 23, ..., 25 Feb 2021 (27, 01, 05, 12, 19, 26 Mar)
+## 23, ..., 27 Feb 2021 (01, 05, 12, 19, 26 Mar)
 ### Angular
 <details>
 <summary>What are the core ideas behind Angular?</summary>
@@ -452,7 +452,7 @@ export class ChildComponent {
 
 </details>
 
-## 26 Feb 2021 (27, 28, 02, 04, 08, 15, 22, 29 Mar)
+## 26, ..., 27 Feb 2021 (28, 02, 04, 08, 15, 22, 29 Mar)
 ### JavaScript
 <details>
 <summary>When do you need to use meta-programming?</summary>
@@ -496,3 +496,20 @@ console.log(user.toString()); // => [object User]
 </details>
 
 ## 27 Feb 2021 (28, 01, 03, 05, 09, 16, 23, 30 Mar)
+```TypeScript
+// simple.component.ts
+import {Component, Input} from '@angular/core';
+
+@Component({
+  selector: 'app-simple', // .class [attrName]
+  template: '<p></p>', // or templateUrl:
+  styles: ['p { font-size: 16px; }'] // or styleUrls: []
+})
+export class SimpleComponent {
+  @Input() labelText: string;
+  @Input('sTitle') title: string;
+}
+```
+```HTML
+<app-simple labelText="Text" sTitle="title"></app-simple>
+```

@@ -131,6 +131,7 @@ p::after {}
 - [Intriguing CSS Level 4 Selectors](https://webdesign.tutsplus.com/tutorials/intriguing-css-level-4-selectors--cms-29499)
 - [Селектор обобщенных родственных элементов](https://habr.com/ru/post/150720/)
 - [Article: CSS-селекторы](https://learn.javascript.ru/css-selectors)
+- [Selectors Explained - Translate CSS selectors into plain English.](https://hugogiraudel.github.io/selectors-explained/)
 
 </details>
 

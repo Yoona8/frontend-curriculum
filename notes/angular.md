@@ -418,17 +418,109 @@ export class ChildComponent {
 </details>
 
 <details>
-<summary>Component lifecycle</summary>
+<summary>What is the Component lifecycle event sequence?</summary>
 
-0. `constructor()`
-1. `ngOnChanges(changes: SimpleChanges)` from `@ang/core` multi, after bound props change, changes contains those props
-2. `ngOnInit()` once, when the component is initiated
-3. `ngDoCheck()` multi, during every change detection runs (by Angular)
-4. `ngAfterContentInit()` once, after `<ng-content>` has been projected into the view, can't access `@ContentChild` before
-5. `ngAfterContentChecked()` multi, change detection
-6. `ngAfterViewInit()` once, after view and child views initiated
-7. `ngAfterViewChecked()` multi, change detection
-8. `ngOnDestroy()` once, when about to be destroyed (ex `*ngIf`), clean-up here
+```TypeScript
+export class SimpleComponent {
+  // 0. before all the hooks
+  constructor() {}
+
+  // 1. and whenever one or more data-bound input properties change
+  ngOnChanges(changes: SimpleChanges) {
+    // object of current and previous property values
+    console.log(changes);
+  }
+
+  // 2. once, after the first ngOnChanges()
+  ngOnInit() {}
+
+  // 3. immediately after ngOnChanges()
+  ngDoCheck() {}
+
+  // 4. once after the first ngDoCheck()
+  ngAfterContentInit() {}
+
+  // 5. after ngAfterContentInit() and every subsequent ngDoCheck()
+  ngAfterContentChecked() {}
+
+  // 6. once after the first ngAfterContentChecked()
+  ngAfterViewInit() {}
+
+  // 7. after the ngAfterViewInit() and every subsequent ngAfterContentChecked()
+  ngAfterViewChecked() {}
+
+  // 8. immediately before Angular destroys the directive or component
+  ngOnDestroy() {}
+}
+```
+
+</details>
+
+<details>
+<summary>How does ngOnChanges() work and when do you use it?</summary>
+
+- respond when Angular sets or resets data-bound input properties
+- runs only when the actual value changes (if the reference stays the same for complex data, even if the value inside changes, doesn't run)
+- happens very frequently
+- any operation here impacts performance significantly
+- if a component has no inputs or you use it without providing any inputs, will not be called
+
+</details>
+
+<details>
+<summary>How does ngOnInit() work and when do you use it?</summary>
+
+- initialize the component after Angular first displays the data-bound properties and sets the component's input properties
+- a good place for a component to fetch its initial data (perform complex initializations outside of the constructor - components should be cheap and safe to construct)
+- set up the component after Angular sets the input properties (as the constructors should do no more than set the initial local variables to simple values)
+
+</details>
+
+<details>
+<summary>How does ngDoCheck() work and when do you use it?</summary>
+
+- detect and act upon changes that Angular can't or won't detect on its own
+
+</details>
+
+<details>
+<summary>How does ngAfterContentInit() work and when do you use it?</summary>
+
+- respond after Angular projects external content into the component's view
+
+</details>
+
+<details>
+<summary>How does ngAfterContentChecked() work and when do you use it?</summary>
+
+- respond after Angular checks the content projected into the component
+
+</details>
+
+<details>
+<summary>How does ngAfterViewInit() work and when do you use it?</summary>
+
+- respond after Angular initializes the component's views and child views
+- `@ViewChild()` prop is set after the view has been initiated
+
+</details>
+
+<details>
+<summary>How does ngAfterViewChecked() work and when do you use it?</summary>
+
+- respond after Angular checks the component's views and child views
+- `@ViewChild()` prop is updated after the view has been checked
+
+</details>
+
+<details>
+<summary>How does ngOnDestroy() work and when do you use it?</summary>
+
+- cleanup just before Angular destroys the directive or component
+- unsubscribe Observables and detach event handlers to avoid memory leaks
+- stop interval timers
+- un-register all callbacks that were registered globally or app services
+- notify another part of the application that the component is going away
 
 </details>
 
@@ -438,6 +530,7 @@ export class ChildComponent {
 - [Docs: Components](https://angular.io/guide/component-overview)
 - [Docs: Introduction to components and templates](https://angular.io/guide/architecture-components)
 - [Docs: Component interaction](https://angular.io/guide/component-interaction)
+- [Docs: Lifecycle hooks](https://angular.io/guide/lifecycle-hooks)
 
 </details>
 

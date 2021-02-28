@@ -3940,6 +3940,7 @@ document.cookie;
 
 ```JavaScript
 // indexedDB works sync
+// 1. open a database
 // pass name and version
 // creates or opens an existed DB
 const dbRequest = indexedDB.open('Name', 1);
@@ -3955,8 +3956,13 @@ dbRequest.onsuccess = function(evt) {
 // this event runs when the db is created or the version is upgraded
 dbRequest.onupgradeneeded = function(evt) {
   db = evt.target.result;
+
+  // 2. create an object store
   const objStore = db.createObjectStore('products', {keyPath: 'id'});
 
+  // 3. start a transaction and make a request to do some db operation
+  // 4. wait for the operation to complete
+  // 5. do something with the results
   // oncomplete triggers when createObjectStore is finished
   objStore.transaction.oncomplete = function(evt) {
     // connecting to the data base

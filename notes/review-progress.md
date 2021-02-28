@@ -1,24 +1,4 @@
 # Review progress and questions I have to review
-## 28, ..., 21 Feb 2021 (28 Feb)
-### JavaScript
-<details>
-<summary>How to get the parameters from the link?</summary>
-
-```JavaScript
-const url = new Url(location.href);
-const queryParams = url.searchParams;
-const data = queryParams.get('data');
-```
-
-</details>
-
-<details>
-<summary>How to convert into a link?</summary>
-
-- `encodeURI('some text');`
-
-</details>
-
 ## 29, ..., 22 Feb 2021 (01 Mar)
 ### JavaScript
 <details>
@@ -167,7 +147,7 @@ document.cookie;
 
 </details>
 
-## 14, ..., 24 Feb 2021 (28, 07, 14, 21 Mar)
+## 14, ..., 28 Feb 2021 (07, 14, 21 Mar)
 ### JavaScript
 <details>
 <summary>What is IndexedDB?</summary>
@@ -452,7 +432,7 @@ export class ChildComponent {
 
 </details>
 
-## 26, ..., 27 Feb 2021 (28, 02, 04, 08, 15, 22, 29 Mar)
+## 26, ..., 28 Feb 2021 (02, 04, 08, 15, 22, 29 Mar)
 ### JavaScript
 <details>
 <summary>When do you need to use meta-programming?</summary>
@@ -495,21 +475,4 @@ console.log(user.toString()); // => [object User]
 
 </details>
 
-## 27 Feb 2021 (28, 01, 03, 05, 09, 16, 23, 30 Mar)
-```TypeScript
-// simple.component.ts
-import {Component, Input} from '@angular/core';
-
-@Component({
-  selector: 'app-simple', // .class [attrName]
-  template: '<p></p>', // or templateUrl:
-  styles: ['p { font-size: 16px; }'] // or styleUrls: []
-})
-export class SimpleComponent {
-  @Input() labelText: string;
-  @Input('sTitle') title: string;
-}
-```
-```HTML
-<app-simple labelText="Text" sTitle="title"></app-simple>
-```
+## 01 Mar 2021 (02, 03, 05, 07, 11, 18, 25, 01 Apr)

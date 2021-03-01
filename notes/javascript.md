@@ -213,6 +213,18 @@ console.log(typeof BigInt('9')); // => bigint
 
 </details>
 
+<details>
+<summary>What is a typeof operator and how to use it?</summary>
+- returns the type of the argument
+
+```JavaScript
+typeof undefined; // => undefined
+typeof(Symbol('id')); // => symbol
+typeof Math; // object
+```
+
+</details>
+
 ## Numbers
 <details>
 <summary>How are the numbers stored?</summary>

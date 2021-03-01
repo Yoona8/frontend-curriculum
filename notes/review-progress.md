@@ -1,37 +1,4 @@
 # Review progress and questions I have to review
-## 29, ..., 22 Feb 2021 (01 Mar)
-### JavaScript
-<details>
-<summary>How to load script files from JS dynamically?</summary>
-
-- basically generate html and add it to the page
-
-</details>
-
-<details>
-<summary>What is the location API used for?</summary>
-
-- for the app url and navigation
-
-</details>
-
-<details>
-<summary>What is history API used for?</summary>
-
-- works with location
-- can use `history.back()` to navigate back (ex different cases with questions like age)
-
-</details>
-
-<details>
-<summary>Why do we use the navigator API?</summary>
-
-- don't use for defining browser version
-- could be useful when we need
-  - geolocation
-
-</details>
-
 ## 12, ..., 25 Feb 2021 (04, 11, 18 Mar)
 ### JavaScript
 <details>
@@ -242,7 +209,7 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 23, ..., 27 Feb 2021 (01, 05, 12, 19, 26 Mar)
+## 23, ..., 01 Mar 2021 (05, 12, 19, 26 Mar)
 ### Angular
 <details>
 <summary>What are the core ideas behind Angular?</summary>
@@ -471,6 +438,50 @@ const user = {
 };
 
 console.log(user.toString()); // => [object User]
+```
+
+</details>
+
+## 01 Mar 2021 (02, 03, 05, 07, 11, 18, 25, 01 Apr)
+### JavaScript
+<details>
+<summary>What are Iterators and how to use them?</summary>
+
+- create your own iterable values
+- iterables use it internally
+- iterator is an object which has `next()` method
+```JavaScript
+const player = {
+  currentFriend: 0,
+  name: 'Harry',
+  friends: ['Ron', 'Hermione', 'Luna'],
+  next() {
+    if (this.currentFriend >= this.friends.length) {
+      return {value: this.currentFriend, done: true};
+    }
+
+    const result = {
+      value: this.friends[this.currentFriend],
+      done: false
+    };
+
+    this.currentFriend++;
+    return result;
+  }
+};
+
+console.log(player.next());
+console.log(player.next());
+console.log(player.next());
+console.log(player.next());
+
+// still can't use for loop, but while is ok
+let friend = player.next();
+
+while(!friend.done) {
+  console.log(friend.value);
+  friend = player.next();
+}
 ```
 
 </details>

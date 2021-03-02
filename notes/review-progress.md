@@ -487,3 +487,27 @@ while(!friend.done) {
 </details>
 
 ## 02 Mar 2021 (03, 04, 06, 08, 12, 19, 26, 02 Apr)
+### JavaScript
+<details>
+<summary>What is API?</summary>
+
+- API (Application Public Interface)
+  - a set of available properties and methods to solve a particular task
+  - frequent implementation - objects
+
+</details>
+
+<details>
+<summary>What are statements?</summary>
+
+- syntax constructs and commands that perform actions
+- can be separated with `;`
+- usually written on separate lines
+```JavaScript
+console.log('Hello!');
+```
+
+</details>
+
+## 03 Mar 2021 (04, 05, 07, 09, 13, 20, 27, 03 Apr)
+- next time start JS with Numbers section

@@ -399,7 +399,7 @@ export class ChildComponent {
 
 </details>
 
-## 26, ..., 28 Feb 2021 (02, 04, 08, 15, 22, 29 Mar)
+## 26, ..., 02 Mar 2021 (04, 08, 15, 22, 29 Mar)
 ### JavaScript
 <details>
 <summary>When do you need to use meta-programming?</summary>
@@ -442,7 +442,7 @@ console.log(user.toString()); // => [object User]
 
 </details>
 
-## 01 Mar 2021 (02, 03, 05, 07, 11, 18, 25, 01 Apr)
+## 01, ..., 02 Mar 2021 (03, 05, 07, 11, 18, 25, 01 Apr)
 ### JavaScript
 <details>
 <summary>What are Iterators and how to use them?</summary>
@@ -486,4 +486,4 @@ while(!friend.done) {
 
 </details>
 
-## 01 Mar 2021 (02, 03, 05, 07, 11, 18, 25, 01 Apr)
+## 02 Mar 2021 (03, 04, 06, 08, 12, 19, 26, 02 Apr)

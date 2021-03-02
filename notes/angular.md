@@ -480,6 +480,10 @@ export class SimpleComponent {
 <summary>How does ngDoCheck() work and when do you use it?</summary>
 
 - detect and act upon changes that Angular can't or won't detect on its own
+- monitor changes that occur where `ngOnChanges()` won't catch them
+- extremely expensive hook - called with enormous frequency - after every change detection cycle no matter where the change occurred
+- most of these initial checks are triggered by Angular's first rendering of unrelated data elsewhere on the page (just moving the cursor into another `<input>` triggers a call, relatively few calls reveal actual changes to data) 
+- if you use this hook, your implementation must be extremely lightweight or the user experience suffers
 
 </details>
 
@@ -487,6 +491,10 @@ export class SimpleComponent {
 <summary>How does ngAfterContentInit() work and when do you use it?</summary>
 
 - respond after Angular projects external content into the component's view
+- `@ContentChild()` prop is set after the view has been initiated
+- no need to delay the update to ensure proper rendering (as we do for AfterViewInit and AfterViewChecked)
+- Angular calls both AfterContent hooks before calling either of the AfterView hooks
+- Angular completes composition of the projected content before finishing the composition of this component's view. There is a small window between the AfterContent... and AfterView... hooks that allows you to modify the host view
 
 </details>
 
@@ -494,6 +502,10 @@ export class SimpleComponent {
 <summary>How does ngAfterContentChecked() work and when do you use it?</summary>
 
 - respond after Angular checks the content projected into the component
+- `@ContentChild()` prop is updated after the view has been checked
+- no need to delay the update to ensure proper rendering (as we do for AfterViewInit and AfterViewChecked)
+- Angular calls both AfterContent hooks before calling either of the AfterView hooks
+- Angular completes composition of the projected content before finishing the composition of this component's view. There is a small window between the AfterContent... and AfterView... hooks that allows you to modify the host view
 
 </details>
 

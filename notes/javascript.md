@@ -65,6 +65,37 @@ console.log('Hello!');
 
 </details>
 
+<details>
+<summary>What does alert() do?</summary>
+
+- shows a message
+
+</details>
+
+<details>
+<summary>What does prompt() do?</summary>
+
+- shows a message asking the user to input text
+- returns the text or, if `Cancel` button or `Esc` is clicked, `null`
+```JavaScript
+// undefined in the input in IT
+const name = prompt('What is your name?');
+// for IE
+const name = prompt('What is your name?', '');
+// preset input (optional)
+const name = prompt('What is your name?', 'Dia');
+```
+
+</details>
+
+<details>
+<summary>What does confirm() do?</summary>
+
+- shows a message and waits for the user to press `OK` or `Cancel`
+- returns `true` for `OK` and `false` for `Cancel`/`Esc`
+
+</details>
+
 ## Good practices
 <details>
 <summary>What values is better to pass as arguments and why?</summary>

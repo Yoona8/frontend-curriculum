@@ -302,7 +302,7 @@ export class NameComponent {
 </details>
 
 <details>
-<summary>How to bind to a custom property (component interaction parent to child)?</summary>
+<summary>How to pass data from parent to child with input binding?</summary>
 
 ```TypeScript
 // app/components/child/child.component.ts
@@ -324,6 +324,67 @@ export class ChildComponent {
 ```HTML
 <!-- app/components/parent/parent.component.html -->
 <app-child [user]="{ name: 'Lala' }" fieldLabel="E-mail"></app-child>
+```
+
+</details>
+
+<details>
+<summary>How to intercept input property changes with a setter?</summary>
+
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p></p>'
+})
+export class ChildComponent {
+  private _fieldLabel = '';
+  @Input() 
+  get fieldLabel(): string { return this._fieldLabel; };
+  set fieldLabel(fieldLabel: string) {
+    this._fieldLabel = (fieldLabel && fieldLabel.trim()) || 'Unknown Label';
+  }
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<!-- E-mail -->
+<app-child fieldLabel="E-mail"></app-child>
+<!-- Unknown Label -->
+<app-child fieldLabel="  "></app-child>
+```
+
+</details>
+
+<details>
+<summary>How to intercept input property changes with OnChanges and why?</summary>
+
+- you may prefer this approach to the property setter when watching multiple, interacting input properties
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p></p>'
+})
+export class ChildComponent {
+  private _fieldLabel = '';
+  @Input() 
+  get fieldLabel(): string { return this._fieldLabel; };
+  set fieldLabel(fieldLabel: string) {
+    this._fieldLabel = (fieldLabel && fieldLabel.trim()) || 'Unknown Label';
+  }
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<!-- E-mail -->
+<app-child fieldLabel="E-mail"></app-child>
+<!-- Unknown Label -->
+<app-child fieldLabel="  "></app-child>
 ```
 
 </details>
@@ -377,12 +438,35 @@ export class ChildComponent {
 </details>
 
 <details>
-<summary>View Encapsulation</summary>
+<summary>What is view encapsulation and what is it for?</summary>
 
-- `encapsulation: ViewEncapsulation.Emulated` from `@ang/core` add to the decorator
-  - `Emulated` angular emulates shadow DOM (creates unique attributes)
-  - `Native` uses shadow DOM (not supported by all browsers)
-  - `None` no attributes added
+- basically for CSS not to affect all the other parts of the app
+
+</details>
+
+<details>
+<summary>How to set view encapsulation?</summary>
+
+```TypeScript
+import {Component} from '@angular/core';
+
+@Component({
+  // default
+  // emulates the behavior of shadow DOM 
+  // by preprocessing (and renaming) the CSS code 
+  // to effectively scope the CSS to the component's view
+  encapsulation: ViewEncapsulation.Emulated,
+  // uses the browser's native shadow DOM implementation 
+  // to attach a shadow DOM to the component's host element
+  // and then puts the component view inside that shadow DOM
+  // the component's styles are included within the shadow DOM
+  // only works on browsers that have native support for shadow DOM
+  encapsulation: ViewEncapsulation.ShadowDom,
+  // Angular adds the CSS to the global styles
+  encapsulation: ViewEncapsulation.None
+})
+export class SimpleComponent {}
+```
 
 </details>
 

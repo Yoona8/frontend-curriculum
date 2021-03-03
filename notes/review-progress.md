@@ -442,7 +442,7 @@ console.log(user.toString()); // => [object User]
 
 </details>
 
-## 01, ..., 02 Mar 2021 (03, 05, 07, 11, 18, 25, 01 Apr)
+## 01, ..., 03 Mar 2021 (05, 07, 11, 18, 25, 01 Apr)
 ### JavaScript
 <details>
 <summary>What are Iterators and how to use them?</summary>
@@ -486,7 +486,7 @@ while(!friend.done) {
 
 </details>
 
-## 02 Mar 2021 (03, 04, 06, 08, 12, 19, 26, 02 Apr)
+## 02, ..., 03 Mar 2021 (04, 06, 08, 12, 19, 26, 02 Apr)
 ### JavaScript
 <details>
 <summary>What is API?</summary>
@@ -510,4 +510,120 @@ console.log('Hello!');
 </details>
 
 ## 03 Mar 2021 (04, 05, 07, 09, 13, 20, 27, 03 Apr)
-- next time start JS with Numbers section
+<details>
+<summary>How to create an Array?</summary>
+
+```JavaScript
+// ES5
+// 1
+var numbers = new Array(3, 5); // => [3, 5]
+var emptyArray = new Array(3); // => [] with length === 3
+// 2
+var numbers2 = Array(3, 5);
+var emptyArray2 = Array(3);
+// 3
+var letters = ['a', 'r']; // => ['a', 'r']
+// 4 clones array and adds values from another array
+const newNumbers = numbers.concat([8, 5, 2]);
+
+// ES6+
+// 5 makes an array of any iterable (collection, separate values)
+const elements = Array.from(document.querySelectorAll('li'));
+const letters = Array.from('string');
+// 6 of separate values
+const values = Array.of(1, 2, 3);
+// 7
+const items = [...elements, ...values];
+```
+
+</details>
+
+<details>
+<summary>How to make an Array of a string?</summary>
+
+```JavaScript
+const text = 'One two three';
+const words = text.split(' '); // => ['One', 'two', 'three']
+const symbols1 = Array.from(text); // => ['O', ..., ' ', 't', ...]
+const symbols2 = [...text]; // => ['O', ..., ' ', 't', ...]
+```
+
+</details>
+
+<details>
+<summary>How to make a string of an Array?</summary>
+
+```JavaScript
+const words = ['one', 'two', 'three'];
+// by default separates with ,
+const text = words.join();
+const text2 = words.join(' ');
+```
+
+</details>
+
+<details>
+<summary>How to delete or add an element from (to) an Array at any position?</summary>
+
+- change the initial array
+```JavaScript
+const numbers = [1, 2, 5];
+// start index, delete count, value to add (or more 10, 15)
+const removedElements = numbers.splice(1, 0, 10); // => [1, 10, 2, 5]
+// removes from the end
+const removedElements2 = numbers.splice(-1, 1); // => [1, 2]
+// will delete all items starting with the provided index
+const removedElements3 = numbers.splice(0);
+```
+
+</details>
+
+<details>
+<summary>How to sort items in an Array?</summary>
+
+- changes the initial array
+```JavaScript
+const numbers = [1, 2, 5];
+// by default converts to a string and sorts characters
+const sortedDefault = numbers.sort();
+const sortedNumbers = numbers.sort((a, b) => {
+  if (a > b) {
+    // or any positive value
+    return 1;
+  } else if (a === b) {
+    return 0;
+  } else {
+    // or any negative value
+    return -1;
+  }
+
+  // or
+  return a - b;
+});
+```
+
+</details>
+
+<details>
+<summary>How to copy an Array or a part of it?</summary>
+
+- returns a new array
+```JavaScript
+const numbers = [1, 2, 5];
+// copy an array
+const clonedNumbers = numbers.slice();
+// copy starting from index till the end
+const clonedNumbers2 = numbers.slice(2);
+// end item not included
+const clonedNumbers3 = numbers.slice(0, 2); // => [1, 2]
+// [] if nothing is in between
+const emptyNumbers = numbers.slice(3, 2);
+const emptyNumbers2 = numbers.slice(-3, -4);
+// from the end
+const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
+```
+
+</details>
+
+## 04 Mar 2021 (05, 06, 08, 10, 14, 21, 28, 04 Apr)
+- start with Arrays => creating stack and queue

@@ -329,6 +329,21 @@ parseInt(10n) - 5; // => 5
 </details>
 
 <details>
+<summary>How to convert to a number?</summary>
+
+```JavaScript
+Number(undefined); // => NaN
+Number(null); // => 0
+Number(false); // => 0
+Number(true); // => 1
+Number('1'); // => 1
+Number(' 1 '); // => 1
+Number('1s'); // => NaN
+```
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [ ] [Number on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -2187,7 +2202,7 @@ switch (expression) {
 <summary>What are the 'truthy' values?</summary>
 
 - numbers `!== 0`
-- not empty strings
+- not empty strings (even `'   '` and `'0'`)
 - `[]`, `{}` and all other objects and arrays
 
 </details>

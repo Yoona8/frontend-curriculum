@@ -51,6 +51,7 @@
 <summary>Learn more</summary>
 
 - [DevTools: Fix Memory Problems on Google](https://developers.google.com/web/tools/chrome-devtools/memory-problems)
+- [New Performance Features: Make Your Pages Faster](https://youtu.be/8k_DEeIZpIc)
 
 </details>
 

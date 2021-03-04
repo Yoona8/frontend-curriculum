@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 12, ..., 25 Feb 2021 (04, 11, 18 Mar)
+## 12, ..., 04 Mar 2021 (11, 18 Mar)
 ### JavaScript
 <details>
 <summary>What are local and session storages and what is the difference?</summary>
@@ -399,7 +399,7 @@ export class ChildComponent {
 
 </details>
 
-## 26, ..., 02 Mar 2021 (04, 08, 15, 22, 29 Mar)
+## 26, ..., 04 Mar 2021 (08, 15, 22, 29 Mar)
 ### JavaScript
 <details>
 <summary>When do you need to use meta-programming?</summary>
@@ -486,7 +486,7 @@ while(!friend.done) {
 
 </details>
 
-## 02, ..., 03 Mar 2021 (04, 06, 08, 12, 19, 26, 02 Apr)
+## 02, ..., 04 Mar 2021 (06, 08, 12, 19, 26, 02 Apr)
 ### JavaScript
 <details>
 <summary>What is API?</summary>
@@ -509,7 +509,8 @@ console.log('Hello!');
 
 </details>
 
-## 03 Mar 2021 (04, 05, 07, 09, 13, 20, 27, 03 Apr)
+## 03, ..., 04 Mar 2021 (05, 07, 09, 13, 20, 27, 03 Apr)
+### JavaScript
 <details>
 <summary>How to create an Array?</summary>
 

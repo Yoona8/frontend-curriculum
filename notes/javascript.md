@@ -66,6 +66,22 @@ console.log('Hello!');
 </details>
 
 <details>
+<summary>What is operand?</summary>
+
+- what operators are applied to: 5 * 2 there are two operands: the left operand is 5 and the right operand is 2 (sometimes called arguments instead of operands)
+
+</details>
+
+<details>
+<summary>What are unary, binary and ternary operators?</summary>
+
+- unary - single operand
+- binary - has 2 operands
+- ternary - has 3 operands
+
+</details>
+
+<details>
 <summary>What does alert() do?</summary>
 
 - shows a message
@@ -338,6 +354,7 @@ Number(false); // => 0
 Number(true); // => 1
 Number('1'); // => 1
 Number(' 1 '); // => 1
+Number(' \t 1 \n '); // => 1
 Number('1s'); // => NaN
 ```
 
@@ -2146,12 +2163,45 @@ for (const prop in player) {
 <summary>What are the basic math operators?</summary>
 
 - `=`
+ ```JavaScript
+// assignment returns a value
+// x = value writes the value into x and then returns it
+let a = 1;
+let b = 2;
+let c = 3 - (a = b + 1);
+
+console.log(a); // 3
+console.log(c); // 0
+
+// chaining assignment
+// evaluate from right to left
+// 1. the rightmost expression 2 + 2 is evaluated 
+// 2. and then assigned to the variables on the left: c, b and a
+let a, b, c;
+
+a = b = c = 2 + 2;
+console.log(a); // => 4
+console.log(b); // => 4
+console.log(c); // => 4
+ ```
 - `+` or `+=`
 - `-` or `-=`
 - `*` or `*=`
 - `/` or `/=`
 - `%`
 - `**` exponentiation operator (not supported in IE)
+```JavaScript
+console.log(2 ** 2); // => 4 (2 pow 2)
+console.log(4 ** (1 / 2)); // => square root
+console.log(8 ** (1 / 3)); // => cubic root
+```
+
+</details>
+
+<details>
+<summary>How increment and decrement operators can be applied?</summary>
+
+- only to variables, `5++` will cause an error
 
 </details>
 
@@ -2160,6 +2210,71 @@ for (const prop in player) {
 
 - `return result++;` returns first the result and then increments
 - `return --result;` decrements and then returns the changed value
+```JavaScript
+let initialNumber = 1;
+let counter = initialNumber++;
+let counter2 = ++initialNumber;
+console.log(counter); // => 1
+console.log(counter2); // => 2
+```
+
+</details>
+
+<details>
+<summary>How to user increment and decrement inside the expression?</summary>
+
+```JavaScript
+let counter = 1;
+console.log(2 * ++counter); // => 4
+
+let counter = 1;
+console.log(2 * counter++); // => 2
+// if you need multiply and then increase, more readable
+console.log(2 * counter);
+counter++;
+```
+
+</details>
+
+<details>
+<summary>What are bitwise operators?</summary>
+
+- treat arguments as 32-bit integer numbers and work on the level of their binary representation
+- used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level
+- in some special areas, such as cryptography, they are useful
+- AND `&`
+- OR `|`
+- XOR `^`
+- NOT `~`
+- LEFT SHIFT `<<`
+- RIGHT SHIFT `>>`
+- ZERO-FILL RIGHT SHIFT `>>>`
+
+</details>
+
+<details>
+<summary>What does comma operator do?</summary>
+
+- allows to evaluate several expressions, dividing them with `,`
+- each of them is evaluated but only the result of the last one is returned
+```JavaScript
+// the first expression 1 + 2 is evaluated and its result is thrown away
+// then, 3 + 4 is evaluated and returned as the result
+let a = (1 + 2, 3 + 4);
+console.log(a); // => 7
+
+// comma operator has very low precedence, lower than =
+// so parentheses are important in the example above
+// evaluates + first, summing the numbers into b = 3, 7
+// then the assignment operator assigns b = 3
+// and the rest is ignored
+let b = 1 + 2, 3 + 4;
+console.log(b); // => 3
+
+// why do we need an operator that throws away everything except the last expr?
+// sometimes it is used to put several actions in one line
+for (a = 1, b = 2, c = a * b; a < 10; a++) {}
+```
 
 </details>
 
@@ -2532,6 +2647,7 @@ console.log(doSomething()); // => 0, 1, 3, false
 - [Rest on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 - [Spread on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [Destructuring on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [Bitwise on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators)
 
 </details>
 

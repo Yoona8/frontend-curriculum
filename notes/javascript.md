@@ -2350,6 +2350,62 @@ console.log('a' > 'B'); // => true
 </details>
 
 <details>
+<summary>How does JS compare different types (except === and !==)?</summary>
+
+- converts the values to numbers
+```JavaScript
+console.log('3' > 1); // true
+console.log('04' == 4); // true
+console.log(true == 1); // true
+console.log(false == 0); // true
+
+// the strange thing because of this conversion
+const a = 0;
+const b = '0';
+
+console.log(Boolean(a)); // false
+console.log(Boolean(b)); // true
+console.log(a == b); // true
+```
+
+</details>
+
+<details>
+<summary>How does JS compare with === and !==?</summary>
+
+- compares without type conversion
+```JavaScript
+console.log(0 === false); // false
+```
+
+</details>
+
+<details>
+<summary>How to compare with null or undefined?</summary>
+
+```JavaScript
+console.log(null === undefined); // false
+// special rule for == equal to each other but not to any other value
+console.log(null == undefined); // true
+// for other math and comparison operator
+// null => 0
+// undefined => null
+
+// null vs 0 works strange
+console.log(null > 0); // false
+console.log(null == 0); // false
+console.log(null >= 0); // true
+
+// undefined shouldn't be compared to other values
+// converted to NaN which returns false for all comparisons
+console.log(undefined > 0); // false
+console.log(undefined < 0); // false
+console.log(undefined == 0); // false
+```
+
+</details>
+
+<details>
 <summary>What is `not` operator and how to convert into boolean?</summary>
 
 - `!`
@@ -4580,6 +4636,19 @@ function addListener() {
 
 ## Debugging
 <details>
+<summary>What are the common console methods?</summary>
+
+```JavaScript
+console.log();
+console.debug();
+console.error();
+console.info();
+console.warn();
+```
+
+</details>
+
+<details>
 <summary>How to console log as an object instead of the html tree?</summary>
 
 - if by default logs the html tree, use to log as an object
@@ -4600,10 +4669,20 @@ console.table([1, 2, 3]);
 </details>
 
 <details>
+<summary>How to clear the console?</summary>
+
+```JavaScript
+console.clear();
+```
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
 - [Get Started with Debugging JavaScript in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/javascript/)
+- [A Guide to Console Commands](https://css-tricks.com/a-guide-to-console-commands/)
 
 </details>
 

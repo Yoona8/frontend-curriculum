@@ -406,6 +406,14 @@ p::after {}
 
 </details>
 
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Why Do We Have `repeating-linear-gradient` Anyway?](https://css-tricks.com/why-do-we-have-repeating-linear-gradient-anyway/)
+- [x] [While You Weren’t Looking, CSS Gradients Got Better](https://css-tricks.com/while-you-werent-looking-css-gradients-got-better/)
+
+</details>
+
 ## 22 - Borders
 <details>
 <summary>Table</summary>

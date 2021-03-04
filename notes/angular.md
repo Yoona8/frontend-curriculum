@@ -364,40 +364,107 @@ export class ChildComponent {
 - you may prefer this approach to the property setter when watching multiple, interacting input properties
 ```TypeScript
 // app/components/child/child.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   template: '<p></p>'
 })
-export class ChildComponent {
-  private _fieldLabel = '';
-  @Input() 
-  get fieldLabel(): string { return this._fieldLabel; };
-  set fieldLabel(fieldLabel: string) {
-    this._fieldLabel = (fieldLabel && fieldLabel.trim()) || 'Unknown Label';
+export class ChildComponent implements OnChanges {
+  @Input() level: number;
+  @Input() power: number;
+  changeLog: string[] = [];
+
+  ngOnChanges(changes: SimpleChanges) {
+    const log: string[] = [];
+
+    for (const propName in changes) {
+      const changedProp = changes[propName];
+      const to = JSON.stringify(changedProp.currentValue);
+
+      if (changedProp.isFirstChange()) {
+        log.push(`Initial value of ${propName} set to ${to}`)
+      } else {
+        const from = JSON.stringify(changedProp.previousValue);
+
+        log.push(`${propName} changed from ${from} to ${to}`);
+      }
+    }
+
+    this.changeLog.push(log.join(', '));
+  }
+}
+
+// app/components/parent/parent.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './'
+})
+export class ParentComponent {
+  level: number = 1;
+  power: number = 0;
+
+  increasePower() {
+    this.power++;
+  }
+
+  increaseLevel() {
+    this.level++;
+    this.power = 0;
   }
 }
 ```
 ```HTML
 <!-- app/components/parent/parent.component.html -->
-<!-- E-mail -->
-<app-child fieldLabel="E-mail"></app-child>
-<!-- Unknown Label -->
-<app-child fieldLabel="  "></app-child>
+<button type="button" (click)="increasePower()">Power Up</button>
+<button type="button" (click)="increaseLevel()">Level Up</button>
+<app-child [level]="level" [power]="power"></app-child>
 ```
 
 </details>
 
 <details>
-<summary>Binding to custom events</summary>
+<summary>How to pass data from child to parent (listen to child event)?</summary>
 
-- to inform parent from child
-- `@Output() cardAdded = new EventEmitter<card>();` from `@ang/core` create a custom event in child
-- `EventEmitter` is an object in Angular, which allows to emit custom events
-- `onAddCardClick() { this.cardAdded.emit(card); }` emit the event from child
-- `<app-child (cardAdded)="onCardAdded($event)">` bind from parent
-- `@Output('cAdded') cardAdded = ...` use not `(cardAdded)="..."`, but `(cAdded)="..."`
+- the child exposes an `EventEmitter` property with which it emits events when something happens
+- the parent binds to that event property and reacts to those events
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <h2>{{ name }}</h2>
+    <button 
+      (click)="checkIn(true)" 
+      [disabled]="haveChosen" 
+      type="button"
+    >Check In</button>
+    <button 
+      (click)="checkIn(false)" 
+      [disabled]="haveChosen" 
+      type="button"
+    >I'm Out</button>
+  `
+})
+export class ChildComponent implements OnChanges {
+  @Input() name: string;
+  @Output() checkedIn = new EventEmitter<boolean>();
+  haveChosen = false;
+
+  checkIn(isIn: boolean) {
+    this.checkedIn.emit(isIn);
+    this.haveChosen = true;
+  }
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<app-child name="Harry" (checkedIn)="onCheckedIn($event)"></app-child>
+```
 
 </details>
 

@@ -209,7 +209,7 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 23, ..., 01 Mar 2021 (05, 12, 19, 26 Mar)
+## 23, ..., 05 Mar 2021 (12, 19, 26 Mar)
 ### Angular
 <details>
 <summary>What are the core ideas behind Angular?</summary>
@@ -442,7 +442,7 @@ console.log(user.toString()); // => [object User]
 
 </details>
 
-## 01, ..., 03 Mar 2021 (05, 07, 11, 18, 25, 01 Apr)
+## 01, ..., 05 Mar 2021 (07, 11, 18, 25, 01 Apr)
 ### JavaScript
 <details>
 <summary>What are Iterators and how to use them?</summary>
@@ -509,7 +509,7 @@ console.log('Hello!');
 
 </details>
 
-## 03, ..., 04 Mar 2021 (05, 07, 09, 13, 20, 27, 03 Apr)
+## 03, ..., 04 Mar 2021 (07, 09, 13, 20, 27, 03 Apr)
 ### JavaScript
 <details>
 <summary>How to create an Array?</summary>
@@ -626,5 +626,5 @@ const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
 
 </details>
 
-## 04 Mar 2021 (05, 06, 08, 10, 14, 21, 28, 04 Apr)
+## 05 Mar 2021 (06, 07, 09, 11, 15, 22, 29, 05 Apr)
 - start with Arrays => creating stack and queue

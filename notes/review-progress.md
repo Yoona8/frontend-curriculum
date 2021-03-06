@@ -63,7 +63,7 @@ sessionStorage.getItem('user');
 
 </details>
 
-## 13, ..., 27 Feb 2021 (06, 13, 20 Mar)
+## 13, ..., 06 Mar 2021 (13, 20 Mar)
 ### JavaScript
 <details>
 <summary>What are cookies and the difference from local/session storage?</summary>
@@ -626,5 +626,5 @@ const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
 
 </details>
 
-## 05 Mar 2021 (06, 07, 09, 11, 15, 22, 29, 05 Apr)
+## 06 Mar 2021 (07, 08, 10, 12, 16, 23, 30, 06 Apr)
 - start with Arrays => creating stack and queue

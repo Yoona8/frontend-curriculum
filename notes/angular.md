@@ -469,25 +469,124 @@ export class ChildComponent implements OnChanges {
 </details>
 
 <details>
-<summary>Local References</summary>
+<summary>How to use a local reference (inside one component) and what is the limitation?</summary>
 
-- usage inside a template, for ex when we don't need two-way binding
+- can be used only in the template, not in the component (.ts file)
 - returns an HTML element
-- `#locRef` to any element
-- `(click)="onButtonClick(locRef)"` or `{{ locRef.value }}`
+```HTML
+<!-- simple.component.html -->
+<input type="text" #locRef>
+<button (click)="onButtonClick(locRef)" type="button">Get the input HTML</button>
+<p>{{ locRef.value }}</p>
+```
 
 </details>
 
 <details>
-<summary>ViewChild</summary>
+<summary>How to interact parent > child via local variable (reference) and what is the limitation?</summary>
+
+- parent component cannot use data binding to read child properties or invoke child methods
+- can do both by creating a template reference variable for the child element and then reference that variable within the parent template
+- accessible only from the template, not from the parent component itself
+```TypeScript
+// child.component.ts
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p>{{ message }}</p>'
+})
+export class ChildComponent {
+  message: string = '';
+
+  start() {
+    this.message = 'Start in 10 seconds.';
+    // some countdown code
+  }
+
+  stop() {
+    this.message = 'Stopped!';
+    // stop the timer code
+  }
+}
+```
+```HTML
+<!-- parent.component.html -->
+<app-child #childComponent></app-child>
+<p>{{ childComponent.message }}</p>
+<button (click)="childComponent.start()" type="button">Start</button>
+<button (click)="childComponent.stop()" type="button">Stop</button>
+```
+
+</details>
+
+<details>
+<summary>How to use an @ViewChild (onside one component) and why?</summary>
 
 - to get access to the html element from ts file
-- `@ViewChild(Component / 'localRef') element: ElementRef` from `@ang/core`
-  - `Component` returns the first occurrence of the component in the app
-  - `localRef` returns an element with this localRef
-- `{ static: true / false }` true if we plan to use it inside `ngOnInit()` (for Angular < 9)
-- `this.element.nativeElement` to use
-- don't change the value via this approach
+```TypeScript
+// simple.component.ts
+import {Component, ViewChild, ElementRef} from '@angular/core';
+
+@Component({
+  selector: 'app-simple',
+  templateUrl: './'
+})
+export class SimpleComponent {
+  // returns an element with this localRef
+  // { static: true / false } (for Angular < 9)
+  // true if we plan to use it inside ngOnInit()
+  @ViewChild('locRef') input: ElementRef;
+
+  getValue() {
+    // don't change the value via this approach
+    return this.input.nativeElement.value;
+  }
+}
+```
+```HTML
+<!-- simple.component.html -->
+<input type="text" #locRef>
+```
+
+</details>
+
+<details>
+<summary>How to interact parent > child via @ViewChild() and why?</summary>
+
+- `Component` returns the first occurrence of the component in the app
+- parent component cannot use data binding to read child properties or invoke child methods
+- can do both by creating a template reference variable for the child element and then reference that variable within the parent template
+- accessible only from the template, not from the parent component itself
+```TypeScript
+// child.component.ts
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p>{{ message }}</p>'
+})
+export class ChildComponent {
+  message: string = '';
+
+  start() {
+    this.message = 'Start in 10 seconds.';
+    // some countdown code
+  }
+
+  stop() {
+    this.message = 'Stopped!';
+    // stop the timer code
+  }
+}
+```
+```HTML
+<!-- parent.component.html -->
+<app-child #childComponent></app-child>
+<p>{{ childComponent.message }}</p>
+<button (click)="childComponent.start()" type="button">Start</button>
+<button (click)="childComponent.stop()" type="button">Stop</button>
+```
 
 </details>
 

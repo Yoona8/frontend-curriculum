@@ -486,7 +486,7 @@ while(!friend.done) {
 
 </details>
 
-## 02, ..., 04 Mar 2021 (06, 08, 12, 19, 26, 02 Apr)
+## 02, ..., 06 Mar 2021 (08, 12, 19, 26, 02 Apr)
 ### JavaScript
 <details>
 <summary>What is API?</summary>

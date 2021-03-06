@@ -627,4 +627,198 @@ const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
 </details>
 
 ## 06 Mar 2021 (07, 08, 10, 12, 16, 23, 30, 06 Apr)
+### Angular
+<details>
+<summary>How to intercept input property changes with a setter?</summary>
+
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p></p>'
+})
+export class ChildComponent {
+  private _fieldLabel = '';
+  @Input() 
+  get fieldLabel(): string { return this._fieldLabel; };
+  set fieldLabel(fieldLabel: string) {
+    this._fieldLabel = (fieldLabel && fieldLabel.trim()) || 'Unknown Label';
+  }
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<!-- E-mail -->
+<app-child fieldLabel="E-mail"></app-child>
+<!-- Unknown Label -->
+<app-child fieldLabel="  "></app-child>
+```
+
+</details>
+
+<details>
+<summary>How to intercept input property changes with OnChanges and why?</summary>
+
+- you may prefer this approach to the property setter when watching multiple, interacting input properties
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p></p>'
+})
+export class ChildComponent implements OnChanges {
+  @Input() level: number;
+  @Input() power: number;
+  changeLog: string[] = [];
+
+  ngOnChanges(changes: SimpleChanges) {
+    const log: string[] = [];
+
+    for (const propName in changes) {
+      const changedProp = changes[propName];
+      const to = JSON.stringify(changedProp.currentValue);
+
+      if (changedProp.isFirstChange()) {
+        log.push(`Initial value of ${propName} set to ${to}`)
+      } else {
+        const from = JSON.stringify(changedProp.previousValue);
+
+        log.push(`${propName} changed from ${from} to ${to}`);
+      }
+    }
+
+    this.changeLog.push(log.join(', '));
+  }
+}
+
+// app/components/parent/parent.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './'
+})
+export class ParentComponent {
+  level: number = 1;
+  power: number = 0;
+
+  increasePower() {
+    this.power++;
+  }
+
+  increaseLevel() {
+    this.level++;
+    this.power = 0;
+  }
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<button type="button" (click)="increasePower()">Power Up</button>
+<button type="button" (click)="increaseLevel()">Level Up</button>
+<app-child [level]="level" [power]="power"></app-child>
+```
+
+</details>
+
+<details>
+<summary>How to pass data from child to parent (listen to child event)?</summary>
+
+- the child exposes an `EventEmitter` property with which it emits events when something happens
+- the parent binds to that event property and reacts to those events
+```TypeScript
+// app/components/child/child.component.ts
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <h2>{{ name }}</h2>
+    <button 
+      (click)="checkIn(true)" 
+      [disabled]="haveChosen" 
+      type="button"
+    >Check In</button>
+    <button 
+      (click)="checkIn(false)" 
+      [disabled]="haveChosen" 
+      type="button"
+    >I'm Out</button>
+  `
+})
+export class ChildComponent implements OnChanges {
+  @Input() name: string;
+  @Output() checkedIn = new EventEmitter<boolean>();
+  haveChosen = false;
+
+  checkIn(isIn: boolean) {
+    this.checkedIn.emit(isIn);
+    this.haveChosen = true;
+  }
+}
+```
+```HTML
+<!-- app/components/parent/parent.component.html -->
+<app-child name="Harry" (checkedIn)="onCheckedIn($event)"></app-child>
+```
+
+</details>
+
+<details>
+<summary>How to use a local reference (inside one component) and what is the limitation?</summary>
+
+- can be used only in the template, not in the component (.ts file)
+- returns an HTML element
+```HTML
+<!-- simple.component.html -->
+<input type="text" #locRef>
+<button (click)="onButtonClick(locRef)" type="button">Get the input HTML</button>
+<p>{{ locRef.value }}</p>
+```
+
+</details>
+
+<details>
+<summary>How to interact parent > child via local variable (reference) and what is the limitation?</summary>
+
+- parent component cannot use data binding to read child properties or invoke child methods
+- can do both by creating a template reference variable for the child element and then reference that variable within the parent template
+- accessible only from the template, not from the parent component itself
+```TypeScript
+// child.component.ts
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p>{{ message }}</p>'
+})
+export class ChildComponent {
+  message: string = '';
+
+  start() {
+    this.message = 'Start in 10 seconds.';
+    // some countdown code
+  }
+
+  stop() {
+    this.message = 'Stopped!';
+    // stop the timer code
+  }
+}
+```
+```HTML
+<!-- parent.component.html -->
+<app-child #childComponent></app-child>
+<p>{{ childComponent.message }}</p>
+<button (click)="childComponent.start()" type="button">Start</button>
+<button (click)="childComponent.stop()" type="button">Stop</button>
+```
+
+</details>
+
+## 07 Mar 2021 (08, 09, 11, 13, 17, 24, 31, 07 Apr)
 - start with Arrays => creating stack and queue

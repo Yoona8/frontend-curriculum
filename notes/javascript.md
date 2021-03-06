@@ -2406,6 +2406,18 @@ console.log(undefined == 0); // false
 </details>
 
 <details>
+<summary>What are logical operators?</summary>
+
+- `||` or
+- `&&` and
+- `!` not (precedence is the highest of all logical)
+- `??` nullish coalescing
+- can be applied to values of any type
+- the result can be of any type
+
+</details>
+
+<details>
 <summary>What is `not` operator and how to convert into boolean?</summary>
 
 - `!`
@@ -2414,32 +2426,34 @@ console.log(undefined == 0); // false
 </details>
 
 <details>
-<summary>What are boolean operators and which one is higher?</summary>
+<summary>How to use OR and AND, which one is higher?</summary>
 
-- `a && b` if both are true `=== true`
+- `a && b` if both are true
+- `a || b` if at least one is true
+- `&&` precedence is higher than `||`
+- do not convert value into a boolean
 ```JavaScript
+// returns the 1st falsy value
+const userName1 = null && 'Mary'; // => null
 // use value if the condition is true
 const isLoggedIn = true; // if false => false
 const userName0 = isLoggedIn && 'Mary'; // => 'Mary'
-
-// returns the 1st falsy value
-const userName1 = null && 'Mary'; // => null
-
-// if both truthy, the second is returned
-const userName2 = 'Max' && 'Mary'; // => 'Mary'
+// if all are truthy, the last one is returned
+const userName2 = 'Lily' && 'Max' && 'Mary'; // => 'Mary'
 ```
-- `a || b` if at least one is true `=== true`
 ```JavaScript
 // default value assignment
-// doesn't convert into a boolean
+// getting the first truthy value from a list of variables or expressions
 // returns 1st truthy value
-const userName1 = '' || 'Mary'; // => 'Mary'
-const userName2 = 'Max' || 'Mary'; // => 'Max'
+const userName1 = '' || 'Mary' || 'Maya'; // => 'Mary'
+const userName2 = 'Max' || 'Mary' || ''; // => 'Max'
+// if all falsy, the last value is returned
+const userName3 = null || 0 || ''; // => ''
 
-// if both falsy, the second value is returned
-const userName3 = null || ''; // => ''
+// short-circuit evaluation
+true || console.log('Will not be logged!');
+false || console.log('Logged!');
 ```
-- `&&` precedence is higher than `||`
 
 </details>
 

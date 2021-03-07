@@ -114,7 +114,7 @@ document.cookie;
 
 </details>
 
-## 14, ..., 28 Feb 2021 (07, 14, 21 Mar)
+## 14, ..., 07 Mar 2021 (14, 21 Mar)
 ### JavaScript
 <details>
 <summary>What is IndexedDB?</summary>
@@ -442,7 +442,7 @@ console.log(user.toString()); // => [object User]
 
 </details>
 
-## 01, ..., 05 Mar 2021 (07, 11, 18, 25, 01 Apr)
+## 01, ..., 07 Mar 2021 (11, 18, 25, 01 Apr)
 ### JavaScript
 <details>
 <summary>What are Iterators and how to use them?</summary>
@@ -509,7 +509,7 @@ console.log('Hello!');
 
 </details>
 
-## 03, ..., 04 Mar 2021 (07, 09, 13, 20, 27, 03 Apr)
+## 03, ..., 07 Mar 2021 (09, 13, 20, 27, 03 Apr)
 ### JavaScript
 <details>
 <summary>How to create an Array?</summary>
@@ -822,3 +822,11 @@ export class ChildComponent {
 
 ## 07 Mar 2021 (08, 09, 11, 13, 17, 24, 31, 07 Apr)
 - start with Arrays => creating stack and queue
+```JavaScript
+const arr = [1, 2, 3, 4, 5];
+const copy = arr.slice();
+const copy = arr.slice(1);
+const copy = arr.slice(1, 3); // [2, 3]
+const copy = arr.slice(-2, -1);
+const copy = arr.slice(3, 2);
+```

@@ -626,7 +626,7 @@ const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
 
 </details>
 
-## 06 Mar 2021 (07, 08, 10, 12, 16, 23, 30, 06 Apr)
+## 06, ..., 07 Mar 2021 (08, 10, 12, 16, 23, 30, 06 Apr)
 ### Angular
 <details>
 <summary>How to intercept input property changes with a setter?</summary>
@@ -822,11 +822,3 @@ export class ChildComponent {
 
 ## 07 Mar 2021 (08, 09, 11, 13, 17, 24, 31, 07 Apr)
 - start with Arrays => creating stack and queue
-```JavaScript
-const arr = [1, 2, 3, 4, 5];
-const copy = arr.slice();
-const copy = arr.slice(1);
-const copy = arr.slice(1, 3); // [2, 3]
-const copy = arr.slice(-2, -1);
-const copy = arr.slice(3, 2);
-```

@@ -4838,6 +4838,8 @@ if (navigator.clipboard) {
 <details>
 <summary>Read</summary>
 
+- [JavaScript Garden](http://shamansir.github.io/JavaScript-Garden/)
+
 </details>
 
 <details>

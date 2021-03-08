@@ -124,6 +124,9 @@
 ## Practice
 - [FreeCodeCamp](https://www.freecodecamp.org/)
 
+## Courses
+- [Computer Science and Engineering](http://catalog.mit.edu/degree-charts/computer-science-engineering-course-6-3/)
+
 ## Books
 - [A book apart](https://abookapart.com/products/)
 

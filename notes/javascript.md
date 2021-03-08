@@ -2221,7 +2221,7 @@ console.log(counter2); // => 2
 </details>
 
 <details>
-<summary>How to user increment and decrement inside the expression?</summary>
+<summary>How to use increment and decrement inside the expression?</summary>
 
 ```JavaScript
 let counter = 1;
@@ -2453,6 +2453,40 @@ const userName3 = null || 0 || ''; // => ''
 // short-circuit evaluation
 true || console.log('Will not be logged!');
 false || console.log('Logged!');
+```
+
+</details>
+
+<details>
+<summary>How does nullish coalescing work and the cases?</summary>
+
+- to provide a default value
+```JavaScript
+// returns the first argument if it's not `null` or `undefined`
+// otherwise the second
+const result = user ?? 'Unknown';
+// is the same
+const result = (user !== null && user !== undefined) ? user : 'Unknown';
+// can be used in a sequence
+const first = null;
+const second = null;
+const third = 'Third';
+console.log(first ?? second ?? third ?? 'Unknown'); // => Third
+// is the same (but for all falsy values)
+console.log(first || second || third || 'Unknown');
+```
+
+</details>
+
+<details>
+<summary>How to use `??` with `&&` or `||`?</summary>
+
+- due to safety reasons, JS forbids using `??` with `&&` and `||` operators unless the precedence is explicitly specified with `()`
+```JavaScript
+// Syntax error
+let text = 'one' && 'two' ?? 'three';
+// Works just fine
+let text = ('one' && 'two') ?? 'three';
 ```
 
 </details>

@@ -399,7 +399,7 @@ export class ChildComponent {
 
 </details>
 
-## 26, ..., 04 Mar 2021 (08, 15, 22, 29 Mar)
+## 26, ..., 08 Mar 2021 (15, 22, 29 Mar)
 ### JavaScript
 <details>
 <summary>When do you need to use meta-programming?</summary>
@@ -486,7 +486,7 @@ while(!friend.done) {
 
 </details>
 
-## 02, ..., 06 Mar 2021 (08, 12, 19, 26, 02 Apr)
+## 02, ..., 08 Mar 2021 (12, 19, 26, 02 Apr)
 ### JavaScript
 <details>
 <summary>What is API?</summary>
@@ -820,5 +820,5 @@ export class ChildComponent {
 
 </details>
 
-## 07 Mar 2021 (08, 09, 11, 13, 17, 24, 31, 07 Apr)
+## 09 Mar 2021 (10, 11, 13, 15, 19, 26, 02, 09 Apr)
 - start with Arrays => creating stack and queue

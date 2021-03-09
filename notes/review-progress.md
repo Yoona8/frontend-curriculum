@@ -821,4 +821,49 @@ export class ChildComponent {
 </details>
 
 ## 09 Mar 2021 (10, 11, 13, 15, 19, 26, 02, 09 Apr)
-- start with Arrays => creating stack and queue
+<details>
+<summary>How and why to create a queue using an Array (FIFO)?</summary>
+
+- for tasks to be executed in a row after some async event
+- for unique actions can use `Set` instead of `Array`
+```JavaScript
+const callbacks = [];
+
+const addAsyncListener = (fn) => {
+  // check if the callback exists (used before set was created)
+  if (!callbacks.find((it) => it === fn)) {
+    callbacks.push(fn);
+  }
+};
+
+const startAsync = () => {
+  setTimeout(() => {
+    for (const cb of callbacks) {
+      callbacks.delete(cb);
+      cb();
+    }
+
+    console.log('Done');
+  }, 500);
+};
+
+const log2 = () => console.log(2);
+
+addAsyncListener(() => console.log(1));
+addAsyncListener(log2);
+addAsyncListener(log2); // won't be added to array
+addAsyncListener(() => console.log(3));
+
+console.log('Start!');
+startAsync();
+
+addAsyncListener(() => console.log(4));
+addAsyncListener(() => console.log(5));
+
+// the log will be: Start! 1 2 3 4 5 Done
+```
+
+</details>
+
+## 10 Mar 2021 (11, 12, 14, 16, 20, 27, 03, 10 Apr)
+- start with Sets and WeakSets

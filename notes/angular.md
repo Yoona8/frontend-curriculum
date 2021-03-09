@@ -521,7 +521,7 @@ export class ChildComponent {
 </details>
 
 <details>
-<summary>How to use an @ViewChild (onside one component) and why?</summary>
+<summary>How to use an @ViewChild (inside one component) and why?</summary>
 
 - to get access to the html element from ts file
 ```TypeScript
@@ -554,10 +554,9 @@ export class SimpleComponent {
 <details>
 <summary>How to interact parent > child via @ViewChild() and why?</summary>
 
-- `Component` returns the first occurrence of the component in the app
-- parent component cannot use data binding to read child properties or invoke child methods
-- can do both by creating a template reference variable for the child element and then reference that variable within the parent template
-- accessible only from the template, not from the parent component itself
+- returns the first occurrence of the child component
+- to be able to use child component methods and props from inside the parent component itself
+- you need to use the `AfterViewInit` hook to set some initial properties
 ```TypeScript
 // child.component.ts
 import {Component} from '@angular/core';
@@ -579,13 +578,43 @@ export class ChildComponent {
     // stop the timer code
   }
 }
+
+// parent.component.ts
+import {Component, ViewChild, AfterViewInit} from '@angular/core';
+import {ChildComponent} from './components/child/child.component';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './'
+})
+export class ParentComponent implements AfterViewInit {
+  @ViewChild(ChildComponent) childComponent: ChildComponent;
+  message: string = '';
+
+  ngAfterViewInit() {
+    // redefine message to get from child component
+    // but wait a tick first to avoid one-time devMode
+    // unidirectional-data-flow-violation error
+    // because it's too late to update the parent view already
+    // in the same cycle
+    setTimeout(() => this.message = () => this.childComponent.message, 0);
+  }
+
+  start() {
+    this.childComponent.start();
+  }
+
+  stop() {
+    this.childComponent.stop();
+  }
+}
 ```
 ```HTML
 <!-- parent.component.html -->
-<app-child #childComponent></app-child>
-<p>{{ childComponent.message }}</p>
-<button (click)="childComponent.start()" type="button">Start</button>
-<button (click)="childComponent.stop()" type="button">Stop</button>
+<app-child></app-child>
+<p>{{ message }}</p>
+<button (click)="start()" type="button">Start</button>
+<button (click)="stop()" type="button">Stop</button>
 ```
 
 </details>
@@ -1280,7 +1309,7 @@ export class BasicComponent {
 </details>
 
 <details>
-<summary>Cross-component communication</summary>
+<summary>How to communicate between parent and child component via service?</summary>
 
 - add a custom event to the service
 - emit the event in one component

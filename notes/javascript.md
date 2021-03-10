@@ -30,6 +30,7 @@
 - [History API](#history-api)
 - [Navigator API](#navigator-api)
 - [Browser storage](#browser-storage)
+- [Service Workers, Web Workers and Worklets](service-workers-web-workers-and-worklets)
 - [Meta-programming](#meta-programming)
 - [Performance and optimizations](#performance-and-optimizations)
 - [Security](#security)
@@ -2291,11 +2292,17 @@ for (a = 1, b = 2, c = a * b; a < 10; a++) {}
 
 - always uses `===` to compare
 ```JavaScript
-switch (expression) {
-  case value: 
+switch (+expression) {
+  case value + 1: 
     console.log(value);
     break;
+  // grouping cases
+  case value2:
+  case value3:
+    console.log(value2, value3);
+    break;
   default:
+    // default is optional
     console.log('default');
 }
 ```
@@ -4296,6 +4303,14 @@ getButton.addEventListener('click', () => {
 - [ ] [localStorage on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 - [ ] [cookie on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
 - [ ] [Using IndexedDB on MDN](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+
+</details>
+
+## Service Workers, Web Workers and Worklets
+<details>
+<summary>Learn more</summary>
+
+- [ ] [Web workers vs Service workers vs Worklets](https://bitsofco.de/web-workers-vs-service-workers-vs-worklets/)
 
 </details>
 

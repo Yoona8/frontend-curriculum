@@ -509,7 +509,7 @@ console.log('Hello!');
 
 </details>
 
-## 03, ..., 07 Mar 2021 (09, 13, 20, 27, 03 Apr)
+## 03, ..., 09 Mar 2021 (13, 20, 27, 03 Apr)
 ### JavaScript
 <details>
 <summary>How to create an Array?</summary>
@@ -820,7 +820,8 @@ export class ChildComponent {
 
 </details>
 
-## 09 Mar 2021 (10, 11, 13, 15, 19, 26, 02, 09 Apr)
+## 09, ..., 10 Mar 2021 (11, 13, 15, 19, 26, 02, 09 Apr)
+### JavaScript
 <details>
 <summary>How and why to create a queue using an Array (FIFO)?</summary>
 
@@ -866,4 +867,47 @@ addAsyncListener(() => console.log(5));
 </details>
 
 ## 10 Mar 2021 (11, 12, 14, 16, 20, 27, 03, 10 Apr)
-- start with Sets and WeakSets
+### JavaScript
+<details>
+<summary>Why a Map, not just an Object?</summary>
+
+- any keys possible
+- iterable
+- pairs are objects
+- better performance (than object) for large quantities of data
+- better performance when adding / removing data frequently
+
+</details>
+
+<details>
+<summary>How to create a Map and add items?</summary>
+
+```JavaScript
+const pairs = new Map();
+// add items
+pairs.set('John', 'May');
+pairs.set('Ichigo', 'Rukiya');
+
+// or with iterable
+const pairs = new Map([['John', 'May'], ['Ichigo', 'Rukiya']]);
+```
+
+</details>
+
+<details>
+<summary>How to convert an Object into a Map and back from a Map to an Object?</summary>
+
+```JavaScript
+const player = {
+  name: 'Harry',
+  level: 10
+};
+
+const playerMap = new Map(Object.entries(player));
+const newPlayer = Object.fromEntries(playerMap.entries());
+```
+
+</details>
+
+## 11 Mar 2021 (12, 13, 15, 17, 21, 28, 04, 11 Apr)
+- start from objects next time

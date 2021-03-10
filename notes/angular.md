@@ -1311,9 +1311,95 @@ export class BasicComponent {
 <details>
 <summary>How to communicate between parent and child component via service?</summary>
 
-- add a custom event to the service
-- emit the event in one component
-- subscribe to the event in another component (add the event via custom binding)
+- service interface provides bi-directional communication for parent and child
+- you can use it for parent-child scope (if you don't want to access this service from the other components) or provide on the root level
+```TypeScript
+// simple.service.ts
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
+
+@Injectable({providedIn: 'root'})
+export class SimpleService {
+  private level = 0;
+  // Observable source
+  private levelIncreasedSource = new Subject<number>();
+  // Observable stream
+  levelIncreased$ = this.levelIncreasedSource.asObservable();
+  // Service command
+  increaseLevel(level: number) {
+    this.level += level;
+    this.levelIncreasedSource.next(this.level);
+  }
+}
+
+// child.component.ts
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {SimpleService} from '../simple.service';
+
+@Component({
+  selector: 'child-component',
+  templateUrl: './'
+})
+export class ChildComponent implements OnInit, OnDestroy {
+  history: number[] = [];
+  subscription: Subscription;
+
+  constructor(private simpleService: SimpleService) {}
+
+  ngOnInit() {
+    this.subscription = simpleService.levelIncreased$.subscribe(level => {
+      history.push(level);
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  changeLevel () {
+    const level = Math.floor(Math.random() * 10);
+    this.simpleService.increaseLevel(level);
+  }
+}
+
+// parent.component.ts
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {SimpleService} from '../simple.service';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './'
+})
+export class ParentComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
+  level: number;
+
+  constructor(private simpleService: SimpleService) {}
+
+  ngOnInit() {
+    this.subscription = simpleService.levelIncreased$.subscribe((level) => {
+      this.level = level;
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+}
+```
+```HTML
+<!-- child.component.html -->
+<button (click)="changeLevel()" type="button">Change Level</button>
+<ul>
+  <li *ngFor="let event of history">{{ event }}</li>
+</ul>
+
+<!-- parent.component.html -->
+<app-child></app-child>
+<p>Current level is {{ level | async }}</p>
+```
 
 </details>
 

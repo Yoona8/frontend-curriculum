@@ -1,4 +1,5 @@
 # Graphics
+- [SVG](#svg)
 
 ## SVG
 <details>
@@ -110,6 +111,14 @@
 - [SVG, Minification and Gzip](https://blog.usejournal.com/of-svg-minification-and-gzip-21cd26a5d007)
 - [Making the Switch Away from Icon Fonts to SVG: Converting Font Icons to SVG](https://www.sarasoueidan.com/blog/icon-fonts-to-svg/)
 - [SVG by Sara Soueidan](https://www.sarasoueidan.com/tags/svg/)
+
+</details>
+
+## WebP
+<details>
+<summary>Learn more</summery>
+
+- [ ] [Why and how to use WebP images today](https://bitsofco.de/why-and-how-to-use-webp-images-today/)
 
 </details>
 

@@ -2,6 +2,8 @@
 - [Essentials](#essentials)
 - [Angular CLI](#angular-cli)
 - [Components](#components)
+- [Component Styling](#component-styling)
+- [Component Lifecycle](#component-lifecycle)
 - [Templates](#templates)
 - [Directives](#directives)
 - [Dependency Injection](#dependency-injection)
@@ -632,6 +634,7 @@ export class ParentComponent implements AfterViewInit {
 
 </details>
 
+## Component Styling
 <details>
 <summary>What is view encapsulation and what is it for?</summary>
 
@@ -665,6 +668,48 @@ export class SimpleComponent {}
 
 </details>
 
+<details>
+<summary>What are special selectors and how to use them?</summary>
+
+```CSS
+/* targets styles in the element that hosts the component */
+/* the only way to target the host element */
+/* as it's not a part of the component's template */
+/* do not add selectors (other than :host-context) in front of it */
+/* such selectors are not scoped to a component's view */
+/* and will select the outer context, but it's not native behavior */
+/* use :host-context instead */
+:host {}
+/* can use conditions */
+:host( .current) {}
+/* combine with other selectors */
+:host p {}
+
+/* to apply styles based on some condition outside of a component's view */
+/* looks for a CSS class in any ancestor of the component host element, */
+/* up to the document root */
+/* useful when combined with another selector */
+:host-context(.theme-dark) p {}
+
+/* deep selectors are deprecated */
+::ng-deep {}
+>>> {}
+/deep/ {}
+```
+
+</details>
+
+<details>
+<summary>How to add styles to a component?</summary>
+
+- the scoping rules apply to all the loading patterns
+- by setting `styles` or `styleUrls` metadata
+- inline in the template HTML
+- with CSS imports
+
+</details>
+
+## Component Lifecycle
 <details>
 <summary>When does component lifecycle start?</summary>
 

@@ -1,5 +1,5 @@
 # Review progress and questions I have to review
-## 12, ..., 04 Mar 2021 (11, 18 Mar)
+## 12, ..., 11 Mar 2021 (18 Mar)
 ### JavaScript
 <details>
 <summary>What are local and session storages and what is the difference?</summary>
@@ -442,7 +442,7 @@ console.log(user.toString()); // => [object User]
 
 </details>
 
-## 01, ..., 07 Mar 2021 (11, 18, 25, 01 Apr)
+## 01, ..., 11 Mar 2021 (18, 25, 01 Apr)
 ### JavaScript
 <details>
 <summary>What are Iterators and how to use them?</summary>
@@ -820,7 +820,7 @@ export class ChildComponent {
 
 </details>
 
-## 09, ..., 10 Mar 2021 (11, 13, 15, 19, 26, 02, 09 Apr)
+## 09, ..., 11 Mar 2021 (13, 15, 19, 26, 02, 09 Apr)
 ### JavaScript
 <details>
 <summary>How and why to create a queue using an Array (FIFO)?</summary>
@@ -866,7 +866,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 10 Mar 2021 (11, 12, 14, 16, 20, 27, 03, 10 Apr)
+## 10, ..., 11 Mar 2021 (12, 14, 16, 20, 27, 03, 10 Apr)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>

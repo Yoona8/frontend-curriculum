@@ -887,9 +887,10 @@ export class SimpleComponent {
 
 ## Dynamic Components
 <details>
-<summary>General info</summary>
+<summary>What are the dynamic components and why do you use them?</summary>
 
-- components, which are loaded programmatically
+- when we need to load new components at runtime
+- components which are loaded programmatically
   - declarative with `*ngIf` (better if we can use this approach)
   - programmatic with Dynamic Component Loader (mostly when we want to create some external library)
     - component created and added to DOM via code (imperatively)
@@ -898,55 +899,92 @@ export class SimpleComponent {
 </details>
 
 <details>
-<summary>Preparing Programmatic Creation</summary>
+<summary>How to create and use a dynamic component?</summary>
 
-- import to auth component `AlertComponent`
+- we can't just create a dynamic component with `new` keyword
 ```TypeScript
-private showErrorAlert(message: string) {}
-```
-- is valid TS code, but not valid for angular, won't work
-  - Angular doest lots of things to instantiate a component (change detection in the DOM)
-  - need component factory
-```TypeScript
-// won't work
-const alertComponent = new AlertComponent();
+import {Component} from '@angular/component';
+import {ModalComponent} from '../modal/modal.component';
 
-// with component factory
-constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
-
-private showErrorAlert(...) {
-  // pass the component type here
-  // returns not component but component factory
-  const alertComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+@Component({
+  selector: 'app-child',
+  templateUrl: './'
+})
+export class ChildComponent {
+  // is valid TS code, but not valid for angular, won't work
+  // Angular does lots of things to instantiate a component 
+  // (change detection in the DOM)
+  // need component factory
+  alertComponent = new ModalComponent();
 }
 ```
-- now need a place to attach that component
-- can't attach with `@ViewChild()`, need viewContainerRef (object managed by angular, which gives angular a reference to a place in the DOM with which it can interact)
+- the right way is by using a `ComponentFactoryResolver`
+1. the anchor directive - a place to attach the component
 ```TypeScript
-// placeholder.directive.ts
+// can't attach with `@ViewChild()`
+// we need a viewContainerRef - object managed by Angular, 
+// which gives a reference to a place in the DOM with which it can interact
+import {Directive, ViewContainerRef} from '@angular/core';
+
 @Directive({
-  selector: '[appPlaceholder]'
+  selector: '[appModalHost]'
 })
-export class PlaceholderDirective {
-  // pointer to where this directive is going to be used
-  // has useful methods to create a component in that place
+export class ModalHostDirective {
+  // inject a ViewContainerRef to gain access 
+  // to the view container of the element 
+  // that will host the dynamically added component
   constructor(public viewContainerRef: ViewContainerRef) {}
 }
 ```
-- access the directive
+2. load the component with `<ng-template>` (a good choice for dynamic components because it doesn't render any additional output)
 ```HTML
-<ng-template appPlaceholder></ng-template>
+<!-- child.component.html -->
+<ng-template appModalHost></ng-template>
 ```
+3. resolve the components
 ```TypeScript
-// type, will look for the 1st occurrence in the component
-@ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
+import {Component, Input, ComponentFactoryResolver} from '@angular/core';
+import {ModalComponent} from '../modal.component';
+import {ModalDirective} from '../modal.directive';
 
-private showErrorAlert(...) {
-  // ...
-  const hostViewContainerRef = this.alertHost.viewContainerRef;
-  // to clean all that was here before
-  hostViewContainerRef.clear();
-  hostViewContainerRef.createComponent(alertComponentFactory);
+@Component({
+  selector: 'app-child',
+  templateUrl: './'
+})
+export class ChildComponent {
+  @Input() modals: string[] = ['Text 1', 'Text 2', 'Text3'];
+  // will look for the 1st occurrence in the component
+  // to get the access to the inner prop (viewContainerRef)
+  @ViewChild(ModalDirective) appModalHost: ModalDirective;
+  currentModalIndex = -1;
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+
+  loadComponent() {
+    // pick the modal (just for example)
+    this.currentModalIndex = (this.currentModalIndex + 1) % this.modals.length;
+    const modalText = this.modals[this.currentModalIndex];
+    
+    // uses ComponentFactoryResolver to resolve a ComponentFactory 
+    // for each specific component
+    // the ComponentFactory then creates an instance of each component
+    // pass the component type here
+    // returns not component but component factory
+    const componentFactory = this.componentFactoryResolver
+      .resolveComponentFactory(ModalComponent);
+
+    // access the point where to insert the dynamic component
+    const viewContainerRef = this.appModalHost.viewContainerRef;
+    // first clean all that was here before
+    viewContainerRef.clear();
+
+    // add component to the template
+    // returns a reference to the loaded component
+    const componentRef = viewContainerRef
+      .createComponent<ModalComponent>(componentFactory);
+    // access this component instance to pass the text (prop of the component)
+    componentRef.instance.text = modalText;
+  }
 }
 ```
 

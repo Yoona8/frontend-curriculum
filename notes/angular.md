@@ -702,10 +702,25 @@ export class SimpleComponent {}
 <details>
 <summary>How to add styles to a component?</summary>
 
-- the scoping rules apply to all the loading patterns
+- the scoping rules apply to all the loading patterns (except external global)
 - by setting `styles` or `styleUrls` metadata
-- inline in the template HTML
+- inline in the template HTML (in `template` or `templateUrl` file)
+```HTML
+<!-- simple.component.html -->
+<style>
+  p {
+    font-size: 16px;
+  }
+</style>
+<link rel="stylesheet" href="../assets/styles/simple.css">
+<p>{{ title }}</p>
+```
 - with CSS imports
+```CSS
+/* simple.component.css */
+@import '../styles/simple.css';
+```
+- external global styles are added to `angular.json` (not scoped)
 
 </details>
 
@@ -870,17 +885,7 @@ export class SimpleComponent {
 
 </details>
 
-## Templates
-<details>
-<summary>Learn more</summary>
-
-- [Docs: Templates](https://angular.io/guide/template-syntax)
-- [Docs: Introduction to components and templates](https://angular.io/guide/architecture-components)
-
-</details>
-
-## 4 - Dynamic Components
-
+## Dynamic Components
 <details>
 <summary>General info</summary>
 
@@ -994,6 +999,15 @@ ngOnDestroy() {
 <summary>Learn more</summary>
 
 - [Dynamic component loader](https://angular.io/guide/dynamic-component-loader)
+
+</details>
+
+## Templates
+<details>
+<summary>Learn more</summary>
+
+- [Docs: Templates](https://angular.io/guide/template-syntax)
+- [Docs: Introduction to components and templates](https://angular.io/guide/architecture-components)
 
 </details>
 

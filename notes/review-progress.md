@@ -209,7 +209,7 @@ getButton.addEventListener('click', () => {
 
 </details>
 
-## 23, ..., 05 Mar 2021 (12, 19, 26 Mar)
+## 23, ..., 12 Mar 2021 (19, 26 Mar)
 ### Angular
 <details>
 <summary>What are the core ideas behind Angular?</summary>
@@ -486,7 +486,7 @@ while(!friend.done) {
 
 </details>
 
-## 02, ..., 08 Mar 2021 (12, 19, 26, 02 Apr)
+## 02, ..., 12 Mar 2021 (19, 26, 02 Apr)
 ### JavaScript
 <details>
 <summary>What is API?</summary>
@@ -866,7 +866,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 10, ..., 11 Mar 2021 (12, 14, 16, 20, 27, 03, 10 Apr)
+## 10, ..., 12 Mar 2021 (14, 16, 20, 27, 03, 10 Apr)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -909,5 +909,124 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 11 Mar 2021 (12, 13, 15, 17, 21, 28, 04, 11 Apr)
-- start from objects next time
+## 12 Mar 2021 (13, 14, 16, 18, 22, 29, 05, 12 Apr)
+### JavaScript
+<details>
+<summary>What data structures could be used as a key in an Object?</summary>
+
+- strings
+- numbers (positive int or floats)
+- symbols
+
+</details>
+
+<details>
+<summary>Is an Object iterable and how to iterate?</summary>
+
+- not iterable (can use `for ... in` old loop, has some issues, not `for ... of`)
+
+</details>
+
+<details>
+<summary>How to create an Object (ES5, ES6 creation of the properties)?</summary>
+
+```JavaScript
+// ES5
+// simple object
+const person = {
+  'short-name': 'Ron',
+  age: 22,
+  level: 3,
+  3.2: 'some value',
+  walk: function() {}
+};
+
+// ES6+
+// creation with variable
+const name = 'Harry';
+const user = {
+  name,
+  level: 1
+};
+// complex keys (could be useful for dictionaries)
+const potter = 'Harry Potter';
+const voldemort = 'Tom Riddle';
+const antagonist = {
+  [potter]: voldemort,
+  ['Sirius Black']: 'Bellatrix Lestrange'
+};
+// new syntax for methods
+const character = {
+  go() {}
+};
+```
+
+</details>
+
+<details>
+<summary>What if we access the prop/method which doesn't exist in an object?</summary>
+
+```JavaScript
+const person = {
+  name: 'Ron',
+  age: 22,
+  level: 3
+};
+
+// if no property or method => undefined (not an error)
+console.log(person.hobbies);
+```
+
+</details>
+
+<details>
+<summary>How to deep copy an object?</summary>
+
+- copying deep - recursive with checking typeof function or object
+  - lodash has deep copy
+  - also there is a hack with `json.parse`, `json.stringify`
+
+</details>
+
+<details>
+<summary>How to work with Object Descriptors?</summary>
+
+```JavaScript
+const character = {
+  name: 'Harry',
+  printName: function() {
+    console.log(this.name);
+  }
+};
+
+const descriptors = Object.getOwnPropertyDescriptors(character);
+Object.defineProperty(character, 'name', {
+  // defaults
+  // can delete or define property
+  configurable: true,
+  // is accessible in for ... in loop
+  enumerable: true,
+  value: character.name,
+  // can rewrite
+  writable: true
+});
+
+// if writable === false
+// no error but won't change, stays the same (Harry)
+character.name = 'Ron';
+
+// if configurable === false
+// no error but won't delete, stays the same (Harry)
+// can't reset configuration also, be careful
+delete character.name;
+
+// if enumerable === false
+for (const key in character) {
+  // will skip the name key, logs only printName
+  console.log(key);
+}
+```
+
+</details>
+
+## 13 Mar 2021 (14, 15, 17, 19, 23, 30, 06, 13 Apr)

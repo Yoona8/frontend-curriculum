@@ -1028,7 +1028,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 </details>
 
 <details>
-<summary>Is an Object iterable and how to iterate?</summary>
+<summary>Is an Object iterable and how to iterate (not using keys/values/entries)?</summary>
 
 - not iterable (can use `for ... in` old loop, has some issues, not `for ... of`)
 
@@ -1049,7 +1049,7 @@ const filterValueToScale = {
 </details>
 
 <details>
-<summary>How to create an Object?</summary>
+<summary>How to create an Object (ES5, ES6 creation of the properties)?</summary>
 
 ```JavaScript
 // ES5
@@ -1120,6 +1120,20 @@ console.log(person.age);
 console.log(person['short-name']);
 console.log(person[3.2]);
 console.log(person['3.2']);
+```
+
+</details>
+
+<details>
+<summary>What if we access the prop/method which doesn't exist in an object?</summary>
+
+```JavaScript
+const person = {
+  name: 'Ron',
+  age: 22,
+  level: 3
+};
+
 // if no property or method => undefined (not an error)
 console.log(person.hobbies);
 ```
@@ -1235,6 +1249,12 @@ const newPlayer = Object.assign({}, player, {options: 'code'});
 // ES6
 const newPlayer = {...player};
 ```
+
+</details>
+
+<details>
+<summary>How to deep copy an object?</summary>
+
 - copying deep - recursive with checking typeof function or object
   - lodash has deep copy
   - also there is a hack with `json.parse`, `json.stringify`
@@ -1293,9 +1313,26 @@ for (const key in character) {
 
 ## Functions
 <details>
-<summary>What does function without `return` statement return?</summary>
+<summary>What does function without `return` statement or with empty `return` return?</summary>
 
-- function without `return` statement returns `undefined`
+- function without `return` statement or with empty `return` returns `undefined`
+
+</details>
+
+<details>
+<summary>How to use the return with a long expression?</summary>
+
+```JavaScript
+// not like this
+// transfers into return;
+return
+  a + b;
+
+// use ()
+return (
+  a + b
+);
+```
 
 </details>
 
@@ -1310,6 +1347,13 @@ function printMsg(msg) {}
 ```JavaScript
 printMsg('Some message');
 ```
+
+</details>
+
+<details>
+<summary>What if the argument is not provided?</summary>
+
+- its value becomes `undefined`
 
 </details>
 
@@ -1347,6 +1391,30 @@ const doSomething = (caption, amount, isChecked = false) => {
 
 // can also use the previous parameter in default value assignment
 const doSomething = (amount, isChecked = amount > 5 ? true : false) => {};
+```
+
+</details>
+
+<details>
+<summary>What are the differences between Function Declaration and Function Expression?</summary>
+
+- the syntax is different
+- declaration 'bubbles' (can be used before the declaration), expression is created when the execution flow reaches it
+- in strict mode, when a declaration is within a code block, it's visible everywhere inside that block but not outside
+```JavaScript
+const age = 18;
+
+if (age < 18) {
+  function sayHello() {
+    console.log('Hello!');
+  }
+} else {
+  function sayHello() {
+    console.log('Welcome!');
+  }
+}
+
+sayHello(); // error (not defined)
 ```
 
 </details>
@@ -4849,7 +4917,6 @@ if (navigator.clipboard) {
 - [ ] [Angular vs React vs Vue](https://academind.com/learn/angular/angular-vs-react-vs-vue-my-thoughts/)
 
 ## Resources
-
 <details>
 <summary>Read</summary>
 

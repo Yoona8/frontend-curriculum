@@ -63,7 +63,7 @@ sessionStorage.getItem('user');
 
 </details>
 
-## 13, ..., 06 Mar 2021 (13, 20 Mar)
+## 13, ..., 13 Mar 2021 (20 Mar)
 ### JavaScript
 <details>
 <summary>What are cookies and the difference from local/session storage?</summary>
@@ -509,7 +509,7 @@ console.log('Hello!');
 
 </details>
 
-## 03, ..., 09 Mar 2021 (13, 20, 27, 03 Apr)
+## 03, ..., 13 Mar 2021 (20, 27, 03 Apr)
 ### JavaScript
 <details>
 <summary>How to create an Array?</summary>
@@ -626,7 +626,7 @@ const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
 
 </details>
 
-## 06, ..., 10 Mar 2021 (12, 16, 23, 30, 06 Apr)
+## 06, ..., 12 Mar 2021 (16, 23, 30, 06 Apr)
 ### Angular
 <details>
 <summary>How to intercept input property changes with a setter?</summary>
@@ -820,7 +820,7 @@ export class ChildComponent {
 
 </details>
 
-## 09, ..., 11 Mar 2021 (13, 15, 19, 26, 02, 09 Apr)
+## 09, ..., 13 Mar 2021 (15, 19, 26, 02, 09 Apr)
 ### JavaScript
 <details>
 <summary>How and why to create a queue using an Array (FIFO)?</summary>
@@ -1030,3 +1030,5 @@ for (const key in character) {
 </details>
 
 ## 13 Mar 2021 (14, 15, 17, 19, 23, 30, 06, 13 Apr)
+```JavaScript
+```

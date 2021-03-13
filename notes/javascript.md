@@ -55,6 +55,18 @@
 </details>
 
 <details>
+<summary>What is a dynamically typed variable?</summary>
+
+- can store any value at any time (even when reassigning)
+```JavaScript
+// types are not set explicitly
+let a = 10;
+a = 'text';
+```
+
+</details>
+
+<details>
 <summary>What are statements?</summary>
 
 - syntax constructs and commands that perform actions
@@ -652,6 +664,16 @@ const newNumbers = numbers.concat([8, 5, 2]);
 ```JavaScript
 const numbers = [1, 2, 5];
 const filteredNumbers = numbers.filter();
+```
+
+</details>
+
+<details>
+<summary>How to remove all the falsy values from an array?</summary>
+
+```JavaScript
+const arr = [];
+const noFalsyArr = arr.filter(Boolean);
 ```
 
 </details>
@@ -1391,6 +1413,19 @@ const doSomething = (caption, amount, isChecked = false) => {
 
 // can also use the previous parameter in default value assignment
 const doSomething = (amount, isChecked = amount > 5 ? true : false) => {};
+```
+
+</details>
+
+<details>
+<summary>How to set up the parameter validation with default parameters?</summary>
+
+```JavaScript
+const isRequired = () => {
+  throw new Error('The parameter is required!');
+};
+
+const doSomething = (text = isRequired()) => {};
 ```
 
 </details>

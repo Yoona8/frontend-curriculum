@@ -52,6 +52,7 @@
 
 - [DevTools: Fix Memory Problems on Google](https://developers.google.com/web/tools/chrome-devtools/memory-problems)
 - [New Performance Features: Make Your Pages Faster](https://youtu.be/8k_DEeIZpIc)
+- [x] [Your first performance budget with Lighthouse](https://bitsofco.de/your-first-performance-budget-with-lighthouse/)
 
 </details>
 

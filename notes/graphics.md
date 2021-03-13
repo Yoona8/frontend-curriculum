@@ -1,5 +1,6 @@
 # Graphics
 - [SVG](#svg)
+- [WebP](#webp)
 
 ## SVG
 <details>
@@ -132,9 +133,10 @@
 </details>
 
 <details>
-<summary>Vector illustrations</summary>
+<summary>Vectors (illustrations, blobs)</summary>
 
 - [Free illustrations](https://undraw.co/illustrations)
+- [Blob generator](https://blobs.app/)
 
 </details>
 

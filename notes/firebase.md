@@ -28,5 +28,6 @@
 <summary>Learn more</summary>
 
 - [Authenticate REST Requests](https://firebase.google.com/docs/database/rest/auth)
+- [Sync Google Sheets to a Firebase Realtime Database](https://medium.com/firebase-developers/sheets-to-firebase-33132e31935b)
 
 </details>

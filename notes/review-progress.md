@@ -114,7 +114,7 @@ document.cookie;
 
 </details>
 
-## 14, ..., 07 Mar 2021 (14, 21 Mar)
+## 14, ..., 14 Mar 2021 (21 Mar)
 ### JavaScript
 <details>
 <summary>What is IndexedDB?</summary>
@@ -866,7 +866,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 10, ..., 12 Mar 2021 (14, 16, 20, 27, 03, 10 Apr)
+## 10, ..., 14 Mar 2021 (16, 20, 27, 03, 10 Apr)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -909,7 +909,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12 Mar 2021 (13, 14, 16, 18, 22, 29, 05, 12 Apr)
+## 12, ..., 14 Mar 2021 (16, 18, 22, 29, 05, 12 Apr)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -1029,6 +1029,5 @@ for (const key in character) {
 
 </details>
 
-## 13 Mar 2021 (14, 15, 17, 19, 23, 30, 06, 13 Apr)
-```JavaScript
-```
+## 14 Mar 2021 (15, 16, 18, 20, 24, 31, 07, 14 Apr)
+- next functions

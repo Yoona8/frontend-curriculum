@@ -1042,6 +1042,13 @@ ngOnDestroy() {
 
 ## Templates
 <details>
+<summary>Why is it better to use quick execution for text interpolation?</summary>
+
+- Angular executes template expressions after every change detection cycle (many async activities trigger change detection cycles, such as promise resolutions, HTTP results, timer events, browser events)
+
+</details>
+
+<details>
 <summary>Learn more</summary>
 
 - [Docs: Templates](https://angular.io/guide/template-syntax)
@@ -4140,5 +4147,13 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 - [Update Official](https://update.angular.io/)
 - [Version 9 of Angular Now Available — Project Ivy has arrived!](https://blog.angular.io/version-9-of-angular-now-available-project-ivy-has-arrived-23c97b63cfa3)
 - [Angular 9 - What's New? What changed?](https://www.youtube.com/watch?v=TcdhAxDWWxM&feature=youtu.be)
+
+</details>
+
+## Useful resources
+<details>
+<summary>Articles</summary>
+
+- [x] [Setting the title, meta, work with location, access DOM, @Attribute decorator for performance and more](https://blog.bitsrc.io/10-useful-angular-features-youve-probably-never-used-e9e33f5c35a7)
 
 </details>

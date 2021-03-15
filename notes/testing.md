@@ -1,6 +1,6 @@
 # Testing
 <details>
-<summary>Why?</summary>
+<summary>Why do we need testing?</summary>
 
 - minimize errors
 - save time
@@ -12,7 +12,7 @@
 </details>
 
 <details>
-<summary>Kinds of tests</summary>
+<summary>What are the 3 main types of tests?</summary>
 
 - unit tests
   - fully isolated (ex: testing one function)
@@ -23,6 +23,13 @@
 - end-to-end (e2e) tests
   - full flow (ex: user flow through some feature)
   - a few of tests
+
+</details>
+
+<details>
+<summary>What is BDD?</summary>
+
+- Behavior Driven Development - basically first write tests, fail, write the code
 
 </details>
 
@@ -49,6 +56,7 @@
 
 - [ ] [JS testing introduction](https://academind.com/learn/javascript/javascript-testing-introduction/)
 - [ ] [Stubs, Spies and Mocks in JavaScript](https://www.harrymt.com/blog/2018/04/11/stubs-spies-and-mocks-in-js.html)
+- [x] [Automated testing with Mocha](https://javascript.info/testing-mocha)
 - [Jest](https://jestjs.io/docs/en/getting-started)
 
 </details>

@@ -399,7 +399,7 @@ export class ChildComponent {
 
 </details>
 
-## 26, ..., 08 Mar 2021 (15, 22, 29 Mar)
+## 26, ..., 15 Mar 2021 (22, 29 Mar)
 ### JavaScript
 <details>
 <summary>When do you need to use meta-programming?</summary>
@@ -820,7 +820,7 @@ export class ChildComponent {
 
 </details>
 
-## 09, ..., 13 Mar 2021 (15, 19, 26, 02, 09 Apr)
+## 09, ..., 15 Mar 2021 (19, 26, 02, 09 Apr)
 ### JavaScript
 <details>
 <summary>How and why to create a queue using an Array (FIFO)?</summary>
@@ -1029,5 +1029,5 @@ for (const key in character) {
 
 </details>
 
-## 14 Mar 2021 (15, 16, 18, 20, 24, 31, 07, 14 Apr)
+## 15 Mar 2021 (16, 17, 19, 21, 25, 01, 08, 15 Apr)
 - next functions

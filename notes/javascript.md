@@ -679,7 +679,7 @@ const noFalsyArr = arr.filter(Boolean);
 </details>
 
 <details>
-<summary>How to create a new Array based on the given Array?</summary>
+<summary>How to create a new changed Array based on the given Array?</summary>
 
 - returns a new array
 ```JavaScript

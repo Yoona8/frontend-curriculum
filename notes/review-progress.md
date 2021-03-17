@@ -626,7 +626,7 @@ const clonedPartOfNumbers = numbers.slice(-3, -1); // => [1, 2]
 
 </details>
 
-## 06, ..., 12 Mar 2021 (16, 23, 30, 06 Apr)
+## 06, ..., 16 Mar 2021 (23, 30, 06 Apr)
 ### Angular
 <details>
 <summary>How to intercept input property changes with a setter?</summary>
@@ -866,7 +866,7 @@ addAsyncListener(() => console.log(5));
 
 </details>
 
-## 10, ..., 14 Mar 2021 (16, 20, 27, 03, 10 Apr)
+## 10, ..., 16 Mar 2021 (20, 27, 03, 10 Apr)
 ### JavaScript
 <details>
 <summary>Why a Map, not just an Object?</summary>
@@ -909,7 +909,7 @@ const newPlayer = Object.fromEntries(playerMap.entries());
 
 </details>
 
-## 12, ..., 14 Mar 2021 (16, 18, 22, 29, 05, 12 Apr)
+## 12, ..., 16 Mar 2021 (18, 22, 29, 05, 12 Apr)
 ### JavaScript
 <details>
 <summary>What data structures could be used as a key in an Object?</summary>
@@ -1029,5 +1029,4 @@ for (const key in character) {
 
 </details>
 
-## 15 Mar 2021 (16, 17, 19, 21, 25, 01, 08, 15 Apr)
-- next functions
+## 17 Mar 2021 (18, 19, 21, 23, 27, 03, 10, 17 Apr)
